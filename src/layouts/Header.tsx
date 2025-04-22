@@ -7,11 +7,11 @@ function Header() {
             <div>
                 <h1 className="text-xs font-bold">IOTLink</h1>
             </div>
-            <div className="flex justify-center items-center gap-2 border border-zinc-700/50 rounded-full px-2 min-w-[360px]">
+            <div className="flex justify-center items-center gap-2 border border-zinc-100/5 rounded-full px-2 min-w-[360px]">
                 <GrSearch />
                 <input className="py-2.5 pe-2 focus:outline-none rounded-full w-full text-sm" type="text" placeholder="Enter Asset or Device ID" />
             </div>
-            <div className="flex justify-center items-center gap-10 border border-zinc-700/50 rounded-full px-10">
+            <div className="flex justify-center items-center gap-10 border border-zinc-100/5 rounded-full px-10">
                 <Button rounded="full">
                     <GrCircleQuestion />
                 </Button>
