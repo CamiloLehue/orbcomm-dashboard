@@ -10,7 +10,7 @@ function Sidebar() {
             <nav>
                 <ul className="flex flex-col gap-2 ">
                     <li>
-                        <Button className="text-xs text-red-800 flex flex-col items-center gap-1">
+                        <Button className="text-xs text-zinc-500 flex flex-col items-center gap-1">
                             <GrMap size={20} />
                         </Button>
                     </li>
