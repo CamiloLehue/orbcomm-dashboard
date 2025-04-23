@@ -5,7 +5,8 @@ import {
     Popup,
     Polyline,
     LayersControl,
-    ScaleControl
+    ScaleControl,
+    Polygon
 } from 'react-leaflet';
 import { LatLngExpression, Icon } from 'leaflet';
 import { useEffect, useState } from 'react';
@@ -29,11 +30,19 @@ const route: LatLngExpression[] = [
     [-41.4740, -72.9290],
 ];
 
+// -> Coordenadas del polígono PLANTA YADRAN
+const polygonCoords: LatLngExpression[] = [
+    [-43.1367859385922, -73.64303576739869],
+    [-43.13850206079083, -73.64405598963303],
+    [-43.13937725776564, -73.64209774056478],
+    [-43.13796633124773, -73.64012239340732],
+    [-43.1367859385922, -73.64303576739869],
+];
+
 const MapView = () => {
     const [markerIndex, setMarkerIndex] = useState(0);
     const [address, setAddress] = useState<string>('Cargando dirección...');
 
-    // 🔄 Cada vez que cambia la posición, consultar la dirección
     useEffect(() => {
         const fetchAddress = async (lat: number, lon: number) => {
             try {
@@ -61,7 +70,7 @@ const MapView = () => {
 
     return (
         <div className="rounded-b-xl overflow-hidden p-1 bg-zinc-900">
-            <MapContainer center={route[0]} zoom={16} style={{ height: '500px', width: '100%' }}>
+            <MapContainer center={[-43.1375, -73.6425]} zoom={17} style={{ height: '500px', width: '100%' }}>
                 <LayersControl position="topright">
                     <BaseLayer checked name="OpenStreetMap">
                         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -83,6 +92,12 @@ const MapView = () => {
                                 {address}
                             </Popup>
                         </Marker>
+                    </Overlay>
+
+                    <Overlay checked name="PLANTA YADRAN">
+                        <Polygon positions={polygonCoords} pathOptions={{ color: 'red', fillOpacity: 0.4, stroke: true, fill: true, fillColor: 'blue' }}>
+                            <Popup>PLANTA YADRAN</Popup>
+                        </Polygon>
                     </Overlay>
                 </LayersControl>
                 <ScaleControl position="bottomleft" />

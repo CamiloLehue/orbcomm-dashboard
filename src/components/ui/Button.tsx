@@ -6,7 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   rounded?: "sm" | "md" | "lg" | "full" | "none"
 }
 
-const baseStyles = "flex justify-center items-center gap-1 p-2 hover:text-red-500";
+const baseStyles = "flex justify-center items-center gap-1 p-2 hover:text-cyan-300";
 
 const roundedStyles = {
   sm: "rounded-sm",

@@ -1,5 +1,5 @@
 import { GrAdd, GrAppsRounded, GrFlag, GrLocation } from "react-icons/gr"
-import MapInterface from "../../components/maps/MapInterface"
+import { MapView } from "../maps"
 
 function Content() {
     return (
@@ -16,7 +16,7 @@ function Content() {
                     <GrFlag size={20} />
                 </div>
             </div>
-            <MapInterface />
+            <MapView />
         </div>
     )
 }
