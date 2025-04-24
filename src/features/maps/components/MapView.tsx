@@ -3,10 +3,16 @@ import RouteLayer from "./RouteLayer";
 import VehicleMarker from "./VehicleMarker";
 import GeofenceLayer from "../../zones/components/GeofenceLayer";
 import { GeoButtons } from "../../zones";
+import TripRouteLayer from "../../trips/components/TripRouteLayer";
+
+interface MapViewProps {
+    tripOrigin: [number, number] | null;
+    tripDestination: [number, number] | null;
+}
 
 const { BaseLayer, Overlay } = LayersControl;
 
-const MapView = () => (
+const MapView = ({ tripOrigin, tripDestination }: MapViewProps) => (
     <div className="rounded-b-xl p-1 bg-zinc-900">
         <MapContainer center={[-43.1375, -73.6425]} zoom={17} style={{ height: "500px", width: "100%" }}>
             <LayersControl position="topright">
@@ -18,7 +24,7 @@ const MapView = () => (
                     <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 </BaseLayer>
 
-                <Overlay checked name="Ruta">
+                <Overlay checked name="Ruta Simulada">
                     <RouteLayer />
                 </Overlay>
 
@@ -29,8 +35,13 @@ const MapView = () => (
                 <Overlay checked name="Zonas Geográficas">
                     <GeofenceLayer />
                 </Overlay>
-            </LayersControl>
 
+                {tripOrigin && tripDestination && (
+                    <Overlay checked name="Ruta de Viaje">
+                        <TripRouteLayer origin={tripOrigin} destination={tripDestination} />
+                    </Overlay>
+                )}
+            </LayersControl>
             <ScaleControl position="bottomleft" />
             <GeoButtons />
         </MapContainer>
