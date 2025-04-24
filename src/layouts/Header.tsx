@@ -25,7 +25,7 @@ function Header() {
                     <GrSettingsOption />
                 </Button>
                 <Button>
-                    <img src="https://cdn.discordapp.com/attachments/1028607888290064333/1036221073798641152/image0.png" alt="user" className="w-6 h-6" />
+                    <img src="https://picsum.photos/seed/picsum/200/301" alt="user" className="w-6 h-6 rounded me-1" />
                     AST - Profile
                     <GrFormDown color="#dfdfdb" />
                 </Button>

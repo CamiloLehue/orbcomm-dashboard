@@ -22,7 +22,7 @@ function Content() {
             </div>
             <div className="relative grid grid-cols-3 gap-2">
                 <div className="col-span-2">
-                    <MapView />
+                    <MapView tripOrigin={null} tripDestination={null} />
                 </div>
                 <div>
                     <InfoPanel />
