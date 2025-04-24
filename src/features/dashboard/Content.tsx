@@ -1,5 +1,7 @@
 import { GrAdd, GrAppsRounded, GrFlag, GrLocation } from "react-icons/gr"
 import { MapView } from "../maps"
+import InfoPanel from "./InfoPanel"
+import Button from "../../components/ui/Button"
 
 function Content() {
     return (
@@ -10,13 +12,22 @@ function Content() {
                     <p className="font-bold">Cuenta: <span className="font-light">AST Networks & Tecnoservicios</span></p>
                 </div>
                 <div className="flex items-center gap-5 bg-zinc-900/30 text-stone-400 h-8 rounded-full px-10">
-                    <GrAppsRounded size={20} />
+                    <Button>
+                        <GrAppsRounded size={20} />
+                    </Button>
                     <GrAdd size={20} />
                     <GrLocation />
                     <GrFlag size={20} />
                 </div>
             </div>
-            <MapView />
+            <div className="relative grid grid-cols-3 gap-2">
+                <div className="col-span-2">
+                    <MapView />
+                </div>
+                <div>
+                    <InfoPanel />
+                </div>
+            </div>
         </div>
     )
 }

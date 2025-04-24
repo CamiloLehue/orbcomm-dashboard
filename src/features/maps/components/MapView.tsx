@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, LayersControl, ScaleControl } from "react-leaf
 import RouteLayer from "./RouteLayer";
 import VehicleMarker from "./VehicleMarker";
 import GeofenceLayer from "../../zones/components/GeofenceLayer";
+import { GeoButtons } from "../../zones";
 
 const { BaseLayer, Overlay } = LayersControl;
 
@@ -31,6 +32,7 @@ const MapView = () => (
             </LayersControl>
 
             <ScaleControl position="bottomleft" />
+            <GeoButtons/>
         </MapContainer>
     </div>
 );

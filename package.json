@@ -1,5 +1,7 @@
 {
-  "name": "orbcomm",
+  "name": "edge-sat-pro",
+  "description": "Rastreo de vehiculos por satelite",
+  "author": "Camilo Lehue <camilolehue1995@gmail.com>",
   "private": true,
   "version": "0.0.0",
   "type": "module",

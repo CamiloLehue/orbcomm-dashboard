@@ -8,7 +8,6 @@ function InfoPanel() {
                 <h3 className="font-light text-zinc-400">
                     Información del camión
                 </h3>
-
             </div>
             <div className=" w-full">
                 <div className="overflow-x-auto  ">
@@ -16,7 +15,7 @@ function InfoPanel() {
                         <thead className="tracking-wider border-b-4  dark:border-zinc-800">
                             <tr>
                                 <th scope="col" className="px-6 py-2">
-                                    <h4 className="font-light text-red-600">Resúmen</h4>
+                                    <h4 className="font-light text-zinc-500">Resumen</h4>
                                 </th>
                             </tr>
                         </thead>

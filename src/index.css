@@ -38,7 +38,7 @@
   }
 
   button {
-    @apply text-[#d7d5d5] transition-all duration-300 ease-in cursor-pointer;
+    @apply text-[#d7d5d5] transition-all duration-200 ease-in cursor-pointer;
   }
 }
 
