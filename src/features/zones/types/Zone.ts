@@ -4,3 +4,5 @@ export interface ZoneData {
     coordinates: [number, number][];
     color?: string;
   }
+
+  
