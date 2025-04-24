@@ -7,7 +7,7 @@ import { GeoButtons } from "../../zones";
 const { BaseLayer, Overlay } = LayersControl;
 
 const MapView = () => (
-    <div className="rounded-b-xl overflow-hidden p-1 bg-zinc-900">
+    <div className="rounded-b-xl p-1 bg-zinc-900">
         <MapContainer center={[-43.1375, -73.6425]} zoom={17} style={{ height: "500px", width: "100%" }}>
             <LayersControl position="topright">
                 <BaseLayer name="Esri Satellite">
@@ -32,7 +32,7 @@ const MapView = () => (
             </LayersControl>
 
             <ScaleControl position="bottomleft" />
-            <GeoButtons/>
+            <GeoButtons />
         </MapContainer>
     </div>
 );

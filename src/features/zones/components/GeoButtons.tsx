@@ -3,7 +3,7 @@ import { useMap } from "react-leaflet";
 
 function GeoButtons() {
     const { zones, loading } = useZones();
-    const map = useMap(); // Hook de react-leaflet
+    const map = useMap();
 
     if (loading) return null;
 
@@ -15,9 +15,9 @@ function GeoButtons() {
     };
 
     return (
-        <div className="absolute top-4 left-4 z-[1000] bg-stone-500 p-3 rounded shadow space-y-2">
+        <div className="absolute bottom-1 right-1 z-[1000] bg-stone-900 p-3 rounded shadow space-y-2">
             {zones.map((zone) => {
-                const [lat, lng] = zone.coordinates[0];
+                const [lat, lng] = zone.coordinates[1];
                 return (
                     <button
                         key={zone.id}
