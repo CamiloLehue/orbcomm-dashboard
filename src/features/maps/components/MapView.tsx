@@ -14,7 +14,7 @@ const { BaseLayer, Overlay } = LayersControl;
 
 const MapView = ({ tripOrigin, tripDestination }: MapViewProps) => (
     <div className="rounded-b-xl p-1 bg-zinc-900">
-        <MapContainer center={[-43.1375, -73.6425]} zoom={17} style={{ height: "500px", width: "100%" }}>
+        <MapContainer center={[-43.1375, -73.6425]} zoom={14} style={{ height: "500px", width: "100%" }}>
             <LayersControl position="topright">
                 <BaseLayer name="Esri Satellite">
                     <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />

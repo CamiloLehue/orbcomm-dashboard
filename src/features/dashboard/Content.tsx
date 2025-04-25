@@ -1,6 +1,6 @@
 import { GrAdd, GrAppsRounded, GrFlag, GrLocation } from "react-icons/gr"
 import { MapView } from "../maps"
-import InfoPanel from "./InfoPanel"
+// import InfoPanel from "./InfoPanel"
 import Button from "../../components/ui/Button"
 import { useState } from "react";
 
@@ -139,9 +139,9 @@ function Content() {
                         </>
                     }
                 </div>
-                <div>
+                {/* <div className="absolute right-0 top-0 w-[500px] h-full z-400">
                     <InfoPanel />
-                </div>
+                </div> */}
             </div>
         </div>
     )
