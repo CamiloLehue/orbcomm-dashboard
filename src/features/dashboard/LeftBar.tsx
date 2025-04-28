@@ -22,15 +22,15 @@ function LeftBar() {
 
 const CardViajes = () => {
     return (
-        <div className="p-1 flex flex-col gap-3 ">
+        <div className="p-1 flex flex-col gap-3 max-h-[700px] overflow-y-auto ">
             <div className="flex items-center gap-1 border border-zinc-100/5 rounded ps-3 pe-1">
                 <GrSearch />
                 <Input placeholder="Busqueda..." type="text" className="w-full" />
             </div>
-            <div className="flex flex-col gap-1 rounded-xl  min-h-[500px]">
+            <div className="flex flex-col gap-1 rounded-xl  min-h-[500px] ">
 
                 {
-                    Array(3).fill(0).map((_, i) => {
+                    Array(8).fill(0).map((_, i) => {
                         return (
                             <article key={i} className="flex bg-zinc-950/50 flex-col justify-center items-center gap-3 p-2 border border-zinc-100/5 rounded-xl
                 hover:bg-stone-800 transition-all duration-300 ease-in cursor-pointer">

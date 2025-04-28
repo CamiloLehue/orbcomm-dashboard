@@ -22,7 +22,7 @@ function TopBar() {
                     <input type="text" id="search_activos" placeholder="Activos" className="bg-zinc-900 py-2 px-3  w-full focus:outline-none" />
                 </div>
                 <div className="p-[1px] h-10.5 bg-gradient-to-t from-zinc-400/40 ">
-                    <input type="date" id="search_activos" placeholder="Activos" className="bg-zinc-900 py-2 px-3  w-full focus:outline-none" />
+                    <input type="date" id="date"  className="bg-zinc-900 py-2 px-3  w-full focus:outline-none" />
                 </div>
                 <div className="p-[1px] ">
                     <Button rounded="none" className="relative py-3.5">

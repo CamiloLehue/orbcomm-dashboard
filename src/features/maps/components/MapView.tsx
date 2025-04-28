@@ -8,13 +8,14 @@ import TripRouteLayer from "../../trips/components/TripRouteLayer";
 interface MapViewProps {
     tripOrigin: [number, number] | null;
     tripDestination: [number, number] | null;
+    height?: string;
 }
 
 const { BaseLayer, Overlay } = LayersControl;
 
-const MapView = ({ tripOrigin, tripDestination }: MapViewProps) => (
+const MapView = ({ tripOrigin, tripDestination, height = "608px" }: MapViewProps) => (
     <div className="rounded-b-xl p-1 bg-zinc-900">
-        <MapContainer center={[-43.1375, -73.6425]} zoom={14} style={{ height: "500px", width: "100%" }}>
+        <MapContainer center={[-43.1375, -73.6425]} zoom={14} style={{ height: height, width: "100%" }}>
             <LayersControl position="topright">
                 <BaseLayer name="Esri Satellite">
                     <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />

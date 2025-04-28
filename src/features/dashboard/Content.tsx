@@ -118,7 +118,7 @@ function Content() {
                             <>
                                 {
                                     Array(4).fill(null).map((_, index) => (
-                                        <MapView key={index} tripOrigin={null} tripDestination={null} />
+                                        <MapView key={index} tripOrigin={null} tripDestination={null} height="349px" />
                                     ))
                                 }
                             </>
@@ -126,14 +126,14 @@ function Content() {
                         || gridType === "grid grid-cols-3 grid-rows-2" && <>
                             {
                                 Array(6).fill(null).map((_, index) => (
-                                    <MapView key={index} tripOrigin={null} tripDestination={null} />
+                                    <MapView key={index} tripOrigin={null} tripDestination={null} height="349px" />
                                 ))
                             }
                         </>
                         || gridType === "grid grid-cols-4 grid-rows-2" && <>
                             {
                                 Array(8).fill(null).map((_, index) => (
-                                    <MapView key={index} tripOrigin={null} tripDestination={null} />
+                                    <MapView key={index} tripOrigin={null} tripDestination={null} height="349px" />
                                 ))
                             }
                         </>
