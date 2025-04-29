@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { GrFormClock, GrFormLocation, GrFormNextLink, GrPowerReset } from "react-icons/gr";
+import { GrFormCheckmark, GrFormNextLink, GrFormPreviousLink, GrPowerReset } from "react-icons/gr";
 import Button from "../../../components/ui/Button";
+import Input from "../../../components/ui/Input";
+import Select from "../../../components/ui/Select";
+import Label from "../../../components/ui/Label";
 
 interface Location {
     name: string;
@@ -46,62 +49,87 @@ function TopBar({ onRouteRequested }: TopBarProps) {
     }, [origin, destination, onRouteRequested]);
 
     return (
-        <div className="w-full  px-5 h-25 flex justify-start items-center gap-5">
-            <div className="border-e  border-zinc-100/5 pe-10">
-                <h2 className="bg-gradient-to-r from-zinc-400 to-zinc-200 text-clip text-transparent bg-clip-text font-light text-xl">
-                    Generar ruta
+        <div className="relative bg-secondary/3 rounded-xl w-full h-full flex flex-col justify-start items-start gap-5  border border-secondary/10  ">
+            <div className="h-15 border-b border-secondary/10  w-full flex justify-center items-center">
+                <h2 className="bg-gradient-to-r from-zinc-400 to-white text-clip text-transparent bg-clip-text font-light text-xl text-center">
+                    Generar ruta nueva
                 </h2>
             </div>
-            <div className="flex gap-2 ps-5">
-                <div className="p-[1px] h-10.5 bg-gradient-to-t from-zinc-400/40 ">
-                    <div className="flex justify-end items-center">
-                        <select
-                            className="focus:outline-none w-50 font-light bg-zinc-900 py-2 ps-2"
-                            name="select_pre"
-                            id="id_origen"
-                            onChange={handleOriginChange}
-                            defaultValue=""
+            <form>
+                <div className="flex flex-col gap-10 p-5">
+                    <div className="flex justify-center items-center gap-4">
+                        <div>
+                            <Label htmlFor="text" name="Origen" />
+                            <Select
+                                className="focus:outline-none  font-light bg-zinc-900 py-2 ps-2"
+                                name="select_pre"
+                                id="id_origen"
+                                onChange={handleOriginChange}
+                                defaultValue=""
+                            >
+                                {locations.map(location => (
+                                    <option key={location.name} value={location.name}>{location.name}</option>
+                                ))}
+                            </Select>
+                        </div>
+                        <GrFormNextLink size={35} className="mt-4 text-secondary" />
+                        <div>
+                            <Label htmlFor="text" name="Destino" />
+                            <Select
+                                className="focus:outline-none  font-light bg-zinc-900 py-2 ps-2"
+                                name="select_pre"
+                                id="id_destino"
+                                onChange={handleDestinationChange}
+                                defaultValue=""
+                            >
+                                {locations.map(location => (
+                                    <option key={location.name} value={location.name}>{location.name}</option>
+                                ))}
+                            </Select>
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-3" >
+                        <Label htmlFor="id_fecha" name="Fecha Salida" />
+                        <Input type="date" />
+                    </div>
+                    <div className="flex flex-col gap-3" >
+                        <Label htmlFor="id_fecha" name="Empresa" />
+                        <Select
+                            className="focus:outline-none  font-light bg-zinc-900 py-2 ps-2"
                         >
-                            <option value="" disabled>Origen</option>
                             {locations.map(location => (
                                 <option key={location.name} value={location.name}>{location.name}</option>
                             ))}
-                        </select>
+                        </Select>
                     </div>
-                </div>
-                <div className="flex justify-center items-center">
-                    <GrFormNextLink />
-                </div>
-                <div className="p-[1px] h-10.5 bg-gradient-to-t from-zinc-400/40 ">
-                    <div className="flex justify-end items-center">
-                        <select
-                            className="focus:outline-none w-50 font-light bg-zinc-900 py-2 ps-2"
-                            name="select_pre"
-                            id="id_destino"
-                            onChange={handleDestinationChange}
+                    <div className="flex flex-col gap-3" >
+                        <Label htmlFor="id_fecha" name="Conductor " />
+                        <Select
+                            className="focus:outline-none  font-light bg-zinc-900 py-2 ps-2"
                             defaultValue=""
                         >
-                            <option value="" disabled>Destino</option>
                             {locations.map(location => (
                                 <option key={location.name} value={location.name}>{location.name}</option>
                             ))}
-                        </select>
+                        </Select>
                     </div>
                 </div>
-
-                <div className="p-[1px] flex justify-center items-center px-5 ">
-                    <Button className="bg-zinc-900 rounded-sm px-2 pe-4 mx-2" onClick={handleCrearViajeClick}>
-                        <GrFormLocation size={25} />
-                        Crear viaje
-                    </Button>
-                    <Button className="border border-zinc-100/5 rounded-sm px-4 mx-2">
-                        <GrPowerReset />
-                        Restablecer
-                    </Button>
-                    <Button className="border border-zinc-100/5 rounded-sm px-4 mx-2"><GrFormClock size={25} />
-                        Guardar Viaje
-                    </Button>
-                </div>
+            </form>
+            <div className="p-[1px] flex justify-center items-center px-5  my-12 w-full">
+                <Button className="flex justify-center items-center border border-secondary/10 rounded-sm px-2 pe-4 mx-2" >
+                    <GrFormPreviousLink size={25} />
+                    Volver
+                </Button>
+                <Button className="flex justify-center items-center border border-secondary/10 gap-3 rounded-sm px-4 mx-2">
+                    <GrPowerReset />
+                    Restablecer
+                </Button>
+                <Button
+                    onClick={handleCrearViajeClick}
+                    className="flex justify-center bg-secondary/15 items-center border border-secondary/10 rounded-sm px-4 mx-2">
+                    <GrFormCheckmark size={25} />
+                    Guardar
+                </Button>
             </div>
         </div>
     );

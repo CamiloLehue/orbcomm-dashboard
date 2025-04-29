@@ -7,14 +7,14 @@ function Dashboard() {
     <div className="relative h-full w-full flex flex-col justify-start items-start">
       <h1 className="text-white pb-5">Escritorio Principal</h1>
       <div className="grid grid-cols-12 gap-5 w-full h-full">
-        <article className="relative bg-bgs col-span-3 flex flex-col gap-2 border border-bgt rounded-2xl">
+        <article className="relative shadow-xl shadow-bgp bg-gradient-to-b from-primary/50 to-primary/20 col-span-3 flex flex-col gap-2 rounded-2xl">
           <div className="absolute w-60 h-60 bg-secondary/40  blur-3xl top-0 left-0 rounded-full"></div>
           <div className="relative bg-bgp/60 min-h-[250px] text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-start items-start gap-2">
             <h3 className="absolute top-3 left-5 font-light">Entrega</h3>
             <h5 className="absolute top-8 left-6 font-light text-xs text-gray">
               en curso
             </h5>
-            <div className="relative flex justify-between items-center mt-10 px-10 py-5  w-full border-b border-bgt/90">
+            <div className="relative flex justify-between items-center mt-10 px-10 py-5  w-full border-b border-secondary/5">
               <div>
                 <small className="text-primary">Número de envio</small>
                 <h2 className="font-bold tracking-wider">E-20050006</h2>
@@ -38,21 +38,21 @@ function Dashboard() {
             </div>
           </div>
           <div className="flex items-center justify-center gap-2 pb-1 text-xs">
-            <Button rounded="lg" className=" hover:bg-bgt px-5 gap-2  ">
+            <Button rounded="lg" className=" hover:bg-bgs px-5 gap-2  ">
               <GrPhone size={15} />
               Llamar cliente
             </Button>
-            <Button rounded="lg" className=" hover:bg-bgt px-5 gap-2  ">
+            <Button rounded="lg" className=" hover:bg-bgs px-5 gap-2  ">
               <GrSend size={15} />
               Correo
             </Button>
-            <Button rounded="lg" className=" hover:bg-bgt px-5 gap-2  ">
+            <Button rounded="lg" className=" hover:bg-bgs px-5 gap-2  ">
               <GrChat size={15} />
               Chat
             </Button>
           </div>
         </article>
-        <article className="relative bg-bgs col-span-3 flex flex-col gap-2 border border-bgt rounded-2xl">
+        <article className="relative bg-secondary/3 col-span-3 flex flex-col gap-2 border border-secondary/5 rounded-2xl">
           <div className="relative bg-bgp/60 text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2">
             <h3 className="absolute top-3 left-5 font-light">Transportes</h3>
             <h5 className="absolute top-8 left-6 font-light text-xs text-gray">en línea</h5>
@@ -84,7 +84,7 @@ function Dashboard() {
             </Button>
           </div>
         </article>
-        <article className="relative bg-bgs col-span-3 flex flex-col gap-2 border border-bgt rounded-2xl">
+        <article className="relative bg-secondary/3 col-span-2 flex flex-col gap-2 border border-secondary/5 rounded-2xl">
           <div className="relative bg-bgp/60 text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2">
             <h3 className="absolute top-3 left-5 font-light">Viaje Rápido</h3>
             <h5 className="absolute top-8 left-6 font-light text-xs text-gray">Organizar</h5>
@@ -92,7 +92,7 @@ function Dashboard() {
           </div>
 
         </article>
-        <article className="relative bg-bgs col-span-3 flex flex-col gap-2 border border-bgt rounded-2xl">
+        <article className="relative bg-secondary/3 col-span-4 flex flex-col gap-2 border border-secondary/5 rounded-2xl">
           <div className="relative bg-bgp/60 text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2">
             <h3 className="absolute top-3 left-5 font-light">Notificaciones</h3>
             <h5 className="absolute top-8 left-6 font-light text-xs text-gray">del sistema</h5>
@@ -100,7 +100,7 @@ function Dashboard() {
               <div className="flex flex-col gap-1 px-2">
                 {
                   Array(4).fill(0).map((_, i) => (
-                    <div key={i} className="relative grid grid-cols-2 py-2 px-5 rounded-md bg-bgs hover:bg-bgp border-t border-bgt cursor-pointer">
+                    <div key={i} className="relative grid grid-cols-2 py-2 px-5 rounded-md bg-secondary/3 hover:bg-bgp border-t border-secondary/5 cursor-pointer">
                       <div className="flex items-center gap-5">
                         <GrCircleAlert className="text-gray" />
                         <div>
@@ -131,7 +131,7 @@ function Dashboard() {
             </Button>
           </div>
         </article>
-        <article className="col-span-5 rounded-2xl bg-bgs border-t border-bgt flex flex-col gap-2 w-full">
+        <article className="col-span-5 rounded-2xl bg-secondary/3 border-t border-secondary/5 flex flex-col gap-2 w-full">
           <div className="relative   w-full h-full max-h-[340px]  flex flex-col justify-center items-center gap-2">
             <h3 className="absolute top-3 left-5 font-light">Mapa</h3>
             <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rastreo en línea</h5>
@@ -142,19 +142,19 @@ function Dashboard() {
           </div>
         </article>
         <article className="col-span-3 flex flex-col gap-2">
-          <div className="relative bg-bgs border-t border-bgt w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2 pt-10">
+          <div className="relative bg-secondary/3 border-t border-secondary/5 w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2 pt-10">
             <h3 className="absolute top-3 left-5 font-light">Reportes</h3>
             <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rápidos</h5>            <ul className="flex flex-col gap-2 w-full p-2">
               {
                 Array(5).fill(0).map((_, i) => (
                   <li key={i} className="relative bg-bgp rounded-lg px-2 py-2 flex justify-start items-center gap-2">
-                    <span className="px-4 py-1 bg-bgs border-t border-bgt  rounded-sm">
+                    <span className="px-4 py-1 bg-secondary/3 border-t border-secondary/5  rounded-sm">
                       <GrDocumentPdf />
                     </span>
                     <p className="font-light">
                       Documento e{i + 1}.
                     </p>
-                    <button className="absolute right-5 px-2 py-2 rounded-xl border-t border-bgt bg-primary text-bgp ">
+                    <button className="absolute right-5 px-2 py-2 rounded-xl border-t border-secondary/5 bg-primary text-bgp ">
                       <GrFormNextLink />
                     </button>
                   </li>
@@ -172,7 +172,7 @@ function Dashboard() {
             </Button>
           </div>
         </article>
-        <article className="col-span-4 rounded-2xl bg-bgs border-t border-bgt flex flex-col gap-2 w-full">
+        <article className="col-span-4 rounded-2xl bg-secondary/3 border-t border-secondary/5 flex flex-col gap-2 w-full">
           <div className="relative w-full h-full max-h-[380px]  flex flex-col justify-center items-center gap-2">
             <h3 className="absolute top-3 left-5 font-light">Línea de transporte</h3>
             <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rastreo en línea</h5>

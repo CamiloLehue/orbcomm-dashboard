@@ -12,9 +12,13 @@ function Trips() {
     };
 
     return (
-        <div className="relative h-full w-full flex flex-col justify-start items-start">
-            <TopBar onRouteRequested={handleRouteRequested} />
-            <div className="relative min-h-170 h-full w-full flex justify-start items-start gap-5">
+        <div className="relative h-full w-full flex flex-col gap-5 justify-start items-start  ">
+            <div className="absolute top-0 right-0 bg-secondary/10 h-100 w-100 blur-3xl rounded-full"></div>
+            <h1 className="text-white">Nuevo Viaje</h1>
+            <div className="flex justify-center items-center gap-5 w-full">
+                <div className="">
+                    <TopBar onRouteRequested={handleRouteRequested} />
+                </div>
                 <Content origin={origin} destination={destination} />
             </div>
         </div>

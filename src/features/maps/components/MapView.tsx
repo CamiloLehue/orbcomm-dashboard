@@ -14,7 +14,7 @@ interface MapViewProps {
 const { BaseLayer, Overlay } = LayersControl;
 
 const MapView = ({ tripOrigin, tripDestination, height = "608px" }: MapViewProps) => (
-    <div className="rounded-b-xl p-1 bg-zinc-900">
+    <div className="rounded-b-xl ">
         <MapContainer center={[-43.1375, -73.6425]} zoom={14} style={{ height: height, width: "100%" }}>
             <LayersControl position="topright">
                 <BaseLayer name="Esri Satellite">

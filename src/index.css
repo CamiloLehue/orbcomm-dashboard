@@ -10,11 +10,13 @@
 @theme {
   --color-bgp: #0d0d0d;
   --color-bgs: #1a1a1a;
-  --color-bgt: #252429;
+  --color-bgt: #2f2e33;;
   --color-gray: #71717b;
   --color-primary: #e9ff47;
+
   --color-secondary: #30b0ff;
   --color-white: #e6e6f5;
+  --color-success: #68b353;
   --color-warning: #ffd700;
   --color-danger: #ff1010;
 }
