@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import Dashboard from "./features/dashboard";
 import Template from "./layouts/Template";
 import Trips from "./features/trips/components/Trips";
+import CreateTrips from "./features/trips/components/CreateTrips";
+import Monitoring from "./features/monitoring";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -13,7 +15,24 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route element={<Template />}>
           <Route index element={<Dashboard />} />
+          {/* Perfiles */}
+          <Route path="/perfil" element={<Trips />} />
+          <Route path="/perfil/ver/:id" element={<Trips />} />
+          <Route path="/perfil/editar/:id" element={<Trips />} />
+          <Route path="/perfil/crear/:id" element={<Trips />} />
+          {/* Viajes */}
           <Route path="/viajes" element={<Trips />} />
+          <Route path="/viajes/crear" element={<CreateTrips />} />
+          <Route path="/viajes/ver/:id" element={<CreateTrips />} />
+          <Route path="/viajes/editar/:id" element={<CreateTrips />} />
+          {/* Monitoreo */}
+          <Route path="/monitoreo" element={<Monitoring />} />
+          
+          {/* Tramos */}
+          <Route path="/tramos" element={<Trips />} />
+          <Route path="/tramos/crear" element={<CreateTrips />} />
+          <Route path="/tramos/ver/:id" element={<CreateTrips />} />
+          <Route path="/tramos/editar/:id" element={<CreateTrips />} />
         </Route>
       </Routes>
     </BrowserRouter>

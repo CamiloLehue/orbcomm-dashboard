@@ -2,7 +2,7 @@ import TopBar from "./TopBar";
 import LeftBar from "./LeftBar";
 import Content from "./Content";
 
-function Dashboard() {
+function Monitoring() {
   return (
     <div className="relative h-full w-full flex flex-col justify-start items-start">
       <TopBar />
@@ -15,4 +15,4 @@ function Dashboard() {
 }
 
 
-export default Dashboard;
+export default Monitoring;

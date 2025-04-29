@@ -1,4 +1,4 @@
-import { GrChat, GrDocumentPdf, GrFormNextLink, GrPhone, GrSend } from "react-icons/gr";
+import { GrChat, GrCircleAlert, GrDocumentPdf, GrFormNextLink, GrPhone, GrSend, GrUp } from "react-icons/gr";
 import Button from "../../components/ui/Button";
 import MapSvg from "../../components/mapsold/MapSvg";
 
@@ -9,9 +9,9 @@ function Dashboard() {
       <div className="grid grid-cols-12 gap-5 w-full h-full">
         <article className="relative bg-bgs col-span-3 flex flex-col gap-2 border border-bgt rounded-2xl">
           <div className="absolute w-60 h-60 bg-secondary/40  blur-3xl top-0 left-0 rounded-full"></div>
-          <div className="relative bg-bgp/60 text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-start items-start gap-2">
+          <div className="relative bg-bgp/60 min-h-[250px] text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-start items-start gap-2">
             <h3 className="absolute top-3 left-5 font-light">Entrega</h3>
-            <h5 className="absolute top-8 left-5 font-light text-xs text-gray">
+            <h5 className="absolute top-8 left-6 font-light text-xs text-gray">
               en curso
             </h5>
             <div className="relative flex justify-between items-center mt-10 px-10 py-5  w-full border-b border-bgt/90">
@@ -26,16 +26,15 @@ function Dashboard() {
             </div>
             <div className="relative w-full px-15 my-5">
               <div className=" border-b-2 border-gray ">
-                <div className="absolute bg-secondary -top-2.5 h-5 w-5 rounded-full">
+                <div className="absolute bg-white -top-2.5 h-5 w-5 rounded-full">
                   <small className="absolute top-5 -left-2 text-gray">Origen</small>
                   <h4 className="absolute top-9 -left-3 text-nowrap">Castro</h4>
                 </div>
-                <div className="absolute bg-primary -top-3 right-15 h-6 w-6 rounded-full">
+                <div className="absolute bg-white -top-3 right-15 h-6 w-6 rounded-full">
                   <small className="absolute top-5 -left-2 text-gray">Origen</small>
                   <h4 className="absolute top-9 -left-9 text-nowrap">Puerto Montt</h4>
                 </div>
               </div>
-
             </div>
           </div>
           <div className="flex items-center justify-center gap-2 pb-1 text-xs">
@@ -56,9 +55,9 @@ function Dashboard() {
         <article className="relative bg-bgs col-span-3 flex flex-col gap-2 border border-bgt rounded-2xl">
           <div className="relative bg-bgp/60 text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2">
             <h3 className="absolute top-3 left-5 font-light">Transportes</h3>
-            <h5 className="absolute top-8 left-5 font-light text-xs text-gray">en línea</h5>
+            <h5 className="absolute top-8 left-6 font-light text-xs text-gray">en línea</h5>
             <div className=" flex flex-col justify-center items-center gap-2   px-10 py-5 rounded-2xl">
-              <h4 className="text-9xl">8</h4>
+              <h4 className="text-6xl">8</h4>
               <small>Rastreando viajes</small>
             </div>
             <div className="grid grid-cols-3 gap-2  py-5 border border-bgs px-10 rounded-2xl">
@@ -85,10 +84,57 @@ function Dashboard() {
             </Button>
           </div>
         </article>
-        <article className="col-span-6 rounded-2xl bg-bgs border-t border-bgt flex flex-col gap-2 w-full">
+        <article className="relative bg-bgs col-span-3 flex flex-col gap-2 border border-bgt rounded-2xl">
+          <div className="relative bg-bgp/60 text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2">
+            <h3 className="absolute top-3 left-5 font-light">Viaje Rápido</h3>
+            <h5 className="absolute top-8 left-6 font-light text-xs text-gray">Organizar</h5>
+
+          </div>
+
+        </article>
+        <article className="relative bg-bgs col-span-3 flex flex-col gap-2 border border-bgt rounded-2xl">
+          <div className="relative bg-bgp/60 text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2">
+            <h3 className="absolute top-3 left-5 font-light">Notificaciones</h3>
+            <h5 className="absolute top-8 left-6 font-light text-xs text-gray">del sistema</h5>
+            <div className="relative w-full mt-15">
+              <div className="flex flex-col gap-1 px-2">
+                {
+                  Array(4).fill(0).map((_, i) => (
+                    <div key={i} className="relative grid grid-cols-2 py-2 px-5 rounded-md bg-bgs hover:bg-bgp border-t border-bgt cursor-pointer">
+                      <div className="flex items-center gap-5">
+                        <GrCircleAlert className="text-gray" />
+                        <div>
+                          <h5 className="flex justify-start items-center gap-2" >
+                            Notificación  de tipo {i + 1}
+                            <span className={`text-xs text-warning border border-warning px-2 rounded-full mx-2`}>Alta</span>
+                          </h5>
+                          <small className="flex text-gray">
+                            Descripcion de la notificación
+                          </small>
+                        </div>
+                      </div>
+                      <div className="flex justify-end items-center gap-2">
+                        <small className="text-gray">
+                          20 minutos atrás
+                        </small>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center justify-center gap-2 pb-1 text-xs">
+            <Button rounded="lg" className=" hover:bg-bgt px-5 gap-2  ">
+              <GrUp />
+              Más notificaciones
+            </Button>
+          </div>
+        </article>
+        <article className="col-span-5 rounded-2xl bg-bgs border-t border-bgt flex flex-col gap-2 w-full">
           <div className="relative   w-full h-full max-h-[340px]  flex flex-col justify-center items-center gap-2">
             <h3 className="absolute top-3 left-5 font-light">Mapa</h3>
-            <h5 className="absolute top-8 left-5 font-light text-xs text-gray">rastreo en línea</h5>
+            <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rastreo en línea</h5>
             <MapSvg />
           </div>
           <div className="flex items-center gap-2 text-xs">
@@ -98,7 +144,7 @@ function Dashboard() {
         <article className="col-span-3 flex flex-col gap-2">
           <div className="relative bg-bgs border-t border-bgt w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2 pt-10">
             <h3 className="absolute top-3 left-5 font-light">Reportes</h3>
-            <h5 className="absolute top-8 left-5 font-light text-xs text-gray">rápidos</h5>            <ul className="flex flex-col gap-2 w-full p-2">
+            <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rápidos</h5>            <ul className="flex flex-col gap-2 w-full p-2">
               {
                 Array(5).fill(0).map((_, i) => (
                   <li key={i} className="relative bg-bgp rounded-lg px-2 py-2 flex justify-start items-center gap-2">
@@ -129,7 +175,7 @@ function Dashboard() {
         <article className="col-span-4 rounded-2xl bg-bgs border-t border-bgt flex flex-col gap-2 w-full">
           <div className="relative w-full h-full max-h-[380px]  flex flex-col justify-center items-center gap-2">
             <h3 className="absolute top-3 left-5 font-light">Línea de transporte</h3>
-            <h5 className="absolute top-8 left-5 font-light text-xs text-gray">rastreo en línea</h5>
+            <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rastreo en línea</h5>
             <img src="dashboard/chartLine.png" alt="mapa" className="w-full h-full" />
           </div>
         </article>

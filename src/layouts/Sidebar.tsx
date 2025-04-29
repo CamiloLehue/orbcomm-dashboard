@@ -1,4 +1,4 @@
-import { GrDeliver, GrDown, GrMap } from "react-icons/gr"
+import { GrDeliver, GrGateway, GrNavigate, GrProjects } from "react-icons/gr"
 import Button from "../components/ui/Button"
 import { useNavigate } from "react-router"
 
@@ -11,22 +11,32 @@ function Sidebar() {
                 Menu
             </h6>
             <nav>
-                <ul className="flex flex-col gap-2 ">
+                <ul className="flex flex-col gap-5 w-full justify-center items-center ">
                     <li>
-                        <Button onClick={() => navigate("/")} className="text-xs text-zinc-500 flex flex-col items-center gap-1">
+                        <Button onClick={() => navigate("/")} className="text-xs text-zinc-500 flex flex-col items-center justify-center  gap-2">
+                            <GrProjects size={20} />
+                            Inicio
+                        </Button>
+                    </li>
+                    <li>
+                        <Button onClick={() => navigate("/viajes")} className="text-xs text-zinc-500 flex flex-col items-center justify-center  gap-2">
                             <GrDeliver size={20} />
+                            Viajes
                         </Button>
                     </li>
                     <li>
-                        <Button onClick={() => navigate("/viajes")} className="text-xs text-zinc-500 flex flex-col items-center gap-1">
-                            <GrMap size={20} />
+                        <Button onClick={() => navigate("/monitoreo")} className="text-xs text-zinc-500 flex flex-col items-center justify-center  gap-2">
+                            <GrGateway size={20} />
+                            Monitoreo
                         </Button>
                     </li>
                     <li>
-                        <Button className="text-xs text-zinc-500 flex flex-col items-center gap-1">
-                            <GrDown size={20} />
+                        <Button onClick={() => navigate("/viajes")} className="text-xs text-zinc-500 flex flex-col items-center justify-center  gap-2">
+                            <GrNavigate size={20} />
+                            Tramos
                         </Button>
                     </li>
+
                 </ul>
             </nav>
         </div>
