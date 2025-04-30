@@ -6,7 +6,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 function Input({ className, ...props }: InputProps) {
     return (
-        <input {...props} className={clsx(`rounded bg-transparent px-3 py-2 text-sm  focus:outline-none `, className)} />
+        <input {...props} className={clsx(`border border-secondary/20 rounded-lg font-light bg-secondary/5 py-2 px-4 w-full focus:outline-none `, className)} />
     )
 }
 

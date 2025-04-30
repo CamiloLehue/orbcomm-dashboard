@@ -9,15 +9,16 @@ export default defineConfig({
     include: ["react-leaflet"],
   },
   server: {
-    proxy: {
-      "/api": {
-        target: "https://dashgps.iotlink.cl",
-        changeOrigin: true,
-        secure: false,
-      },
-    },
-    host: "0.0.0.0", 
+    // proxy: {
+    //   '/geofences': {
+    //     target: 'https://drums-mount-contribute-hist.trycloudflare.com',
+    //     changeOrigin: true,
+    //     // Reescritura innecesaria si usas el mismo path
+    //     rewrite: path => path,
+    //   }
+    // },
+    host: "0.0.0.0",
     port: 5186,
-    allowedHosts: ["dashgps.iotlink.cl"], 
+    allowedHosts: ["dashgps.iotlink.cl"],
   },
 });
