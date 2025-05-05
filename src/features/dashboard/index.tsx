@@ -7,12 +7,11 @@ function Dashboard() {
     <div className="relative h-full w-full flex flex-col justify-start items-start">
       <h1 className="text-white pb-5">Escritorio Principal</h1>
       <div className="grid grid-cols-12 gap-5 w-full h-full">
-        <article className="relative shadow-xl shadow-bgp bg-gradient-to-b from-primary/50 to-primary/20 col-span-3 flex flex-col gap-2 rounded-2xl">
-          <div className="absolute w-60 h-60 bg-secondary/40  blur-3xl top-0 left-0 rounded-full"></div>
+        <article className="relative shadow-xl shadow-bgp bg-gradient-to-b from-primary/90 to-primary/40 col-span-3 flex flex-col gap-2 rounded-2xl">
           <div className="relative bg-bgp/60 min-h-[250px] text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-start items-start gap-2">
-            <h3 className="absolute top-3 left-5 font-light">Entrega</h3>
-            <h5 className="absolute top-8 left-6 font-light text-xs text-gray">
-              en curso
+            <h3 className="absolute top-3 left-5 font-light">Próximo viaje</h3>
+            <h5 className="absolute top-9 left-5  text-xs text-white">
+              en llegar a destino
             </h5>
             <div className="relative flex justify-between items-center mt-10 px-10 py-5  w-full border-b border-secondary/5">
               <div>
@@ -52,7 +51,7 @@ function Dashboard() {
             </Button>
           </div>
         </article>
-        <article className="relative bg-secondary/3 col-span-3 flex flex-col gap-2 border border-secondary/5 rounded-2xl">
+        <article className="relative bg-gray/30 col-span-3 flex flex-col gap-2 border border-secondary/5 rounded-2xl">
           <div className="relative bg-bgp/60 text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2">
             <h3 className="absolute top-3 left-5 font-light">Transportes</h3>
             <h5 className="absolute top-8 left-6 font-light text-xs text-gray">en línea</h5>
@@ -84,7 +83,7 @@ function Dashboard() {
             </Button>
           </div>
         </article>
-        <article className="relative bg-secondary/3 col-span-2 flex flex-col gap-2 border border-secondary/5 rounded-2xl">
+        <article className="relative bg-gray/30 col-span-2 flex flex-col gap-2 border border-secondary/5 rounded-2xl">
           <div className="relative bg-bgp/60 text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2">
             <h3 className="absolute top-3 left-5 font-light">Viaje Rápido</h3>
             <h5 className="absolute top-8 left-6 font-light text-xs text-gray">Organizar</h5>
@@ -92,7 +91,7 @@ function Dashboard() {
           </div>
 
         </article>
-        <article className="relative bg-secondary/3 col-span-4 flex flex-col gap-2 border border-secondary/5 rounded-2xl">
+        <article className="relative bg-gray/30 col-span-4 flex flex-col gap-2 border border-secondary/5 rounded-2xl">
           <div className="relative bg-bgp/60 text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2">
             <h3 className="absolute top-3 left-5 font-light">Notificaciones</h3>
             <h5 className="absolute top-8 left-6 font-light text-xs text-gray">del sistema</h5>
@@ -100,8 +99,8 @@ function Dashboard() {
               <div className="flex flex-col gap-1 px-2">
                 {
                   Array(4).fill(0).map((_, i) => (
-                    <div key={i} className="relative grid grid-cols-2 py-2 px-5 rounded-md bg-secondary/3 hover:bg-bgp border-t border-secondary/5 cursor-pointer">
-                      <div className="flex items-center gap-5">
+                    <div key={i} className="relative grid grid-cols-3 py-2 px-5 rounded-md bg-gray/30 hover:bg-bgp border-t border-secondary/5 cursor-pointer">
+                      <div className="col-span-2 flex items-center gap-5">
                         <GrCircleAlert className="text-gray" />
                         <div>
                           <h5 className="flex justify-start items-center gap-2" >
@@ -115,7 +114,7 @@ function Dashboard() {
                       </div>
                       <div className="flex justify-end items-center gap-2">
                         <small className="text-gray">
-                          20 minutos atrás
+                          2{i + 1} minutos atrás
                         </small>
                       </div>
                     </div>
@@ -131,7 +130,7 @@ function Dashboard() {
             </Button>
           </div>
         </article>
-        <article className="col-span-5 rounded-2xl bg-secondary/3 border-t border-secondary/5 flex flex-col gap-2 w-full">
+        <article className="col-span-5 rounded-2xl bg-gray/30 border-t border-secondary/5 flex flex-col gap-2 w-full">
           <div className="relative   w-full h-full max-h-[340px]  flex flex-col justify-center items-center gap-2">
             <h3 className="absolute top-3 left-5 font-light">Mapa</h3>
             <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rastreo en línea</h5>
@@ -142,13 +141,13 @@ function Dashboard() {
           </div>
         </article>
         <article className="col-span-3 flex flex-col gap-2">
-          <div className="relative bg-secondary/3 border-t border-secondary/5 w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2 pt-10">
+          <div className="relative bg-gray/30 border-t border-secondary/5 w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2 pt-10">
             <h3 className="absolute top-3 left-5 font-light">Reportes</h3>
             <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rápidos</h5>            <ul className="flex flex-col gap-2 w-full p-2">
               {
                 Array(5).fill(0).map((_, i) => (
                   <li key={i} className="relative bg-bgp rounded-lg px-2 py-2 flex justify-start items-center gap-2">
-                    <span className="px-4 py-1 bg-secondary/3 border-t border-secondary/5  rounded-sm">
+                    <span className="px-4 py-1 bg-gray/30 border-t border-secondary/5  rounded-sm">
                       <GrDocumentPdf />
                     </span>
                     <p className="font-light">
@@ -172,7 +171,7 @@ function Dashboard() {
             </Button>
           </div>
         </article>
-        <article className="col-span-4 rounded-2xl bg-secondary/3 border-t border-secondary/5 flex flex-col gap-2 w-full">
+        <article className="col-span-4 rounded-2xl bg-gray/30 border-t border-secondary/5 flex flex-col gap-2 w-full">
           <div className="relative w-full h-full max-h-[380px]  flex flex-col justify-center items-center gap-2">
             <h3 className="absolute top-3 left-5 font-light">Línea de transporte</h3>
             <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rastreo en línea</h5>

@@ -1,22 +1,22 @@
 import { GrAdd, GrAppsRounded, GrCircleQuestion, GrFormDown, GrSearch, GrSettingsOption } from "react-icons/gr"
 import Button from "../components/ui/Button"
+import { useNavigate } from "react-router";
 
 function Header() {
+    const navigate = useNavigate();
     return (
-        <header className="sticky top-0 z-50 flex items-center justify-between w-full mx-auto rounded-full h-16  px-4 text-[#cccce0]">
-            <div>
-                <h1 className="text-xs font-bold">EdgeSAT <span className="font-light">Pro</span></h1>
-            </div>
-            <div className="flex justify-center items-center gap-2 border border-secondary/40 rounded-full px-5 min-w-[360px]">
+        <header className="sticky top-0 z-50 flex items-center justify-between w-full mx-auto  h-16  px-4">
+            <div className="flex justify-center items-center gap-2 px-5 ms-13 min-w-[360px] bg-gray/20 border border-gray/20 rounded-full">
                 <GrSearch />
-                <input className="py-2.5 pe-2 focus:outline-none rounded-full w-full text-sm" type="text" placeholder="Ingresar número del envio" />
+                <input className="py-2.5 pe-2 focus:outline-none rounded-full w-full text-sm" type="text" placeholder="Ingresar número del envio o vehículo" />
             </div>
-            <div className="flex justify-center items-center gap-10 border border-secondary/40 rounded-full px-10">
-                <Button rounded="full">
-                    <GrCircleQuestion />
+            <div className="flex justify-center items-center gap-10 bg-gray/20 border border-gray/20 rounded-full   px-1">
+                <Button onClick={() => { navigate("/viajes/crear") }} rounded="full" className="group flex justify-center items-center gap-2 bg-gray/30 hover:bg-transparent px-4 pe-5">
+                    <GrAdd />
+                    <p className="text-xs">Nuevo viaje</p>
                 </Button>
                 <Button rounded="full">
-                    <GrAdd />
+                    <GrCircleQuestion />
                 </Button>
                 <Button rounded="full">
                     <GrAppsRounded />

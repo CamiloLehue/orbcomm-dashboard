@@ -8,6 +8,7 @@ import Template from "./layouts/Template";
 import Trips from "./features/trips/components/Trips";
 import CreateTrips from "./features/trips/components/CreateTrips";
 import Monitoring from "./features/monitoring";
+import ViewTrip from "./features/trips/components/ViewTrip";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -23,11 +24,11 @@ createRoot(document.getElementById("root")!).render(
           {/* Viajes */}
           <Route path="/viajes" element={<Trips />} />
           <Route path="/viajes/crear" element={<CreateTrips />} />
-          <Route path="/viajes/ver/:id" element={<CreateTrips />} />
+          <Route path="/viajes/ver/:id" element={<ViewTrip />} />
           <Route path="/viajes/editar/:id" element={<CreateTrips />} />
           {/* Monitoreo */}
           <Route path="/monitoreo" element={<Monitoring />} />
-          
+
           {/* Tramos */}
           <Route path="/tramos" element={<Trips />} />
           <Route path="/tramos/crear" element={<CreateTrips />} />

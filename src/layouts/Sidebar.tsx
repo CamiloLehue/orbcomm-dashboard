@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function Sidebar() {
     const navigate = useNavigate();
-    // const location = window.location.pathname;
+    const location = window.location.pathname;
     const menu = [
         {
             icon: GrProjects,
@@ -64,33 +64,46 @@ function Sidebar() {
             ]
         },
     ]
-    const [openSidebar, setOpenSidebar] = useState(false);
+    const [openSidebar, setOpenSidebar] = useState(true);
 
 
     return (
-        <div className={`${!openSidebar ? `w-[100px]` : `w-[200px]`} relative transition-all duration-200 bg-gradient-to-b from-secondary/10 border-t border-secondary/20 rounded-2xl py-5 flex flex-col justify-start items-center gap-5`}>
+        <div className={`${!openSidebar ? `w-[100px]` : `w-[200px]`} relative transition-all duration-200 bg-gradient-to-b from-bgb border-t border-bgbp rounded-2xl py-5 flex flex-col justify-start items-center gap-5`}>
             <div className="absolute -right-15 top-8.5">
                 <Button onClick={() => setOpenSidebar(!openSidebar)} className="relative z-50 text-xs text-zinc-500 flex  items-center justify-start  gap-2">
                     {
                         !openSidebar ? <GrFormNext size={20} className="text-secondary" /> : <GrFormNext size={20} className="text-primary rotate-180" />
                     }
                 </Button>
-
+            </div>
+            <div>
+                <h1 className="text-xs">EdgeSAT <span className="font-bold text-primary">Pro</span></h1>
             </div>
             <h6 className="text-zinc-600 text-center font-bold">
                 Menu
             </h6>
-            <nav>
-                <ul className="flex flex-col gap-5 w-full justify-center items-start">
+            <nav className=" w-full">
+                <ul className="flex flex-col gap-5 w-full justify-center items-start px-3">
                     {
                         menu.map((item, i) => (
                             <li key={i} className="relative w-full">
-                                <Button onClick={() => navigate(item.link)} className="text-xs text-zinc-500 flex  items-center justify-start  gap-2">
-                                    <item.icon size={20} />
-                                    {
-                                        openSidebar && item.text
-                                    }
-                                </Button>
+                                {
+                                    item.link === location
+                                        ?
+                                        <Button onClick={() => navigate(item.link)} rounded="sm" className="text-xs px-4 py-3 font-bold bg-gray/50 shadow w-full text-zinc-200 flex  items-center justify-start  gap-2">
+                                            <item.icon size={15} />
+                                            {
+                                                openSidebar && item.text
+                                            }
+                                        </Button>
+                                        :
+                                        <Button onClick={() => navigate(item.link)} className="text-xs px-4 text-zinc-400 w-full font-semibold flex  items-center justify-start  gap-2">
+                                            <item.icon size={15} />
+                                            {
+                                                openSidebar && item.text
+                                            }
+                                        </Button>
+                                }
                                 {/* {
                                     item.submenu && item.link === location && (
                                         <div key={i} className="absolute top-0 hover:bg-primary -right-60 z-10 bg-gray w-50 rounded-sm p-5">
