@@ -1,36 +1,71 @@
-import { GrChat, GrCircleAlert, GrDocumentPdf, GrFormNextLink, GrPhone, GrSend, GrUp } from "react-icons/gr";
+import { GrChat, GrCircleAlert, GrDocumentPdf, GrFormClock, GrFormNextLink, GrFormView, GrNotification, GrPhone, GrSend, GrUp } from "react-icons/gr";
 import Button from "../../components/ui/Button";
 import MapSvg from "../../components/mapsold/MapSvg";
+import { useNavigate } from "react-router";
 
 function Dashboard() {
+  const navigate = useNavigate();
   return (
     <div className="relative h-full w-full flex flex-col justify-start items-start">
       <h1 className="text-white pb-5">Escritorio Principal</h1>
       <div className="grid grid-cols-12 gap-5 w-full h-full">
         <article className="relative shadow-xl shadow-bgp bg-gradient-to-b from-primary/90 to-primary/40 col-span-3 flex flex-col gap-2 rounded-2xl">
-          <div className="relative bg-bgp/60 min-h-[250px] text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-start items-start gap-2">
+          <div className="relative bg-bgp/60 min-h-[250px] text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-start items-start gap-1">
             <h3 className="absolute top-3 left-5 font-light">Próximo viaje</h3>
             <h5 className="absolute top-9 left-5  text-xs text-white">
               en llegar a destino
             </h5>
-            <div className="relative flex justify-between items-center mt-10 px-10 py-5  w-full border-b border-secondary/5">
-              <div>
-                <small className="text-primary">Número de envio</small>
-                <h2 className="font-bold tracking-wider">E-20050006</h2>
+            <div className="absolute top-5 right-5 w-30 h-7 bg-bgp rounded-full flex justify-center items-center gap-1">
+              <GrFormView className="cursor-pointer hover:text-secondary" onClick={() => { navigate("/viajes/ver/2") }} />
+              <div className="cursor-pointer flex text-warning justify-center items-center gap-0.5  bg-gray/30 hover:bg-gray/50 hover:text-white transition-all duration-200 rounded-full px-2">
+                <GrNotification size={10} />
+                <small className="text-xs">1</small>
               </div>
-              <div className="relative">
+              <div className="cursor-pointer flex text-warning justify-center items-center  bg-gray/3 hover:bg-gray/50 hover:text-white transition-all duration-200 rounded-full px-2">
+                <GrFormClock />
+                <small className="text-xs">2</small>
+              </div>
+
+            </div>
+            <div className="relative flex justify-between items-center mt-15 px-5   w-full border-b border-secondary/5">
+              <div className="flex flex-col items-start justify-start gap-2">
+                <div className="flex flex-col justify-center items-start">
+                  <small className="text-primary">Número de envio</small>
+                  <h2 className="font-bold tracking-wider">E-20050006</h2>
+                </div>
+                <div className="flex flex-col justify-center items-start">
+                  <small className="text-primary">Patente vehiculo</small>
+                  <h5 className="font-bold tracking-wider">XXXX-00</h5>
+                </div>
+                <div className="flex flex-col justify-center items-start">
+                  <small className="text-primary">Patente Rampla</small>
+                  <h5 className="font-bold tracking-wider">XXXX-00</h5>
+                </div>
+              </div>
+              <div className="relative space-y-7">
                 <div className="absolute top-0 left-0 w-full h-full blur-3xl bg-zinc-200/50 rounded-full"></div>
                 <img src="dashboard/truck.png" alt="mapa" className="relative w-50" />
+                <div className="grid grid-cols-2">
+                  <div className="flex flex-col justify-center items-star">
+                    <small className="text-primary">Hora salida</small>
+                    <h5 className="font-bold tracking-wider">11:30:00</h5>
+                  </div>
+                  <div className="flex flex-col justify-center items-center">
+                    <small className="text-primary">Hora llegada</small>
+                    <h5 className="font-bold tracking-wider">18:00:00</h5>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="relative w-full px-15 my-5">
               <div className=" border-b-2 border-gray ">
-                <div className="absolute bg-white -top-2.5 h-5 w-5 rounded-full">
+                <div className="absolute w-50 h-0.5 left-15 top-0 bg-white"></div>
+                <div className="absolute bg-white -top-1 h-3 w-3 rounded-full">
                   <small className="absolute top-5 -left-2 text-gray">Origen</small>
                   <h4 className="absolute top-9 -left-3 text-nowrap">Castro</h4>
                 </div>
-                <div className="absolute bg-white -top-3 right-15 h-6 w-6 rounded-full">
-                  <small className="absolute top-5 -left-2 text-gray">Origen</small>
+                <div className="absolute bg-white -top-1 right-15 h-3 w-3 rounded-full">
+                  <small className="absolute top-5 -left-2 text-gray">Destino</small>
                   <h4 className="absolute top-9 -left-9 text-nowrap">Puerto Montt</h4>
                 </div>
               </div>

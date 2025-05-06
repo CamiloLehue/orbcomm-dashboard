@@ -9,6 +9,7 @@ import Trips from "./features/trips/components/Trips";
 import CreateTrips from "./features/trips/components/CreateTrips";
 import Monitoring from "./features/monitoring";
 import ViewTrip from "./features/trips/components/ViewTrip";
+import Configuration from "./features/configuration/components/Configuration";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -34,6 +35,8 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/tramos/crear" element={<CreateTrips />} />
           <Route path="/tramos/ver/:id" element={<CreateTrips />} />
           <Route path="/tramos/editar/:id" element={<CreateTrips />} />
+          {/* Configuración de parámetros */}
+          <Route path="/configuracion" element={<Configuration />} />
         </Route>
       </Routes>
     </BrowserRouter>

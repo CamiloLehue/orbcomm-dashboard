@@ -6,7 +6,7 @@ function Template() {
   return (
     <div className="relative flex flex-row flex-nowrap min-w-[1700px] h-full w-full pt-4 pe-3 gap-2 overflow-hidden ">
       <Sidebar />
-      <div className="relative z-10 bg-gradient-to-b from-bgb to-bgp backdrop-blur-3xl rounded-2xl border-t border-bgbp h-full w-full min-h-[calc(100vh-2rem)] flex flex-col  py-5">
+      <div className="relative z-10 bg-gradient-to-b from-bgb to-bgp backdrop-blur-3xl rounded-2xl border-t border-bgbp h-full w-full min-h-[calc(100vh-2rem)] flex flex-col  pt-2">
         <Header />
         {<Outlet />}
       </div>

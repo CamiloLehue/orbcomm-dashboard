@@ -1,4 +1,4 @@
-import { GrDeliver, GrGateway, GrNavigate, GrProjects, GrFormNext } from "react-icons/gr"
+import { GrDeliver, GrGateway, GrNavigate, GrProjects, GrFormNext, GrApps, GrPerformance } from "react-icons/gr"
 import Button from "../components/ui/Button"
 import { useNavigate } from "react-router"
 import { useState } from "react";
@@ -8,8 +8,8 @@ function Sidebar() {
     const location = window.location.pathname;
     const menu = [
         {
-            icon: GrProjects,
-            text: "Inicio",
+            icon: GrApps,
+            text: "Explorar",
             link: "/",
         },
         {
@@ -63,13 +63,30 @@ function Sidebar() {
                 },
             ]
         },
+        {
+            icon: GrPerformance,
+            text: "Configuración",
+            link: "/configuracion",
+            submenu: [
+                {
+                    icon: GrProjects,
+                    text: "Inicio",
+                    link: "/"
+                },
+                {
+                    icon: GrProjects,
+                    text: "Inicio",
+                    link: "/"
+                },
+            ]
+        },
     ]
     const [openSidebar, setOpenSidebar] = useState(true);
 
 
     return (
         <div className={`${!openSidebar ? `w-[100px]` : `w-[200px]`} relative transition-all duration-200 bg-gradient-to-b from-bgb border-t border-bgbp rounded-2xl py-5 flex flex-col justify-start items-center gap-5`}>
-            <div className="absolute -right-15 top-8.5">
+            <div className="absolute -right-15 top-2.5">
                 <Button onClick={() => setOpenSidebar(!openSidebar)} className="relative z-50 text-xs text-zinc-500 flex  items-center justify-start  gap-2">
                     {
                         !openSidebar ? <GrFormNext size={20} className="text-secondary" /> : <GrFormNext size={20} className="text-primary rotate-180" />

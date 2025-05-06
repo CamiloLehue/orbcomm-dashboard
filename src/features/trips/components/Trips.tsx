@@ -12,7 +12,7 @@ function Trips() {
             <BgBlur />
             <h1 className="text-white">Viajes</h1>
             <div className="relative flex flex-col justify-start items-start gap-5 w-full h-full ">
-                <div className="grid grid-cols-2  w-full h-full">
+                <div className="grid grid-cols-2 w-full h-full">
                     <CardType title="Lista de viajes" subtitle="En progreso" >
                         <ul className="flex flex-col gap-1 w-full">
                             {
