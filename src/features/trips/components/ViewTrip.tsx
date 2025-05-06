@@ -22,7 +22,6 @@ function ViewTrip() {
                             </div>
                         </div>
                         <div className="flex justify-center items-center gap-2">
-                            <img src="/dashboard/truck.png" alt="vehiculopng" className="w-[10%]" />
                             <h3 className="text-white flex items-center justify-center gap-1">Transporte: <span className="text-primary">E-20050006</span></h3>
                         </div>
                         <div className="flex justify-end items-center gap-2 text-nowrap">
@@ -43,17 +42,17 @@ function ViewTrip() {
                             <h3 className="text-white">Castro </h3>
                         </div>
                         <div className="flex justify-center items-center gap-10">
-                            <div className="text-white/70">
+                            <div className="text-white/50 flex flex-col items-center justify-center">
                                 <small>Fecha de registro</small>
-                                <h4>25/06/2025</h4>
+                                <small>25/06/2025</small>
                             </div>
-                            <div className="text-white/70">
+                            <div className="text-white/50 flex flex-col items-center justify-center">
                                 <small>Fecha de Salida</small>
-                                <h4>25/06/2025</h4>
+                                <small>25/06/2025</small>
                             </div>
-                            <div className="text-white/70">
+                            <div className="text-white/50 flex flex-col items-center justify-center">
                                 <small>Fecha de llegada</small>
-                                <h4>25/06/2025</h4>
+                                <small>25/06/2025</small>
                             </div>
                         </div>
                         <div className="flex justify-end items-center gap-5">
@@ -143,6 +142,7 @@ const RutaTracking = () => {
                     <div className="absolute left-0.5 top-11 w-3 h-3 bg-gray rounded-full"></div>
                     <h5 className="absolute left-5 top-10 "><span className="text-primary">11:30hrs.</span> Entrada a <span className="font-bold">Castro</span></h5>
                 </div>
+                <img src="/dashboard/truck.png" alt="vehiculopng" className="absolute right-20 w-[17%]" />
             </div>
             <div className="relative w-full px-5">
                 <div className="relative">

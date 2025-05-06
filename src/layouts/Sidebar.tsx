@@ -107,7 +107,7 @@ function Sidebar() {
                                 {
                                     item.link === location
                                         ?
-                                        <Button onClick={() => navigate(item.link)} rounded="sm" className="text-xs px-4 py-3 font-bold bg-gray/50 shadow w-full text-zinc-200 flex  items-center justify-start  gap-2">
+                                        <Button onClick={() => navigate(item.link)} rounded="sm" className="text-xs px-4 py-3 font-bold bg-gray/20 shadow w-full text-zinc-200 flex  items-center justify-start  gap-2">
                                             <item.icon size={15} />
                                             {
                                                 openSidebar && item.text
