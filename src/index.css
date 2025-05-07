@@ -5,13 +5,21 @@
  bgs #1a1a1a
  primary #e9ff47
  secondary #040415
- white #040415 */
+ white #040415 
+ 
+ azul marino 001520
+ */
+
 
 @theme {
   --color-bgp: #0d0d0d;
   --color-bgs: #1a1a1a;
   --color-bgt: #252429;
+  --color-bgb: #091217;
+  --color-bgbp: #0c1f2a;
   --color-gray: #71717b;
+  --color-blue: #1447e6;
+  --color-sky: oklch(50% 0.134 242.749);
   --color-primary: #e9ff47;
 
   --color-secondary: #30b0ff;
@@ -155,10 +163,10 @@ html,
 body {
   min-height: 100vh;
   height: 100%;
-  font-family: 'Azeret Mono Variable', monospace;
-  font-family: 'Iosevka', monospace;
-  font-family: 'Pitagon Sans Mono', monospace;
-  font-family: 'Geist Sans', sans-serif;
+  /* font-family: 'Azeret Mono Variable', monospace; */
+  /* font-family: 'Iosevka', monospace; */
+  /* font-family: 'Pitagon Sans Mono', monospace; */
+  /* font-family: 'Geist Sans', sans-serif; */
   /* font-family: 'Libre Franklin Variable', sans-serif; */
   /* font-family: 'Figtree Variable', sans-serif; */
   /* font-family: 'Titillium Web', sans-serif; */

@@ -4,6 +4,7 @@ import Button from "../../../components/ui/Button";
 import Input from "../../../components/ui/Input";
 import Select from "../../../components/ui/Select";
 import Label from "../../../components/ui/Label";
+import { useNavigate } from "react-router";
 
 interface Location {
     name: string;
@@ -15,6 +16,8 @@ interface TopBarProps {
 }
 
 function TopBar({ onRouteRequested }: TopBarProps) {
+    const navigate = useNavigate();
+
     const [origin, setOrigin] = useState<[number, number] | null>(null);
     const [destination, setDestination] = useState<[number, number] | null>(null);
     const [locations, setLocations] = useState<Location[]>([]);
@@ -49,14 +52,14 @@ function TopBar({ onRouteRequested }: TopBarProps) {
     }, [origin, destination, onRouteRequested]);
 
     return (
-        <div className="relative bg-secondary/3 rounded-xl w-full h-full flex flex-col justify-start items-start gap-5  border border-secondary/10  ">
-            <div className="h-15 border-b border-secondary/10  w-full flex justify-center items-center">
-                <h2 className="bg-gradient-to-r from-zinc-400 to-white text-clip text-transparent bg-clip-text font-light text-xl text-center">
+        <div className="relative bg-gray/20 rounded-lg w-full h-full flex flex-col justify-start items-start gap-5  border border-gray/30  ">
+            <div className="h-15 border-b border-gray/20  w-full flex justify-center items-center">
+                <h2 className="bg-gradient-to-r from-gray to-white text-clip text-transparent bg-clip-text font-light text-xl text-center">
                     Generar ruta nueva
                 </h2>
             </div>
             <form>
-                <div className="flex flex-col gap-10 p-5">
+                <div className="flex flex-col gap-5 p-5">
                     <div className="flex justify-center items-center gap-4">
                         <div>
                             <Label htmlFor="text" name="Origen" />
@@ -102,21 +105,46 @@ function TopBar({ onRouteRequested }: TopBarProps) {
                             ))}
                         </Select>
                     </div>
-                    <div className="flex flex-col gap-3" >
-                        <Label htmlFor="id_fecha" name="Conductor " />
-                        <Select
-                            className="focus:outline-none  font-light bg-zinc-900 py-2 ps-2"
-                            defaultValue=""
-                        >
-                            {locations.map(location => (
-                                <option key={location.name} value={location.name}>{location.name}</option>
-                            ))}
-                        </Select>
+                    <div className="grid grid-cols-2 gap-5">
+                        <div className="flex flex-col gap-3" >
+                            <Label htmlFor="id_fecha" name="Patente Camión" />
+                            <Input type="text" placeholder="XXXX-00" />
+                        </div>
+                        <div className="flex flex-col gap-3" >
+                            <Label htmlFor="id_fecha" name="Patente Rampla" />
+                            <Input type="text" placeholder="XXXX-00" />
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-5">
+                        <div className="flex flex-col gap-3" >
+                            <Label htmlFor="id_fecha" name="Conductor 1" />
+                            <Select
+                                className="focus:outline-none  font-light bg-zinc-900 py-2 ps-2"
+                                defaultValue=""
+                            >
+                                {locations.map(location => (
+                                    <option key={location.name} value={location.name}>{location.name}</option>
+                                ))}
+                            </Select>
+                        </div>
+                        <div className="flex flex-col gap-3" >
+                            <Label htmlFor="id_fecha" name="Conductor 2" />
+                            <Select
+                                className="focus:outline-none  font-light bg-zinc-900 py-2 ps-2"
+                                defaultValue=""
+                            >
+                                {locations.map(location => (
+                                    <option key={location.name} value={location.name}>{location.name}</option>
+                                ))}
+                            </Select>
+                        </div>
                     </div>
                 </div>
             </form>
             <div className="p-[1px] flex justify-center items-center px-5  my-12 w-full">
-                <Button className="flex justify-center items-center border border-secondary/10 rounded-sm px-2 pe-4 mx-2" >
+                <Button
+                    onClick={() => { navigate(-1) }}
+                    className="flex justify-center items-center border border-secondary/10 rounded-sm px-2 pe-4 mx-2" >
                     <GrFormPreviousLink size={25} />
                     Volver
                 </Button>

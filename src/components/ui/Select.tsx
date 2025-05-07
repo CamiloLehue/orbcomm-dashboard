@@ -8,7 +8,7 @@ function Select({ className, ...props }: SelectProps) {
 
     return (
         <select
-            className={clsx(`focus:outline-none border border-secondary/20 rounded-lg  font-light bg-secondary/5 py-2 w-full`, className)}
+            className={clsx(`focus:outline-none border border-gray/30 rounded-lg  font-light bg-gray/10 py-2 w-full`, className)}
             {...props}
         >
             <option value="" disabled>Seleccionar...</option>
