@@ -8,11 +8,33 @@ function Trips() {
 
     const navigate = useNavigate();
     return (
-        <div className="relative h-full w-full flex flex-col gap-5 justify-start items-start  ">
+        <div className="relative h-full w-full flex flex-col gap-5 justify-start items-start p-5  ">
             <BgBlur />
-            <h1 className="text-white">Viajes</h1>
+            <h1 className="text-white">Seguimientos</h1>
             <div className="relative flex flex-col justify-start items-start gap-5 w-full h-full ">
                 <div className="grid grid-cols-2 w-full h-full">
+                    <div className="col-span-2 grid grid-cols-2">
+                        <nav>
+                            <ul className="flex gap-2 ">
+                                <li
+                                    className="group overflow-hidden cursor-pointer relative  rounded-lg h-10 bg-bgt/90 hover:bg-transparent hover:border-transparent border border-gray/50  px-5 py-2 flex justify-center items-center gap-5 transition-all duration-200"
+                                >
+                                    Todos
+                                </li>
+                                <li
+                                    className="group overflow-hidden cursor-pointer relative  rounded-lg h-10 bg-bgt/90 hover:bg-transparent hover:border-transparent border border-bgt  px-5 py-2 flex justify-center items-center gap-5 text-gray hover:text-white transition-all duration-200"
+                                >
+                                    Activos
+                                </li>
+                                <li
+                                    className="group overflow-hidden cursor-pointer relative  rounded-lg h-10 bg-bgt/90 hover:bg-transparent hover:border-transparent border border-bgt  px-5 py-2 flex justify-center items-center gap-5 text-gray hover:text-white transition-all duration-200"
+                                >
+                                    Inactivos
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
                     <CardType title="Lista de viajes" subtitle="En progreso" >
                         <ul className="flex flex-col gap-1 w-full">
                             {
@@ -25,15 +47,19 @@ function Trips() {
                                         <div className="absolute -right-10 top-0 w-70 h-20 blur-3xl bg-gray/10 group-hover:bg-transparent rounded-full">
                                         </div>
                                         <div className="flex justify-start  items-center gap-5">
-                                            <img src="dashboard/truck.png" alt="mapa" className="w-[10%]" />
+                                            <img src="dashboard/truck.png" alt="mapa" className="w-[10%] " />
                                             <h5 className="text-primary">E-2005000{i}</h5>
                                             <div className="flex justify-center items-center gap-2 border border-sky rounded-full px-4 py-1 text-xs">
                                                 <GrDirections className="text-sky" />
                                                 Puerto Montt - Chiloé
                                             </div>
                                             <div className="text-gray">
-                                                <h5>Llegada: <span className="text-white">{"20:" + 1 + i} horas</span></h5>
+                                                <h5>Salida: <span className="font-bold">{"19:" + 1 + i} horas</span></h5>
                                             </div>
+                                            <div className="text-gray">
+                                                <h5>Llegada: <span className="font-bold">{"20:" + 1 + i} horas</span></h5>
+                                            </div>
+
                                         </div>
                                         <div className="flex absolute right-5 top-6">
                                             <Button>

@@ -14,8 +14,8 @@ function Dashboard() {
   }, 1000);
 
   return (
-    <div className="relative h-full w-full flex flex-col justify-start items-start">
-      <h1 className="text-white pb-5">Escritorio Principal</h1>
+    <div className="relative h-full w-full flex flex-col justify-start items-start px-5">
+      <h1 className="text-white pb-5">Explorar</h1>
       <div className="grid grid-cols-12 gap-5 w-full h-full">
         <article className="relative shadow-xl shadow-bgp bg-gradient-to-b from-primary/90 to-primary/40 col-span-3 flex flex-col gap-2 rounded-2xl">
           {

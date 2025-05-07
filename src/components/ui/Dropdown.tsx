@@ -5,9 +5,10 @@ type DropdownProps = {
     children: React.ReactNode;
     position?: "top" | "bottom" | "left" | "right";
     onClickVoid?: boolean;
+    setClickVoid?: (value: boolean) => void;
 };
 
-function Dropdown({ children, onClickVoid = true }: DropdownProps) {
+function Dropdown({ children, onClickVoid = true, setClickVoid }: DropdownProps) {
     const [open, setOpen] = useState<boolean>(onClickVoid);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -18,6 +19,7 @@ function Dropdown({ children, onClickVoid = true }: DropdownProps) {
                 !dropdownRef.current.contains(event.target as Node)
             ) {
                 setOpen(false);
+                setClickVoid?.(false);
             }
         };
 
@@ -25,7 +27,7 @@ function Dropdown({ children, onClickVoid = true }: DropdownProps) {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, []);
+    }, [setClickVoid]);
 
     if (!open) return null;
 
