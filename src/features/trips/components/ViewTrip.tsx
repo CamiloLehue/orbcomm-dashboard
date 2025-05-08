@@ -179,24 +179,20 @@ const RutaTracking = () => {
                         <small className="text-white">a las 17:30 </small>
                     </div>
                     <div
-                        className="absolute -right-[5px] -top-[6px] w-5 h-5 rounded-full bg-primary/80"
+                        className="absolute -right-[5px] -top-[6px] animate-ping w-5 h-5 rounded-full border border-primary"
                         style={{
-                            animation: "ping 1s ease-in-out infinite",
-                            animationDirection: "alternate",
-                            animationIterationCount: "infinite",
-                            animationTimingFunction: "ease-in-out",
+                            animation: "ping 2s ease-in-out infinite reverse",
+                            animationDirection: "alternate ",
                             transform: "scale(1.5)",
                         }}
                     >
                     </div>
                     <div
-                        className="absolute -right-[5px] -top-[6px] w-5 h-5 rounded-full bg-primary/80"
+                        className="absolute -right-[5px] animate-ping -top-[6px] scale-50 w-5 h-5 rounded-full border-2 border-primary"
                         style={{
-                            animation: "ping 1s ease-in-out infinite",
-                            animationDelay: ".5s",
+                            animation: "ping 5s ease-in-out infinite reverse",
+                            animationDelay: "1s",
                             animationDirection: "alternate",
-                            animationIterationCount: "infinite",
-                            animationTimingFunction: "ease-in-out",
                             transform: "scale(1.5)",
                         }}
                     >
