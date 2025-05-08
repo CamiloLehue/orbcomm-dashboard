@@ -7,6 +7,9 @@ function ViewTrip() {
 
     const id = useParams().id;
 
+    const origen: [number, number] = [-43.1375, -73.6400];
+    const destino: [number, number] = [-42.1350, -73.6400];
+    
     return (
         <div className="relative h-full w-full flex flex-col justify-start items-start">
             <div className="grid grid-cols-12 gap-5  w-full h-full">
@@ -119,13 +122,12 @@ function ViewTrip() {
                     </div>
                 </div>
                 <div className="relative col-span-5 h-full overflow-hidden">
-                    <MapView tripOrigin={[0, 0]} tripDestination={[0, 0]} height="800px" />
+                    <MapView tripOrigin={origen} tripDestination={destino} height="800px" />
                 </div>
             </div>
         </div >
     )
 }
-
 
 const RutaTracking = () => {
     return (
@@ -179,7 +181,7 @@ const RutaTracking = () => {
                         <small className="text-white">a las 17:30 </small>
                     </div>
                     <div
-                        className="absolute -right-[5px] -top-[6px] animate-ping w-5 h-5 rounded-full border border-primary"
+                        className="absolute -right-[6px] -top-[6px] animate-ping w-5 h-5 rounded-full border border-primary"
                         style={{
                             animation: "ping 2s ease-in-out infinite reverse",
                             animationDirection: "alternate ",
@@ -188,7 +190,7 @@ const RutaTracking = () => {
                     >
                     </div>
                     <div
-                        className="absolute -right-[5px] animate-ping -top-[6px] scale-50 w-5 h-5 rounded-full border-2 border-primary"
+                        className="absolute -right-[6px] animate-ping -top-[6px] scale-50 w-5 h-5 rounded-full border-2 border-primary"
                         style={{
                             animation: "ping 5s ease-in-out infinite reverse",
                             animationDelay: "1s",
