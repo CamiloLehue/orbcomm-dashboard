@@ -4,7 +4,13 @@ import { MapView } from "../maps"
 import Button from "../../components/ui/Button"
 import { useState } from "react";
 
-function Content() {
+type contentProps = {
+    origen: [number, number];
+    destino: [number, number];
+    origenDestinyAsigned: [number[], number[]] | null;
+}
+
+function Content({ origen, destino, origenDestinyAsigned }: contentProps) {
 
     const [gridMap, setGridMap] = useState<boolean | null>(false);
     const [gridType, setGridType] = useState<string | null>("grid grid-cols-1");
@@ -13,10 +19,13 @@ function Content() {
         <div className="relative w-full h-full text-zinc-50">
             <div className="h-20 flex justify-start items-center  gap-5 ">
                 <div className="flex items-center gap-2">
-                    <h4 className="rounded px-2">AST-DEMO</h4>
+                    <h4 className="rounded px-2 flex flex-col justify-center items-center">
+                        <div className="flex justify-center items-center gap-10">
+                            <p>Latitud</p> <p>Longitud</p></div>
+                        <span>{origenDestinyAsigned}</span></h4>
                     <p className="font-bold">Cuenta: <span className="font-light">AST Networks & Tecnoservicios</span></p>
                 </div>
-                <div className="flex items-center gap-5 bg-zinc-900/30  text-stone-400 h-8 rounded-full px-10">
+                <div className="flex items-center gap-5 text-stone-400 h-8 rounded-full px-10">
                     <Button onClick={() => { setGridMap(!gridMap) }} className="relative">
                         <GrAppsRounded size={20} />
                         {
@@ -113,7 +122,7 @@ function Content() {
             <div className={`relative grid grid-cols-3 gap-2 `}>
                 <div className={`col-span-3 ${gridType}`}>
                     {
-                        gridType === "grid grid-cols-1" && <MapView tripOrigin={null} tripDestination={null} />
+                        gridType === "grid grid-cols-1" && <MapView tripOrigin={origen} tripDestination={destino} />
                         || gridType === "grid grid-cols-2 grid-rows-2" && (
                             <>
                                 {

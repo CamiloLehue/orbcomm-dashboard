@@ -1,59 +1,60 @@
-import { GrDeliver, GrFormDown, GrSearch } from "react-icons/gr"
+import { GrFormDown, GrFormNextLink, GrGrommet } from "react-icons/gr"
 import Button from "../../components/ui/Button"
-import Input from "../../components/ui/Input"
 
-function LeftBar() {
+type LeftBarProps = {
+    setOrigenDestinyAsigned: (value: [number[], number[]] | null) => void;
+}
+
+function LeftBar({ setOrigenDestinyAsigned }: LeftBarProps) {
     return (
-        <div className="min-h-full rounded-b-2xl bg-stone-900/60 rounded h-full  w-full max-w-[300px] border-e border-zinc-100/5">
+        <div className="min-h-full rounded-b-2xl rounded h-full  w-full max-w-[400px] ">
             <div className="ps-4 w-full h-10 flex justify-between items-center px-1">
                 <h4 className="text-center font-light">Activos</h4>
-                <small className="text-zinc-500">1 - 2 de 2 recorridos</small>
+                <small className="text-gray">1 - 2 de 2 recorridos</small>
                 <div>
-                    <Button className="bg-stone-950 rounded text-zinc-400">
+                    <Button className=" rounded text-zinc-400">
                         <GrFormDown />
                     </Button>
                 </div>
             </div>
-            <CardViajes />
+            <CardViajes setOrigenDestinyAsigned={setOrigenDestinyAsigned} />
         </div>
     )
 }
 
 
-const CardViajes = () => {
-    return (
-        <div className="p-1 flex flex-col gap-3 max-h-[700px] overflow-y-auto ">
-            <div className="flex items-center gap-1 border border-zinc-100/5 rounded ps-3 pe-1">
-                <GrSearch />
-                <Input placeholder="Busqueda..." type="text" className="w-full" />
-            </div>
-            <div className="flex flex-col gap-1 rounded-xl  min-h-[500px] ">
+const CardViajes = ({ setOrigenDestinyAsigned }: LeftBarProps) => {
 
+    const origen3: [number, number] = [-43.12962, -73.643237];
+    const destino3: [number, number] = [-43.123219, -73.642924];
+
+    return (
+        <div className="p-1 flex flex-col gap-3 max-h-[700px] overflow-y-auto">
+            <div className="flex flex-col gap-1 rounded-xl  min-h-[500px] ">
                 {
                     Array(8).fill(0).map((_, i) => {
                         return (
-                            <article key={i} className="flex bg-zinc-950/50 flex-col justify-center items-center gap-3 p-2 border border-zinc-100/5 rounded-xl
-                hover:bg-stone-800 transition-all duration-300 ease-in cursor-pointer">
-                                <div>
-                                    <h4 className="text-stone-500">GPS R{5507138 + i}</h4>
+                            <Button key={i} onClick={() => { setOrigenDestinyAsigned([origen3, destino3]) }} rounded="lg" className="group cursor-pointer relative w-full rounded-lg bg-gray/5 hover:bg-transparent hover:border-transparent border border-gray/25  px-5 py-2 flex flex-col gap-5 text-gray transition-all duration-200">
+                                <div className="relative  rounded-full py-1 flex justify-center items-center w-full">
+                                    <h4 className="text-white/70">GPS E-{2005000 + i}</h4>
+                                    <div className="absolute right-0 top-0">
+                                        <GrGrommet className="text-primary animate-pulse text-xs" />
+                                    </div>
                                 </div>
-                                <div className="flex gap-2 items-center d px-2">
-                                    <GrDeliver color="lime" />
-                                    <small className="text-sm">
-                                        {5507138 + i}
-                                    </small>
+                                <div className="flex flex-col items-center justify-center">
+                                    <span className="font-bold group-hover:text-white/80 transition-all duration-200">Salida origen</span>
+                                    <small className="group-hover:text-primary transition-all duration-200"> 02/04/2025 04:00:00</small>
                                 </div>
-                                <small className="font-light text-xs">02/04/2025 04:00:00</small>
-                                <p className="bg-stone-800 text-zinc-300 rounded-full px-4 py-2 text-xs">
-                                    Huasco, Población Esmeralda, Puerto M...
-                                </p>
-                            </article>
+                                <div className="flex justify-center items-center gap-2 bg-bgt rounded-full group-hover:bg-transparent w-full">
+                                    <h3 className="text-white/70">Puerto Montt </h3>
+                                    <GrFormNextLink className="text-primary" />
+                                    <h3 className="text-white">Castro </h3>
+                                </div>
+                            </Button >
                         )
                     })
                 }
-
             </div>
-
         </div>
     )
 }
