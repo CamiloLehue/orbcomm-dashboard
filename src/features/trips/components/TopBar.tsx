@@ -52,7 +52,7 @@ function TopBar({ onRouteRequested }: TopBarProps) {
     }, [origin, destination, onRouteRequested]);
 
     return (
-        <div className="relative bg-gray/20 rounded-lg w-full h-full flex flex-col justify-start items-start gap-5  border border-gray/30  ">
+        <div className="relative bg-bgs rounded-lg w-full h-full flex flex-col justify-start items-start gap-5  border border-gray/20  ">
             <div className="h-15 border-b border-gray/20  w-full flex justify-center items-center">
                 <h2 className="bg-gradient-to-r from-gray to-white text-clip text-transparent bg-clip-text font-light text-xl text-center">
                     Generar ruta nueva
@@ -144,17 +144,17 @@ function TopBar({ onRouteRequested }: TopBarProps) {
             <div className="p-[1px] flex justify-center items-center px-5  my-12 w-full">
                 <Button
                     onClick={() => { navigate(-1) }}
-                    className="flex justify-center items-center border border-secondary/10 rounded-sm px-2 pe-4 mx-2" >
+                    className="flex justify-center items-center border border-gray/20 text-gray rounded-sm px-2 pe-4 mx-2" >
                     <GrFormPreviousLink size={25} />
                     Volver
                 </Button>
-                <Button className="flex justify-center items-center border border-secondary/10 gap-3 rounded-sm px-4 mx-2">
+                <Button className="flex justify-center items-center border border-gray/20 text-gray gap-3 rounded-sm px-4 mx-2">
                     <GrPowerReset />
                     Restablecer
                 </Button>
                 <Button
                     onClick={handleCrearViajeClick}
-                    className="flex justify-center bg-secondary/15 items-center border border-secondary/10 rounded-sm px-4 mx-2">
+                    className="flex justify-center bg-bgp items-center border border-gray/10 rounded-sm px-4 pe-5 mx-2">
                     <GrFormCheckmark size={25} />
                     Guardar
                 </Button>

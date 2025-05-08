@@ -25,7 +25,7 @@ const TripRouteLayer: React.FC<TripRouteLayerProps> = ({ origin, destination }) 
     }
 
     return route.length > 0 ? (
-        <Polyline positions={route} color="green" weight={5} opacity={0.7} />
+        <Polyline positions={route} color="blue" weight={5} opacity={0.7} />
     ) : null;
 };
 
