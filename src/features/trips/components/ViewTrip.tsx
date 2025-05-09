@@ -9,7 +9,7 @@ function ViewTrip() {
 
     const origen: [number, number] = [-43.1375, -73.6400];
     const destino: [number, number] = [-42.1350, -73.6400];
-    
+
     return (
         <div className="relative h-full w-full flex flex-col justify-start items-start">
             <div className="grid grid-cols-12 gap-5  w-full h-full">
