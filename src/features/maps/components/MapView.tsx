@@ -24,7 +24,7 @@ const MapView = ({ tripOrigin, tripDestination, height = "608px" }: MapViewProps
     return (
         <div className="rounded-b-xl ">
             {/* Valor por defecto = center={[-43.1375, -73.6425]]} */}
-            <MapContainer center={tripOrigin ?? [-43.1375, -73.6425]} zoom={14} style={{ height: height, width: "100%" }}>
+            <MapContainer center={tripOrigin ?? [-43.1375, -73.6425]} zoom={14} scrollWheelZoom={false} style={{ height: height, width: "100%" }}>
                 <div className="bg-black backdrop-blur flex flex-col justify-center items-center  border border-gray/40 rounded-lg min-h-25  w-90 z-[400] absolute bottom-12 left-2  text-center">
                     {
                         <div className="font-bold flex flex-col gap-2">

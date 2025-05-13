@@ -15,20 +15,30 @@ function GeoButtons() {
     };
 
     return (
-        <div className="absolute bottom-1 right-1 z-[1000] bg-stone-900 p-3 rounded shadow space-y-2">
-            {zones.map((zone) => {
-                const [lat, lng] = zone.coordinates[1];
-                return (
-                    <button
-                        key={zone.id}
-                        onClick={() => handleFlyToZone(lat, lng)}
-                        className="w-full px-4 py-1 bg-stone-600 text-white rounded hover:bg-stone-700"
-                    >
-                        {zone.name}
-                    </button>
-                );
-            })}
-        </div>
+        <>
+            <div className="absolute -bottom-10 z-[9999] bg-stone-900 w-full rounded-t-xl p-3  shadow space-y-1  overflow-y-auto h-[300px]">
+                <div className="grid grid-cols-2 gap-2 ">
+                    {zones.filter((zone) => zone.category !== "Copec").map((zone) => {
+                        const [lat, lng] = zone.coordinates[1];
+                        return (
+                            <button
+                                key={zone.id}
+                                onClick={() => handleFlyToZone(lat, lng)}
+                                className=" bg-bgt border h-12 border-gray/30  text-white rounded hover:bg-bgp"
+                                style={{
+                                    borderWidth: 1,
+                                    borderColor: zone.color
+                                }}
+                            >
+                                {zone.name}
+                            </button>
+                        );
+                    })}
+                </div>
+            </div>
+            <div className="absolute bottom-0 z-[9999] left-0 w-full h-10 bg-gradient-to-t from-bgp from-25%"></div>
+
+        </>
     );
 }
 

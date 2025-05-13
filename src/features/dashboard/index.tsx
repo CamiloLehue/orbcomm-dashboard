@@ -20,14 +20,14 @@ function Dashboard() {
           </div>
         </div>
         <div className="col-span-4 h-full">
-          <article className="overflow-hidden bg-bgp  flex flex-col gap-2 w-full h-full">
+          <article className=" bg-bgp  flex flex-col gap-2 w-full">
             <div className="relative   w-full h-full max-h-[340px]  flex flex-col justify-center items-center gap-2">
               <div className="relative w-full bg-bgb h-20 z-50">
                 <h3 className="absolute top-3 left-5 font-light">Mapa</h3>
                 <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rastreo en línea</h5>
               </div>
               <div className="relative  w-full h-full">
-                <MapView tripOrigin={null} tripDestination={null} height="950px" />
+                <MapView tripOrigin={null} tripDestination={null} height="1080px" />
               </div>
             </div>
           </article>

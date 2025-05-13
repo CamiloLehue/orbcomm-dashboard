@@ -29,7 +29,7 @@ function Header() {
                     <GrBeacon className="text-success animate-pulse" />
                 </Button>
             </div>
-            <div className="flex justify-center items-center gap-10 bg-gray/20 border border-gray/20 rounded-s-full px-1">
+            <div className="flex justify-center items-center gap-10 bg-bgt border border-gray/20 rounded-s-full px-1">
                 <Button onClick={() => { navigate("/viajes/crear") }} rounded="full" className="group flex justify-center items-center gap-2 bg-gray/30 hover:bg-transparent px-4 pe-5">
                     <GrAdd />
                     <p className="text-xs">Nuevo viaje</p>
@@ -104,7 +104,7 @@ const ButtonConfiguraciones = () => {
             {
                 openConfiguration && (
                     <Dropdown onClickVoid={openConfiguration} setClickVoid={setOpenConfiguration}>
-                        <div className="bg-gray/20 w-53 border-b border-gray/40 shadow-lg shadow-bgb backdrop-blur-xl rounded-b-xl">
+                        <div className="bg-bgt w-53 border-b border-gray/40 shadow-lg shadow-bgb backdrop-blur-xl rounded-b-xl">
                             <h5 className="font-bold py-5 text-gray">Configuraciones</h5>
                             <ul className="flex flex-col  border-t border-gray/40  pt-3">
                                 <li className="w-full border-t border-t-transparent hover:border-t-gray/20 border-b border-b-transparent hover:border-b-gray/20 flex items-center justify-start gap-3 hover:bg-bgp transition-all duration-200 px-5 p-2 hover:text-gray  ">
@@ -166,7 +166,7 @@ const ButtonPerfil = () => {
             {
                 openProfile && (
                     <Dropdown onClickVoid={openProfile} setClickVoid={setOpenProfile}>
-                        <div className="relative bg-gray/20 border-b border-e border-gray/20 shadow-lg shadow-bgb backdrop-blur-xl rounded-b-xl mt-1 right-[13px] ">
+                        <div className="relative bg-bgt border-b border-e border-gray/20 shadow-lg shadow-bgb backdrop-blur-xl rounded-b-xl mt-1 right-[13px] ">
                             <h5 className="font-bold py-3 text-gray">Ajustes Perfil</h5>
                             <ul className="flex flex-col border-t border-gray/20 pt-3">
                                 <li className="w-full border-t border-t-transparent hover:border-t-gray/20 border-b border-b-transparent hover:border-b-gray/20 flex items-center justify-start gap-3 hover:bg-bgp transition-all duration-200 px-5 p-2 hover:text-gray  ">
