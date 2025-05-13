@@ -69,10 +69,6 @@ const BarLine = ({ zonePoints, progress }: BarLineProps) => {
                         ? "h-3 w-3 -bottom-1 rounded-full"
                         : "h-2.5 w-2.5 -bottom-0.5 rotate-45";
 
-                    const pointActiveStyle = (point.progress == progress) && "border-2 border-while rounded-full bg-transparent h-10 w-10";
-
-                    console.log(pointActiveStyle);
-
                     return (
                         <div className="relative w-full top-0.5">
                             {
@@ -81,11 +77,9 @@ const BarLine = ({ zonePoints, progress }: BarLineProps) => {
                                     className={`
                                         ${pointSuccessSize} 
                                         ${pointSuccessColor} 
-                                        ${pointActiveStyle} 
                                          absolute `}
                                     style={{
-                                        left: `${pointActiveStyle ? (pointPosition - 1.7) : pointPosition}%`,
-                                        bottom: `${pointActiveStyle ? `-17px` : `-3.4px`}`,
+                                        left: `${pointPosition}%`,
                                     }}
                                 ></div>
                             }

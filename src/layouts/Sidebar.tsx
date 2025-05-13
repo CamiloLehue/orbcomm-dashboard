@@ -81,7 +81,7 @@ function Sidebar() {
             ]
         },
     ]
-    const [openSidebar, setOpenSidebar] = useState(true);
+    const [openSidebar, setOpenSidebar] = useState(false);
 
 
     return (

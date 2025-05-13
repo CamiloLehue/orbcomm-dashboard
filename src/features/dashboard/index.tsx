@@ -1,18 +1,17 @@
-import { GrCircleAlert, GrDocumentPdf, GrFormNextLink, GrUp } from "react-icons/gr";
-import Button from "../../components/ui/Button";
-import MapSvg from "../../components/mapsold/MapSvg";
 import AccessDirectTrip from "../trips/components/AccessDirectTrip";
-
+import Notification from "../notification/components/Notification";
+import { MapView } from "../maps";
+import TripList from "../trips/components/TripList";
+// import ReportList from "../reports/components/ReportList";
 function Dashboard() {
   return (
     <div className="relative h-full w-full flex flex-col justify-start items-start px-5">
       <h1 className="text-white pb-5">Explorar</h1>
       <div className="grid grid-cols-12 gap-2 w-full">
-        <div className="col-span-6 grid grid-cols-2 gap-2">
+        <div className="col-span-4 grid grid-cols-2 gap-2">
           <TripFast />
           <TripList />
-          <Notification />
-          <Reports />
+          {/* <ReportList /> */}
           {/* <article className="rounded-2xl bg-gray/30 border-t border-secondary/5 flex flex-col gap-2 w-full">
             <div className="relative w-full h-full max-h-[380px]  flex flex-col justify-center items-center gap-2">
               <h3 className="absolute top-3 left-5 font-light">Línea de transporte</h3>
@@ -21,20 +20,24 @@ function Dashboard() {
             </div>
           </article> */}
         </div>
-        <div className="col-span-6 h-full">
-          <article className="rounded-2xl overflow-hidden bg-gray/30 border-t border-secondary/5 flex flex-col gap-2 w-full h-full">
+        <div className="col-span-3 h-full">
+          <Notification />
+        </div>
+        <div className="col-span-5 h-full">
+          <article className="overflow-hidden bg-bgp  flex flex-col gap-2 w-full h-full">
             <div className="relative   w-full h-full max-h-[340px]  flex flex-col justify-center items-center gap-2">
               <div className="relative w-full bg-bgb h-20 z-50">
                 <h3 className="absolute top-3 left-5 font-light">Mapa</h3>
                 <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rastreo en línea</h5>
               </div>
-              <div className="relative bottom-10 left-50 scale-150 w-full h-full">
-                <MapSvg />
+              <div className="relative  w-full h-full">
+                <MapView tripOrigin={null} tripDestination={null} height="950px" />
               </div>
             </div>
           </article>
         </div>
       </div>
+      <FooterBar />
     </div >
   );
 }
@@ -118,118 +121,75 @@ const TripFast = () => {
     />
   )
 }
-const TripList = () => {
-  return (
-    <article className="relative bg-gray/30  flex flex-col gap-2 border border-secondary/5 rounded-2xl">
-      <div className="relative bg-bgp/60 text-white  border-t border-bgs w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2">
-        <h3 className="absolute top-3 left-5 font-light">Transportes</h3>
-        <h5 className="absolute top-8 left-6 font-light text-xs text-gray">en línea</h5>
-        <div className=" flex flex-col justify-center items-center gap-2   px-10 py-5 rounded-2xl">
-          <h4 className="text-6xl">8</h4>
-          <small>Rastreando viajes</small>
-        </div>
-        <div className="grid grid-cols-3 gap-2  py-5 border border-bgs px-10 rounded-2xl">
-          <div className="flex flex-col w-full justify-center items-center">
-            <p className="text-danger">1</p>
-            <small>Sin conexión</small>
-          </div>
-          <div className="flex flex-col w-full  justify-center items-center">
-            <p className="text-warning">8</p>
-            <small>Pendientes</small>
-          </div>
-          <div className="flex flex-col w-full  justify-center items-center">
-            <p className="text-primary">12</p>
-            <small>Finalizados</small>
-          </div>
-        </div>
-      </div>
-      <div className="flex items-center justify-center gap-2 pb-1 text-xs">
-        <Button rounded="lg" className="bg-bgt hover:bg-bgp px-5  ">
-          Crear nuevo viaje
-        </Button>
-        <Button rounded="lg" className=" hover:bg-bgt px-5  ">
-          Lista +10
-        </Button>
-      </div>
-    </article>
-  )
-}
-const Notification = () => {
-  return (
-    <article className="relative bg-gray/30  flex flex-col gap-2 border border-secondary/5 rounded-lg">
-      <div className="relative bg-bgp/60 text-white  border-t border-bgs w-full h-full  rounded-lg flex flex-col justify-center items-center gap-2">
-        <h3 className="absolute top-3 left-5 font-light">Notificaciones</h3>
-        <h5 className="absolute top-8 left-6 font-light text-xs text-gray">del sistema</h5>
-        <div className="relative w-full mt-15">
-          <div className="flex flex-col gap-1 px-2 py-3">
-            {
-              Array(4).fill(0).map((_, i) => (
-                <div key={i} className="relative grid grid-cols-3 py-2 px-5 rounded-md bg-gray/30 hover:bg-transparent border-t border-secondary/5 cursor-pointer">
-                  <div className="col-span-2 flex items-center gap-5">
-                    <GrCircleAlert className="text-gray" />
-                    <div>
-                      <h5 className="flex justify-start items-center gap-2" >
-                        Notificación  de tipo {i + 1}
-                        <span className={`text-xs text-warning border border-warning px-2 rounded-full mx-2`}>Alta</span>
-                      </h5>
-                      <small className="flex text-gray">
-                        Descripcion de la notificación
-                      </small>
-                    </div>
-                  </div>
-                  <div className="flex justify-end items-center gap-2">
-                    <small className="text-gray">
-                      2{i + 1} minutos atrás
-                    </small>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-      <div className="flex items-center justify-center gap-2 pb-1 text-xs">
-        <Button rounded="lg" className=" hover:bg-bgt px-5 gap-2  ">
-          <GrUp />
-          Más notificaciones
-        </Button>
-      </div>
-    </article>
-  )
-}
-const Reports = () => {
-  return (
-    <article className="flex flex-col gap-2">
-      <div className="relative bg-gray/30 border-t border-secondary/5 w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2 pt-10">
-        <h3 className="absolute top-3 left-5 font-light">Reportes</h3>
-        <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rápidos</h5>            <ul className="flex flex-col gap-2 w-full p-2">
-          {
-            Array(5).fill(0).map((_, i) => (
-              <li key={i} className="relative bg-bgp rounded-lg px-2 py-2 flex justify-start items-center gap-2">
-                <span className="px-4 py-1 bg-gray/30 border-t border-secondary/5  rounded-sm">
-                  <GrDocumentPdf />
-                </span>
-                <p className="font-light">
-                  Documento e{i + 1}.
-                </p>
-                <button className="absolute right-5 px-2 py-2 rounded-xl border-t border-secondary/5 bg-primary text-bgp ">
-                  <GrFormNextLink />
-                </button>
-              </li>
-            ))
-          }
 
-        </ul>
+// const Reports = () => {
+//   return (
+//     <article className="flex flex-col gap-2">
+//       <div className="relative bg-gray/30 border-t border-secondary/5 w-full h-full  rounded-2xl flex flex-col justify-center items-center gap-2 pt-10">
+//         <h3 className="absolute top-3 left-5 font-light">Reportes</h3>
+//         <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rápidos</h5>            <ul className="flex flex-col gap-2 w-full p-2">
+//           {
+//             Array(5).fill(0).map((_, i) => (
+//               <li key={i} className="relative bg-bgp rounded-lg px-2 py-2 flex justify-start items-center gap-2">
+//                 <span className="px-4 py-1 bg-gray/30 border-t border-secondary/5  rounded-sm">
+//                   <GrDocumentPdf />
+//                 </span>
+//                 <p className="font-light">
+//                   Documento e{i + 1}.
+//                 </p>
+//                 <button className="absolute right-5 px-2 py-2 rounded-xl border-t border-secondary/5 bg-primary text-bgp ">
+//                   <GrFormNextLink />
+//                 </button>
+//               </li>
+//             ))
+//           }
+
+//         </ul>
+//       </div>
+//       <div className="flex items-center gap-2 text-xs">
+//         <Button rounded="lg" className=" hover:bg-bgt px-5  ">
+//           Ver más
+//         </Button>
+//         <Button rounded="lg" className=" hover:bg-bgt px-5  ">
+//           Contactar con soporte
+//         </Button>
+//       </div>
+//     </article>
+//   )
+// }
+
+const FooterBar = () => {
+
+  return (
+    <div className="bg-bgt  h-20 rounded-2xl flex justify-center items-center mt-5 px-5 w-full ">
+      <div className=" w-full flex justify-between items-center">
+        <div className="px-5">
+          <img src="AST-Logo-white.png" className="w-22" alt="ast" />
+        </div>
+        <div
+          className="overflow-x-hidden"
+        >
+          <h3
+            style={{
+              animation: "marquee 60s linear infinite running",
+              WebkitAnimation: "marquee 60s linear infinite running",
+            }}
+            className="text-nowrap font-light">
+            Recorrido <span className="text-white text-bold">No. E-0334890</span> acaba de salir del terminal  municipal de Puerto Montt, con hora de <span className="text-white font-bold">11:30 A.M. </span>
+            con destino a <span className="text-white font-bold">Castro, Chiloé.</span>
+          </h3>
+        </div>
+        <div className="px-5 flex justify-end items-center gap-2">
+          <div className="flex justify-start items-center">
+            <span><img src="clima.png" className="w-6" alt="clima" /></span>
+            <h5> 17°C - Puerto Montt</h5>
+          </div>
+          <div>
+            <h5 className="font-semibold">12:01 hrs.</h5>
+          </div>
+        </div>
       </div>
-      <div className="flex items-center gap-2 text-xs">
-        <Button rounded="lg" className=" hover:bg-bgt px-5  ">
-          Ver más
-        </Button>
-        <Button rounded="lg" className=" hover:bg-bgt px-5  ">
-          Contactar con soporte
-        </Button>
-      </div>
-    </article>
+    </div>
   )
 }
 export default Dashboard;

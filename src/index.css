@@ -184,13 +184,13 @@ body {
 
 /* Track (fondo del scroll) */
 ::-webkit-scrollbar-track {
-  background: #161616;
+  background: #16161600;
   border-radius: 5px;
 }
 
 /* Thumb (la parte que se mueve) */
 ::-webkit-scrollbar-thumb {
-  background: #eaff4749;
+  background: #5f5f5f49;
   border-radius: 5px;
   transition: background 0.3s ease;
 }
@@ -198,4 +198,13 @@ body {
 /* Thumb al pasar el mouse */
 ::-webkit-scrollbar-thumb:hover {
   background: #e9ff47;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
