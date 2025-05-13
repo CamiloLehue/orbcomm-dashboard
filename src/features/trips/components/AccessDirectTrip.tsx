@@ -27,7 +27,7 @@ function AccessDirectTrip({ estado = "En Camino", zonePoints }: AccessDirectTrip
     // const progress = 25;
     // const nextProgress = 50;
     return (
-        <div className="relative col-span-2 flex flex-col place-items-center w-full min-h-70  rounded-3xl 
+        <div className="relative  flex flex-col place-items-center w-full min-h-70  rounded-3xl 
         bg-gradient-to-l from-red-600 to-orange-950 shadow-xl shadow-bgp border-t border-t-danger/30"
         >
             <div className="relative w-full h-[50%]  p-1">

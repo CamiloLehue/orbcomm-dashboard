@@ -7,7 +7,7 @@ import { GrCircleQuestion, GrPhone } from "react-icons/gr"
 function Notification() {
 
     return (
-        <div className="relative flex flex-col justify-between rounded-2xl col-span-2 bg-bgp border border-bgt p-5 h-full w-full">
+        <div className="relative flex flex-col justify-between rounded-2xl bg-bgp border border-bgt p-5 w-full">
             <div>
                 <div className="flex flex-col w-full">
                     <h5 className="leading-1.5">
@@ -17,7 +17,7 @@ function Notification() {
                         del sistema
                     </small>
                 </div>
-                <div className="w-full relative  overflow-y-auto h-[550px] mt-5">
+                <div className="w-full relative  overflow-y-auto h-[200px] mt-5">
                     <NotificationItem data={dataNotification} />
                 </div>
                 <div className="absolute bottom-0 left-0 w-full h-30 bg-gradient-to-t from-bgp from-55%"></div>

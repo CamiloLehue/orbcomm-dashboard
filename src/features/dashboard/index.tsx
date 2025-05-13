@@ -7,27 +7,17 @@ import StatisticsAccesDirect from "../statistics/components/StatisticsAccesDirec
 function Dashboard() {
   return (
     <div className="relative h-full w-full flex flex-col justify-start items-start px-5">
-      <h1 className="text-white pb-5">Explorar</h1>
       <div className="grid grid-cols-12 gap-2 w-full">
-        <div className="absolute left-0 top-0 w-[500px] h-[500px] bg-red-500/10 blur-3xl rounded-full"></div>
-        <div
-          className="col-span-5 grid grid-cols-2 gap-2">
-          <TripFast />
-          <div className="col-span-2 grid grid-cols-5 gap-2">
+        <div className="col-span-8 flex flex-col gap-2"
+        >
+          <div className="grid grid-cols-2 gap-2">
+            <TripFast />
+            <Notification />
+          </div>
+          <div className="col-span-2 grid grid-cols-5 gap-2 ">
             <TripList />
             <StatisticsAccesDirect />
           </div>
-          {/* <ReportList /> */}
-          {/* <article className="rounded-2xl bg-gray/30 border-t border-secondary/5 flex flex-col gap-2 w-full">
-            <div className="relative w-full h-full max-h-[380px]  flex flex-col justify-center items-center gap-2">
-              <h3 className="absolute top-3 left-5 font-light">Línea de transporte</h3>
-              <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rastreo en línea</h5>
-              <img src="dashboard/chartLine.png" alt="mapa" className="w-full h-full" />
-            </div>
-          </article> */}
-        </div>
-        <div className="col-span-3 h-full">
-          <Notification />
         </div>
         <div className="col-span-4 h-full">
           <article className="overflow-hidden bg-bgp  flex flex-col gap-2 w-full h-full">
