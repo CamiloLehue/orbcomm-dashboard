@@ -5,8 +5,7 @@ import { useTrips } from '../hooks/useTrips';
 function TripList() {
     const { trips, loading } = useTrips();
 
-    console.log("trips->", trips);
-
+    console.log("tripsVista->", trips);
 
     if (loading) return <p>Cargando...</p>;
 
@@ -38,7 +37,7 @@ function TripList() {
                 </div>
 
                 <div className="max-h-[250px] overflow-y-auto px-2">
-                    <div className="w-full relative flex flex-col gap-1">
+                    <div className="w-full relative flex flex-col gap-1 pb-8">
                         {trips.map((trip, i) => (
                             <div
                                 key={i}
@@ -49,14 +48,16 @@ function TripList() {
                                         <CgShapeHexagon />
                                     </small>
                                     <small className="flex justify-center items-center gap-2 text-xs">
-                                        {`${i + 1}`}
+                                        {
+                                            trip.assetStatus.deviceSN
+                                        }
                                     </small>
                                 </div>
 
                                 <div className="flex flex-col col-span-2 justify-center items-start">
                                     <small className="flex justify-center items-center gap-1">
                                         <CgCornerDownRight className="text-success" />
-                                        
+
                                     </small>
                                     <small className="flex justify-center items-center gap-1">
                                         <CgPinAlt className="text-primary" />

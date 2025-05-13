@@ -1,20 +1,28 @@
 import { useEffect, useState } from "react";
-import { getTrips } from "../services/tripService";
-import { Trip } from "../types/Trips";
+import { getAllSensorReadings } from "../services/tripService";
+import { SensorReading } from "../types/Trips";
 
 export const useTrips = () => {
-  const [trips, setTrips] = useState<Trip[]>([]);  // Inicializa como un array vacío
+  const [trips, setTrips] = useState<SensorReading[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    const fetch = async () => {
-      const data = await getTrips();
-      setTrips(data);  
-      setLoading(false);
+    const fetchTrips = async () => {
+      try {
+        setLoading(true);
+        const data = await getAllSensorReadings();
+        setTrips(data);
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error('Error al cargar viajes'));
+        console.error("Error fetching trips:", err);
+      } finally {
+        setLoading(false);
+      }
     };
 
-    fetch();
+    fetchTrips();
   }, []);
 
-  return { trips, loading };
+  return { trips, loading, error };
 };

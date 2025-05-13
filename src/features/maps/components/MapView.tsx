@@ -40,7 +40,7 @@ const MapView = ({ tripOrigin, tripDestination, height = "608px" }: MapViewProps
 
                     <BaseLayer checked name="OpenStreetMap">
                         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                        <TileLayer
+                        {/* <TileLayer
                             url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
                             attribution='&copy; <a href="https://carto.com/">CARTO</a>'
                         />
@@ -48,7 +48,7 @@ const MapView = ({ tripOrigin, tripDestination, height = "608px" }: MapViewProps
                             url="https://tiles.stadiamaps.com/tiles/stamen_toner_lines/{z}/{x}/{y}{r}.png?api_key=4b4194de-bf31-4666-9fd1-7dee163f80ee"
                             attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>'
                             opacity={1}
-                        />
+                        /> */}
                     </BaseLayer>
 
                     <Overlay checked name="Ruta Simulada">

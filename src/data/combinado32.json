@@ -1,0 +1,711 @@
+[
+  {
+    "data": [
+      {
+        "messageId": "27733450736",
+        "assetStatus": {
+          "assetName": "AST-DEMOSAT",
+          "assetType": "Chassis",
+          "messageStamp": "2025-03-11T20:40:18.000-03:00",
+          "messageReceivedStamp": "2025-03-11T20:41:07.729-03:00",
+          "deviceSN": "KAAB1242700077",
+          "productType": "SC1000",
+          "batteryVoltage": 4.0,
+          "batteryStatus": "Normal",
+          "deviceFirmware": "6.6.1",
+          "messageType": "Position Update",
+          "eventHasCurrentGPS": "true",
+          "speed": 4.0,
+          "account": "AST Networks & Tecnoservicios",
+          "installedChangeDate": "2025-01-06T16:05:19.000-03:00"
+        },
+        "positionStatus": {
+          "city": "CASTRO",
+          "state": "LOS LAGOS",
+          "street": "1613 RUTA 5",
+          "zipCode": "5700430",
+          "country": "CL",
+          "geofenceDetails": [],
+          "latitude": -42.48331,
+          "longitude": -73.77343,
+          "direction": "South West",
+          "geofenceStatus": "Out",
+          "address": "RUTA 5 1613, 5700430 CASTRO, LOS LAGOS, CHILE",
+          "directionDegree": 200.0
+        },
+        "reeferStatus": {
+          "commPlatform": "Satellite",
+          "ambientTemp": 12.0,
+          "messageMode": "Satellite"
+        },
+        "genericSensors": {
+          "voltageSensorData": {
+            "category": "Voltage",
+            "sensors": [
+              {
+                "sensorLabel": "deviceBatteryStatus",
+                "sensorDataElement": "DEVICEBATTERYSTATUS",
+                "sensorValue": "Normal"
+              },
+              {
+                "sensorLabel": "deviceBatteryVoltage",
+                "sensorDataElement": "DEVICEBATTERYVOLTAGE",
+                "sensorValue": "4.0"
+              }
+            ]
+          },
+          "temperatureSensorData": {
+            "category": "Temperature",
+            "sensors": [
+              {
+                "sensorLabel": "ambientTemp",
+                "sensorDataElement": "AMBIENTTEMP",
+                "sensorValue": "12.0"
+              }
+            ]
+          }
+        },
+        "pretripStatus": {
+          "pretripResults": [
+            {
+              "testCode": "Display Test"
+            }
+          ]
+        },
+        "impactStatus": {
+          "moving": "Moving"
+        }
+      },
+      {
+        "messageId": "27733607391",
+        "assetStatus": {
+          "assetName": "AST-DEMOSAT",
+          "assetType": "Chassis",
+          "messageStamp": "2025-03-11T20:51:18.000-03:00",
+          "messageReceivedStamp": "2025-03-11T20:52:00.624-03:00",
+          "deviceSN": "KAAB1242700077",
+          "productType": "SC1000",
+          "batteryVoltage": 4.0,
+          "batteryStatus": "Normal",
+          "deviceFirmware": "6.6.1",
+          "messageType": "Move End Event",
+          "eventHasCurrentGPS": "true",
+          "account": "AST Networks & Tecnoservicios",
+          "installedChangeDate": "2025-01-06T16:05:19.000-03:00"
+        },
+        "positionStatus": {
+          "state": "LOS LAGOS",
+          "street": "RUTA 5",
+          "country": "CL",
+          "geofenceDetails": [],
+          "latitude": -42.53893,
+          "longitude": -73.8298,
+          "direction": "North",
+          "geofenceStatus": "Out",
+          "address": "RUTA 5, CHONCHI, LOS LAGOS, CHILE",
+          "directionDegree": 0.0
+        },
+        "reeferStatus": {
+          "commPlatform": "Satellite",
+          "ambientTemp": 12.0,
+          "messageMode": "Satellite"
+        },
+        "genericSensors": {
+          "voltageSensorData": {
+            "category": "Voltage",
+            "sensors": [
+              {
+                "sensorLabel": "deviceBatteryStatus",
+                "sensorDataElement": "DEVICEBATTERYSTATUS",
+                "sensorValue": "Normal"
+              },
+              {
+                "sensorLabel": "deviceBatteryVoltage",
+                "sensorDataElement": "DEVICEBATTERYVOLTAGE",
+                "sensorValue": "4.0"
+              }
+            ]
+          },
+          "temperatureSensorData": {
+            "category": "Temperature",
+            "sensors": [
+              {
+                "sensorLabel": "ambientTemp",
+                "sensorDataElement": "AMBIENTTEMP",
+                "sensorValue": "12.0"
+              }
+            ]
+          }
+        },
+        "pretripStatus": {
+          "pretripResults": [
+            {
+              "testCode": "Display Test"
+            }
+          ]
+        },
+        "impactStatus": {
+          "moving": "Stationary"
+        }
+      },
+      {
+        "messageId": "27733623346",
+        "assetStatus": {
+          "assetName": "AST-DEMOSAT",
+          "assetType": "Chassis",
+          "messageStamp": "2025-03-11T20:52:42.000-03:00",
+          "messageReceivedStamp": "2025-03-11T20:53:09.274-03:00",
+          "deviceSN": "KAAB1242700077",
+          "productType": "SC1000",
+          "batteryVoltage": 4.0,
+          "batteryStatus": "Normal",
+          "deviceFirmware": "6.6.1",
+          "messageType": "Move Begin Event",
+          "eventHasCurrentGPS": "true",
+          "account": "AST Networks & Tecnoservicios",
+          "installedChangeDate": "2025-01-06T16:05:19.000-03:00"
+        },
+        "positionStatus": {
+          "city": "Puerto Montt",
+          "state": "LOS LAGOS",
+          "street": "RUTA 5",
+          "country": "CL",
+          "geofenceDetails": [],
+          "latitude": -42.53893,
+          "longitude": -73.8298,
+          "direction": "North",
+          "dwellTimeOutside": 0,
+          "geofenceStatus": "Out",
+          "address": "RUTA 5, CHONCHI, LOS LAGOS, CHILE",
+          "directionDegree": 0.0
+        },
+        "reeferStatus": {
+          "commPlatform": "Satellite",
+          "ambientTemp": 12.0,
+          "messageMode": "Satellite"
+        },
+        "genericSensors": {
+          "voltageSensorData": {
+            "category": "Voltage",
+            "sensors": [
+              {
+                "sensorLabel": "deviceBatteryStatus",
+                "sensorDataElement": "DEVICEBATTERYSTATUS",
+                "sensorValue": "Normal"
+              },
+              {
+                "sensorLabel": "deviceBatteryVoltage",
+                "sensorDataElement": "DEVICEBATTERYVOLTAGE",
+                "sensorValue": "4.0"
+              }
+            ]
+          },
+          "temperatureSensorData": {
+            "category": "Temperature",
+            "sensors": [
+              {
+                "sensorLabel": "ambientTemp",
+                "sensorDataElement": "AMBIENTTEMP",
+                "sensorValue": "12.0"
+              }
+            ]
+          }
+        },
+        "pretripStatus": {
+          "pretripResults": [
+            {
+              "testCode": "Display Test"
+            }
+          ]
+        },
+        "impactStatus": {
+          "moving": "Moving"
+        }
+      }
+    ],
+    "measurementUnits": {
+      "dateFormat": "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",
+      "pressureUOM": "Pa",
+      "temperatureUOM": "Celsius",
+      "distanceUOM": "Kilometers",
+      "fuelUOM": "Liters",
+      "weightUOM": "Kilograms",
+      "timeDuration": "Hours"
+    },
+    "code": 1000,
+    "message": "Success",
+    "exception": false
+  },
+  {
+    "data": [
+      {
+        "messageId": "27733450736",
+        "assetStatus": {
+          "assetName": "AST-DEMOSAT",
+          "assetType": "Chassis",
+          "messageStamp": "2025-03-11T20:40:18.000-03:00",
+          "messageReceivedStamp": "2025-03-11T20:41:07.729-03:00",
+          "deviceSN": "KAAB1242700077",
+          "productType": "SC1000",
+          "batteryVoltage": 4.0,
+          "batteryStatus": "Normal",
+          "deviceFirmware": "6.6.1",
+          "messageType": "Position Update",
+          "eventHasCurrentGPS": "true",
+          "speed": 4.0,
+          "account": "AST Networks & Tecnoservicios",
+          "installedChangeDate": "2025-01-06T16:05:19.000-03:00"
+        },
+        "positionStatus": {
+          "city": "Santiago",
+          "state": "LOS LAGOS",
+          "street": "1613 RUTA 5",
+          "zipCode": "5700430",
+          "country": "CL",
+          "geofenceDetails": [],
+          "latitude": -42.48331,
+          "longitude": -73.77343,
+          "direction": "South West",
+          "geofenceStatus": "Out",
+          "address": "RUTA 5 1613, 5700430 CASTRO, LOS LAGOS, CHILE",
+          "directionDegree": 200.0
+        },
+        "reeferStatus": {
+          "commPlatform": "Satellite",
+          "ambientTemp": 12.0,
+          "messageMode": "Satellite"
+        },
+        "genericSensors": {
+          "voltageSensorData": {
+            "category": "Voltage",
+            "sensors": [
+              {
+                "sensorLabel": "deviceBatteryStatus",
+                "sensorDataElement": "DEVICEBATTERYSTATUS",
+                "sensorValue": "Normal"
+              },
+              {
+                "sensorLabel": "deviceBatteryVoltage",
+                "sensorDataElement": "DEVICEBATTERYVOLTAGE",
+                "sensorValue": "4.0"
+              }
+            ]
+          },
+          "temperatureSensorData": {
+            "category": "Temperature",
+            "sensors": [
+              {
+                "sensorLabel": "ambientTemp",
+                "sensorDataElement": "AMBIENTTEMP",
+                "sensorValue": "12.0"
+              }
+            ]
+          }
+        },
+        "pretripStatus": {
+          "pretripResults": [
+            {
+              "testCode": "Display Test"
+            }
+          ]
+        },
+        "impactStatus": {
+          "moving": "Moving"
+        }
+      },
+      {
+        "messageId": "27733607391",
+        "assetStatus": {
+          "assetName": "AST-DEMOSAT",
+          "assetType": "Chassis",
+          "messageStamp": "2025-03-11T20:51:18.000-03:00",
+          "messageReceivedStamp": "2025-03-11T20:52:00.624-03:00",
+          "deviceSN": "KAAB1242700077",
+          "productType": "SC1000",
+          "batteryVoltage": 4.0,
+          "batteryStatus": "Normal",
+          "deviceFirmware": "6.6.1",
+          "messageType": "Move End Event",
+          "eventHasCurrentGPS": "true",
+          "account": "AST Networks & Tecnoservicios",
+          "installedChangeDate": "2025-01-06T16:05:19.000-03:00"
+        },
+        "positionStatus": {
+          "state": "LOS LAGOS",
+          "street": "RUTA 5",
+          "country": "CL",
+          "geofenceDetails": [],
+          "latitude": -42.53893,
+          "longitude": -73.8298,
+          "direction": "North",
+          "geofenceStatus": "Out",
+          "address": "RUTA 5, CHONCHI, LOS LAGOS, CHILE",
+          "directionDegree": 0.0
+        },
+        "reeferStatus": {
+          "commPlatform": "Satellite",
+          "ambientTemp": 12.0,
+          "messageMode": "Satellite"
+        },
+        "genericSensors": {
+          "voltageSensorData": {
+            "category": "Voltage",
+            "sensors": [
+              {
+                "sensorLabel": "deviceBatteryStatus",
+                "sensorDataElement": "DEVICEBATTERYSTATUS",
+                "sensorValue": "Normal"
+              },
+              {
+                "sensorLabel": "deviceBatteryVoltage",
+                "sensorDataElement": "DEVICEBATTERYVOLTAGE",
+                "sensorValue": "4.0"
+              }
+            ]
+          },
+          "temperatureSensorData": {
+            "category": "Temperature",
+            "sensors": [
+              {
+                "sensorLabel": "ambientTemp",
+                "sensorDataElement": "AMBIENTTEMP",
+                "sensorValue": "12.0"
+              }
+            ]
+          }
+        },
+        "pretripStatus": {
+          "pretripResults": [
+            {
+              "testCode": "Display Test"
+            }
+          ]
+        },
+        "impactStatus": {
+          "moving": "Stationary"
+        }
+      },
+      {
+        "messageId": "27733623346",
+        "assetStatus": {
+          "assetName": "AST-DEMOSAT",
+          "assetType": "Chassis",
+          "messageStamp": "2025-03-11T20:52:42.000-03:00",
+          "messageReceivedStamp": "2025-03-11T20:53:09.274-03:00",
+          "deviceSN": "KAAB1242700077",
+          "productType": "SC1000",
+          "batteryVoltage": 4.0,
+          "batteryStatus": "Normal",
+          "deviceFirmware": "6.6.1",
+          "messageType": "Move Begin Event",
+          "eventHasCurrentGPS": "true",
+          "account": "AST Networks & Tecnoservicios",
+          "installedChangeDate": "2025-01-06T16:05:19.000-03:00"
+        },
+        "positionStatus": {
+          "state": "LOS LAGOS",
+          "street": "RUTA 5",
+          "country": "CL",
+          "geofenceDetails": [],
+          "latitude": -42.53893,
+          "longitude": -73.8298,
+          "direction": "North",
+          "dwellTimeOutside": 0,
+          "geofenceStatus": "Out",
+          "address": "RUTA 5, CHONCHI, LOS LAGOS, CHILE",
+          "directionDegree": 0.0
+        },
+        "reeferStatus": {
+          "commPlatform": "Satellite",
+          "ambientTemp": 12.0,
+          "messageMode": "Satellite"
+        },
+        "genericSensors": {
+          "voltageSensorData": {
+            "category": "Voltage",
+            "sensors": [
+              {
+                "sensorLabel": "deviceBatteryStatus",
+                "sensorDataElement": "DEVICEBATTERYSTATUS",
+                "sensorValue": "Normal"
+              },
+              {
+                "sensorLabel": "deviceBatteryVoltage",
+                "sensorDataElement": "DEVICEBATTERYVOLTAGE",
+                "sensorValue": "4.0"
+              }
+            ]
+          },
+          "temperatureSensorData": {
+            "category": "Temperature",
+            "sensors": [
+              {
+                "sensorLabel": "ambientTemp",
+                "sensorDataElement": "AMBIENTTEMP",
+                "sensorValue": "12.0"
+              }
+            ]
+          }
+        },
+        "pretripStatus": {
+          "pretripResults": [
+            {
+              "testCode": "Display Test"
+            }
+          ]
+        },
+        "impactStatus": {
+          "moving": "Moving"
+        }
+      }
+    ],
+    "measurementUnits": {
+      "dateFormat": "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",
+      "pressureUOM": "Pa",
+      "temperatureUOM": "Celsius",
+      "distanceUOM": "Kilometers",
+      "fuelUOM": "Liters",
+      "weightUOM": "Kilograms",
+      "timeDuration": "Hours"
+    },
+    "code": 1000,
+    "message": "Success",
+    "exception": false
+  },
+  {
+    "data": [
+      {
+        "messageId": "27733450735",
+        "assetStatus": {
+          "assetName": "AST-DEMOSAT",
+          "assetType": "Chassis",
+          "messageStamp": "2025-03-11T20:40:18.000-03:00",
+          "messageReceivedStamp": "2025-03-11T20:41:07.729-03:00",
+          "deviceSN": "KAAB1242700077",
+          "productType": "SC1000",
+          "batteryVoltage": 4.0,
+          "batteryStatus": "Normal",
+          "deviceFirmware": "6.6.1",
+          "messageType": "Position Update",
+          "eventHasCurrentGPS": "true",
+          "speed": 4.0,
+          "account": "AST Networks & Tecnoservicios",
+          "installedChangeDate": "2025-01-06T16:05:19.000-03:00"
+        },
+        "positionStatus": {
+          "city": "CASTRO",
+          "state": "LOS LAGOS",
+          "street": "1613 RUTA 5",
+          "zipCode": "5700430",
+          "country": "CL",
+          "geofenceDetails": [],
+          "latitude": -42.48331,
+          "longitude": -73.77343,
+          "direction": "South West",
+          "geofenceStatus": "Out",
+          "address": "RUTA 5 1613, 5700430 CASTRO, LOS LAGOS, CHILE",
+          "directionDegree": 200.0
+        },
+        "reeferStatus": {
+          "commPlatform": "Satellite",
+          "ambientTemp": 12.0,
+          "messageMode": "Satellite"
+        },
+        "genericSensors": {
+          "voltageSensorData": {
+            "category": "Voltage",
+            "sensors": [
+              {
+                "sensorLabel": "deviceBatteryStatus",
+                "sensorDataElement": "DEVICEBATTERYSTATUS",
+                "sensorValue": "Normal"
+              },
+              {
+                "sensorLabel": "deviceBatteryVoltage",
+                "sensorDataElement": "DEVICEBATTERYVOLTAGE",
+                "sensorValue": "4.0"
+              }
+            ]
+          },
+          "temperatureSensorData": {
+            "category": "Temperature",
+            "sensors": [
+              {
+                "sensorLabel": "ambientTemp",
+                "sensorDataElement": "AMBIENTTEMP",
+                "sensorValue": "12.0"
+              }
+            ]
+          }
+        },
+        "pretripStatus": {
+          "pretripResults": [
+            {
+              "testCode": "Display Test"
+            }
+          ]
+        },
+        "impactStatus": {
+          "moving": "Moving"
+        }
+      },
+      {
+        "messageId": "27733607391",
+        "assetStatus": {
+          "assetName": "AST-DEMOSAT",
+          "assetType": "Chassis",
+          "messageStamp": "2025-03-11T20:51:18.000-03:00",
+          "messageReceivedStamp": "2025-03-11T20:52:00.624-03:00",
+          "deviceSN": "KAAB1242700077",
+          "productType": "SC1000",
+          "batteryVoltage": 4.0,
+          "batteryStatus": "Normal",
+          "deviceFirmware": "6.6.1",
+          "messageType": "Move End Event",
+          "eventHasCurrentGPS": "true",
+          "account": "AST Networks & Tecnoservicios",
+          "installedChangeDate": "2025-01-06T16:05:19.000-03:00"
+        },
+        "positionStatus": {
+          "state": "LOS LAGOS",
+          "street": "RUTA 5",
+          "country": "CL",
+          "geofenceDetails": [],
+          "latitude": -42.53893,
+          "longitude": -73.8298,
+          "direction": "North",
+          "geofenceStatus": "Out",
+          "address": "RUTA 5, CHONCHI, LOS LAGOS, CHILE",
+          "directionDegree": 0.0
+        },
+        "reeferStatus": {
+          "commPlatform": "Satellite",
+          "ambientTemp": 12.0,
+          "messageMode": "Satellite"
+        },
+        "genericSensors": {
+          "voltageSensorData": {
+            "category": "Voltage",
+            "sensors": [
+              {
+                "sensorLabel": "deviceBatteryStatus",
+                "sensorDataElement": "DEVICEBATTERYSTATUS",
+                "sensorValue": "Normal"
+              },
+              {
+                "sensorLabel": "deviceBatteryVoltage",
+                "sensorDataElement": "DEVICEBATTERYVOLTAGE",
+                "sensorValue": "4.0"
+              }
+            ]
+          },
+          "temperatureSensorData": {
+            "category": "Temperature",
+            "sensors": [
+              {
+                "sensorLabel": "ambientTemp",
+                "sensorDataElement": "AMBIENTTEMP",
+                "sensorValue": "12.0"
+              }
+            ]
+          }
+        },
+        "pretripStatus": {
+          "pretripResults": [
+            {
+              "testCode": "Display Test"
+            }
+          ]
+        },
+        "impactStatus": {
+          "moving": "Stationary"
+        }
+      },
+      {
+        "messageId": "27733623346",
+        "assetStatus": {
+          "assetName": "AST-DEMOSAT",
+          "assetType": "Chassis",
+          "messageStamp": "2025-03-11T20:52:42.000-03:00",
+          "messageReceivedStamp": "2025-03-11T20:53:09.274-03:00",
+          "deviceSN": "KAAB1242700077",
+          "productType": "SC1000",
+          "batteryVoltage": 4.0,
+          "batteryStatus": "Normal",
+          "deviceFirmware": "6.6.1",
+          "messageType": "Move Begin Event",
+          "eventHasCurrentGPS": "true",
+          "account": "AST Networks & Tecnoservicios",
+          "installedChangeDate": "2025-01-06T16:05:19.000-03:00"
+        },
+        "positionStatus": {
+          "state": "LOS LAGOS",
+          "street": "RUTA 5",
+          "country": "CL",
+          "geofenceDetails": [],
+          "latitude": -42.53893,
+          "longitude": -73.8298,
+          "direction": "North",
+          "dwellTimeOutside": 0,
+          "geofenceStatus": "Out",
+          "address": "RUTA 5, CHONCHI, LOS LAGOS, CHILE",
+          "directionDegree": 0.0
+        },
+        "reeferStatus": {
+          "commPlatform": "Satellite",
+          "ambientTemp": 12.0,
+          "messageMode": "Satellite"
+        },
+        "genericSensors": {
+          "voltageSensorData": {
+            "category": "Voltage",
+            "sensors": [
+              {
+                "sensorLabel": "deviceBatteryStatus",
+                "sensorDataElement": "DEVICEBATTERYSTATUS",
+                "sensorValue": "Normal"
+              },
+              {
+                "sensorLabel": "deviceBatteryVoltage",
+                "sensorDataElement": "DEVICEBATTERYVOLTAGE",
+                "sensorValue": "4.0"
+              }
+            ]
+          },
+          "temperatureSensorData": {
+            "category": "Temperature",
+            "sensors": [
+              {
+                "sensorLabel": "ambientTemp",
+                "sensorDataElement": "AMBIENTTEMP",
+                "sensorValue": "12.0"
+              }
+            ]
+          }
+        },
+        "pretripStatus": {
+          "pretripResults": [
+            {
+              "testCode": "Display Test"
+            }
+          ]
+        },
+        "impactStatus": {
+          "moving": "Moving"
+        }
+      }
+    ],
+    "measurementUnits": {
+      "dateFormat": "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",
+      "pressureUOM": "Pa",
+      "temperatureUOM": "Celsius",
+      "distanceUOM": "Kilometers",
+      "fuelUOM": "Liters",
+      "weightUOM": "Kilograms",
+      "timeDuration": "Hours"
+    },
+    "code": 1000,
+    "message": "Success",
+    "exception": false
+  }
+]
