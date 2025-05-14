@@ -4,9 +4,12 @@ import Sidebar from "./Sidebar";
 
 function Template() {
   return (
-    <div className="relative flex flex-row flex-nowrap min-w-[1700px] h-full w-full pt-4 pe-3 gap-2 overflow-hidden ">
+    <div className="relative flex flex-row flex-nowrap min-w-[1700px] h-full w-full pe-3 gap-2 overflow-hidden">
       <Sidebar />
-      <div className="relative z-10 bg-gradient-to-b from-bgb to-bgp backdrop-blur-3xl rounded-2xl border-t border-bgbp h-full w-full min-h-[calc(100vh-2rem)] flex flex-col  pt-2">
+      <div className="relative z-10 bg-gradient-to-tl from-bgp  to-bgt backdrop-blur-3xl rounded-2xl border-t border-bgbp h-full w-full min-h-[calc(100vh-2rem)] flex flex-col ">
+        {/* <div className="absolute left-0 top-0 h-[1000px] w-[1000px] bg-danger/5 rounded-full blur-3xl "></div> */}
+        {/* <div className="absolute left-0 top-0 h-[500px] w-[500px] bg-danger/40 rounded-full blur-3xl "></div> */}
+        {/* <div className="absolute -right-20 bottom-0 h-[900px] w-[900px] bg-sky/40 rounded-full blur-3xl "></div> */}
         <Header />
         {<Outlet />}
       </div>

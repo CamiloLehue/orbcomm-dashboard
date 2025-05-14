@@ -41,7 +41,6 @@ const useFetchRoute = (): UseFetchRouteResult => {
                 // OpenRouteService devuelve las coordenadas como [longitude, latitude],
                 // Leaflet espera [latitude, longitude], así que invertimos el orden. -> coord => [coord[1], coord[0]
                 const coordinates = data.features[0].geometry.coordinates.map(coord => [coord[1], coord[0]]);
-                console.log("1 - Este es el array de coordenadas de la ruta tracking ==> " + coordinates);
 
                 setRoute(coordinates as [number, number][]);
             } else {

@@ -81,12 +81,11 @@ function Sidebar() {
             ]
         },
     ]
-    const [openSidebar, setOpenSidebar] = useState(true);
-
+    const [openSidebar, setOpenSidebar] = useState(false);
 
     return (
-        <div className={`${!openSidebar ? `w-[100px]` : `w-[200px]`} relative transition-all duration-200 bg-gradient-to-b from-bgb border-t border-bgbp rounded-2xl py-5 flex flex-col justify-start items-center gap-5`}>
-            <div className="absolute -right-15 top-2.5">
+        <div className={`${!openSidebar ? `w-[100px]` : `w-[200px]`} relative transition-all duration-100 bg-bgt py-5 flex flex-col justify-start items-center gap-5`}>
+            <div className="absolute -right-15 top-5">
                 <Button onClick={() => setOpenSidebar(!openSidebar)} className="relative z-50 text-xs text-zinc-500 flex  items-center justify-start  gap-2">
                     {
                         !openSidebar ? <GrFormNext size={20} className="text-secondary" /> : <GrFormNext size={20} className="text-primary rotate-180" />
@@ -94,7 +93,7 @@ function Sidebar() {
                 </Button>
             </div>
             <div>
-                <h1 className="text-xs">EdgeSAT <span className="font-bold text-primary">Pro</span></h1>
+                <h1 className="text-xs">S<span className="font-bold text-primary">Track</span></h1>
             </div>
             <h6 className="text-zinc-600 text-center font-bold">
                 Menu

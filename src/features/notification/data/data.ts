@@ -1,0 +1,68 @@
+const dataNotification = [
+    {
+        id: 1,
+        title: "Desconexión del dispositivo ",
+        description: "El viaje E-20050006 se ha desconectado del dispositivo",
+        date: "2021-01-01",
+        time: "Justo ahora",
+        status: 1,
+    },
+    {
+        id: 2,
+        title: "Demora en el viaje",
+        description: "El E-2324238 tiene 20 min de retrazo.",
+        date: "2021-01-01",
+        time: "hace 2 minutos",
+        status: 2,
+    },
+    {
+        id: 3,
+        title: "Llegando al destino",
+        description: "El viaje 1234567890 se encuentra próximo al destino.",
+        date: "2021-01-01",
+        time: "11:29",
+        status: 3,
+    },
+    {
+        id: 4,
+        title: "Viaje en camino",
+        description: "El viaje 1234567890 se encuentra en camino",
+        date: "2021-01-01",
+        time: "11:18",
+        status: 4,
+    },
+    {
+        id: 5,
+        title: "Viaje en camino",
+        description: "El viaje 1234567890 se encuentra en camino",
+        date: "2021-01-01",
+        time: "11:06",
+        status: 4,
+    },
+    {
+        id: 6,
+        title: "Viaje en camino",
+        description: "El viaje 1234567890 se encuentra en camino",
+        date: "2021-01-01",
+        time: "11:00",
+        status: 4,
+    },
+    {
+        id: 7,
+        title: "Viaje en camino",
+        description: "El viaje 1234567890 se encuentra en camino",
+        date: "2021-01-01",
+        time: "10:20",
+        status: 3,
+    },
+    {
+        id: 8,
+        title: "Viaje en camino",
+        description: "El viaje 1234567890 se encuentra en camino",
+        date: "2021-01-01",
+        time: "10:00",
+        status: 4,
+    },
+]
+
+export default dataNotification

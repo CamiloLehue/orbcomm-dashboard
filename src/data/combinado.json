@@ -19,7 +19,7 @@
           "installedChangeDate": "2025-01-06T16:05:19.000-03:00"
         },
         "positionStatus": {
-          "city": "MCALLEN",
+          "city": "MCALLEN1",
           "state": "TX",
           "street": "5700 S INTERNATIONAL PKWY",
           "zipCode": "78503",
@@ -3751,6 +3751,7 @@
           "installedChangeDate": "2025-01-06T16:05:19.000-03:00"
         },
         "positionStatus": {
+          "city": "MCALLEN2",
           "state": "LOS LAGOS",
           "street": "RUTA 5",
           "country": "CL",
@@ -3841,6 +3842,7 @@
           "installedChangeDate": "2025-01-06T16:05:19.000-03:00"
         },
         "positionStatus": {
+          "city": "PUERTO MONTT",
           "state": "LOS LAGOS",
           "street": "RUTA 5",
           "country": "CL",

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import { ZoneData, ApiZoneData } from "../types/Zone";
 import { getZones } from "../services/zoneService";
-import { ZoneData } from "../types/Zone";
 
 export const useZones = () => {
   const [zones, setZones] = useState<ZoneData[]>([]);
@@ -8,10 +8,25 @@ export const useZones = () => {
 
   useEffect(() => {
     const fetchZones = async () => {
-      const data = await getZones();
-      setZones(data);
-      setLoading(false);
+      try {
+        const data: ApiZoneData[] = await getZones();
+
+        const transformedZones: ZoneData[] = data.map((zone) => ({
+          id: String(zone.id),
+          name: zone.name,
+          color: zone.color,
+          category: zone.category,
+          coordinates: zone.coordinates.map((coord) => [coord.latitud, coord.longitud]),
+        }));
+
+        setZones(transformedZones);
+      } catch (error) {
+        console.error("Error al obtener zonas:", error);
+      } finally {
+        setLoading(false);
+      }
     };
+
     fetchZones();
   }, []);
 
