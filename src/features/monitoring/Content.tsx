@@ -3,17 +3,18 @@ import { MapView } from "../maps"
 // import InfoPanel from "./InfoPanel"
 import Button from "../../components/ui/Button"
 import { useState } from "react";
+import { LatLngExpression } from "leaflet";
 
 type contentProps = {
     origen: [number, number];
     destino: [number, number];
-    origenDestinyAsigned: [number[], number[]] | null;
+    origenDestinyAsigned?: LatLngExpression[];
 }
 
-function Content({ origen, destino }: contentProps) {
+function Content({ origen, destino, origenDestinyAsigned }: contentProps) {
 
     const [gridMap, setGridMap] = useState<boolean | null>(false);
-    const [gridType, setGridType] = useState<string | null>("grid grid-cols-2 grid-rows-2");
+    const [gridType, setGridType] = useState<string | null>("grid grid-cols-1");
 
     return (
         <div className="relative w-full h-full text-zinc-50">
@@ -94,7 +95,10 @@ function Content({ origen, destino }: contentProps) {
             <div className={`relative grid grid-cols-3 gap-2 `}>
                 <div className={`col-span-3 ${gridType}`}>
                     {
-                        gridType === "grid grid-cols-1" && <MapView tripOrigin={origen} options={false} tripDestination={destino} />
+                        gridType === "grid grid-cols-1"
+                        &&
+                        <MapView tripOrigin={origen} options={false} tripDestination={destino} origenDestinyAsigned={origenDestinyAsigned} />
+
                         || gridType === "grid grid-cols-2 grid-rows-2" && (
                             <>
                                 {

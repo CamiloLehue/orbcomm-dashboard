@@ -4,19 +4,17 @@ import Content from "./Content";
 import { useState } from "react";
 
 function Monitoring() {
-  const origen: [number, number] = [-43.1375, -73.6400];
-  const destino: [number, number] = [-42.1350, -73.6400];
+  const origen: [number, number] = [-43.1375, -73.6400]; //almacena el enfoque de la camara
+  const destino: [number, number] = [-42.1350, -73.6400]; //almacena el enfoque de la camara
 
 
 
   const [origenDestinyAsigned, setOrigenDestinyAsigned] = useState<[number[], number[]] | null>([origen, destino]);
+  // const [origenAsigned, setOorigenAsigned] = useState<[number[], number[]] | null>([origen, destino]);
+  // const [destinoAsigned, setDestinoAsigned] = useState<[number[], number[]] | null>([origen, destino]);
 
-  const origenAsignado = origenDestinyAsigned?.[0];
-  const destinoAsignado = origen;
 
-  console.log(
-    "d : " + origenAsignado + " ------------------------------- " + destinoAsignado
-  );
+
   return (
     <div className="relative h-full w-full flex flex-col justify-start items-start pr-5">
       <TopBar />

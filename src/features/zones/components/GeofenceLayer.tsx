@@ -1,7 +1,7 @@
 import GeofencePolygon from "./GeofencePolygon";
 import { useZones } from "../hooks/useZones";
 
-const GeofenceLayer = () => {
+const GeofenceLayer = ( ) => {
     const { zones, loading } = useZones();
 
     if (loading) return null;
