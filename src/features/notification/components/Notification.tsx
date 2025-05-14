@@ -7,15 +7,21 @@ import { GrCircleQuestion, GrPhone } from "react-icons/gr"
 function Notification() {
 
     return (
-        <div className="relative flex flex-col justify-between rounded-2xl bg-bgp border border-bgt p-5 w-full">
+        <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl bg-bgp border border-bgt p-5 w-full">
+            <div className="absolute left-0 top-0 h-[1000px] w-[1000px] bg-gray/30 rounded-full blur-3xl "></div>
             <div>
-                <div className="flex flex-col w-full">
-                    <h5 className="leading-1.5">
-                        Notificaciones
-                    </h5>
-                    <small className="text-xs text-gray">
-                        del sistema
-                    </small>
+                <div className="flex justify-between items-center w-full">
+                    <div className="relative flex flex-col w-full">
+                        <h5 className="leading-3">
+                            Notificaciones
+                        </h5>
+                        <small className="text-xs text-gray">
+                            del sistema
+                        </small>
+                    </div>
+                    <div className=" border border-gray/20 px-4 rounded-full flex justify-center items-center py-1">
+                        <small className="text-nowrap text-gray font-light"><span className="text-danger font-bold">5 </span>Nuevas notificaciones</small>
+                    </div>
                 </div>
                 <div className="w-full relative  overflow-y-auto h-[200px] mt-5">
                     <NotificationItem data={dataNotification} />
@@ -71,7 +77,7 @@ const NotificationItem = ({ data }: NotificationItemProps) => {
 
     return (
         <>
-            <div className="relative flex flex-col gap-2  bg-bgp pe-2 pb-5">
+            <div className="relative flex flex-col gap-2 pe-2 pb-5">
                 {
                     data.map((item, i) => (
                         <div key={i} className={`relative py-2 transition-all duration-500 cursor-pointer hover:bg-transparent rounded-lg  grid grid-cols-5 ${getStyleColor(item.status)}`}>

@@ -2,8 +2,8 @@ import TiempoXDistancia from './DesarrolloData'
 
 function StatisticsAccesDirect() {
     return (
-        <div className="col-span-3 relative flex flex-col gap-2 justify-between rounded-2xl ">
-            <div className="flex flex-col w-full p-5 border rounded-2xl bg-bgt border-gray/20">
+        <div className="col-span-3 relative flex flex-col gap-2 bg-bgp/70 overflow-hidden justify-between rounded-2xl ">
+            <div className="flex flex-col w-full p-5 ">
                 <h4 className="leading-4">
                     Estadisticas
                 </h4>
@@ -11,8 +11,8 @@ function StatisticsAccesDirect() {
                     Medición de tiempo y distancia recorrida
                 </small>
             </div>
-            <div className="relative w-full ">
-                {/* <div className='absolute top-0 left-50 w-[300px] h-[300px] rounded-full bg-danger/20 blur-3xl'></div> */}
+            <div className="relative w-full px-10 ">
+                <div className='absolute bottom-0 right-20 w-90 h-90 blur-3xl bg-gradient-to-t from-secondary/40 to-primary/30'></div>
                 <TiempoXDistancia />
             </div>
         </div>

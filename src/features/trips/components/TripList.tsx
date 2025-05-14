@@ -4,24 +4,19 @@ import { useTrips } from '../hooks/useTrips';
 
 function TripList() {
     const { trips, loading } = useTrips();
-
-    console.log("tripsVista->", trips);
-
     if (loading) return <p>Cargando...</p>;
-
     if (!Array.isArray(trips)) {
         return <p>No se encontraron viajes disponibles</p>;
     }
-
     return (
-        <div className="col-span-2 relative flex flex-col justify-between rounded-2xl bg-bgp">
+        <div className="col-span-2 relative flex flex-col justify-between rounded-2xl bg-bgp border border-gray/20 overflow-hidden">
+            <div className='absolute bottom-0 left-20 w-90 h-70 blur-3xl bg-gradient-to-t from-secondary/40 to-primary/30'></div>
             <div>
-                <div className="flex flex-col w-full p-5 border rounded-2xl bg-bgt border-gray/20">
+                <div className="flex flex-col w-full p-5 ">
                     <h4 className="leading-4">Seguimiento</h4>
                     <small className="text-xs text-gray">de vehículos activos</small>
                 </div>
-
-                <div className="h-20 bg-bgp grid grid-cols-3 gap-2">
+                <div className="h-20  grid grid-cols-3 gap-2">
                     <div className="flex flex-col justify-center items-center">
                         <h2 className="text-warning">2</h2>
                         <small className="text-xs">Detenidos</small>

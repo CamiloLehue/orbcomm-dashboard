@@ -10,7 +10,7 @@ import { ZoneData } from "../types/Zone";
 // -> cuando se haga el backend
 
 export const getZones = async (): Promise<ZoneData[]> => {
-    const res = await fetch("https://significance-honolulu-mba-harley.trycloudflare.com/geofences");
+    const res = await fetch("https://apistruck.neuroeac.cl/geofences");
     const data: ZoneData[] = await res.json();
 
 

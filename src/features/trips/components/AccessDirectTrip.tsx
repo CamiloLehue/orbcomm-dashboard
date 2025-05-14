@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { GrFormDown, GrFormNextLink, GrFormPin } from "react-icons/gr";
+import Button from "../../../components/ui/Button";
 
 interface AccessDirectTripProps {
     origen: string;
@@ -27,20 +29,37 @@ function AccessDirectTrip({ estado = "En Camino", zonePoints }: AccessDirectTrip
     // const progress = 25;
     // const nextProgress = 50;
     return (
-        <div className="relative  flex flex-col place-items-center w-full min-h-70  rounded-3xl 
-        bg-gradient-to-l from-red-600 to-orange-950 shadow-xl shadow-bgp border-t border-t-danger/30"
+        <div className="relative  flex flex-col place-items-center w-full min-h-70  rounded-3xl rounded-tl-lg overflow-hidden shadow 
+        bg-gradient-to-l from-red-800/50 to-bgp"
         >
+            <div className="absolute right-5 top-2 flex justify-center items-center gap-2 z-10">
+                <div className="rounded-full flex justify-center gap-2 items-center py-1">
+                    <Button rounded="full" className="py-1 hover:bg-bgp">
+                        <GrFormNextLink size={20} />
+                    </Button>
+                    <Button rounded="full" className="py-1 hover:bg-bgp">
+                        <GrFormDown size={20} />
+                    </Button>
+                </div>
+                <GrFormPin className="text-2xl text-primary" />
+            </div>
+            <div className="absolute right-0 top-0 bg-danger/40 h-60 w-100 rounded-full blur-3xl"></div>
+            <div className="absolute right-[50%] top-0 bg-danger/10 h-60 w-100 rounded-full blur-3xl"></div>
             <div className="relative w-full h-[50%]  p-1">
                 <div className="grid grid-cols-2 w-full h-full p-5">
-                    <div className="flex justify-center items-center relative">
-                        <div className="h-11 w-0.5 bg-white absolute left-[5px] top-1 "></div>
+                    <div className="flex justify-center items-center relative mt-3">
+                        <div className="h-23 w-0.5 bg-white absolute left-[20px] top-1 "></div>
                         <div className="flex justify-start items-center gap-3 ps-0.5">
-                            <div className="absolute top-1 left-0.5 w-2 h-2 bg-danger rounded-full"></div>
-                            <h5 className="absolute left-5 top-0 ">11:30 - Salida origen</h5>
+                            <div className="absolute top-1 left-4.5 w-2 h-2 bg-danger rounded-full"></div>
+                            <h5 className="absolute left-10 top-0 ">11:30 - Salida origen</h5>
                         </div>
                         <div className="flex justify-start items-center gap-3 ">
-                            <div className="absolute left-0.5 top-12 w-2 h-2 bg-danger rounded-full"></div>
-                            <h5 className="absolute left-5 top-10 ">16:00hrs - Llegada a destino</h5>
+                            <div className="absolute left-4.5 top-12 w-2 h-2 bg-danger rounded-full"></div>
+                            <h5 className="absolute left-10 top-10.5 ">14:00hrs - Pasó Geocerca habilitada</h5>
+                        </div>
+                        <div className="flex justify-start items-center gap-3 ">
+                            <div className="absolute left-4.5 top-23 w-2 h-2 bg-danger rounded-full"></div>
+                            <h5 className="absolute left-10 top-21 ">14:35hrs - Trasbordo pargua</h5>
                         </div>
                     </div>
                     <div className=" flex justify-center items-center">
@@ -49,7 +68,7 @@ function AccessDirectTrip({ estado = "En Camino", zonePoints }: AccessDirectTrip
                 </div>
             </div>
             <div className="relative w-full h-[50%] p-0.5">
-                <div className="relative w-full h-full bg-gradient-to-tr from-bgb to-bgt/50 rounded-3xl  flex flex-col justify-center items-center">
+                <div className="relative w-full h-full bg-gradient-to-tr from-bgp to-bgp/50 rounded-3xl  flex flex-col justify-center items-center">
                     <div className="relative w-[calc(100%-10rem)] mx-auto">
                         <div className="absolute bottom-0 left-0 w-full h-0.5 bg-danger">
                         </div>

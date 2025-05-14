@@ -6,7 +6,7 @@ import StatisticsAccesDirect from "../statistics/components/StatisticsAccesDirec
 // import ReportList from "../reports/components/ReportList";
 function Dashboard() {
   return (
-    <div className="relative h-full w-full flex flex-col justify-start items-start px-5">
+    <div className="relative h-full w-full flex flex-col justify-start items-start px-2">
       <div className="grid grid-cols-12 gap-2 w-full">
         <div className="col-span-8 flex flex-col gap-2"
         >
@@ -26,8 +26,8 @@ function Dashboard() {
                 <h3 className="absolute top-3 left-5 font-light">Mapa</h3>
                 <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rastreo en línea</h5>
               </div>
-              <div className="relative  w-full h-full">
-                <MapView tripOrigin={null} tripDestination={null} height="1080px" />
+              <div className="relative w-full h-full top-55">
+                <MapView tripOrigin={null} tripDestination={null} options={true} height="700px" />
               </div>
             </div>
           </article>

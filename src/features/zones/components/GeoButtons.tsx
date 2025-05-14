@@ -18,7 +18,7 @@ function GeoButtons() {
         <>
             <div className="absolute -bottom-10 z-[9999] bg-stone-900 w-full rounded-t-xl p-3  shadow space-y-1  overflow-y-auto h-[300px]">
                 <div className="grid grid-cols-2 gap-2 ">
-                    {zones.filter((zone) => zone.category !== "Copec").map((zone) => {
+                    {zones.filter((zone) => zone.category === "Copec").map((zone) => {
                         const [lat, lng] = zone.coordinates[1];
                         return (
                             <button
