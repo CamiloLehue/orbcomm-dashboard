@@ -12,9 +12,10 @@ interface MapViewProps {
     tripDestination: [number, number] | null;
     height?: string;
     options?: boolean;
+    origenDestinyAsigned?: [number[], number[]];
 }
 
-const MapView = ({ tripOrigin, tripDestination, height = "608px", options = false }: MapViewProps) => {
+const MapView = ({ tripOrigin, tripDestination, origenDestinyAsigned, height = "608px", options = false }: MapViewProps) => {
     const { BaseLayer, Overlay } = LayersControl;
     const { route, markerIndex } = useRouteSimulation(); // Obtener la ruta simulada que realiza el camión
     const [lat, lon] = route[markerIndex] as [number, number];
@@ -24,7 +25,9 @@ const MapView = ({ tripOrigin, tripDestination, height = "608px", options = fals
         <div className="rounded-b-xl ">
             {/* Valor por defecto = center={[-43.1375, -73.6425]]} */}
             <MapContainer center={tripOrigin ?? [-43.1375, -73.6425]} zoom={14} scrollWheelZoom={true} style={{ height: height, width: "100%" }}>
-
+                <div className="absolute left-0 top-0  z-[9999] bg-bgp px-2 rounded-e-full py-1">
+                    <small>{origenDestinyAsigned}</small>
+                </div>
                 {
                     options &&
                     <div className="bg-black backdrop-blur flex flex-col justify-center items-center  border border-gray/40 rounded-lg     absolute bottom-12 left-2  text-center">
@@ -55,7 +58,7 @@ const MapView = ({ tripOrigin, tripDestination, height = "608px", options = fals
                         /> */}
                     </BaseLayer>
                     <Overlay checked name="Ruta Simulada">
-                        <RouteLayer />
+                        <RouteLayer origenDestinyAsigned={origenDestinyAsigned} />
                     </Overlay>
                     <Overlay checked name="Camión">
                         <VehicleMarker />

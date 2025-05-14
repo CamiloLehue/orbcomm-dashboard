@@ -91,10 +91,9 @@ const CardViajes = ({ setOrigenDestinyAsigned }: LeftBarProps) => {
                                     <small className="text-secondary">
                                         <CgShapeHexagon />
                                     </small>
-                                    <small className="flex justify-center items-center gap-2 text-xs">
-                                        {cityOrigen}
-                                        -
-                                        {cityDestino}
+                                    <small className="flex flex-col text-nowrap justify-center items-start gap-2 text-xs">
+                                        <span className="text-primary">{cityOrigen}</span>
+                                        <span className="text-secondary">{cityDestino}</span>
                                     </small>
                                 </div>
 
