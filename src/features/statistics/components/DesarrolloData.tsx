@@ -32,7 +32,7 @@ const generateTimestamps = (startDate: Date, count: number, intervalSec = 15) =>
   });
 };
 
-const rawDataList = Array.from({ length: 7 }, (_, idx) => {
+const rawDataList = Array.from({ length: 3 }, (_, idx) => {
   const offset = Math.floor(Math.random() * 5);
   const dataLength = 10 + Math.floor(Math.random() * 5);
   const baseDate = new Date("2025-01-23T09:00:00");

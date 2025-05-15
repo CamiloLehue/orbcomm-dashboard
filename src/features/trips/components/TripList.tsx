@@ -9,8 +9,8 @@ function TripList() {
         return <p>No se encontraron viajes disponibles</p>;
     }
     return (
-        <div className="col-span-2 relative flex flex-col justify-between rounded-2xl bg-bgp border border-gray/20 overflow-hidden">
-            <div className='absolute bottom-0 left-20 w-90 h-70 blur-3xl bg-gradient-to-t from-secondary/40 to-primary/30'></div>
+        <div className="relative flex flex-col justify-between h-full rounded-xs bg-bgt border border-gray/20 overflow-hidden">
+            <div className='absolute opacity-45 bottom-0 left-20 w-90 h-70 blur-3xl bg-gradient-to-t from-secondary/40 to-primary/30'></div>
             <div>
                 <div className="flex flex-col w-full p-5 ">
                     <h4 className="leading-4">Seguimiento</h4>
@@ -31,14 +31,14 @@ function TripList() {
                     </div>
                 </div>
 
-                <div className="max-h-[250px] overflow-y-auto px-2">
-                    <div className="w-full relative flex flex-col gap-1 pb-8">
+                <div className="max-h-[170px] overflow-y-auto px-1 ps-2">
+                    <div className="w-full relative flex flex-col gap-1 pb-8 overflow-hidden rounded-xl">
                         {trips.map((trip, i) => {
                             const valorPorcentaje = Math.round(Math.random() * 100);
                             return (
                                 <div
                                     key={i}
-                                    className="relative group overflow-hidden bg-bgt w-full hover:bg-transparent cursor-pointer  h-15 rounded-lg grid grid-cols-5 px-2 py-1"
+                                    className="relative group overflow-hidden bg-bgt w-full hover:bg-transparent cursor-pointer  h-15 rounded-xs grid grid-cols-5 px-2 py-1"
 
                                 >
                                     <div className='absolute left-0 bottom-0 h-0.5  bg-gradient-to-bl from-secondary/70 to-primary/50  blur-3xl'
@@ -82,7 +82,7 @@ function TripList() {
                     </div>
                 </div>
 
-                <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-bgp from-55%"></div>
+                {/* <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-bgt from-55%"></div> */}
             </div>
         </div>
     );

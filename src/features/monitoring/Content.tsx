@@ -97,7 +97,7 @@ function Content({ origen, destino, origenDestinyAsigned }: contentProps) {
                     {
                         gridType === "grid grid-cols-1"
                         &&
-                        <MapView tripOrigin={origen} options={false} tripDestination={destino} origenDestinyAsigned={origenDestinyAsigned} />
+                        <MapView tripOrigin={origen} options={true} tripDestination={destino} origenDestinyAsigned={origenDestinyAsigned} />
 
                         || gridType === "grid grid-cols-2 grid-rows-2" && (
                             <>

@@ -29,8 +29,8 @@ function AccessDirectTrip({ estado = "En Camino", zonePoints }: AccessDirectTrip
     // const progress = 25;
     // const nextProgress = 50;
     return (
-        <div className="relative  flex flex-col place-items-center w-full min-h-70  rounded-3xl rounded-tl-lg overflow-hidden shadow 
-        bg-gradient-to-l from-red-800/50 to-bgp"
+        <div className="relative flex flex-col place-items-center w-full min-h-80 overflow-hidden shadow 
+        bg-gradient-to-tl from-orange-900 to-danger rounded-xs"
         >
             <div className="absolute right-5 top-2 flex justify-center items-center gap-2 z-10">
                 <div className="rounded-full flex justify-center gap-2 items-center py-1">
@@ -68,7 +68,7 @@ function AccessDirectTrip({ estado = "En Camino", zonePoints }: AccessDirectTrip
                 </div>
             </div>
             <div className="relative w-full h-[50%] p-0.5">
-                <div className="relative w-full h-full bg-gradient-to-tr from-bgp to-bgp/50 rounded-3xl  flex flex-col justify-center items-center">
+                <div className="relative w-full h-full bg-gradient-to-tr  from-bgp to-bgp rounded-xs  flex flex-col justify-center items-center">
                     <div className="relative w-[calc(100%-10rem)] mx-auto">
                         <div className="absolute bottom-0 left-0 w-full h-0.5 bg-danger">
                         </div>
