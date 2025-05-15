@@ -10,12 +10,12 @@ import { useReverseGeocode } from "../hooks/useReverseGeocode";
 interface MapViewProps {
     tripOrigin: [number, number] | null;
     tripDestination: [number, number] | null;
+    origenDestinyAsigned?: [number, number][] | null;
     height?: string;
     options?: boolean;
-    origenDestinyAsigned?: [number[], number[]];
 }
 
-const MapView = ({ tripOrigin, tripDestination, origenDestinyAsigned, height = "608px", options = false }: MapViewProps) => {
+const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]], height = "608px", options = false }: MapViewProps) => {
     const { BaseLayer, Overlay } = LayersControl;
     const { route, markerIndex } = useRouteSimulation(); // Obtener la ruta simulada que realiza el camión
     const [lat, lon] = route[markerIndex] as [number, number];

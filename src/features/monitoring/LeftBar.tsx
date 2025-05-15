@@ -5,7 +5,7 @@ import { CgShapeHexagon } from "react-icons/cg";
 import { useAllTrips } from "../trips/hooks/useAllsTrips";
 
 type LeftBarProps = {
-    setOrigenDestinyAsigned: (value: [number[], number[]] | null) => void;
+    setOrigenDestinyAsigned: (value: [number, number][] | null) => void;
 }
 
 function LeftBar({ setOrigenDestinyAsigned }: LeftBarProps) {

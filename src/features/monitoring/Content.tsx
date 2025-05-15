@@ -3,15 +3,15 @@ import { MapView } from "../maps"
 // import InfoPanel from "./InfoPanel"
 import Button from "../../components/ui/Button"
 import { useState } from "react";
-import { LatLngExpression } from "leaflet";
 
 type contentProps = {
     origen: [number, number];
     destino: [number, number];
-    origenDestinyAsigned?: LatLngExpression[];
+    origenDestinyAsigned?: [number, number][] | null;
 }
 
-function Content({ origen, destino, origenDestinyAsigned }: contentProps) {
+function Content({ origen, destino, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]]
+}: contentProps) {
 
     const [gridMap, setGridMap] = useState<boolean | null>(false);
     const [gridType, setGridType] = useState<string | null>("grid grid-cols-1");
@@ -95,10 +95,14 @@ function Content({ origen, destino, origenDestinyAsigned }: contentProps) {
             <div className={`relative grid grid-cols-3 gap-2 `}>
                 <div className={`col-span-3 ${gridType}`}>
                     {
+
                         gridType === "grid grid-cols-1"
                         &&
-                        <MapView tripOrigin={origen} options={true} tripDestination={destino} origenDestinyAsigned={origenDestinyAsigned} />
-
+                        <MapView
+                            tripOrigin={origen}
+                            tripDestination={destino}
+                            origenDestinyAsigned={origenDestinyAsigned}
+                        />
                         || gridType === "grid grid-cols-2 grid-rows-2" && (
                             <>
                                 {
@@ -108,13 +112,16 @@ function Content({ origen, destino, origenDestinyAsigned }: contentProps) {
                                 }
                             </>
                         )
+
                         || gridType === "grid grid-cols-3 grid-rows-2" && <>
                             {
                                 Array(6).fill(null).map((_, index) => (
                                     <MapView key={index} tripOrigin={null} tripDestination={null} height="349px" />
                                 ))
                             }
+
                         </>
+
                         || gridType === "grid grid-cols-4 grid-rows-2" && <>
                             {
                                 Array(8).fill(null).map((_, index) => (
