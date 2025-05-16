@@ -10,6 +10,7 @@ import CreateTrips from "./features/trips/components/CreateTrips";
 import Monitoring from "./features/monitoring";
 import ViewTrip from "./features/trips/components/ViewTrip";
 import Configuration from "./features/configuration/components/Configuration";
+import Monotorings from "./features/monitorings/components/monotorings";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -29,7 +30,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/viajes/editar/:id" element={<CreateTrips />} />
           {/* Monitoreo */}
           <Route path="/monitoreo" element={<Monitoring />} />
-
+          <Route path="/seguimientos" element={<Monotorings />} />
           {/* Tramos */}
           <Route path="/tramos" element={<Trips />} />
           <Route path="/tramos/crear" element={<CreateTrips />} />

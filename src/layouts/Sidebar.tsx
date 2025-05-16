@@ -31,6 +31,12 @@ function Sidebar() {
         },
         {
             icon: GrGateway,
+            text: "Seguimientos",
+            link: "/seguimientos",
+
+        },
+        {
+            icon: GrGateway,
             text: "Monitoreo",
             link: "/monitoreo",
             submenu: [
