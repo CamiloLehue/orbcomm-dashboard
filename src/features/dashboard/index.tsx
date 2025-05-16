@@ -3,6 +3,7 @@ import Notification from "../notification/components/Notification";
 // import { MapView } from "../maps";
 import TripList from "../trips/components/TripList";
 import StatisticsAccesDirect from "../statistics/components/StatisticsAccesDirect";
+import StatisticsSpeed from "../statistics/components/StatisticsSpeed";
 // import ReportList from "../reports/components/ReportList";
 function Dashboard() {
   return (
@@ -21,7 +22,7 @@ function Dashboard() {
               <StatisticsAccesDirect />
             </div>
             <div className="border border-gray/20 p-1">
-              <StatisticsAccesDirect />
+              <StatisticsSpeed />
             </div>
           </div>
         </div>

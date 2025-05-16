@@ -15,7 +15,7 @@ interface MapViewProps {
     options?: boolean;
 }
 
-const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]], height = "608px", options = false }: MapViewProps) => {
+const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]], height = "100%", options = false }: MapViewProps) => {
     const { BaseLayer, Overlay } = LayersControl;
     const { route, markerIndex } = useRouteSimulation(); // Obtener la ruta simulada que realiza el camión
     const [lat, lon] = route[markerIndex] as [number, number];

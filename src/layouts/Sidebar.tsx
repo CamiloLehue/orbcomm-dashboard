@@ -1,4 +1,12 @@
-import { GrDeliver, GrGateway, GrNavigate, GrProjects, GrFormNext, GrApps, GrPerformance } from "react-icons/gr"
+import {
+    GrDeliver,
+    GrGateway,
+    // GrNavigate, 
+    GrProjects,
+    GrFormNext,
+    GrApps,
+    GrPerformance
+} from "react-icons/gr"
 import Button from "../components/ui/Button"
 import { useNavigate } from "react-router"
 import { useState } from "react";
@@ -35,40 +43,40 @@ function Sidebar() {
             link: "/seguimientos",
 
         },
-        {
-            icon: GrGateway,
-            text: "Monitoreo",
-            link: "/monitoreo",
-            submenu: [
-                {
-                    icon: GrProjects,
-                    text: "Inicio",
-                    link: "/"
-                },
-                {
-                    icon: GrProjects,
-                    text: "Inicio",
-                    link: "/"
-                },
-            ]
-        },
-        {
-            icon: GrNavigate,
-            text: "Tramos",
-            link: "/tramos",
-            submenu: [
-                {
-                    icon: GrProjects,
-                    text: "Inicio",
-                    link: "/"
-                },
-                {
-                    icon: GrProjects,
-                    text: "Inicio",
-                    link: "/"
-                },
-            ]
-        },
+        // {
+        //     icon: GrGateway,
+        //     text: "Monitoreo",
+        //     link: "/monitoreo",
+        //     submenu: [
+        //         {
+        //             icon: GrProjects,
+        //             text: "Inicio",
+        //             link: "/"
+        //         },
+        //         {
+        //             icon: GrProjects,
+        //             text: "Inicio",
+        //             link: "/"
+        //         },
+        //     ]
+        // },
+        // {
+        //     icon: GrNavigate,
+        //     text: "Tramos",
+        //     link: "/tramos",
+        //     submenu: [
+        //         {
+        //             icon: GrProjects,
+        //             text: "Inicio",
+        //             link: "/"
+        //         },
+        //         {
+        //             icon: GrProjects,
+        //             text: "Inicio",
+        //             link: "/"
+        //         },
+        //     ]
+        // },
         {
             icon: GrPerformance,
             text: "Configuración",
@@ -98,8 +106,9 @@ function Sidebar() {
                     }
                 </Button>
             </div>
-            <div>
-                <h1 className="text-xs">S<span className="font-bold text-primary">Track</span></h1>
+            <div className="flex flex-col justify-center items-center">
+                <h5 className="text-danger font-bold">WI<span className="text-white/60 font-normal">SENSOR</span></h5>
+                <small className="text-xs font-light">S<span className="text-secondary">Track</span></small>
             </div>
             <h6 className="text-zinc-600 text-center font-bold">
                 Menu
