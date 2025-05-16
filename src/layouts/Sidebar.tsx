@@ -20,6 +20,13 @@ function Sidebar() {
             text: "Explorar",
             link: "/",
         },
+        
+        {
+            icon: GrGateway,
+            text: "Seguimientos",
+            link: "/seguimientos",
+
+        },
         {
             icon: GrDeliver,
             text: "Viajes",
@@ -36,12 +43,6 @@ function Sidebar() {
                     link: "/"
                 },
             ]
-        },
-        {
-            icon: GrGateway,
-            text: "Seguimientos",
-            link: "/seguimientos",
-
         },
         // {
         //     icon: GrGateway,
@@ -124,7 +125,7 @@ function Sidebar() {
                                         <Button
                                             onClick={() => navigate(item.link)}
                                             rounded="sm"
-                                            className={`text-xs px-4 py-3 font-bold bg-bgt shadow w-full text-zinc-200 flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
+                                            className={`text-xs px-4 py-3 font-bold bg-danger/50 shadow w-full text-zinc-200 flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
                                             <item.icon size={15} />
                                             {
                                                 openSidebar && item.text

@@ -40,12 +40,12 @@ const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-4
                     </div>
                 }
 
-                <LayersControl  position="topright">
+                <LayersControl position="topright">
                     <BaseLayer checked name="Esri Satellite">
                         <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
                     </BaseLayer>
 
-                    <BaseLayer  name="OpenStreetMap">
+                    <BaseLayer name="OpenStreetMap">
                         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                         {/* <TileLayer
                             url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
@@ -61,7 +61,7 @@ const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-4
                         <RouteLayer origenDestinyAsigned={origenDestinyAsigned} />
                     </Overlay>
                     <Overlay checked name="Camión">
-                        <VehicleMarker />
+                        <VehicleMarker origenDestinyAsigned={origenDestinyAsigned} />
                     </Overlay>
 
                     <Overlay checked name="Zonas Geográficas">

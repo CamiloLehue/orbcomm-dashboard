@@ -19,7 +19,7 @@ function Notification() {
                             del sistema
                         </small>
                     </div>
-                    <div className=" border border-gray/20 px-4 rounded-full flex justify-center items-center py-1">
+                    <div className=" border border-gray/20 px-2 rounded-full flex justify-center items-center py-1">
                         <small className="text-nowrap text-gray font-light"><span className="text-danger font-bold">5 </span>Nuevas notificaciones</small>
                     </div>
                 </div>

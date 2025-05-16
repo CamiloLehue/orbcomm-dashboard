@@ -42,7 +42,7 @@ interface SpeedData {
 
 export default function VelocidadesTruck() {
   const [seriesData, setSeriesData] = useState<SpeedData[][]>([]);
-  const chartRef = useRef<echarts.ECharts | null>(null);
+  // const chartRef = useRef<echarts.ECharts | null>(null);
   const positionsRef = useRef<number[]>([]);
   const speedsRef = useRef<number[]>([]);
   const lastUpdateRef = useRef<number>(0);
@@ -156,7 +156,7 @@ export default function VelocidadesTruck() {
     xAxis: {
       type: "category",
       name: "Tiempo",
-      axisLabel: { color: "#fff", rotate: 45 },
+      // axisLabel: { color: "#fff", rotate: 45 },
       boundaryGap: false,
     },
     yAxis: {
@@ -176,7 +176,7 @@ export default function VelocidadesTruck() {
       <EChartComponent
         option={option as echarts.EChartsOption}
         style={{ width: "100%", height: "320px" }}
-        onChartReady={(chart: echarts.ECharts) => { chartRef.current = chart; }}
+        // onChartReady={(chart: echarts.ECharts) => { chartRef.current = chart; }}
       />
     </div>
   );

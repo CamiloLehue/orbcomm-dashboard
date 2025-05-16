@@ -1,14 +1,18 @@
 import { CgShapeHexagon } from 'react-icons/cg';
 import { GrFormNextLink } from 'react-icons/gr';
 import { useAllTrips } from '../hooks/useAllsTrips';
+import { useNavigate } from 'react-router';
 
 function TripList() {
+
+    const navigate = useNavigate();
     const { allTrips, loading } = useAllTrips();
 
     if (loading) return <p>Cargando...</p>;
     if (!Array.isArray(allTrips)) {
         return <p>No se encontraron viajes disponibles</p>;
     }
+    
     return (
         <div className="relative flex flex-col justify-between h-full rounded-xs bg-bgt border border-gray/20 overflow-hidden">
             <div className='absolute opacity-45 bottom-0 left-0 w-50 h-70 blur-3xl bg-gradient-to-t from-secondary/40 to-primary/30'></div>
@@ -58,6 +62,7 @@ function TripList() {
                             return (
                                 <div
                                     key={i}
+                                    onClick={() => navigate(`/viajes/ver/1`)}
                                     className="relative group overflow-hidden bg-bgt w-full hover:bg-transparent cursor-pointer  h-15 rounded-xs grid grid-cols-5 px-2 py-1"
 
                                 >
