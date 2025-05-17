@@ -1,7 +1,25 @@
+import { useState } from "react";
 import { useZones } from "../hooks/useZones";
 import { useMap } from "react-leaflet";
+import Button from "../../../components/ui/Button";
 
 function GeoButtons() {
+    const [openMenu, setOpenMenu] = useState(false);
+    return (
+        <>
+            <div className="absolute bottom-10 left-2 bg-bgt z-[9999] px-4 rounded">
+                <Button onClick={() => setOpenMenu(!openMenu)} className="text-xs text-white flex  items-center justify-start  gap-2">
+                    Abrir menu
+                </Button>
+            </div>
+            {
+                openMenu && <MenuOptions />
+            }
+        </>
+    );
+}
+
+const MenuOptions = () => {
     const { zones, loading } = useZones();
     const map = useMap();
 
@@ -16,30 +34,27 @@ function GeoButtons() {
 
     return (
         <>
-            <div className="absolute -bottom-10 z-[9999] bg-stone-900 w-full rounded-t-xl p-3  shadow space-y-1  overflow-y-auto h-[300px]">
-                <div className="grid grid-cols-2 gap-2 ">
-                    {zones.filter((zone) => zone.category === "Copec").map((zone) => {
+            <div className="absolute top-0 right-0 z-[9999] bg-bgp/30 backdrop-blur w-50 p-1  shadow space-y-1  overflow-y-auto h-full">
+                <div className="flex flex-col gap-2 ">
+                    {zones.map((zone) => {
                         const [lat, lng] = zone.coordinates[1];
                         return (
                             <button
                                 key={zone.id}
                                 onClick={() => handleFlyToZone(lat, lng)}
-                                className=" bg-bgt border h-12 border-gray/30  text-white rounded hover:bg-bgp"
+                                className=" bg-bgp py-2  text-white hover:bg-bgp"
                                 style={{
                                     borderWidth: 1,
                                     borderColor: zone.color
                                 }}
                             >
-                                {zone.name}
+                                <small className="text-[10px]">{zone.name}</small>
                             </button>
                         );
                     })}
                 </div>
             </div>
-            <div className="absolute bottom-0 z-[9999] left-0 w-full h-10 bg-gradient-to-t from-bgp from-25%"></div>
-
-        </>
-    );
+            <div className="absolute bottom-0 z-[9999] left-0 w-full h-10 bg-gradient-to-t from-bgp from-25%"></div></>
+    )
 }
-
 export default GeoButtons;

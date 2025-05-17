@@ -61,7 +61,7 @@ export default function VelocidadesTruck() {
 
     setSeriesData(initialData);
 
-    const interval = setInterval(updateData, 3000); // Actualizar cada 3 segundos
+    const interval = setInterval(updateData, 10000); // Actualizar cada 3 segundos
 
     return () => clearInterval(interval);
   }, []);

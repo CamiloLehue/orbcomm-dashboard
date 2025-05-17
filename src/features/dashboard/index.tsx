@@ -4,6 +4,7 @@ import Notification from "../notification/components/Notification";
 import TripList from "../trips/components/TripList";
 import StatisticsAccesDirect from "../statistics/components/StatisticsAccesDirect";
 import StatisticsSpeed from "../statistics/components/StatisticsSpeed";
+import MultiMapView from "../maps/components/MultiMapView";
 // import ReportList from "../reports/components/ReportList";
 function Dashboard() {
   return (
@@ -38,6 +39,7 @@ function Dashboard() {
               </div>
               <div className="relative w-full h-full top-55">
                 {/* <MapView tripOrigin={null} tripDestination={null} options={true} height="700px" /> */}
+                <MultiMapView height="600px" options={true}   />
               </div>
             </div>
           </article>

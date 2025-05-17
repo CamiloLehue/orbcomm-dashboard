@@ -43,13 +43,13 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
     const layoutPositions = (count: number) => {
         return clsx({
             "grid grid-cols-1": count === 1,
-            "grid grid-cols-2 gap-0.5 1": count === 2,
-            "grid grid-cols-2 gap-0.5  ": count === 3,
-            "grid grid-cols-2 gap-0.5": count === 4,
-            "grid grid-cols-6 gap-0.5": count === 5,
-            "grid grid-cols-3 gap-0.5": count === 6,
-            "grid grid-cols-3 gap-0.5 ": count === 7,
-            "grid grid-cols-4 gap-0.5  ": count === 8,
+            "grid grid-cols-2 gap-1 1": count === 2,
+            "grid grid-cols-2 gap-1  ": count === 3,
+            "grid grid-cols-2 gap-1": count === 4,
+            "grid grid-cols-6 gap-1": count === 5,
+            "grid grid-cols-3 gap-1": count === 6,
+            "grid grid-cols-3 gap-1 ": count === 7,
+            "grid grid-cols-4 gap-1  ": count === 8,
         })
     }
     return (

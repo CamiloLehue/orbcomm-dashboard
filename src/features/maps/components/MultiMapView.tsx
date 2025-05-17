@@ -6,28 +6,28 @@ import { GeoButtons } from "../../zones";
 // import TripRouteLayer from "../../trips/components/TripRouteLayer";
 import { useRouteSimulation } from "../hooks/useRouteSimulation";
 import { useReverseGeocode } from "../hooks/useReverseGeocode";
+import { useAllTrips } from "../../trips/hooks/useAllsTrips";
 
-interface MapViewProps {
-    tripOrigin: [number, number] | null;
-    tripDestination: [number, number] | null;
-    origenDestinyAsigned?: [number, number][] | null;
+interface MultiMapViewProps {
     height?: string;
     options?: boolean;
 }
 
-const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]], height = "100%", options = false }: MapViewProps) => {
+const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) => {
     const { BaseLayer, Overlay } = LayersControl;
     const { route, markerIndex } = useRouteSimulation(); // Obtener la ruta simulada que realiza el camión
     const [lat, lon] = route[markerIndex] as [number, number];
     const address = useReverseGeocode(lat, lon);
 
+    const { allTrips, loading } = useAllTrips();
+
+    if (loading) return <p>Cargando...</p>;
+
     return (
         <div className="rounded-b-xl ">
             {/* Valor por defecto = center={[-43.1375, -73.6425]]} */}
-            <MapContainer center={tripOrigin ?? [-43.1375, -73.6425]} zoom={14} scrollWheelZoom={true} style={{ height: height, width: "100%" }}>
-                <div className="absolute left-0 top-0  z-[9999] bg-bgp px-2 rounded-e-full py-1">
-                    <small>{origenDestinyAsigned}</small>
-                </div>
+            <MapContainer center={[-43.1375, -73.6425]} zoom={5} scrollWheelZoom={false} style={{ height: height, width: "100%" }}>
+
                 {
                     options &&
                     <div className="bg-black backdrop-blur flex flex-col justify-center items-center  border border-gray/40 rounded-lg     absolute bottom-12 left-2  text-center">
@@ -41,7 +41,7 @@ const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-4
                 }
 
                 <LayersControl position="topright">
-                    <BaseLayer  name="Esri Satellite">
+                    <BaseLayer name="Esri Satellite">
                         <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
                     </BaseLayer>
 
@@ -57,12 +57,45 @@ const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-4
                             opacity={1}
                         /> */}
                     </BaseLayer>
-                    <Overlay checked name="Ruta Simulada">
-                        <RouteLayer origenDestinyAsigned={origenDestinyAsigned} />
-                    </Overlay>
-                    <Overlay checked name="Camión">
-                        <VehicleMarker origenDestinyAsigned={origenDestinyAsigned} />
-                    </Overlay>
+
+                    {
+                        allTrips.map((trip, i) => {
+
+                            // Obtener el primer y último registro de data para cada viaje
+                            const firstData = trip.data[0];
+                            const lastData = trip.data[trip.data.length - 1];
+
+                            // Coordenadas de origen y destino
+                            const origenCoords: [number, number] = [
+                                firstData.positionStatus.latitude,
+                                firstData.positionStatus.longitude
+                            ];
+
+                            const destinoCoords: [number, number] = [
+                                lastData.positionStatus.latitude,
+                                lastData.positionStatus.longitude
+                            ];
+
+                            // Nombres de ciudades
+                            // const cityOrigen = firstData.positionStatus.city || "Origen desconocido";
+                            // const cityDestino = lastData.positionStatus.city || "Destino desconocido";
+
+                            // const idStr = firstData.messageId;
+                            // const firstIdViaje = isNaN(Number(idStr)) ? null : Number(idStr);
+                            // const firstIdViaje: number = parseInt(firstData.messageId);
+                            // const lastIdViaje: number = parseInt(lastData.messageId);
+                            return (
+                                <>
+                                    <Overlay checked name="Ruta Simulada">
+                                        <RouteLayer origenDestinyAsigned={[origenCoords, destinoCoords]} />
+                                    </Overlay>
+                                    <Overlay checked name={`Camión ${i + 1}`}>
+                                        <VehicleMarker origenDestinyAsigned={[origenCoords, destinoCoords]} />
+                                    </Overlay>
+                                </>
+                            )
+                        })
+                    }
 
                     <Overlay checked name="Zonas Geográficas">
                         <GeofenceLayer />
@@ -84,4 +117,4 @@ const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-4
     )
 };
 
-export default MapView;
+export default MultiMapView;
