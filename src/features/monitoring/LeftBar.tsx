@@ -1,25 +1,15 @@
-import { GrFormDown, GrFormNextLink } from "react-icons/gr"
-import Button from "../../components/ui/Button"
+import { GrFormNextLink } from "react-icons/gr"
 import { CgShapeHexagon } from "react-icons/cg";
 // import { useTrips } from "../trips/hooks/useTrips";
 import { useAllTrips } from "../trips/hooks/useAllsTrips";
 
 type LeftBarProps = {
-    setOrigenDestinyAsigned: (value: [number[], number[]] | null) => void;
+    setOrigenDestinyAsigned: (value: [number, number][] | null) => void;
 }
 
 function LeftBar({ setOrigenDestinyAsigned }: LeftBarProps) {
     return (
-        <div className="min-h-full rounded-b-2xl rounded h-full w-full max-w-[400px] ">
-            <div className="ps-4 w-full h-10 flex justify-between items-center px-1">
-                <h4 className="text-center font-light">Activos</h4>
-                <small className="text-gray">1 - 2 de 2 recorridos</small>
-                <div>
-                    <Button className=" rounded text-zinc-400">
-                        <GrFormDown />
-                    </Button>
-                </div>
-            </div>
+        <div className="rounded-b-2xl rounded h-full w-full max-w-[400px] ">
             <CardViajes setOrigenDestinyAsigned={setOrigenDestinyAsigned} />
         </div>
     )
@@ -42,7 +32,8 @@ const CardViajes = ({ setOrigenDestinyAsigned }: LeftBarProps) => {
             <div className="flex flex-col gap-1 rounded-xl min-h-[500px]">
                 <div>
                     {allTrips.map((trip, i) => {
-                        const valorPorcentaje = Math.round(Math.random() * 100);
+                        // const valorPorcentaje = Math.round(Math.random() * 100);
+                        const valorPorcentaje = 44;
 
                         // Obtener el primer y último registro de data para cada viaje
                         const firstData = trip.data[0];

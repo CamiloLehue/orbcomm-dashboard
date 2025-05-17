@@ -2,15 +2,15 @@ import clsx from "clsx"
 import Button from "../../../components/ui/Button"
 import dataNotification from "../data/data"
 import { NotificationData } from "../types/Notification"
-import { GrCircleQuestion, GrPhone } from "react-icons/gr"
+import { GrCircleAlert, GrPhone } from "react-icons/gr"
 
 function Notification() {
 
     return (
-        <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl bg-bgp border border-bgt p-5 w-full">
-            <div className="absolute left-0 top-0 h-[1000px] w-[1000px] bg-gray/30 rounded-full blur-3xl "></div>
+        <div className="relative flex flex-col justify-between overflow-hidden bg-bgt border border-bgt py-5 w-full">
+            {/* <div className="absolute left-0 top-0 h-[1000px] w-[1000px] bg-gray/30 rounded-full blur-3xl "></div> */}
             <div>
-                <div className="flex justify-between items-center w-full">
+                <div className="flex justify-between items-center w-full px-2">
                     <div className="relative flex flex-col w-full">
                         <h5 className="leading-3">
                             Notificaciones
@@ -19,14 +19,14 @@ function Notification() {
                             del sistema
                         </small>
                     </div>
-                    <div className=" border border-gray/20 px-4 rounded-full flex justify-center items-center py-1">
+                    <div className=" border border-gray/20 px-2 rounded-full flex justify-center items-center py-1">
                         <small className="text-nowrap text-gray font-light"><span className="text-danger font-bold">5 </span>Nuevas notificaciones</small>
                     </div>
                 </div>
-                <div className="w-full relative  overflow-y-auto h-[200px] mt-5">
+                <div className="w-full relative  overflow-y-auto h-[598px] mt-5">
                     <NotificationItem data={dataNotification} />
                 </div>
-                <div className="absolute bottom-0 left-0 w-full h-30 bg-gradient-to-t from-bgp from-55%"></div>
+                <div className="absolute bottom-17 left-0 w-full h-10 bg-gradient-to-t from-bgt from-5%"></div>
             </div>
             <div className="relative flex justify-center items-center gap-2 text-xs pt-5">
                 <ButtonsList />
@@ -38,13 +38,13 @@ function Notification() {
 const ButtonsList = () => {
     return (
         <>
-            <Button className="bg-bgt px-5 shadow" rounded="full">
+            <Button className="bg-bgp hover:bg-bgs px-5 shadow" rounded="full">
                 Todas
             </Button>
-            <Button className="px-5 text-gray" rounded="full">
+            <Button className="px-5 text-gray border  border-gray/10" rounded="full">
                 No Leidas
             </Button>
-            <Button className="px-5 text-gray" rounded="full">
+            <Button className="px-5 text-gray border  border-gray/10" rounded="full">
                 Leidas
             </Button>
         </>
@@ -67,8 +67,8 @@ const NotificationItem = ({ data }: NotificationItemProps) => {
 
     const getStyleColor = (status: number) => {
         return clsx({
-            "h-40 bg-danger/20 border border-danger/30 hover:border-gray/20": status === 1,
-            "h-25 bg-warning/20": status === 2,
+            "h-40 bg-danger/40 border border-danger/50 hover:border-gray/20": status === 1,
+            "h-25 bg-warning/40 border border-warning/50 hover:border-gray/20": status === 2,
             "h-15 bg-bgs": status === 3,
             "h-15 bg-bgs/100": status === 4,
             else: "h-15 bg-bgs/100",
@@ -80,13 +80,13 @@ const NotificationItem = ({ data }: NotificationItemProps) => {
             <div className="relative flex flex-col gap-2 pe-2 pb-5">
                 {
                     data.map((item, i) => (
-                        <div key={i} className={`relative py-2 transition-all duration-500 cursor-pointer hover:bg-transparent rounded-lg  grid grid-cols-5 ${getStyleColor(item.status)}`}>
+                        <div key={i} className={`relative py-2 transition-all duration-500 cursor-pointer hover:bg-transparent rounded-xs   grid grid-cols-5 ${getStyleColor(item.status)}`}>
                             <div className={`flex justify-center items-center gap-2 ${getTextColor(item.status)}`}>
-                                A
+                                <GrCircleAlert />
                             </div>
-                            <span className="absolute right-5 top-5 text-xs text-white/40">{item.time}</span>
+                            <span className="absolute right-2 top-2 text-xs text-white/40">{item.time}</span>
                             <div className="relative col-span-3 flex flex-col justify-center items-start gap-1">
-                                <span className="text-gray text-xs">E-90032{item.id} </span>
+                                <span className="text-primary text-xs">E-90032{item.id} </span>
                                 <h5 className="flex justify-start items-center gap-1 text-nowrap font-semibold">
                                     {item.title}
                                 </h5>
@@ -102,12 +102,12 @@ const NotificationItem = ({ data }: NotificationItemProps) => {
                                 item.status === 1 && (
                                     <div className="col-span-5 flex justify-center items-center gap-2 w-full">
                                         <Button rounded="lg" className="bg-transparent font-light flex justify-center items-center  hover:bg-bgt">
-                                            <GrCircleQuestion size={14} />
-                                            <p>Contactar</p>
+                                            <GrPhone size={14} />
+                                            <p>Conductor</p>
                                         </Button>
                                         <Button rounded="lg" className="bg-transparent font-light flex justify-center items-center  hover:bg-bgt">
                                             <GrPhone size={14} />
-                                            <p>Llamar cliente</p>
+                                            <p>Cliente</p>
                                         </Button>
                                     </div>
                                 )

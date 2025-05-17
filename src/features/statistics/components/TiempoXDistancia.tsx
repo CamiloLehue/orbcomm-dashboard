@@ -32,7 +32,7 @@ const generateTimestamps = (startDate: Date, count: number, intervalSec = 15) =>
   });
 };
 
-const rawDataList = Array.from({ length: 7 }, (_, idx) => {
+const rawDataList = Array.from({ length: 5 }, (_, idx) => {
   const offset = Math.floor(Math.random() * 5);
   const dataLength = 10 + Math.floor(Math.random() * 5);
   const baseDate = new Date("2025-01-23T09:00:00");
@@ -63,7 +63,7 @@ const colors = [
 
 export default function TiempoXDistancia() {
   const series = rawDataList.map((camionData, idx) => ({
-    name: `Camión #${idx + 1}`,
+    name: `C#${idx + 1}`,
     type: "line",
     smooth: true,
     showSymbol: true,
@@ -122,68 +122,13 @@ export default function TiempoXDistancia() {
     series,
   };
 
-  // Calcular duración de cada viaje
-  // const duraciones = rawDataList.map((camion, idx) => {
-  //   const start = new Date(camion[0].time).getTime();
-  //   const end = new Date(camion[camion.length - 1].time).getTime();
-  //   const durationMs = end - start;
-
-  //   const minutos = Math.floor(durationMs / 60000);
-  //   const segundos = Math.floor((durationMs % 60000) / 1000);
-
-  //   return {
-  //     camion: `Camión ${idx + 1}`,
-  //     inicio: camion[0].time,
-  //     fin: camion[camion.length - 1].time,
-  //     minutos,
-  //     segundos,
-  //     totalSegundos: durationMs / 1000,
-  //   };
-  // });
-
-  // const masRapido = duraciones.reduce((prev, curr) =>
-  //   curr.totalSegundos < prev.totalSegundos ? curr : prev
-  // );
-
+  
   return (
     <div className="relative" >
       <EChartComponent
         option={option}
         style={{ width: "100%", height: "320px", }}
       />
-
-      {/* <div className="mt-4 text-white text-sm">
-        <h3 className="font-semibold mb-2">Duración de cada viaje</h3>
-        <table className="w-full text-left border border-gray-500">
-          <thead>
-            <tr>
-              <th className="border border-gray-500 px-2 py-1">Camión</th>
-              <th className="border border-gray-500 px-2 py-1">Inicio</th>
-              <th className="border border-gray-500 px-2 py-1">Fin</th>
-              <th className="border border-gray-500 px-2 py-1">Duración</th>
-            </tr>
-          </thead>
-          <tbody>
-            {duraciones.map((d, idx) => (
-              <tr key={idx} className={d.camion === masRapido.camion ? "bg-green-700" : ""}>
-                <td className="border border-gray-500 px-2 py-1">{d.camion}</td>
-                <td className="border border-gray-500 px-2 py-1">{d.inicio}</td>
-                <td className="border border-gray-500 px-2 py-1">{d.fin}</td>
-                <td className="border border-gray-500 px-2 py-1">
-                  {d.minutos} min {d.segundos} seg
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        <p className="mt-3 font-semibold">
-          🏁 Camión más rápido:{" "}
-          <span className="text-green-400">
-            {masRapido.camion} ({masRapido.minutos} min {masRapido.segundos} seg)
-          </span>
-        </p>
-      </div> */}
     </div>
   );
 }

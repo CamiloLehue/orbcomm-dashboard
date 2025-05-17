@@ -1,0 +1,4158 @@
+[
+    {
+        "id": 1,
+        "name": "TENENCIA CARRETERAS VALPARAISO",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -71.56126652701175,
+                "latitud": -33.14679144996123,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.56079895299561,
+                "latitud": -33.14776900835329,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.5595611919353,
+                "latitud": -33.147691610058,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.56043642317206,
+                "latitud": -33.1460824779303,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.56126652701175,
+                "latitud": -33.14679144996123,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "AREA DE DESCANSO SECTOR CASA BLANCA",
+        "category": "Zona de descanso",
+        "color": "purple",
+        "coordinates": [
+            {
+                "longitud": -71.37041124265565,
+                "latitud": -33.3385551442861,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.37038760789184,
+                "latitud": -33.33746073587539,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.37162411761511,
+                "latitud": -33.33710416274027,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.37200695426426,
+                "latitud": -33.3378140547091,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.37041124265565,
+                "latitud": -33.3385551442861,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "TENENCIA CARRETERAS CURACAVI",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -71.18853814181071,
+                "latitud": -33.40558032797904,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.18836121402002,
+                "latitud": -33.40481269903234,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.18952433602547,
+                "latitud": -33.40454942968212,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.18970328605953,
+                "latitud": -33.40531255506587,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.19044830879598,
+                "latitud": -33.40575065663625,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.18819262416213,
+                "latitud": -33.40617069306332,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.1881703114311,
+                "latitud": -33.40616563528089,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.18815246032239,
+                "latitud": -33.40616158884958,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.18853814181071,
+                "latitud": -33.40558032797904,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "COPEC SECTOR PUDAHUEL",
+        "category": "Copec",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -70.80491401927964,
+                "latitud": -33.44035344379581,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.8034812433051,
+                "latitud": -33.44067248448327,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.80317265051858,
+                "latitud": -33.44093521288084,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.8030769692979,
+                "latitud": -33.4400862716674,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.804868776877,
+                "latitud": -33.43975453344404,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.80524516340353,
+                "latitud": -33.44051831883705,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.80491401927964,
+                "latitud": -33.44035344379581,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "PETROBRAS SECTOR PUDAHUEL",
+        "category": "Petrobras",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -70.79008602825262,
+                "latitud": -33.44285318035479,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.79013478567992,
+                "latitud": -33.44191365316166,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.79222766560898,
+                "latitud": -33.44148296357804,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.79269177629361,
+                "latitud": -33.44236519773075,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.79008602825262,
+                "latitud": -33.44285318035479,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "AEROPUERTO INTERNACIONAL A.M.B",
+        "category": "Aeropuerto",
+        "color": "orange",
+        "coordinates": [
+            {
+                "longitud": -70.80292263136144,
+                "latitud": -33.41125830316625,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.78231574883183,
+                "latitud": -33.41053267457723,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.78486276780333,
+                "latitud": -33.37235399119403,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.80656540995919,
+                "latitud": -33.37187221627442,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.80292263136144,
+                "latitud": -33.41125830316625,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "SHELL SECTOR BUIN",
+        "category": "Shell",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -70.72603495688378,
+                "latitud": -33.6867108245633,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.72539674607191,
+                "latitud": -33.68666285899186,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.72593192017776,
+                "latitud": -33.68512997689307,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.72627797322997,
+                "latitud": -33.68351023209964,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.72619841423301,
+                "latitud": -33.68551162065037,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.72603495688378,
+                "latitud": -33.6867108245633,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "AREA DE SERVICIOS SECTOR SAN FRANCISCO DE MOSTAZAL",
+        "category": "Otros",
+        "color": "black",
+        "coordinates": [
+            {
+                "longitud": -70.70858635906465,
+                "latitud": -33.96584584201696,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.70849532893706,
+                "latitud": -33.96581361232263,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.70845539973165,
+                "latitud": -33.96580437677193,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.70716036084993,
+                "latitud": -33.96534282857553,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.70715982350893,
+                "latitud": -33.96531456853295,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.70715929009167,
+                "latitud": -33.96528626550691,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.70716965804854,
+                "latitud": -33.96522008452882,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.70841633661955,
+                "latitud": -33.96245384376543,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.70987951107509,
+                "latitud": -33.96254962099253,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.70858635906465,
+                "latitud": -33.96584584201696,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "name": "COPEC SECTOR SAN FRANCISCO DE MOSTAZAL",
+        "category": "Copec",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -70.70335864715945,
+                "latitud": -34.01743810717556,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.70247394971396,
+                "latitud": -34.01717854206463,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.70236353924248,
+                "latitud": -34.01610938976854,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.70322294164852,
+                "latitud": -34.01569509910241,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.70335864715945,
+                "latitud": -34.01743810717556,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "PETROBRAS SECTOR EL ROSARIO",
+        "category": "Petrobras",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -70.84581122644025,
+                "latitud": -34.3554965307541,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.84636214225014,
+                "latitud": -34.3564698026759,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.84547808931262,
+                "latitud": -34.35663952656191,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.84490155051576,
+                "latitud": -34.35569855468691,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.84581122644025,
+                "latitud": -34.3554965307541,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "name": "TENENCIA CARRETERAS PELEQUEN",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -70.89691595790337,
+                "latitud": -34.46428132360679,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.89627276304952,
+                "latitud": -34.46446168238988,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.89614717856429,
+                "latitud": -34.46417413011346,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.89675581640081,
+                "latitud": -34.46397691254697,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.89678733438652,
+                "latitud": -34.46396523449678,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.89691595790337,
+                "latitud": -34.46428132360679,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "name": "COPEC SECTOR MIRAVALLE",
+        "category": "Copec",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -70.9237683952739,
+                "latitud": -34.50879255913929,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.92275153468321,
+                "latitud": -34.50911605656269,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.9227496733176,
+                "latitud": -34.50907792092088,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.92272964153074,
+                "latitud": -34.50904721854538,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.92179374066686,
+                "latitud": -34.50792729683496,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.92182738660105,
+                "latitud": -34.50786932699754,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.92190435750308,
+                "latitud": -34.50773731918298,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.92245238511694,
+                "latitud": -34.50686348761543,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.9237683952739,
+                "latitud": -34.50879255913929,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "name": "TENENCIA CARRETERAS COLCHAGUA",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -70.99027397168557,
+                "latitud": -34.63275441846513,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.99005213883947,
+                "latitud": -34.63101392236879,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.99110505510986,
+                "latitud": -34.63040503477601,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.99127180853938,
+                "latitud": -34.63214322655848,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -70.99027397168557,
+                "latitud": -34.63275441846513,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "name": "AREA DE SERVICIOS SECTOR PEOR ES NADA",
+        "category": "Otros",
+        "color": "black",
+        "coordinates": [
+            {
+                "longitud": -71.04357314225534,
+                "latitud": -34.77201614989452,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.04267904994431,
+                "latitud": -34.77175949873164,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.04254889000961,
+                "latitud": -34.76973079367444,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.04269637491494,
+                "latitud": -34.76972513680003,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.04327720243614,
+                "latitud": -34.7696311698656,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.04357314225534,
+                "latitud": -34.77201614989452,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "name": "TENENCIA CARRETERAS CURICO/ZONA DE DESCANSO",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -71.17757023905537,
+                "latitud": -34.93940378997232,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.17629010796418,
+                "latitud": -34.93974395409269,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.17580061852547,
+                "latitud": -34.93872526228188,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.17681515466712,
+                "latitud": -34.93836304470541,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.17757023905537,
+                "latitud": -34.93940378997232,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "name": "COPEC SECTOR ROMERAL",
+        "category": "Copec",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -71.18327504759483,
+                "latitud": -34.95001321260693,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.1827883479025,
+                "latitud": -34.94927679773186,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.1836593513891,
+                "latitud": -34.94901329029889,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.18368091896365,
+                "latitud": -34.94900569678955,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.18419801388865,
+                "latitud": -34.94976154861752,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.18327504759483,
+                "latitud": -34.95001321260693,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "name": "SHELL SECTOR ROMERAL",
+        "category": "Shell",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -71.18608808484119,
+                "latitud": -34.95277478918794,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.18493502617173,
+                "latitud": -34.95310803489193,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.18440629379157,
+                "latitud": -34.95228656313824,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.18550714896209,
+                "latitud": -34.95182126447868,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.18608808484119,
+                "latitud": -34.95277478918794,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "name": "RETEN CAMARICO",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -71.42400551644153,
+                "latitud": -35.22019566533165,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.4237847774369,
+                "latitud": -35.22058194712464,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.42348607467738,
+                "latitud": -35.22046327107643,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.42371152495036,
+                "latitud": -35.22007858533962,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.42400551644153,
+                "latitud": -35.22019566533165,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "name": "AREA DE DESCANSO, SECTOR SAN RAFAEL",
+        "category": "Zona de descanso",
+        "color": "purple",
+        "coordinates": [
+            {
+                "longitud": -71.5347412525539,
+                "latitud": -35.31648416872815,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.53389379759189,
+                "latitud": -35.31712950561014,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.53328330893073,
+                "latitud": -35.31660540181583,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.53407849533804,
+                "latitud": -35.31599323405105,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.5347412525539,
+                "latitud": -35.31648416872815,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "name": "TENENCIA CARRETERAS TALCA/ SUBCOMISARIA SIAT",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -71.53593705756631,
+                "latitud": -35.31591887769824,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.53590457665045,
+                "latitud": -35.31596682664563,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.53529937188041,
+                "latitud": -35.31652505891782,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.53419162447352,
+                "latitud": -35.31570854159327,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.53496167399344,
+                "latitud": -35.315079696801,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.53593705756631,
+                "latitud": -35.31591887769824,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "name": "COPEC SAN RAFAEL",
+        "category": "Copec",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -71.54040079843901,
+                "latitud": -35.32100973031708,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.53954443004415,
+                "latitud": -35.32152092059158,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.53836814164929,
+                "latitud": -35.32056856022102,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.53871386426144,
+                "latitud": -35.31963036607247,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.54040079843901,
+                "latitud": -35.32100973031708,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "name": "SHELL SECTOR SAN RAFAEL",
+        "category": "Shell",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -71.55332582109844,
+                "latitud": -35.33136377358845,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.55246422823672,
+                "latitud": -35.33216678789314,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.55116727584998,
+                "latitud": -35.33132230124886,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.55121024397302,
+                "latitud": -35.33129184396341,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.55126585868281,
+                "latitud": -35.33126613621273,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.5513046945809,
+                "latitud": -35.33124698509576,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.55208062720784,
+                "latitud": -35.33036368641702,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.55332582109844,
+                "latitud": -35.33136377358845,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "name": "COPEC SAN JAVIER",
+        "category": "Copec",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -71.70287340519307,
+                "latitud": -35.61494870647477,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.70242389796724,
+                "latitud": -35.61719927146533,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.7011385901059,
+                "latitud": -35.61654819252839,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.70138097002472,
+                "latitud": -35.61535576805819,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.70287340519307,
+                "latitud": -35.61494870647477,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "name": "HOSTERIA BARIGÜI, SECTOR LA FINCA",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -71.67800035791788,
+                "latitud": -35.72909680819829,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.67723263867664,
+                "latitud": -35.72831404319476,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.6774399788429,
+                "latitud": -35.72786882635278,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.67826532141173,
+                "latitud": -35.72785988756724,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.67800035791788,
+                "latitud": -35.72909680819829,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "name": "TENENCIA CARRETERAS LINARES",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -71.6519671768509,
+                "latitud": -35.80534164001961,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.6510731973884,
+                "latitud": -35.80662816818406,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.65086978310241,
+                "latitud": -35.80625470099207,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.64995187934234,
+                "latitud": -35.80588535789798,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.65054607072835,
+                "latitud": -35.80500527149481,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.65135931178834,
+                "latitud": -35.8053581151006,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.6519671768509,
+                "latitud": -35.80534164001961,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "name": "PETROBRAS SECTOR LINARES",
+        "category": "Petrobras",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -71.63349958476532,
+                "latitud": -35.83389942694054,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.63273808493364,
+                "latitud": -35.8334280571023,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.63358518459772,
+                "latitud": -35.83229166648249,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.63434441179137,
+                "latitud": -35.83260806200498,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.63349958476532,
+                "latitud": -35.83389942694054,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "name": "AREA DE SERVICIOS, SECTOR PASARELA COPIHUE",
+        "category": "Otros",
+        "color": "black",
+        "coordinates": [
+            {
+                "longitud": -71.79555276893255,
+                "latitud": -36.09612659838503,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.79537758894298,
+                "latitud": -36.09659394331193,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.79433370794175,
+                "latitud": -36.09627058845165,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.79457197720988,
+                "latitud": -36.09575241783708,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.79555276893255,
+                "latitud": -36.09612659838503,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 28,
+        "name": "SHELL SECTOR PARRAL",
+        "category": "Shell",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -71.80557541142964,
+                "latitud": -36.12892331302417,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.80519412583314,
+                "latitud": -36.12902531130221,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.80496278018667,
+                "latitud": -36.1282430724103,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.80534806201447,
+                "latitud": -36.12815928846536,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.80557541142964,
+                "latitud": -36.12892331302417,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 29,
+        "name": "HOSTERIA PATRICIA, SECTOR PARRAL",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -71.8241536676924,
+                "latitud": -36.20267081778629,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.82399721935613,
+                "latitud": -36.20303791824835,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.82245081492354,
+                "latitud": -36.20280864084869,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.82273532126482,
+                "latitud": -36.2023817569987,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.8241536676924,
+                "latitud": -36.20267081778629,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 30,
+        "name": "HOSTERIA BLUE MOON, SECTOR SAN GREGORIO",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -71.81989850411242,
+                "latitud": -36.28402698696051,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.81902465434614,
+                "latitud": -36.28401059727383,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.81899800889278,
+                "latitud": -36.28401899071267,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.81878914647798,
+                "latitud": -36.28332614736867,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.81943443480701,
+                "latitud": -36.28301095920634,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.81989850411242,
+                "latitud": -36.28402698696051,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "name": "RESTAURANT DON CARLOS, SECTOR ÑIQUEN",
+        "category": "Restaurant",
+        "color": "magenta",
+        "coordinates": [
+            {
+                "longitud": -71.87140701069579,
+                "latitud": -36.35834053077362,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.87077521756436,
+                "latitud": -36.35797322270341,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.87133564316181,
+                "latitud": -36.35749574818599,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.87193708615494,
+                "latitud": -36.3579062204765,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.87140701069579,
+                "latitud": -36.35834053077362,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 32,
+        "name": "RESTAURANT \"LA ACOGIDA\", SECTOR BULI",
+        "category": "Restaurant",
+        "color": "magenta",
+        "coordinates": [
+            {
+                "longitud": -71.89165287426493,
+                "latitud": -36.37028976818919,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.89107228244296,
+                "latitud": -36.37093780118631,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.89038754975361,
+                "latitud": -36.37051491765403,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.89071229943725,
+                "latitud": -36.36973543822979,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -71.89165287426493,
+                "latitud": -36.37028976818919,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 33,
+        "name": "COPEC, SECTOR SAN CARLOS",
+        "category": "Copec,",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.00706357262796,
+                "latitud": -36.47111267863387,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.00590467134072,
+                "latitud": -36.47136609316224,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.00484057109865,
+                "latitud": -36.47039356367057,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.00522112020275,
+                "latitud": -36.46950151275551,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.00706357262796,
+                "latitud": -36.47111267863387,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 34,
+        "name": "RETEN NINQUIHUE",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.01432122354863,
+                "latitud": -36.47758227582379,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.0139799206799,
+                "latitud": -36.47791071110876,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.01365744459862,
+                "latitud": -36.47761907776099,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.01398901889891,
+                "latitud": -36.47729935878404,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.01432122354863,
+                "latitud": -36.47758227582379,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 35,
+        "name": "RESTAURANT LOS HORNITOS, SECTOR SAN CARLOS",
+        "category": "Restaurant",
+        "color": "magenta",
+        "coordinates": [
+            {
+                "longitud": -72.028545708354,
+                "latitud": -36.49528671573415,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.02801565812263,
+                "latitud": -36.49463107702494,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.02906951431125,
+                "latitud": -36.49460748037231,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.0296683821504,
+                "latitud": -36.49533913604404,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.028545708354,
+                "latitud": -36.49528671573415,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 36,
+        "name": "SHELL SECTOR SAN CARLOS",
+        "category": "Shell",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.03336498670868,
+                "latitud": -36.49966752332775,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.03120625172409,
+                "latitud": -36.49942657972265,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.03018817477452,
+                "latitud": -36.49832157128793,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.03028913339996,
+                "latitud": -36.49775838168356,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.03196358237761,
+                "latitud": -36.49803500048768,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.03336498670868,
+                "latitud": -36.49966752332775,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 37,
+        "name": "TENENCIA CARRETERAS ÑUBLE",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.08905215484623,
+                "latitud": -36.5423649023423,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.08777012917282,
+                "latitud": -36.5412830960126,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.08832276169733,
+                "latitud": -36.54086337111108,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.08993078778424,
+                "latitud": -36.54195386892525,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.08994446243346,
+                "latitud": -36.54196800782754,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.08995023696019,
+                "latitud": -36.54198910291952,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.08905215484623,
+                "latitud": -36.5423649023423,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 38,
+        "name": "COPEC,  SECTOR LOS COLIHUES",
+        "category": "Copec,",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.19118474240807,
+                "latitud": -36.63385963343809,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.19049903162258,
+                "latitud": -36.63470599447127,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.18893927521094,
+                "latitud": -36.63423914351421,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.18894481244212,
+                "latitud": -36.63422509943571,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.18895070311463,
+                "latitud": -36.63418751135546,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.18874723800427,
+                "latitud": -36.6330622781156,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.19118474240807,
+                "latitud": -36.63385963343809,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 39,
+        "name": "AREA DE SERVICIOS, SECTOR LAS 3 MARIAS",
+        "category": "Otros",
+        "color": "black",
+        "coordinates": [
+            {
+                "longitud": -72.31668832553822,
+                "latitud": -36.78453019629837,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.31557826528956,
+                "latitud": -36.78419814901435,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.31506702567127,
+                "latitud": -36.7834846610563,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.31552417793107,
+                "latitud": -36.78262951687816,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.31668832553822,
+                "latitud": -36.78453019629837,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 40,
+        "name": "HOSTERIA \"EL BARRIL\", SECTOR LOS TILOS",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -72.32268690564148,
+                "latitud": -36.84986736714445,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.3215353242306,
+                "latitud": -36.84999818858761,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.32153745767694,
+                "latitud": -36.84900838675845,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.32288995845778,
+                "latitud": -36.84894685292486,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.32268690564148,
+                "latitud": -36.84986736714445,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 41,
+        "name": "\"HOSTERIA MYM, SECTOR CABREROS",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -72.3630468651294,
+                "latitud": -37.00663988779733,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36217481640733,
+                "latitud": -37.00662368694496,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36205675436618,
+                "latitud": -37.00602342187661,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36282145703089,
+                "latitud": -37.0055380111902,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.3630468651294,
+                "latitud": -37.00663988779733,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 42,
+        "name": "PUERTO LIRQUEN",
+        "category": "Puerto",
+        "color": "gray",
+        "coordinates": [
+            {
+                "longitud": -72.98292529877408,
+                "latitud": -36.71784996431441,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98213494378392,
+                "latitud": -36.71728206959127,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98001244317976,
+                "latitud": -36.71679648217128,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97844883049599,
+                "latitud": -36.71515025431233,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97746879158507,
+                "latitud": -36.7124535606938,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97747492918378,
+                "latitud": -36.71146175430878,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98383848793081,
+                "latitud": -36.71337257504076,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98685182011499,
+                "latitud": -36.71346597186636,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98674293597473,
+                "latitud": -36.71586429163181,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98530191571092,
+                "latitud": -36.71688414533628,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98532773143033,
+                "latitud": -36.71865196058101,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98396366163935,
+                "latitud": -36.71917166420531,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98292529877408,
+                "latitud": -36.71784996431441,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 43,
+        "name": "PUERTO SAN VICENTE",
+        "category": "Puerto",
+        "color": "gray",
+        "coordinates": [
+            {
+                "longitud": -73.14440323539237,
+                "latitud": -36.7305554777454,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.14194869264678,
+                "latitud": -36.73078226096186,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.1390163784688,
+                "latitud": -36.73171313238364,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.13674293625343,
+                "latitud": -36.73011221282454,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.13406364249519,
+                "latitud": -36.72810263404615,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.13386659586905,
+                "latitud": -36.726461004129,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.13267870730118,
+                "latitud": -36.72564097152912,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.13333366511343,
+                "latitud": -36.72515655765569,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.13467591759913,
+                "latitud": -36.7260093615155,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.13591216807644,
+                "latitud": -36.72593562388288,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.141626177883,
+                "latitud": -36.72930555618906,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.1430678303441,
+                "latitud": -36.72838079865442,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.14440323539237,
+                "latitud": -36.7305554777454,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 44,
+        "name": "PUERTO CORONEL",
+        "category": "Puerto",
+        "color": "gray",
+        "coordinates": [
+            {
+                "longitud": -73.14905376368259,
+                "latitud": -37.03041190145532,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.14758687508098,
+                "latitud": -37.03334467041248,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.14617078851079,
+                "latitud": -37.03753568991746,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.14552051431207,
+                "latitud": -37.0417085640984,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.14459072566133,
+                "latitud": -37.04163828065992,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.14531785055891,
+                "latitud": -37.03511233383789,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.14590036852675,
+                "latitud": -37.032233163092,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.14895130928387,
+                "latitud": -37.02697969266752,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.15085189601713,
+                "latitud": -37.02773053841914,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.14905376368259,
+                "latitud": -37.03041190145532,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 45,
+        "name": "BASE DINAMIS, SECTOR CHAIMAVIDA",
+        "category": "Otros",
+        "color": "black",
+        "coordinates": [
+            {
+                "longitud": -72.93754751189873,
+                "latitud": -36.81297052904333,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.93576776104769,
+                "latitud": -36.81337024586693,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.93487974542633,
+                "latitud": -36.81287948465266,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.93490811654107,
+                "latitud": -36.81286160070511,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.93494340787142,
+                "latitud": -36.81282530521246,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.93562667541829,
+                "latitud": -36.81193020150608,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.93754751189873,
+                "latitud": -36.81297052904333,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 46,
+        "name": "AREA DE SERVICIOS, SECTOR SAN NICOLAS",
+        "category": "Otros",
+        "color": "black",
+        "coordinates": [
+            {
+                "longitud": -72.78543351881595,
+                "latitud": -36.90269219580852,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.78298852653033,
+                "latitud": -36.90386275378889,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.78273691202533,
+                "latitud": -36.90322996162006,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.78420814933315,
+                "latitud": -36.90237336927107,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.78543351881595,
+                "latitud": -36.90269219580852,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 47,
+        "name": "RESTAURANT LOS CAULLES, SECTOR TOMECO",
+        "category": "Restaurant",
+        "color": "magenta",
+        "coordinates": [
+            {
+                "longitud": -72.60728535913891,
+                "latitud": -36.98955258578894,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.60700221389169,
+                "latitud": -36.98930987623795,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.60728295350287,
+                "latitud": -36.98879261882772,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.6088871821292,
+                "latitud": -36.9885979236989,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.60927310998207,
+                "latitud": -36.98905958699279,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.60932704216621,
+                "latitud": -36.98910524478436,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.60728535913891,
+                "latitud": -36.98955258578894,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 48,
+        "name": "COPEC ANTES DEL CRUCE LOS LEONES",
+        "category": "Copec",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.4717441903155,
+                "latitud": -37.02120839511704,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.47173973943347,
+                "latitud": -37.02118482246816,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.47160523525969,
+                "latitud": -37.02042965252275,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.4731372661644,
+                "latitud": -37.01994532672998,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.47404939952875,
+                "latitud": -37.02044278381312,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.4717441903155,
+                "latitud": -37.02120839511704,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 49,
+        "name": "SHELL SECTOR CABREROS",
+        "category": "Shell",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.3831051156338,
+                "latitud": -37.10575081022409,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.38277019904189,
+                "latitud": -37.10561239016254,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.38269282490874,
+                "latitud": -37.10520675099538,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.38296257478365,
+                "latitud": -37.10491775265644,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.3831051156338,
+                "latitud": -37.10575081022409,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 50,
+        "name": "RETEN SALTO DEL LAJA",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.3927165053547,
+                "latitud": -37.18809801907412,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39320141001264,
+                "latitud": -37.18820155651495,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39308431981408,
+                "latitud": -37.18905619080139,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.3926134622908,
+                "latitud": -37.18904132855578,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39206572808834,
+                "latitud": -37.18914416945893,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39231563163621,
+                "latitud": -37.18789238287994,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.3927165053547,
+                "latitud": -37.18809801907412,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 51,
+        "name": "CENTRO DE PESAJE MOP Y CONTROL SII, SECTOR SALTOS DEL LAJA",
+        "category": "Otros",
+        "color": "black",
+        "coordinates": [
+            {
+                "longitud": -72.39196787956438,
+                "latitud": -37.1879000048865,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39175645071607,
+                "latitud": -37.18816405922905,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39166870565218,
+                "latitud": -37.1887179112464,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39173450400598,
+                "latitud": -37.1890867363957,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39122131504078,
+                "latitud": -37.18890413565357,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39084299780022,
+                "latitud": -37.18879558745888,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39099627241256,
+                "latitud": -37.18799242079509,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39155494751876,
+                "latitud": -37.18794517404348,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39196787956438,
+                "latitud": -37.1879000048865,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 52,
+        "name": "HOSTERIA \"PICADA DE LAS GORDAS\", SECTOR LOS ANGELES NORTE",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -72.35453350359059,
+                "latitud": -37.27984323577122,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35437112073267,
+                "latitud": -37.27986673015472,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35422729998045,
+                "latitud": -37.27970089035447,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.3532519846952,
+                "latitud": -37.27960913492904,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35324891790955,
+                "latitud": -37.27960331126287,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35324108777945,
+                "latitud": -37.27957670889516,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35320373362738,
+                "latitud": -37.27887402756592,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35448777590481,
+                "latitud": -37.27902527030056,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35453350359059,
+                "latitud": -37.27984323577122,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 53,
+        "name": "HOSTERIA DONDE MI VIEJO, SECTOR LOS ANGELES NORTE",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -72.35459501068817,
+                "latitud": -37.2810532180018,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35392810978927,
+                "latitud": -37.28101878673572,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35392511359021,
+                "latitud": -37.28026343560207,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35456818785332,
+                "latitud": -37.28022490637907,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35459501068817,
+                "latitud": -37.2810532180018,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 54,
+        "name": "COPEC SECTOR LOS ANGELES NORTE",
+        "category": "Copec",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.35452860503868,
+                "latitud": -37.28236866872358,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35461938825624,
+                "latitud": -37.28409975058122,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35358698697239,
+                "latitud": -37.28414358773103,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35362000915572,
+                "latitud": -37.28275291913233,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35452860503868,
+                "latitud": -37.28236866872358,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 55,
+        "name": "SHELL SECTOR LA MONA",
+        "category": "Shell",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.36501226058847,
+                "latitud": -37.32949132323115,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36423387265296,
+                "latitud": -37.32950756508785,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36390467097355,
+                "latitud": -37.32920528332391,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36385061344684,
+                "latitud": -37.32918783160437,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36444136151249,
+                "latitud": -37.32844059039215,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36474907968517,
+                "latitud": -37.32843868053953,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36501226058847,
+                "latitud": -37.32949132323115,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 56,
+        "name": "AREA DE SERVICIOS SECTOR LAS MAICAS",
+        "category": "Otros",
+        "color": "black",
+        "coordinates": [
+            {
+                "longitud": -72.29644067453293,
+                "latitud": -37.78266593430227,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.29534406196477,
+                "latitud": -37.78347856689774,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.29492223729984,
+                "latitud": -37.78317009942263,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.29585650714846,
+                "latitud": -37.78222622296372,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.29589286244256,
+                "latitud": -37.78163038796794,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.29733282450769,
+                "latitud": -37.78259293345904,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.29644067453293,
+                "latitud": -37.78266593430227,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 57,
+        "name": "RETEN ESPERANZA",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.39379790380323,
+                "latitud": -37.84517756932596,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39360792101571,
+                "latitud": -37.84503557143356,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39383855816087,
+                "latitud": -37.84486962990778,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39401180875429,
+                "latitud": -37.84500784742227,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39401622315161,
+                "latitud": -37.84501023766796,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39401884413988,
+                "latitud": -37.84501136734659,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.39379790380323,
+                "latitud": -37.84517756932596,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 58,
+        "name": "HOSTERIA \"LA ARAUCARIA\" SECTOR COLLIPULLI",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -72.41654990455059,
+                "latitud": -37.95775674059529,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.41653640984602,
+                "latitud": -37.95775413188029,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.41627214660473,
+                "latitud": -37.95767822595784,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.41661779573224,
+                "latitud": -37.9572351460552,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.41701264153853,
+                "latitud": -37.95739942750808,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.41654990455059,
+                "latitud": -37.95775674059529,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 59,
+        "name": "HOSTERIA \"EL AROMO\" SECTOR PAILAHUEQUE",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -72.32468606232962,
+                "latitud": -38.13089954917397,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.32408072657799,
+                "latitud": -38.13074476390185,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.32486338977442,
+                "latitud": -38.12984322234313,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.32544646405847,
+                "latitud": -38.12997877972617,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.32468606232962,
+                "latitud": -38.13089954917397,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 60,
+        "name": "HOSTERIA VICTORIA",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -72.35197960905053,
+                "latitud": -38.23422117594399,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.3518616123168,
+                "latitud": -38.23381901640282,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35249530807089,
+                "latitud": -38.23378158422427,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35263651459344,
+                "latitud": -38.23412308647025,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.35197960905053,
+                "latitud": -38.23422117594399,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 61,
+        "name": "AREA DE SERVICIOS Y DESCANSO SECTOR VICTORIA",
+        "category": "Otros",
+        "color": "black",
+        "coordinates": [
+            {
+                "longitud": -72.36347343280487,
+                "latitud": -38.27403909009991,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36306805682356,
+                "latitud": -38.27228952109614,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36396741694837,
+                "latitud": -38.27215130491081,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36445534943763,
+                "latitud": -38.27392241080794,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36347343280487,
+                "latitud": -38.27403909009991,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 62,
+        "name": "TENENCIA CARRETERAS MALLECO",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.36434686851554,
+                "latitud": -38.2720004236752,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36538146923029,
+                "latitud": -38.27229335126405,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36565328978241,
+                "latitud": -38.27332992949997,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36483051073438,
+                "latitud": -38.27386488003711,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36434686851554,
+                "latitud": -38.2720004236752,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 63,
+        "name": "COPEC CON ZONA ESTACIONAMIENTO SECTOR VICTORIA",
+        "category": "Copec",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.36513251067011,
+                "latitud": -38.28079958117943,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36472198714267,
+                "latitud": -38.2795442582672,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36569970573794,
+                "latitud": -38.27894886688531,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36615368185153,
+                "latitud": -38.28062937245849,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.36513251067011,
+                "latitud": -38.28079958117943,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 64,
+        "name": "SHELL SECTOR PUA",
+        "category": "Shell",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.38497846724621,
+                "latitud": -38.35788087250845,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.38347235957994,
+                "latitud": -38.35802450866127,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.38347893569778,
+                "latitud": -38.35798463144642,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.38320566512316,
+                "latitud": -38.35666058242379,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.38476514625106,
+                "latitud": -38.35642647036209,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.38497846724621,
+                "latitud": -38.35788087250845,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 65,
+        "name": "SHELL SECTOR PILLANLELBUN",
+        "category": "Shell",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.44879679616189,
+                "latitud": -38.60518394465118,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.4482851684269,
+                "latitud": -38.60516297636899,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.44835389223759,
+                "latitud": -38.6043141133441,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.44886619148498,
+                "latitud": -38.60432477229633,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.44879679616189,
+                "latitud": -38.60518394465118,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 66,
+        "name": "TENENCIA CARRETERAS CAUTIN NORTE",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.45434310646537,
+                "latitud": -38.62559082079694,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.45382464702887,
+                "latitud": -38.62472523855095,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.45488598274906,
+                "latitud": -38.62422217303804,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.4554744996993,
+                "latitud": -38.62525364843381,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.45434310646537,
+                "latitud": -38.62559082079694,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 67,
+        "name": "ARAMCO (PETROBRAS) SECTOR PILLANLELBUN",
+        "category": "Aramco",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.47223134340688,
+                "latitud": -38.64850292226651,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.47460202338819,
+                "latitud": -38.6511452892963,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.47333077500058,
+                "latitud": -38.65085318683902,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.47207084788975,
+                "latitud": -38.64937059138401,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.47223134340688,
+                "latitud": -38.64850292226651,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 68,
+        "name": "COPEC SECTOR FREIRE",
+        "category": "Copec",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.6197357027523,
+                "latitud": -38.9382024450017,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.62061041421401,
+                "latitud": -38.93743079307661,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.62142973684163,
+                "latitud": -38.93771856530869,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.62009873417821,
+                "latitud": -38.93893175535524,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.6197357027523,
+                "latitud": -38.9382024450017,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 69,
+        "name": "TENENCIA CARRETERAS CAUTIN SUR",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.5827605618158,
+                "latitud": -39.35626929457952,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.58352355614655,
+                "latitud": -39.3547818673461,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.58451070615062,
+                "latitud": -39.35505459132508,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.58376327434041,
+                "latitud": -39.35658230556511,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.5827605618158,
+                "latitud": -39.35626929457952,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 70,
+        "name": "ZONA DE DESCANSO Y ESTACIONAMIENTO LONCOCHE",
+        "category": "Zona de descanso",
+        "color": "purple",
+        "coordinates": [
+            {
+                "longitud": -72.58546910643501,
+                "latitud": -39.35778332268942,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.58472053805508,
+                "latitud": -39.3582247789108,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.58256666744123,
+                "latitud": -39.35743233250438,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.582813433499,
+                "latitud": -39.35686408261987,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.58546910643501,
+                "latitud": -39.35778332268942,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 71,
+        "name": "SHELL SECTOR LA PAZ",
+        "category": "Shell",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.74889562866623,
+                "latitud": -39.43463936536423,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.74729678265064,
+                "latitud": -39.43470941505947,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.74724023547913,
+                "latitud": -39.43388628873252,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.74887248670998,
+                "latitud": -39.43373240542289,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.74889562866623,
+                "latitud": -39.43463936536423,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 72,
+        "name": "SUB COMISARIA LANCO",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.77207937711039,
+                "latitud": -39.45243303604509,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.77208454916355,
+                "latitud": -39.45243060118602,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.7720938590475,
+                "latitud": -39.45242621830295,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.7723479966023,
+                "latitud": -39.45216718448881,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.77263479759341,
+                "latitud": -39.45234556241238,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.77235288288918,
+                "latitud": -39.45259940639656,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.77207937711039,
+                "latitud": -39.45243303604509,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 73,
+        "name": "COPEC SECTOR SAN JOSE DE LA MARIQUINA",
+        "category": "Copec",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.88132981691032,
+                "latitud": -39.54558192291953,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.88004801758674,
+                "latitud": -39.54512282722868,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.87983191135658,
+                "latitud": -39.54437006937491,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.88182715243786,
+                "latitud": -39.54504596365976,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.88132981691032,
+                "latitud": -39.54558192291953,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 74,
+        "name": "SUB COMISARIA SAN JOSE DE LA MARIQUINA",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.96112427186418,
+                "latitud": -39.54079685564238,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.96064803107411,
+                "latitud": -39.54080083273503,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.96064961574623,
+                "latitud": -39.54043604338656,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.96114936509368,
+                "latitud": -39.5404115515741,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.96112427186418,
+                "latitud": -39.54079685564238,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 75,
+        "name": "SUBCOMISARIA MAFIL",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.9480687321279,
+                "latitud": -39.66686131529574,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.94763221384638,
+                "latitud": -39.66674515011016,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.94788087191351,
+                "latitud": -39.66625305473362,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.94831133062702,
+                "latitud": -39.66633490273306,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.9480687321279,
+                "latitud": -39.66686131529574,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 76,
+        "name": "TENENCIA CARRETERAS VALDIVIA NORTE",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.93319000946327,
+                "latitud": -39.67342221431537,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.93233696172338,
+                "latitud": -39.67258044460106,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.933737190047,
+                "latitud": -39.67115173548536,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.93426582138216,
+                "latitud": -39.6713295176573,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.93319000946327,
+                "latitud": -39.67342221431537,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 77,
+        "name": "2da COMISARIA LOS LAGOS",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.81255491045687,
+                "latitud": -39.8624698201661,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.81254593931537,
+                "latitud": -39.86246754618538,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.81221068184018,
+                "latitud": -39.86225241738573,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.81271338973382,
+                "latitud": -39.86183078126292,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.8130537097359,
+                "latitud": -39.86206901774595,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.81255491045687,
+                "latitud": -39.8624698201661,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 78,
+        "name": "HOSTERIA LIPINGUE",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -72.79746501404924,
+                "latitud": -39.93067206022938,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79735674556225,
+                "latitud": -39.93066794758298,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79709444736648,
+                "latitud": -39.93039886837727,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79676911641927,
+                "latitud": -39.93038671296912,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79679562826371,
+                "latitud": -39.92992961505292,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.7974150199695,
+                "latitud": -39.92993674634263,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79746501404924,
+                "latitud": -39.93067206022938,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 79,
+        "name": "HOSTERIA FRENTE AL VOLANTE, SECTOR LIPINGUE",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -72.79599271794814,
+                "latitud": -39.97286978973442,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79524285892407,
+                "latitud": -39.97267597416997,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79529754416897,
+                "latitud": -39.97245256822161,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79615518598597,
+                "latitud": -39.97193078717353,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79652713622139,
+                "latitud": -39.97202317146716,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79599271794814,
+                "latitud": -39.97286978973442,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 80,
+        "name": "HOSTERIA VISTA HERMOSA, SECTOR LIPINGUE",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -72.79679958692324,
+                "latitud": -39.97127266786076,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79659559116152,
+                "latitud": -39.9716072734125,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79651199617192,
+                "latitud": -39.97162837555308,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79615543396905,
+                "latitud": -39.97153281159781,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79636934477382,
+                "latitud": -39.97117688903966,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.79679958692324,
+                "latitud": -39.97127266786076,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 81,
+        "name": "HOSTERIA Y RESTAURANT DEMAIHUE",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -72.84761122544946,
+                "latitud": -40.03886514266371,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.84685426775303,
+                "latitud": -40.03941348183744,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.84626461908309,
+                "latitud": -40.038689935396,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.84695068894857,
+                "latitud": -40.0381983922635,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.84761122544946,
+                "latitud": -40.03886514266371,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 82,
+        "name": "SHELL SECTOR PICHIRROPULLI",
+        "category": "Shell",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.88078613579953,
+                "latitud": -40.14623198753745,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.8821464882004,
+                "latitud": -40.14883590539685,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.8810282640386,
+                "latitud": -40.14907943919961,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.87964862343277,
+                "latitud": -40.14674700966413,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.88078613579953,
+                "latitud": -40.14623198753745,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 83,
+        "name": "TENENCIA CARRETERAS VALDIVIA SUR",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.900110204761,
+                "latitud": -40.17122471629038,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.90062904506487,
+                "latitud": -40.17092070813361,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.90224672356766,
+                "latitud": -40.17195555394657,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.9015552002714,
+                "latitud": -40.17275812664073,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.90157972634584,
+                "latitud": -40.17293629296049,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.90036443266665,
+                "latitud": -40.17183958632386,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.89974305885663,
+                "latitud": -40.17129829103604,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.900110204761,
+                "latitud": -40.17122471629038,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 84,
+        "name": "COPEC SECTOR TRAFUN",
+        "category": "Copec",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -73.03557100330596,
+                "latitud": -40.47701912367008,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.03554549251346,
+                "latitud": -40.47723347794931,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.03595369599887,
+                "latitud": -40.47804888903334,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.03625008474158,
+                "latitud": -40.47823742159145,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.03498967225585,
+                "latitud": -40.47849442769432,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.0346626467619,
+                "latitud": -40.47786989919629,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.03557100330596,
+                "latitud": -40.47701912367008,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 85,
+        "name": "PETROBRAS PILAUCO",
+        "category": "Petrobras",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -73.0942399759371,
+                "latitud": -40.55364851113209,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.09341886902595,
+                "latitud": -40.5539012403303,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.09235328602692,
+                "latitud": -40.55284567026364,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.09292989897995,
+                "latitud": -40.55228174963214,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.0942399759371,
+                "latitud": -40.55364851113209,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 86,
+        "name": "TENENCIA CARRETERAS OSORNO",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -73.11464092118267,
+                "latitud": -40.63965393273305,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.11544078599704,
+                "latitud": -40.63952587134212,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.11584175724666,
+                "latitud": -40.64057647146952,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.11503191025699,
+                "latitud": -40.64077059134392,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.11483818443445,
+                "latitud": -40.64115534173668,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.11422069528264,
+                "latitud": -40.63938873324269,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.11464092118267,
+                "latitud": -40.63965393273305,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 87,
+        "name": "RETEN LOS PELLINES",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -73.06985890749208,
+                "latitud": -41.19088318494343,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.0694193123706,
+                "latitud": -41.19087462857493,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.06946344866856,
+                "latitud": -41.19049795276355,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.06963400039986,
+                "latitud": -41.19016879856672,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.07020826879283,
+                "latitud": -41.19016885020846,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.06985890749208,
+                "latitud": -41.19088318494343,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 88,
+        "name": "AREA SERVICIOS SECTOR TOTORAL",
+        "category": "Otros",
+        "color": "black",
+        "coordinates": [
+            {
+                "longitud": -73.04605798665726,
+                "latitud": -41.22706352570603,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.04717201245099,
+                "latitud": -41.22559807356044,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.04848870728395,
+                "latitud": -41.22570700511466,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.04803133842157,
+                "latitud": -41.22590351552996,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.04726158260706,
+                "latitud": -41.22693351303669,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.04737593698269,
+                "latitud": -41.22770346981972,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.04605798665726,
+                "latitud": -41.22706352570603,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 89,
+        "name": "RESTAURANT BEEF HOUSE, LLANQUIHUE",
+        "category": "Restaurant",
+        "color": "magenta",
+        "coordinates": [
+            {
+                "longitud": -73.03194852255999,
+                "latitud": -41.24744774242255,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.0314907568834,
+                "latitud": -41.24717260283688,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.03192783099061,
+                "latitud": -41.24684404867206,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.03261487215795,
+                "latitud": -41.24686638461442,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.03261934280235,
+                "latitud": -41.24691795783635,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.03261984014568,
+                "latitud": -41.24693070557256,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.03261855333479,
+                "latitud": -41.24693918082276,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.03262179243379,
+                "latitud": -41.24694970974363,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.03262114932718,
+                "latitud": -41.24695392123036,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.03194852255999,
+                "latitud": -41.24744774242255,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 90,
+        "name": "FRIGORIFICO SAKE, PTO VARAS",
+        "category": "Frigorifico",
+        "color": "lightblue",
+        "coordinates": [
+            {
+                "longitud": -72.99287968528891,
+                "latitud": -41.34672488234269,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.99284423350728,
+                "latitud": -41.34598942867284,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.99569405197423,
+                "latitud": -41.34615955107996,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.99573254571979,
+                "latitud": -41.34679298070576,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.99287968528891,
+                "latitud": -41.34672488234269,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 91,
+        "name": "COPEC SECTOR LA LAJA",
+        "category": "Copec",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.98222806482445,
+                "latitud": -41.35055992569806,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.9813483482526,
+                "latitud": -41.35234722078511,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98045527511105,
+                "latitud": -41.35203952219622,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98104433383654,
+                "latitud": -41.35060407663676,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98222806482445,
+                "latitud": -41.35055992569806,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 92,
+        "name": "TENENCIA CARRETERAS LLANQUIHUE",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -72.97899282441328,
+                "latitud": -41.35803669628451,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.9779815719349,
+                "latitud": -41.35772671651151,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97859069745148,
+                "latitud": -41.35666004393811,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97951694249517,
+                "latitud": -41.35686871852209,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97899282441328,
+                "latitud": -41.35803669628451,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 93,
+        "name": "FRIGORIFICO HOOK",
+        "category": "Frigorifico",
+        "color": "lightblue",
+        "coordinates": [
+            {
+                "longitud": -72.97686818106455,
+                "latitud": -41.36265849363065,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97618377944828,
+                "latitud": -41.36426191767563,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97529518894595,
+                "latitud": -41.36406964041069,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97531436035071,
+                "latitud": -41.36393623648042,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97491652087209,
+                "latitud": -41.36384340317508,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.9754987029516,
+                "latitud": -41.36263483619732,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97686818106455,
+                "latitud": -41.36265849363065,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 94,
+        "name": "SHELL SECTOR LA LAJA",
+        "category": "Shell",
+        "color": "yellow",
+        "coordinates": [
+            {
+                "longitud": -72.97447266401952,
+                "latitud": -41.36807208010551,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97429521949502,
+                "latitud": -41.36792517473062,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97363512052881,
+                "latitud": -41.36789398007753,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97362189974339,
+                "latitud": -41.36646861516706,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97522060584734,
+                "latitud": -41.36654067879493,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.97447266401952,
+                "latitud": -41.36807208010551,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 95,
+        "name": "FRIGORIFICO MEGAFRIO",
+        "category": "Frigorifico",
+        "color": "lightblue",
+        "coordinates": [
+            {
+                "longitud": -72.9950179142055,
+                "latitud": -41.47038014833833,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.99442491792908,
+                "latitud": -41.47108300815748,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98909359167635,
+                "latitud": -41.46853870290393,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.98985554839885,
+                "latitud": -41.46766913202998,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -72.9950179142055,
+                "latitud": -41.47038014833833,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 96,
+        "name": "RETEN PANITAO",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -73.08986139412887,
+                "latitud": -41.5225012929566,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.08940973221057,
+                "latitud": -41.52302996812575,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.08821470223018,
+                "latitud": -41.52249777515906,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.08876781972472,
+                "latitud": -41.52199184665539,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.08986139412887,
+                "latitud": -41.5225012929566,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 97,
+        "name": "RETEN PARGUA",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -73.46063365732309,
+                "latitud": -41.79150433558858,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.46023324802329,
+                "latitud": -41.79124493269212,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.46087768475756,
+                "latitud": -41.79070437834995,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.46115863069971,
+                "latitud": -41.79092169171612,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.46099955625114,
+                "latitud": -41.79108304702422,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.46129465858537,
+                "latitud": -41.79128065370071,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.46128628356934,
+                "latitud": -41.79149600117418,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.46063365732309,
+                "latitud": -41.79150433558858,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 98,
+        "name": "BAJADA 2 TRANSBORDADOR PARGUA",
+        "category": "Transbordador/Embarcadero",
+        "color": "cyan",
+        "coordinates": [
+            {
+                "longitud": -73.47953211312951,
+                "latitud": -41.79924482730411,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.47967393700712,
+                "latitud": -41.79910046386605,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.47985642703789,
+                "latitud": -41.79915465489827,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.4801570957443,
+                "latitud": -41.79963231345258,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.47993157497272,
+                "latitud": -41.79974262254435,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.47975347540698,
+                "latitud": -41.79942463270891,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.47953211312951,
+                "latitud": -41.79924482730411,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 99,
+        "name": "BAJADA 1 TRANSBORDADOR PARGUA",
+        "category": "Transbordador/Embarcadero",
+        "color": "cyan",
+        "coordinates": [
+            {
+                "longitud": -73.47502383010965,
+                "latitud": -41.79921471300682,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.47517463153251,
+                "latitud": -41.79952258327262,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.47512061442202,
+                "latitud": -41.80053266725788,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.47485955784842,
+                "latitud": -41.80051420187843,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.47495625073039,
+                "latitud": -41.79947670900656,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.47475266729788,
+                "latitud": -41.79920860696192,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.47502383010965,
+                "latitud": -41.79921471300682,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 100,
+        "name": "EMBARCADERO 2 CHACAO",
+        "category": "Transbordador/Embarcadero",
+        "color": "cyan",
+        "coordinates": [
+            {
+                "longitud": -73.51588741449575,
+                "latitud": -41.82949682945383,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.51585117175817,
+                "latitud": -41.82949101100571,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.51583677943773,
+                "latitud": -41.82949121288515,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.51582239577239,
+                "latitud": -41.82949141455409,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.51554181310053,
+                "latitud": -41.82952659863327,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.51554822236967,
+                "latitud": -41.82952199783215,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.51555442334883,
+                "latitud": -41.82951584327385,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.5155970106182,
+                "latitud": -41.8293460289426,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.51547775175757,
+                "latitud": -41.82911180395983,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.51559863700608,
+                "latitud": -41.82904630218825,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.51588741449575,
+                "latitud": -41.82949682945383,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 101,
+        "name": "EMBARCADERO 1 CHACAO",
+        "category": "Transbordador/Embarcadero",
+        "color": "cyan",
+        "coordinates": [
+            {
+                "longitud": -73.51197731932253,
+                "latitud": -41.83126206071095,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.51150965740798,
+                "latitud": -41.83064637353253,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.51168862926691,
+                "latitud": -41.83051925802573,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.51223629620576,
+                "latitud": -41.83112704985692,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.51197731932253,
+                "latitud": -41.83126206071095,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 102,
+        "name": "TENENCIA CHACAO",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -73.52520968500998,
+                "latitud": -41.82925435804935,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.52557453829037,
+                "latitud": -41.82966840028983,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.52517748455871,
+                "latitud": -41.82986577078861,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.52477393944817,
+                "latitud": -41.82947628254139,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.52520968500998,
+                "latitud": -41.82925435804935,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 103,
+        "name": "RESTAURANT EL TRANSPORTISTA, SECTOR CHEPU",
+        "category": "Restaurant",
+        "color": "magenta",
+        "coordinates": [
+            {
+                "longitud": -73.83028823973876,
+                "latitud": -42.02959785657338,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.82994305416577,
+                "latitud": -42.02963775323711,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.82972606392167,
+                "latitud": -42.02976392163159,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.82962870690201,
+                "latitud": -42.02888592931235,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.82978935583259,
+                "latitud": -42.02923822078094,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.83005329361757,
+                "latitud": -42.02920938129535,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.83007806791946,
+                "latitud": -42.02933838989747,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.83026524406749,
+                "latitud": -42.0293399560133,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.83028823973876,
+                "latitud": -42.02959785657338,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 104,
+        "name": "RESTAURANT EL PASO DE MONSEMARI",
+        "category": "Restaurant",
+        "color": "magenta",
+        "coordinates": [
+            {
+                "longitud": -73.7257480336473,
+                "latitud": -42.13806357915264,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.7256738454779,
+                "latitud": -42.13784978852031,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.72597171210168,
+                "latitud": -42.1376187961184,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.72590100947798,
+                "latitud": -42.1375393791646,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.72614484670832,
+                "latitud": -42.13737186350548,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.72628945132374,
+                "latitud": -42.1374933514,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.72659260917321,
+                "latitud": -42.13730576703112,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.72670572142275,
+                "latitud": -42.13738161529434,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.7257480336473,
+                "latitud": -42.13806357915264,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 105,
+        "name": "TENENCIA CHILOE",
+        "category": "Carabineros",
+        "color": "green",
+        "coordinates": [
+            {
+                "longitud": -73.72242587553608,
+                "latitud": -42.1416983769786,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.72179119275718,
+                "latitud": -42.14142915432315,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.72255730289214,
+                "latitud": -42.1407733602589,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.72322551027803,
+                "latitud": -42.1410343582175,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.72242587553608,
+                "latitud": -42.1416983769786,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 106,
+        "name": "HOSTERIA DON PEPE, SECTOR MOCOPULLI",
+        "category": "Hostal",
+        "color": "red",
+        "coordinates": [
+            {
+                "longitud": -73.74094694809406,
+                "latitud": -42.36922627253594,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.74066088524175,
+                "latitud": -42.36932569731265,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.73974263027606,
+                "latitud": -42.37115892573517,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.73915863833442,
+                "latitud": -42.37094702393635,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.73973054842172,
+                "latitud": -42.36977636421826,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.73917782695598,
+                "latitud": -42.36958698120026,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.73951004617315,
+                "latitud": -42.36893272633081,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.73935547754267,
+                "latitud": -42.36876997719957,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.74094694809406,
+                "latitud": -42.36922627253594,
+                "altitud": 0.0
+            }
+        ]
+    },
+    {
+        "id": 107,
+        "name": "PLANTA YADRAN",
+        "category": "Planta Yadran",
+        "color": "black",
+        "coordinates": [
+            {
+                "longitud": -73.64303576739869,
+                "latitud": -43.1367859385922,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.64405598963303,
+                "latitud": -43.13850206079083,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.64209774056478,
+                "latitud": -43.13937725776564,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.64012239340732,
+                "latitud": -43.13796633124773,
+                "altitud": 0.0
+            },
+            {
+                "longitud": -73.64303576739869,
+                "latitud": -43.1367859385922,
+                "altitud": 0.0
+            }
+        ]
+    }
+]

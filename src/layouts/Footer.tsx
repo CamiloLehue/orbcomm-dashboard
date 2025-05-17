@@ -1,7 +1,7 @@
 
 function Footer() {
     return (
-        <div className="bg-bgt  h-20 rounded-2xl flex justify-center items-center mt-5 px-5 w-full ">
+        <div className="bg-bgt  h-20 rounded-xs flex justify-center items-center mt-5 px-5 w-full ">
             <div className=" w-full flex justify-between items-center">
                 <div className="px-5">
                     <img src="AST-Logo-white.png" className="w-22" alt="ast" />

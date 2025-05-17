@@ -3,7 +3,7 @@ import { Polyline } from "react-leaflet";
 // import { useTrips } from "../../trips/hooks/useTrips";
 import { LatLngExpression } from "leaflet";
 
-const RouteLayer = ({ origenDestinyAsigned }: { origenDestinyAsigned?: [number[], number[]] }) => {
+const RouteLayer = ({ origenDestinyAsigned }: { origenDestinyAsigned?: LatLngExpression[] | null }) => {
     // const { trips } = useTrips();
     // const tripsArray: LatLngExpression[] = trips.map(trip => [trip.positionStatus.latitude, trip.positionStatus.longitude]);
 
@@ -16,8 +16,8 @@ const RouteLayer = ({ origenDestinyAsigned }: { origenDestinyAsigned?: [number[]
     console.log("destinoAsignado: ", destinoAsignado);
 
     const rutaTest: LatLngExpression[] = [
-        origenAsignado,
-        destinoAsignado,
+        origenAsignado as LatLngExpression,
+        destinoAsignado as LatLngExpression,
     ];
     // const { route } = useRouteSimulation();
     return <Polyline positions={rutaTest} color="red" />;

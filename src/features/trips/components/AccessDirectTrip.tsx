@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { GrFormDown, GrFormNextLink, GrFormPin } from "react-icons/gr";
 import Button from "../../../components/ui/Button";
+import { useNavigate } from "react-router";
 
 interface AccessDirectTripProps {
     origen: string;
@@ -28,13 +29,15 @@ function AccessDirectTrip({ estado = "En Camino", zonePoints }: AccessDirectTrip
 
     // const progress = 25;
     // const nextProgress = 50;
+
+    const navigate = useNavigate();
     return (
-        <div className="relative  flex flex-col place-items-center w-full min-h-70  rounded-3xl rounded-tl-lg overflow-hidden shadow 
-        bg-gradient-to-l from-red-800/50 to-bgp"
+        <div className="relative flex flex-col place-items-center w-full min-h-80 overflow-hidden shadow 
+        bg-gradient-to-t from-bgt to-bgt rounded-2xl border-t border-secondary/20"
         >
             <div className="absolute right-5 top-2 flex justify-center items-center gap-2 z-10">
                 <div className="rounded-full flex justify-center gap-2 items-center py-1">
-                    <Button rounded="full" className="py-1 hover:bg-bgp">
+                    <Button onClick={() => { navigate("/viajes/ver/1") }} rounded="full" className="py-1 hover:bg-bgp">
                         <GrFormNextLink size={20} />
                     </Button>
                     <Button rounded="full" className="py-1 hover:bg-bgp">
@@ -43,34 +46,36 @@ function AccessDirectTrip({ estado = "En Camino", zonePoints }: AccessDirectTrip
                 </div>
                 <GrFormPin className="text-2xl text-primary" />
             </div>
-            <div className="absolute right-0 top-0 bg-danger/40 h-60 w-100 rounded-full blur-3xl"></div>
-            <div className="absolute right-[50%] top-0 bg-danger/10 h-60 w-100 rounded-full blur-3xl"></div>
+            <div className="absolute right-0 top-0 bg-secondary/40 h-60 w-100 rounded-full blur-3xl"></div>
+            <div className="absolute right-[50%] top-0 bg-primary/10 h-60 w-100 rounded-full blur-3xl"></div>
             <div className="relative w-full h-[50%]  p-1">
                 <div className="grid grid-cols-2 w-full h-full p-5">
                     <div className="flex justify-center items-center relative mt-3">
-                        <div className="h-23 w-0.5 bg-white absolute left-[20px] top-1 "></div>
+                        <div className="h-35 w-0.5 bg-white absolute left-[20px] top-1 "></div>
                         <div className="flex justify-start items-center gap-3 ps-0.5">
-                            <div className="absolute top-1 left-4.5 w-2 h-2 bg-danger rounded-full"></div>
-                            <h5 className="absolute left-10 top-0 ">11:30 - Salida origen</h5>
+                            <div className="absolute top-1 left-4.5 w-2 h-2 bg-primary rounded-full"></div>
+                            <div className="absolute left-10 top-0 flex flex-col">
+                                <small className="font-bold">11:30</small>
+                                <h5 className="text-xs">Salida desde terminal Castro, Chiloé</h5>
+                            </div>
                         </div>
-                        <div className="flex justify-start items-center gap-3 ">
-                            <div className="absolute left-4.5 top-12 w-2 h-2 bg-danger rounded-full"></div>
-                            <h5 className="absolute left-10 top-10.5 ">14:00hrs - Pasó Geocerca habilitada</h5>
-                        </div>
-                        <div className="flex justify-start items-center gap-3 ">
-                            <div className="absolute left-4.5 top-23 w-2 h-2 bg-danger rounded-full"></div>
-                            <h5 className="absolute left-10 top-21 ">14:35hrs - Trasbordo pargua</h5>
+                        <div className="flex justify-start items-center gap-3 ps-0.5">
+                            <div className="absolute top-21 left-4.5 w-2 h-2 bg-primary rounded-full"></div>
+                            <div className="absolute left-10 top-20 flex flex-col">
+                                <small className="font-bold">12:45</small>
+                                <h5 className="text-xs">Salida desde Ancud, Chiloé</h5>
+                            </div>
                         </div>
                     </div>
                     <div className=" flex justify-center items-center">
-                        <img src="/dashboard/truck.png" alt="vehiculopng" className="absolute right-10 top-10 w-[40%]" />
+                        <img src="/dashboard/truck.png" alt="vehiculopng" className="absolute right-10 top-20 w-[40%]" />
                     </div>
                 </div>
             </div>
             <div className="relative w-full h-[50%] p-0.5">
-                <div className="relative w-full h-full bg-gradient-to-tr from-bgp to-bgp/50 rounded-3xl  flex flex-col justify-center items-center">
+                <div className="relative w-full h-full flex flex-col justify-center items-center">
                     <div className="relative w-[calc(100%-10rem)] mx-auto">
-                        <div className="absolute bottom-0 left-0 w-full h-0.5 bg-danger">
+                        <div className="absolute bottom-0 left-0 w-full h-0.5 bg-white">
                         </div>
                         <BarProgress progress={progress} estado={estado} />
                         <BarLine zonePoints={zonePoints} progress={progress} />
@@ -95,7 +100,7 @@ const BarLine = ({ zonePoints, progress }: BarLineProps) => {
                     const pointPosition = point.progress;
                     const name = point.name;
                     const hours = point.hours;
-                    const pointSuccessColor = (point.progress > progress) ? "bg-danger" : "bg-gradient-to-tl from-red-700 to-red-600";
+                    const pointSuccessColor = (point.progress > progress) ? "bg-white" : "bg-gradient-to-tl from-primary to-secondary";
                     const pointSuccessSize = (point.progress > progress)
                         ? "h-3 w-3 -bottom-1 rounded-full"
                         : "h-2 w-5 -bottom-0.5 rounded shadow shadow-bgp/30";
@@ -116,7 +121,7 @@ const BarLine = ({ zonePoints, progress }: BarLineProps) => {
                             <div
                                 className="absolute w-20 top-5 flex flex-col justify-center items-center "
                                 style={{
-                                    left: `${(pointPosition - 5)}%`,
+                                    left: `${(pointPosition - 13)}%`,
                                 }}
                             >
                                 <h5 className="text-nowrap text-white">{name}</h5>
@@ -132,7 +137,7 @@ const BarLine = ({ zonePoints, progress }: BarLineProps) => {
 const BarProgress = ({ progress, estado }: { progress: number, estado?: string }) => {
     return (
         <div
-            className="absolute bottom-0 left-2.5 h-0.5 bg-white"
+            className="absolute -bottom-0 left-2.5 h-0.5 bg-primary"
             style={{
                 width: `${progress}%`,
             }}>
@@ -144,8 +149,8 @@ const BarProgress = ({ progress, estado }: { progress: number, estado?: string }
 
 const PopUpStatus = ({ estado = "En Camino" }: { estado?: string }) => {
     return (
-        <div className="absolute -top-14 -right-12 bg-white min-w-20 px-5 h-7 rounded-full flex justify-center items-center">
-            <small className="text-bgp text-nowrap">{estado}</small>
+        <div className="absolute -top-11 -right-11.5 bg-white min-w-20 px-5 h-7 rounded-full flex justify-center items-center">
+            <small className="text-bgp text-nowrap text-xs">{estado}</small>
             <div className="absolute h-2 w-2 bg-white rotate-45 -bottom-1">
             </div>
         </div>
@@ -155,7 +160,7 @@ const PopUpStatus = ({ estado = "En Camino" }: { estado?: string }) => {
 const PointCheck = () => {
     return (
         <>
-            <div className="absolute -bottom-2.5 animate-spin -right-1 w-5 h-5 rounded-full border-2 border-dashed border-danger "
+            <div className="absolute -bottom-2.5 animate-spin -right-1 w-5 h-5 rounded-full border-2 border-dashed border-primary "
                 style={{
                     animationDuration: "3s",
                     animationIterationCount: "infinite",

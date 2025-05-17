@@ -1,4 +1,12 @@
-import { GrDeliver, GrGateway, GrNavigate, GrProjects, GrFormNext, GrApps, GrPerformance } from "react-icons/gr"
+import {
+    GrDeliver,
+    GrGateway,
+    // GrNavigate, 
+    GrProjects,
+    GrFormNext,
+    GrApps,
+    GrPerformance
+} from "react-icons/gr"
 import Button from "../components/ui/Button"
 import { useNavigate } from "react-router"
 import { useState } from "react";
@@ -11,6 +19,13 @@ function Sidebar() {
             icon: GrApps,
             text: "Explorar",
             link: "/",
+        },
+        
+        {
+            icon: GrGateway,
+            text: "Seguimientos",
+            link: "/seguimientos",
+
         },
         {
             icon: GrDeliver,
@@ -29,40 +44,40 @@ function Sidebar() {
                 },
             ]
         },
-        {
-            icon: GrGateway,
-            text: "Monitoreo",
-            link: "/monitoreo",
-            submenu: [
-                {
-                    icon: GrProjects,
-                    text: "Inicio",
-                    link: "/"
-                },
-                {
-                    icon: GrProjects,
-                    text: "Inicio",
-                    link: "/"
-                },
-            ]
-        },
-        {
-            icon: GrNavigate,
-            text: "Tramos",
-            link: "/tramos",
-            submenu: [
-                {
-                    icon: GrProjects,
-                    text: "Inicio",
-                    link: "/"
-                },
-                {
-                    icon: GrProjects,
-                    text: "Inicio",
-                    link: "/"
-                },
-            ]
-        },
+        // {
+        //     icon: GrGateway,
+        //     text: "Monitoreo",
+        //     link: "/monitoreo",
+        //     submenu: [
+        //         {
+        //             icon: GrProjects,
+        //             text: "Inicio",
+        //             link: "/"
+        //         },
+        //         {
+        //             icon: GrProjects,
+        //             text: "Inicio",
+        //             link: "/"
+        //         },
+        //     ]
+        // },
+        // {
+        //     icon: GrNavigate,
+        //     text: "Tramos",
+        //     link: "/tramos",
+        //     submenu: [
+        //         {
+        //             icon: GrProjects,
+        //             text: "Inicio",
+        //             link: "/"
+        //         },
+        //         {
+        //             icon: GrProjects,
+        //             text: "Inicio",
+        //             link: "/"
+        //         },
+        //     ]
+        // },
         {
             icon: GrPerformance,
             text: "Configuración",
@@ -84,7 +99,7 @@ function Sidebar() {
     const [openSidebar, setOpenSidebar] = useState(false);
 
     return (
-        <div className={`${!openSidebar ? `w-[100px]` : `w-[200px]`} relative transition-all duration-100 bg-bgt py-5 flex flex-col justify-start items-center gap-5`}>
+        <div className={`${!openSidebar ? `w-[100px]` : `w-[200px]`} relative transition-all bg-gradient-to-b from-bgt py-5 flex flex-col justify-start items-center gap-5`}>
             <div className="absolute -right-15 top-5">
                 <Button onClick={() => setOpenSidebar(!openSidebar)} className="relative z-50 text-xs text-zinc-500 flex  items-center justify-start  gap-2">
                     {
@@ -92,13 +107,14 @@ function Sidebar() {
                     }
                 </Button>
             </div>
-            <div>
-                <h1 className="text-xs">S<span className="font-bold text-primary">Track</span></h1>
+            <div className="flex flex-col justify-center items-center">
+                <h5 className="text-danger font-bold">WI<span className="text-white/60 font-normal">SENSOR</span></h5>
+                <small className="text-xs font-light">S<span className="text-secondary">Track</span></small>
             </div>
             <h6 className="text-zinc-600 text-center font-bold">
                 Menu
             </h6>
-            <nav className=" w-full">
+            <nav className="w-full">
                 <ul className="flex flex-col gap-5 w-full justify-center items-start px-3">
                     {
                         menu.map((item, i) => (
@@ -106,14 +122,19 @@ function Sidebar() {
                                 {
                                     item.link === location
                                         ?
-                                        <Button onClick={() => navigate(item.link)} rounded="sm" className="text-xs px-4 py-3 font-bold bg-gray/20 shadow w-full text-zinc-200 flex  items-center justify-start  gap-2">
+                                        <Button
+                                            onClick={() => navigate(item.link)}
+                                            rounded="sm"
+                                            className={`text-xs px-4 py-3 font-bold bg-danger/50 shadow w-full text-zinc-200 flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
                                             <item.icon size={15} />
                                             {
                                                 openSidebar && item.text
                                             }
                                         </Button>
                                         :
-                                        <Button onClick={() => navigate(item.link)} className="text-xs px-4 text-zinc-400 w-full font-semibold flex  items-center justify-start  gap-2">
+                                        <Button
+                                            onClick={() => navigate(item.link)}
+                                            className={`text-xs px-4 text-zinc-400 w-full font-semibold flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
                                             <item.icon size={15} />
                                             {
                                                 openSidebar && item.text
