@@ -16,7 +16,7 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
     const selectedTripODAsArray = Array.isArray(selectedTripOD) ? selectedTripOD : [];
 
     if (selectedTripsAsArray.length === 0 || selectedTripODAsArray.length === 0)
-        return <p className="text-center pt-5">Selecciona un viaje</p>;
+        return <p className="text-center pt-5">Selecciona un viaje para comenzar</p>;
 
     const rutasSeleccionadas = selectedTripODAsArray.map(([origenId, destinoId]) => {
 
@@ -55,9 +55,7 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
     return (
         <>
             <div className="w-full h-full flex flex-col justify-start items-start gap-2">
-                <div className="w-full flex justify-center items-center p-5">
-                    <h4>Monitoreo de trayectos</h4>
-                </div>
+
                 <div className={`${layoutPositions(selectedTripODAsArray.length)} w-full h-full`}>
                     {
                         selectedTripODAsArray.map((_, i) => {
@@ -66,7 +64,7 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
                                 <div
                                     key={i}
                                     className={`
-                                    relative w-full h-full flex justify-start items-start bg-gray-200/10 
+                                    relative w-full h-full flex justify-start items-start bg-bgp overflow-hidden 
                                     ${selectedTripODAsArray.length === 3 ? (i === 2 ? "col-span-2" : "col-span-1") : ""}
                                     ${selectedTripODAsArray.length === 5 ? (i === 0 || i === 1 ? "col-span-3" : "col-span-2") : ""}
                                     ${selectedTripODAsArray.length === 7 ? (i === 0 ? "col-span-3" : "col-span-1") : ""}
@@ -75,14 +73,14 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
                                     <div
                                         className="text-center w-full"
                                         style={{
-                                            height: selectedTripODAsArray.length <= 2 ? '672px' : '320px'
+                                            height: selectedTripODAsArray.length <= 2 ? '750px' : '372px'
                                         }}
                                     >
                                         <MapView
                                             tripOrigin={[parseInt(ruta.ciudadOrigenLatitud), parseInt(ruta.ciudadOrigenLongitud)]}
                                             tripDestination={[parseInt(ruta.ciudadDestinoLatitud), parseInt(ruta.ciudadDestinoLongitud)]}
                                             origenDestinyAsigned={[[parseInt(ruta.ciudadOrigenLatitud), parseInt(ruta.ciudadOrigenLongitud)], [parseInt(ruta.ciudadDestinoLatitud), parseInt(ruta.ciudadDestinoLongitud)]]}
-                                            height={selectedTripODAsArray.length <= 2 ? '672px' : '320px'}
+                                            height={selectedTripODAsArray.length <= 2 ? '750px' : '372px'}
                                         />
                                     </div>
                                 </div>

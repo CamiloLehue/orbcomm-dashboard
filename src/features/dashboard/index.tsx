@@ -1,10 +1,10 @@
-import AccessDirectTrip from "../trips/components/AccessDirectTrip";
 import Notification from "../notification/components/Notification";
 // import { MapView } from "../maps";
 import TripList from "../trips/components/TripList";
 import StatisticsAccesDirect from "../statistics/components/StatisticsAccesDirect";
 import StatisticsSpeed from "../statistics/components/StatisticsSpeed";
 import MultiMapView from "../maps/components/MultiMapView";
+import AccessDirectTrip from "../trips/components/AccessDirectTrip";
 // import ReportList from "../reports/components/ReportList";
 function Dashboard() {
   return (

@@ -6,7 +6,7 @@ import Footer from "./Footer";
 function Template() {
   return (
     <div>
-      <div className="relative flex flex-row flex-nowrap min-w-[1700px] h-full w-full pe-3 gap-1 overflow-hidden">
+      <div className="relative flex flex-row flex-nowrap min-w-[1700px] h-full w-full pe-3 overflow-hidden">
         <Sidebar />
         <div className="relative z-10 bg-gradient-to-tl from-bgs  to-bgs h-full w-full min-h-[calc(100vh-6.7rem)] flex flex-col justify-start items-center ">
           {/* <div className="absolute left-0 top-0 h-[1000px] w-[1000px] bg-danger/5 rounded-full blur-3xl "></div> */}
