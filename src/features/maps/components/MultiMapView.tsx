@@ -1,7 +1,12 @@
+import { lazy, Suspense, useEffect, useState } from "react";
+
 import { MapContainer, TileLayer, LayersControl, ScaleControl } from "react-leaflet";
-import RouteLayer from "./RouteLayer";
-import VehicleMarker from "./VehicleMarker";
-import GeofenceLayer from "../../zones/components/GeofenceLayer";
+// import RouteLayer from "./RouteLayer";
+const RouteLayer = lazy(() => import("./RouteLayer"));
+// import VehicleMarker from "./VehicleMarker";
+const VehicleMarker = lazy(() => import("./VehicleMarker"));
+// import GeofenceLayer from "../../zones/components/GeofenceLayer";
+const GeofenceLayer = lazy(() => import("../../zones/components/GeofenceLayer"));
 import { GeoButtons } from "../../zones";
 // import TripRouteLayer from "../../trips/components/TripRouteLayer";
 import { useRouteSimulation } from "../hooks/useRouteSimulation";
@@ -14,6 +19,13 @@ interface MultiMapViewProps {
 }
 
 const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) => {
+    const [showZones, setShowZones] = useState(false);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => setShowZones(true), 1000); // o 500ms si quieres más margen
+
+        return () => clearTimeout(timeout);
+    }, []);
     const { BaseLayer, Overlay } = LayersControl;
     const { route, markerIndex } = useRouteSimulation(); // Obtener la ruta simulada que realiza el camión
     const [lat, lon] = route[markerIndex] as [number, number];
@@ -26,7 +38,7 @@ const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) =
     return (
         <div className="rounded-b-xl ">
             {/* Valor por defecto = center={[-43.1375, -73.6425]]} */}
-            <MapContainer center={[-43.1375, -73.6425]} zoom={5} scrollWheelZoom={false} style={{ height: height, width: "100%" }}>
+            <MapContainer preferCanvas  center={[-43.1375, -73.6425]} zoom={5} scrollWheelZoom={false} style={{ height: height, width: "100%" }}>
 
                 {
                     options &&
@@ -85,21 +97,29 @@ const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) =
                             // const firstIdViaje: number = parseInt(firstData.messageId);
                             // const lastIdViaje: number = parseInt(lastData.messageId);
                             return (
-                                <>
-                                    <Overlay checked name="Ruta Simulada">
-                                        <RouteLayer origenDestinyAsigned={[origenCoords, destinoCoords]} />
-                                    </Overlay>
-                                    <Overlay checked name={`Camión ${i + 1}`}>
-                                        <VehicleMarker origenDestinyAsigned={[origenCoords, destinoCoords]} />
-                                    </Overlay>
-                                </>
+                                <div key={trip.code || i}>
+                                    {showZones && (
+                                        <Suspense fallback={<div>Cargando zonas...</div>}>
+                                            <Overlay checked name="Ruta Simulada">
+                                                <RouteLayer origenDestinyAsigned={[origenCoords, destinoCoords]} />
+                                            </Overlay>
+                                            <Overlay checked name={`Camión ${i + 1}`}>
+                                                <VehicleMarker origenDestinyAsigned={[origenCoords, destinoCoords]} />
+                                            </Overlay>
+                                        </Suspense>
+                                    )}
+                                </div>
                             )
                         })
                     }
 
-                    <Overlay checked name="Zonas Geográficas">
-                        <GeofenceLayer />
-                    </Overlay>
+                    {showZones && (
+                        <Suspense fallback={<div>Cargando zonas...</div>}>
+                            <Overlay checked name="Zonas Geográficas">
+                                <GeofenceLayer />
+                            </Overlay>
+                        </Suspense>
+                    )}
                     {/* {tripOrigin && tripDestination && (
                         <Overlay checked name="Ruta de Viaje">
                             <TripRouteLayer origin={tripOrigin} destination={tripDestination} />

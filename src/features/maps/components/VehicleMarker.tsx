@@ -1,6 +1,6 @@
 import { Marker, Popup } from "react-leaflet";
 import { truckIcon } from "../lib/mapIcons";
-import { useReverseGeocode } from "../hooks/useReverseGeocode";
+// import { useReverseGeocode } from "../hooks/useReverseGeocode";
 import { LatLngExpression } from "leaflet";
 
 const VehicleMarker = ({ origenDestinyAsigned }: { origenDestinyAsigned?: LatLngExpression[] | null }) => {
@@ -12,14 +12,14 @@ const VehicleMarker = ({ origenDestinyAsigned }: { origenDestinyAsigned?: LatLng
     console.log("lat:VEhichle ", lat);
     console.log("lon:VEhichle ", lon);
 
-    const address = useReverseGeocode(lat, lon);
+    // const address = useReverseGeocode(lat, lon);
 
     return (
         <Marker position={origenAsignado as LatLngExpression} icon={truckIcon}>
             <Popup>
                 <strong>Camión en movimiento</strong>
                 <br />
-                {address}
+                {"Triangulando..."}
             </Popup>
         </Marker>
     );

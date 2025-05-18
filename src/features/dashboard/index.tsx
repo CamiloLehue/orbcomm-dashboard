@@ -39,7 +39,7 @@ function Dashboard() {
               </div>
               <div className="relative w-full h-full top-55">
                 {/* <MapView tripOrigin={null} tripDestination={null} options={true} height="700px" /> */}
-                <MultiMapView height="600px" options={true}   />
+                <MultiMapView height="600px" options={true} />
               </div>
             </div>
           </article>
