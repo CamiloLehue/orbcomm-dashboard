@@ -1,7 +1,9 @@
 import { useParams } from "react-router";
 import Button from "../../../components/ui/Button";
-import { GrCircleQuestion, GrContactInfo, GrDirections, GrFormNextLink, GrGrommet, GrLinkDown, GrLinkUp, GrPhone, GrSatellite } from "react-icons/gr";
+import { GrCircleQuestion, GrDirections, GrFormNextLink, GrGrommet, GrPhone } from "react-icons/gr";
 import { MapView } from "../../maps";
+import Notification from "../../notification/components/Notification";
+import ProgressTrip from "./ProgressTrip";
 
 function ViewTrip() {
 
@@ -13,10 +15,10 @@ function ViewTrip() {
     return (
         <div className="relative h-full w-full flex flex-col justify-start items-start">
             <div className="grid grid-cols-12 gap-5  w-full h-full">
-                <div className="col-span-7 px-5 flex flex-col items-start justify-start gap-2 bg-w ">
-                    <div className="bg-gradient-to-t from-bgt  w-full rounded-b-3xl p-2">
+                <div className="col-span-5 px-5 flex flex-col items-start justify-start gap-2 bg-w ">
+                    <div className="w-full p-2">
                         {/* Inicio Top menu informacion rapdia de viaje */}
-                        <div className=" py-1 w-full col-span-8 flex justify-between items-center gap-5 border-b border-gray/20 pb-3 ">
+                        <div className="bg-bg py-1 w-full col-span-8 flex justify-between items-center gap-5 border-b border-gray/20 pb-3 ">
                             <div className="flex text-nowrap justify-start items-center gap-3 bg-gray/30 px-2 ps-4 pe-4 rounded-full py-1">
                                 <GrGrommet className="text-primary animate-pulse" />
                                 <h3>Recorrido #00{id} </h3>
@@ -42,36 +44,24 @@ function ViewTrip() {
                                 <GrFormNextLink className="text-primary" />
                                 <h3 className="text-white">Castro </h3>
                             </div>
-                            <div className="flex justify-center items-center gap-2 font-light">
-                                <h5 className="text-gray flex items-center justify-center gap-1 bg-bgp shadow shadow-gray/30 px-4 py-1 rounded-full">
-                                    <GrContactInfo size={19} />
-                                    <span className="font-bold">Camilo Lehue</span>
-                                </h5>
-                                <h5 className="text-gray flex items-center justify-center gap-1 bg-bgp shadow shadow-gray/30 px-4 py-1 rounded-full">
-                                    <GrLinkUp />
-                                    <span className="font-bold">XXXX-00</span>
-                                </h5>
-                                <h5 className="text-gray flex items-center justify-center gap-1 bg-bgp shadow shadow-gray/30 px-4 py-1 rounded-full">
-                                    <GrLinkDown />
-                                    <span className="font-bold">XXXX-99</span>
-                                </h5>
-                                <h5 className="text-gray flex items-center justify-center gap-1 bg-bgp shadow shadow-gray/30 px-4 py-1 rounded-full">
-                                    <GrSatellite />
-                                    <span className="font-bold">E-20050006</span>
-                                </h5>
-                            </div>
+                            <WidgetV />
                         </div>
                         {/* Fin Top menu informacion rapdia de viaje */}
                         <RutaTracking />
                     </div>
-                    <div className="p-2 w-full">
-                        <h3>Notificaciones <span className="text-danger text-xs font-bold">(1)</span></h3>
-                        <div className="w-full h-20 bg-danger/20 border border-danger rounded-xl mt-4 p-3">
-                            <h4 className="text-white">Desvío en la ruta 5-Sur</h4>
-                            <p>El sistema a detectado un desvío en la ruta de la carretera. Se recomienda que se tome la decisión de continuar con la ruta.</p>
+                    <div className="p-2 w-full h-full mt-10">
+                        <div className="py-2 w-full ">
+                            <h3>Logística <span className="block text-xs text-secondary">del cargamento</span></h3>
+                            <div className="w-full h-40   grid grid-cols-7">
+                                <div className="col-span-2 flex flex-col justify-center items-center gap-4">
+                                    <div className="flex flex-col justify-center items-center w-full ">
+                                        <h5 className="text-white font-light">Peso transportado</h5>
+                                        <h2 className="text-warning text-5xl">2000.00</h2>
+                                        <small>kílogramos</small>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="p-2 w-full h-full">
                         <div className="w-full h-full rounded-2xl flex flex-col gap-5 p-2">
                             <h3>Información <span className="block text-xs text-secondary">del recorrido</span></h3>
                             <div className="grid grid-cols-3 gap-2 w-full text-nowrap">
@@ -121,8 +111,11 @@ function ViewTrip() {
                         </div>
                     </div>
                 </div>
-                <div className="relative col-span-5 h-full overflow-hidden">
-                    {/* <MapView tripOrigin={origen} tripDestination={destino} height="800px" /> */}
+                <div className="col-span-3">
+                    <Notification />
+                </div>
+                <div className="relative col-span-4 h-full overflow-hidden">
+                    <MapView tripOrigin={origen} tripDestination={destino} height="800px" />
                 </div>
             </div>
         </div >
@@ -130,91 +123,136 @@ function ViewTrip() {
 }
 
 const RutaTracking = () => {
+
+
     return (
-        <div className="relative flex flex-col place-items-center w-full min-h-70 py-10  rounded-3xl bg-gradient-to-br from-green-700/30 to-red-800/10">
-            <div className="relative w-[calc(100%-5rem)] flex flex-col gap-3 h-35 ">
-                <div className="h-11 w-0.5 bg-primary absolute left-[7px] top-1 "></div>
-                <div className="flex justify-start items-center gap-3 ps-0.5">
-                    <div className="absolute top-1 left-0.5 w-3 h-3 bg-primary rounded-full"></div>
-                    <h5 className="absolute left-5 top-1 "><span className="text-primary">15:30hrs.</span> Salida desde <span className="font-bold">Terminal Sur Puerto Montt</span></h5>
-                </div>
-                <div className="flex justify-start items-center gap-3 ">
-                    <div className="absolute left-0.5 top-11 w-3 h-3 bg-primary rounded-full"></div>
-                    <h5 className="absolute left-5 top-10 "><span className="text-primary">16:00hrs.</span> Entrada a <span className="font-bold">Trasbordo pargua</span></h5>
-                </div>
-                <div className="absolute w-70 h-30 bg-primary/30 rounded-full right-0 top-0 blur-3xl "></div>
-                <img src="/dashboard/truck.png" alt="vehiculopng" className="absolute right-0 w-[17%]" />
-            </div>
-            <div className="relative w-[calc(100%-2rem)] px-2">
-                <div className="relative">
-                    <div className="absolute w-full h-0.5 bg-bgp/20">
-                    </div>
-                    <div className="absolute w-[65%]  h-0.5 bg-white">
-                    </div>
-                    <div className="absolute w-[50%] h-0.5 bg-primary">
-                        <div className="absolute -top-14 -right-10.5 bg-primary min-w-20 px-5 h-7 rounded-full flex justify-center items-center">
-                            <small className="text-bgp">En Camino</small>
-                            <div className="absolute h-2 w-2 bg-primary rotate-45 -bottom-1">
-                            </div>
-                        </div>
-                        <div className="absolute -top-2 right-0 w-5 h-5 border border-primary border-b-transparent animate-spin rounded-full">
-                        </div>
-                        <div className="absolute -top-1 right-1 w-3 h-3 bg-white border-b-transparent animate-spin rounded-full">
-                        </div>
-                    </div>
-                </div>
-                <div className="absolute -top-1 left-5 w-3 h-3 bg-primary rounded-full">
-                    <div className="absolute top-5  text-center">
-                        <h5 className="text-nowrap text-white">Puerto Montt</h5>
-                        <small className="text-white">hace 1 hora</small>
-                    </div>
-                </div>
-                <div className="absolute -top-1 left-[30%] w-3 h-3 bg-primary rounded-full">
-                    <div className="absolute -left-8 top-5 text-center ">
-                        <h5 className="text-nowrap text-white">Pargua, Chile</h5>
-                        <small className="text-primary animate-pulse">16:30:00 </small>
-                    </div>
-                </div>
-                <div className="absolute -top-1 left-[65%] rounded-full">
-                    <div className="absolute -left-8 top-5  text-center">
-                        <h5 className="text-nowrap text-white">Ancud, Chile</h5>
-                        <small className="text-white">a las 17:30 </small>
-                    </div>
-                    <div
-                        className="absolute -right-[6px] -top-[6px] animate-ping w-5 h-5 rounded-full border border-primary"
-                        style={{
-                            animation: "ping 2s ease-in-out infinite reverse",
-                            animationDirection: "alternate ",
-                            transform: "scale(1.5)",
-                        }}
-                    >
-                    </div>
-                    <div
-                        className="absolute -right-[6px] animate-ping -top-[6px] scale-50 w-5 h-5 rounded-full border-2 border-primary"
-                        style={{
-                            animation: "ping 5s ease-in-out infinite reverse",
-                            animationDelay: "1s",
-                            animationDirection: "alternate",
-                            transform: "scale(1.5)",
-                        }}
-                    >
-                    </div>
-                    <div
-                        className="absolute right-0 top-[1px] w-2 h-2 rounded-full bg-white"
-                        style={{
-                            animation: "pulse 1s ease-in infinite",
-                        }}
-                    >
-                    </div>
-                </div>
-                <div className="absolute -top-[3px] right-5 w-2 h-2 bg-bgp rounded-full">
-                    <div className="absolute top-5 right-0 text-center ">
-                        <h5 className="text-nowrap text-white">Castro, Chile</h5>
-                        <small className="text-white">a las 18:00</small>
-                    </div>
-                </div>
-            </div>
+        <div className="relative flex flex-col place-items-center w-full  py-2 mt-10  ">
+            <TripFast />
         </div>
+    )
+}
+
+
+const TripFast = () => {
+    const origen = "Castro";
+    const destino = "Puerto Montt";
+    const numeroViaje = "E-20050006";
+    const patenteVehiculo = "XXXX-00";
+    const patenteRampa = "XXXX-00";
+    const horaSalida = "11:30:00";
+    const horaLlegada = "18:00:00";
+    const trayectoRecorrido = 20;
+    const zonePoints = [
+        {
+            id: 1,
+            name: origen,
+            hours: "11:30:00",
+            lat: -33.448889,
+            lng: -70.669265,
+            estado: true,
+            progress: 0,
+            nextPoint: 25,
+        },
+        {
+            id: 2,
+            name: "Ancud",
+            hours: "13:30:00",
+            lat: -33.453944,
+            lng: -70.672517,
+            estado: true,
+            progress: 50,
+            nextPoint: 50,
+        },
+        {
+            id: 3,
+            name: destino,
+            hours: "15:30:00",
+            lat: -33.453944,
+            lng: -70.672517,
+            estado: true,
+            progress: 100,
+            nextPoint: 100,
+        },
+
+    ]
+
+    return (
+        <ProgressTrip
+            origen={origen}
+            destino={destino}
+            numeroViaje={numeroViaje}
+            patenteVehiculo={patenteVehiculo}
+            patenteRampa={patenteRampa}
+            horaSalida={horaSalida}
+            horaLlegada={horaLlegada}
+            trayectoRecorrido={trayectoRecorrido}
+            estado="En Camino"
+            zonePoints={zonePoints}
+        />
+    )
+}
+
+
+
+const WidgetV = () => {
+    return (
+        <button className="group relative">
+            <div
+                className="absolute -inset-1 rounded-xl bg-gradient-to-r from-gray via-gray to-gray opacity-10 blur-xl transition-all duration-500 group-hover:opacity-20 group-hover:blur-2xl"
+            ></div>
+
+            <div
+                className="relative flex items-center gap-2 rounded-xl  p-1 pr-4"
+            >
+                <div className="flex items-center gap-3 rounded-lg  px-3 py-2">
+                    <div className="relative">
+                        <div
+                            className="absolute -inset-1 rounded-lg bg-bgt blur-sm transition-all duration-300 group-hover:bg-primary/30 group-hover:blur-md"
+                        ></div>
+                    </div>
+                    <div className="flex flex-col">
+                        <div className="flex items-center gap-1">
+                            <span className="text-lg font-bold text-white">89.3%</span>
+
+                        </div>
+                        <span className="text-[10px] font-medium text-slate-400">Progreso</span>
+                    </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <div className="flex gap-3">
+                        <div className="flex flex-col items-center gap-1">
+                            <div className="h-8 w-1.5 rounded-full  p-[2px]">
+                                <div
+                                    className="h-4 w-full rounded-full bg-primary transition-all duration-300 group-hover:h-6"
+                                ></div>
+                            </div>
+                            <span className="text-[10px] font-medium text-slate-400">Combustible</span>
+                        </div>
+
+                        <div className="flex flex-col items-center gap-1">
+                            <div className="h-8 w-1.5 rounded-full p-[2px]">
+                                <div
+                                    className="h-6 w-full rounded-full bg-secondary transition-all duration-300 group-hover:h-7"
+                                ></div>
+                            </div>
+                            <span className="text-[10px] font-medium text-slate-400">Refrigerante</span>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-1.5">
+                        <div
+                            className="h-2 w-2 rounded-full bg-primary shadow-lg shadow-primary/50"
+                        ></div>
+                        <span className="text-xs font-semibold text-slate-300">OPTIMO</span>
+                    </div>
+                </div>
+
+                <div
+                    className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-gray/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                ></div>
+            </div>
+        </button>
     )
 }
 

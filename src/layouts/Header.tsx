@@ -7,7 +7,7 @@ import Dropdown from "../components/ui/Dropdown";
 function Header() {
     const navigate = useNavigate();
     return (
-        <header className="sticky top-0 z-[9999] py-4 flex items-center justify-between w-full mx-auto px-4 bg-bgt border-b border-gray/20 mb-2">
+        <header className="sticky top-0 z-[9999] py-4 flex items-center justify-between w-full mx-auto px-4 bg-bg mb-2">
             <div className="flex justify-center items-center gap-2 px-5 ms-13 min-w-[360px] bg-gray/20 border border-gray/20 rounded-full">
                 <GrSearch />
                 <input className="py-2.5 pe-2 focus:outline-none rounded-full w-full text-sm" type="text" placeholder="Ingresar número del envio o vehículo" />

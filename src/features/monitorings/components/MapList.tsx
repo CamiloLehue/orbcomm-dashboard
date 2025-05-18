@@ -66,7 +66,7 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
                                 <div
                                     key={i}
                                     className={`
-                                    relative w-full h-full flex justify-start items-start bg-gray-200/10 
+                                    relative w-full h-full flex justify-start items-start bg-gray-200/10 overflow-hidden 
                                     ${selectedTripODAsArray.length === 3 ? (i === 2 ? "col-span-2" : "col-span-1") : ""}
                                     ${selectedTripODAsArray.length === 5 ? (i === 0 || i === 1 ? "col-span-3" : "col-span-2") : ""}
                                     ${selectedTripODAsArray.length === 7 ? (i === 0 ? "col-span-3" : "col-span-1") : ""}
@@ -75,14 +75,14 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
                                     <div
                                         className="text-center w-full"
                                         style={{
-                                            height: selectedTripODAsArray.length <= 2 ? '672px' : '320px'
+                                            height: selectedTripODAsArray.length <= 2 ? '673px' : '335px'
                                         }}
                                     >
                                         <MapView
                                             tripOrigin={[parseInt(ruta.ciudadOrigenLatitud), parseInt(ruta.ciudadOrigenLongitud)]}
                                             tripDestination={[parseInt(ruta.ciudadDestinoLatitud), parseInt(ruta.ciudadDestinoLongitud)]}
                                             origenDestinyAsigned={[[parseInt(ruta.ciudadOrigenLatitud), parseInt(ruta.ciudadOrigenLongitud)], [parseInt(ruta.ciudadDestinoLatitud), parseInt(ruta.ciudadDestinoLongitud)]]}
-                                            height={selectedTripODAsArray.length <= 2 ? '672px' : '320px'}
+                                            height={selectedTripODAsArray.length <= 2 ? '673px' : '335px'}
                                         />
                                     </div>
                                 </div>
