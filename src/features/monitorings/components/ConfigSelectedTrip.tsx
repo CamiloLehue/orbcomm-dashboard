@@ -15,7 +15,6 @@ const ConfigSelectedTrip = ({ selectedTrips, selectedTripOD }: ConfigSelectedTri
 
     if (selectedTripsAsArray.length === 0 || selectedTripODAsArray.length === 0)
         return <p className="text-center pt-5">Selecciona un viaje</p>;
-
     const rutasSeleccionadas = selectedTripODAsArray.map(([origenId, destinoId]) => {
         let ciudadOrigen = "Origen desconocido";
         let ciudadDestino = "Destino desconocido";
@@ -31,11 +30,10 @@ const ConfigSelectedTrip = ({ selectedTrips, selectedTripOD }: ConfigSelectedTri
         return { ciudadOrigen, ciudadDestino };
     });
 
-    console.log("selectedTripsAsArray [][]", selectedTripOD);
 
     return (
-        <div className="w-full">
-            <div className="flex flex-col justify-center items-center bg-bgs py-5">
+        <div className="w-full bg-bgp h-full">
+            <div className="flex flex-col justify-center items-center py-5">
                 <h5>Configuración</h5>
                 <small className="text-gray">Seguimiento ({selectedTripsAsArray.length})</small>
             </div>
@@ -60,14 +58,14 @@ const ConfigSelectedTrip = ({ selectedTrips, selectedTripOD }: ConfigSelectedTri
 
             <div className="w-full p-5 flex flex-col gap-2">
                 <h5 className="text-white/70">Seleccionar posición</h5>
-                <div className="grid grid-cols-2 gap-1 mt-2 border border-gray/20 p-2">
+                <div className="grid grid-cols-2 gap-1 mt-2 border-4 border-gray/10 p-2">
                     {rutasSeleccionadas.map((ruta, i) => (
-                        <Button key={i} rounded="lg" className="flex flex-col justify-center items-center bg-bgp hover:bg-bgs p-1 border border-gray/30">
+                        <Button key={i} rounded="lg" className="flex flex-col justify-center items-center bg-bgs hover:bg-bgs p-1 border border-gray/30">
                             <div className="grid grid-cols-3 w-full gap-2">
                                 <p className="text-xs text-center text-gray">{ruta.ciudadOrigen}</p>
                             </div>
                             <div className="grid grid-cols-3 w-full gap-2">
-                            <p className="text-xs text-center text-gray">{ruta.ciudadDestino}</p>
+                                <p className="text-xs text-center text-gray">{ruta.ciudadDestino}</p>
                             </div>
                         </Button>
                     ))}

@@ -21,7 +21,7 @@ function ProgressTrip({ estado = "En Camino", zonePoints }: ProgressTripProps) {
     useEffect(() => {
         const interval = setInterval(() => {
             setProgress((progress < 100) ? progress + 1 : 100);
-        }, 2000);
+        }, 10000);
 
         return () => clearInterval(interval);
     }, [progress]);
