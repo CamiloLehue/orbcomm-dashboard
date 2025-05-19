@@ -18,9 +18,9 @@ interface MapViewProps {
 }
 
 const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]], height = "100%", options = false }: MapViewProps) => {
-    const [geoZones, setGeoZones] = useState(false); // Estado para almacenar las zonas geográficas
+    const [geoZones] = useState(false); 
     const { BaseLayer, Overlay } = LayersControl;
-    const { route, markerIndex, load } = useRouteSimulation(); // Obtener la ruta simulada que realiza el camión
+    const { route, markerIndex, load } = useRouteSimulation();
     const [lat, lon] = route[markerIndex] as [number, number];
     const address = useReverseGeocode(lat, lon);
 
@@ -68,10 +68,10 @@ const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-4
                     <Overlay checked name="Camión">
                         <VehicleMarker origenDestinyAsigned={origenDestinyAsigned} />
                     </Overlay>
-                    {geoZones && 
-                    <Overlay checked name="Zonas Geográficas">
-                        <GeofenceLayer />
-                    </Overlay>}
+                    {geoZones &&
+                        <Overlay checked name="Zonas Geográficas">
+                            <GeofenceLayer />
+                        </Overlay>}
                     {/* {tripOrigin && tripDestination && (
                         <Overlay checked name="Ruta de Viaje">
                             <TripRouteLayer origin={tripOrigin} destination={tripDestination} />
@@ -81,7 +81,7 @@ const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-4
                 {
                     options && <>
                         <ScaleControl position="bottomleft" />
-                        <GeoButtons />
+                        <GeoButtons  />
                     </>
                 }
             </MapContainer>
