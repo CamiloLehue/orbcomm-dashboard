@@ -33,7 +33,7 @@ function AccessDirectTrip({ estado = "En Camino", zonePoints }: AccessDirectTrip
     const navigate = useNavigate();
     return (
         <div className="relative flex flex-col place-items-center w-full min-h-80 overflow-hidden shadow 
-        bg-gradient-to-t from-bgt to-bgt rounded-2xl border-t border-secondary/20"
+        bgbgp rounded-2xl border-t border-secondary/20"
         >
             <div className="absolute right-5 top-2 flex justify-center items-center gap-2 z-10">
                 <div className="rounded-full flex justify-center gap-2 items-center py-1">

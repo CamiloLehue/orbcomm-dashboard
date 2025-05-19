@@ -42,19 +42,16 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
 
     const layoutPositions = (count: number) => {
         return clsx({
-            "grid grid-cols-1": count === 1,
-            "grid grid-cols-2 gap-1 1": count === 2,
-            "grid grid-cols-2 gap-1  ": count === 3,
-            "grid grid-cols-2 gap-1": count === 4,
+            "grid grid-cols-1 gap-1": count === 1,
+            "grid grid-cols-2 gap-1": count === 2 || count === 3 || count === 4,
             "grid grid-cols-6 gap-1": count === 5,
-            "grid grid-cols-3 gap-1": count === 6,
-            "grid grid-cols-3 gap-1 ": count === 7,
-            "grid grid-cols-4 gap-1  ": count === 8,
+            "grid grid-cols-3 gap-1": count === 6 || count === 7,
+            "grid grid-cols-4 gap-1": count === 8,
         })
     }
     return (
         <>
-            <div className="w-full h-full flex flex-col justify-start items-start gap-2">
+            <div className="w-full h-full flex flex-col justify-start items-start gap-1">
 
                 <div className={`${layoutPositions(selectedTripODAsArray.length)} w-full h-full`}>
                     {

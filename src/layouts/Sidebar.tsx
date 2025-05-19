@@ -1,11 +1,12 @@
 import {
     GrDeliver,
     GrGateway,
-    // GrNavigate, 
     GrProjects,
     GrFormNext,
     GrApps,
-    GrPerformance
+    GrPerformance,
+    GrFormNextLink,
+    GrDiamond
 } from "react-icons/gr"
 import Button from "../components/ui/Button"
 import { useNavigate } from "react-router"
@@ -19,18 +20,20 @@ function Sidebar() {
             icon: GrApps,
             text: "Explorar",
             link: "/",
+            status: true,
         },
-        
         {
             icon: GrGateway,
             text: "Seguimientos",
             link: "/seguimientos",
+            status: true,
 
         },
         {
             icon: GrDeliver,
             text: "Viajes",
             link: "/viajes",
+            status: true,
             submenu: [
                 {
                     icon: GrProjects,
@@ -44,6 +47,73 @@ function Sidebar() {
                 },
             ]
         },
+        {
+            icon: GrDiamond,
+            text: "Inteligencia Artificial",
+            link: "#",
+            status: false,
+        },
+        {
+            icon: GrFormNextLink,
+            text: "Biomasa",
+            link: "#",
+            status: false,
+        },
+        {
+            icon: GrFormNextLink,
+            text: "Clima",
+            link: "#",
+            status: false,
+        },
+        {
+            icon: GrFormNextLink,
+            text: "Seguridad",
+            link: "#",
+            status: false,
+        },
+        {
+            icon: GrFormNextLink,
+            text: "Sensores-IoT",
+            link: "#",
+            status: false,
+        },
+        {
+            icon: GrFormNextLink,
+            text: "Energía",
+            link: "#",
+            status: false,
+        },
+        {
+            icon: GrFormNextLink,
+            text: "Estado de red",
+            link: "#",
+            status: false,
+        },
+        {
+            icon: GrFormNextLink,
+            text: "Alertas",
+            link: "#",
+            status: false,
+        },
+        {
+            icon: GrFormNextLink,
+            text: "Sub Drone",
+            link: "#",
+            status: false,
+        },
+        {
+            icon: GrFormNextLink,
+            text: "Jaula Smart",
+            link: "#",
+            status: false,
+        },
+        {
+            icon: GrFormNextLink,
+            text: "Ferrocarriles",
+            link: "#",
+            status: false,
+        },
+
         // {
         //     icon: GrGateway,
         //     text: "Monitoreo",
@@ -96,10 +166,10 @@ function Sidebar() {
             ]
         },
     ]
-    const [openSidebar, setOpenSidebar] = useState(false);
+    const [openSidebar, setOpenSidebar] = useState(true);
 
     return (
-        <div className={`${!openSidebar ? `w-[100px]` : `w-[200px]`} relative transition-all bg-gradient-to-b from-bgt py-5 flex flex-col justify-start items-center gap-5`}>
+        <div className={`${!openSidebar ? `w-[100px]` : `w-[230px]`} relative transition-all bg-gradient-to-b from-bgp p-2 flex flex-col justify-start items-center gap-5`}>
             <div className="absolute -right-15 top-5">
                 <Button onClick={() => setOpenSidebar(!openSidebar)} className="relative z-50 text-xs text-zinc-500 flex  items-center justify-start  gap-2">
                     {
@@ -112,7 +182,7 @@ function Sidebar() {
                 <small className="text-xs font-light">S<span className="text-secondary">Track</span></small>
             </div>
             <h6 className="text-zinc-600 text-center font-bold">
-                Menu
+                Sistema Sincronizado
             </h6>
             <nav className="w-full">
                 <ul className="flex flex-col gap-5 w-full justify-center items-start px-3">
@@ -120,76 +190,66 @@ function Sidebar() {
                         menu.map((item, i) => (
                             <li key={i} className="relative w-full">
                                 {
-                                    item.link === location
+                                    item.status && item.link === location
                                         ?
                                         <Button
                                             onClick={() => navigate(item.link)}
                                             rounded="sm"
-                                            className={`text-xs px-4 py-3 font-bold bg-danger/50 shadow w-full text-zinc-200 flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
+                                            className={`text-xs px-4 py-3 font-bold bg-gradient-to-bl from-gray/80 border-t border-gray/90 shadow shadow-bgp w-full text-zinc-200 flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
                                             <item.icon size={15} />
                                             {
                                                 openSidebar && item.text
                                             }
                                         </Button>
                                         :
-                                        <Button
-                                            onClick={() => navigate(item.link)}
-                                            className={`text-xs px-4 text-zinc-400 w-full font-semibold flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
-                                            <item.icon size={15} />
-                                            {
-                                                openSidebar && item.text
-                                            }
-                                        </Button>
+                                        item.status === false
+                                            ?
+                                            item.text === "Inteligencia Artificial"
+                                                ?
+                                                <div className="relative w-full p-[0.9px] bg-gradient-to-l from-red-400 to-primary rounded-lg">
+                                                    <div className="absolute -right-5 -top-2  bg-gradient-to-bl from-danger/90 to-orange-500/80 border-t border-danger px-2 rounded  flex justify-center items-center ">
+                                                        <small className="text-[10px] font-bold text-white">Nuevo</small>
+                                                    </div>
+                                                    <div className="bg-bgp rounded-lg">
+                                                        <Button
+                                                            onClick={() => navigate(item.link)}
+                                                            rounded="sm"
+                                                            className={`text-xs font-bold  py-3 bg-gradient-to-l from-danger to-primary w-full text-transparent bg-clip-text flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
+                                                            <item.icon size={15} className="text-primary" />
+                                                            {
+                                                                openSidebar && item.text
+                                                            }
+                                                        </Button>
+                                                    </div>
+                                                </div>
+                                                :
+                                                <Button
+                                                    onClick={() => navigate(item.link)}
+                                                    rounded="sm"
+                                                    className={`text-xs px-4 py-1 font-bold  text-zinc-600 flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
+                                                    <item.icon size={15} />
+                                                    {
+                                                        openSidebar && item.text
+                                                    }
+                                                </Button>
+                                            :
+                                            <Button
+                                                onClick={() => navigate(item.link)}
+                                                className={`text-xs px-4 border-t border-transparent text-zinc-400 w-full font-semibold flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
+                                                <item.icon size={15} />
+                                                {
+                                                    openSidebar && item.text
+                                                }
+                                            </Button>
                                 }
-                                {/* {
-                                    item.submenu && item.link === location && (
-                                        <div key={i} className="absolute top-0 hover:bg-primary -right-60 z-10 bg-gray w-50 rounded-sm p-5">
-                                            1
-                                        </div>
-                                    )
-                                } */}
+
                             </li>
                         ))
                     }
 
                 </ul>
-                {/* <ul className="flex flex-col gap-5 w-full justify-center items-start">
-                    <li>
-                        <Button onClick={() => navigate("/")} className="text-xs text-white flex  items-center justify-start  gap-2">
-                            <GrProjects size={20} />
-                            {
-                                openSidebar && "Inicio"
-                            }
-                        </Button>
-                    </li>
-                    <li>
-                        <Button onClick={() => navigate("/viajes")} className="text-xs text-zinc-500 flex  items-center justify-start  gap-2">
-                            <GrDeliver size={20} />
-                            {
-                                openSidebar && "Viajes"
-                            }
-                        </Button>
-                    </li>
-                    <li>
-                        <Button onClick={() => navigate("/monitoreo")} className="text-xs text-zinc-500 flex  items-center justify-start  gap-2">
-                            <GrGateway size={20} />
-                            {
-                                openSidebar && "Monitoreo"
-                            }
-                        </Button>
-                    </li>
-                    <li>
-                        <Button onClick={() => navigate("/viajes")} className="text-xs text-zinc-500 flex  items-center justify-start  gap-2">
-                            <GrNavigate size={20} />
-                            {
-                                openSidebar && "Tramos"
-                            }
-                        </Button>
-                    </li>
-
-                </ul> */}
             </nav>
-        </div>
+        </div >
     )
 }
 

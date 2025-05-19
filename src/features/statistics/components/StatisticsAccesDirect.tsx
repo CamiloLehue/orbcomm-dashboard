@@ -2,7 +2,7 @@ import TiempoXDistancia from './TiempoXDistancia'
 
 function StatisticsAccesDirect() {
     return (
-        <div className="relative flex flex-col h-full gap-2 bg-bgt overflow-hidden justify-between rounded-xs ">
+        <div className="relative flex flex-col h-full gap-2 bg-bgp overflow-hidden justify-between rounded-xs ">
             <div className="flex flex-col w-full p-5 ">
                 <h4 className="leading-4">
                     Rendimiento de conductores
