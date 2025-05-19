@@ -1,6 +1,8 @@
 import { CgShapeHexagon } from "react-icons/cg";
 import { GrFormNextLink } from "react-icons/gr";
 import { useAllTrips } from "../../trips/hooks/useAllsTrips";
+import clsx from "clsx";
+import { useMemo } from "react";
 
 type TripListActiveProps = {
     setOpenConfig: (value: boolean) => void;
@@ -17,12 +19,14 @@ const TripListActive = ({ setOpenConfig, openConfig, setSelectedTrips, selectedT
 
     const { allTrips, loading } = useAllTrips();
     console.log(openConfig);
+    
+    const porcentajes = useMemo(() => allTrips.map(() => Math.round(Math.random() * 100)), [allTrips]);
+
 
     if (loading) return <p>Cargando...</p>;
     if (!Array.isArray(allTrips)) {
         return <p>No se encontraron viajes disponibles</p>;
     }
-
     const selectedTripsAsArray = Array.isArray(selectedTrips) ? selectedTrips : [];
     const selectedTripODAsArray = Array.isArray(selectedTripOD) ? selectedTripOD : [];
 
@@ -37,12 +41,13 @@ const TripListActive = ({ setOpenConfig, openConfig, setSelectedTrips, selectedT
 
     }
 
+
+
     return (
         <>
             <div className="max-h-[740px] overflow-y-auto">
                 {allTrips.map((trip, i) => {
-                    // const valorPorcentaje = Math.round(Math.random() * 100);
-                    const valorPorcentaje = 44;
+                    const valorPorcentaje = porcentajes[i];                    // const valorPorcentaje = 44;
 
                     // Obtener el primer y último registro de data para cada viaje
                     const firstData = trip.data[0];
@@ -68,6 +73,21 @@ const TripListActive = ({ setOpenConfig, openConfig, setSelectedTrips, selectedT
                     const firstIdViaje: number = parseInt(firstData.messageId);
                     const lastIdViaje: number = parseInt(lastData.messageId);
 
+
+                    const colorType = (valorPorcentaje: number) => (
+                        clsx({
+                            "bg-gradient-to-r from-success to-secondary": valorPorcentaje >= 0 && valorPorcentaje <= 100,
+                        })
+                    )
+
+                    const colorText = (valorPorcentaje: number) => (
+                        clsx({
+                            "text-success": valorPorcentaje >= 75,
+                            "text-secondary": valorPorcentaje > 50 && valorPorcentaje < 75,
+                            "text-warning": valorPorcentaje >= 10 && valorPorcentaje <= 50,
+                            "text-danger": valorPorcentaje >= 0 && valorPorcentaje < 10,
+                        })
+                    )
                     return (
                         <div
                             key={i}
@@ -89,24 +109,25 @@ const TripListActive = ({ setOpenConfig, openConfig, setSelectedTrips, selectedT
                             }}
                             className={`relative group overflow-hidden ${selectedTripsAsArray.includes(i) ? "bg-primary/10" : "bg-bgs"} w-full hover:bg-transparent cursor-pointer h-15 grid grid-cols-5 px-2 py-1`}
                         >
-                            <div
-                                className='absolute left-0 bottom-0 h-0.5 bg-gradient-to-bl from-secondary/50 to-primary/40 blur-3xl'
+                            <div className={clsx(`absolute left-0 bottom-0 h-0.5  ${colorType(valorPorcentaje)}  blur-3xl `)}
                                 style={{
                                     width: valorPorcentaje + "%",
-                                    height: "100%",
-                                }}
-                            ></div>
-                            <div
-                                className='absolute left-0 bottom-0 h-0.5 bg-gray'
-                                style={{ width: "100%" }}
-                            ></div>
-                            <div
-                                className='absolute left-0 bottom-0 h-0.5 bg-primary'
-                                style={{ width: valorPorcentaje + "%" }}
-                            ></div>
+                                    height: 100 + "%",
+                                }}>
+                            </div>
+                            <div className='absolute left-0 bottom-0 h-0.5  bg-gray'
+                                style={{
+                                    width: 100 + "%",
+                                }}>
+                            </div>
+                            <div className={`absolute left-0 bottom-0 h-0.5 ${colorType(valorPorcentaje)}`}
+                                style={{
+                                    width: valorPorcentaje + "%",
+                                }}>
+                            </div>
 
                             <div className="col-span-2 flex justify-start items-center gap-1">
-                                <small className="text-secondary">
+                                <small className={` ${colorText(valorPorcentaje)} `}>
                                     <CgShapeHexagon />
                                 </small>
                                 <small className="flex flex-col text-nowrap justify-center items-start gap-2 text-xs">

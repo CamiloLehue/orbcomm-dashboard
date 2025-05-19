@@ -17,7 +17,7 @@ function ViewTrip() {
                 <div className="col-span-5 px-5 flex flex-col items-start justify-start gap-2 bg-w ">
                     <div className="w-full p-2">
                         {/* Inicio Top menu informacion rapdia de viaje */}
-                        <div className="bg-bg py-1 w-full col-span-8 flex justify-between items-center gap-5 border-b border-gray/20 pb-3 ">
+                        <div className="bg-bg py-1 w-full col-span-8 flex justify-start items-center gap-5 border-b border-gray/20 pb-3 ">
                             <div className="flex text-nowrap justify-start items-center gap-3 bg-gray/30 px-2 ps-4 pe-4 rounded-full py-1">
                                 <GrGrommet className="text-primary animate-pulse" />
                                 <h3>Recorrido #00{id} </h3>
@@ -27,11 +27,11 @@ function ViewTrip() {
                                 </div>
                             </div>
                             <div className="flex justify-end items-center gap-2 text-nowrap">
-                                <Button rounded="full" className="text-gray flex justify-center items-center gap-2 px-4 mx-2 hover:bg-bgt">
+                                <Button rounded="full" className="text-gray flex justify-center items-center gap-2 mx-2 hover:bg-bgt">
                                     <GrCircleQuestion size={20} />
                                     <p>Ayuda y contacto</p>
                                 </Button>
-                                <Button rounded="full" className="text-gray flex justify-center items-center gap-2 px-4 mx-2 hover:bg-bgt">
+                                <Button rounded="full" className="text-gray flex justify-center items-center gap-2 mx-2 hover:bg-bgt">
                                     <GrPhone size={20} />
                                     <p>Llamar cliente</p>
                                 </Button>
@@ -52,14 +52,14 @@ function ViewTrip() {
 
                         <div className="w-full h-full rounded-2xl flex flex-col gap-5 p-2">
                             <h3>Información <span className="block text-xs text-secondary">del recorrido</span></h3>
-                            <div className="grid grid-cols-3 gap-2 w-full text-nowrap">
+                            <div className="grid grid-cols-2 gap-2 w-full text-nowrap">
                                 <div className="grid grid-cols-2 border border-gray/20 rounded-xl p-2 gap-x-5 gap-y-2">
                                     <p className="text-gray">Estado del viaje</p>
                                     <p className="text-primary">En camino</p>
                                     <p className="text-gray">Conductor 1</p>
-                                    <p>Camilo Lehue</p>
+                                    <p>Cristofer Castro</p>
                                     <p className="text-gray">Conductor 2</p>
-                                    <p>Camilo L.</p>
+                                    <p>Roberto Fernandez</p>
                                     <p className="text-gray">Fecha de registro</p>
                                     <p>24/06/2025</p>
                                     <p className="text-gray">Fecha de Salida</p>
@@ -80,20 +80,6 @@ function ViewTrip() {
                                     <p>Yadran</p>
                                     <p className="text-gray">Transporte</p>
                                     <p>Transportes Cristian</p>
-                                </div>
-                                <div className="grid grid-cols-2 border border-gray/20 rounded-xl p-2 gap-x-5 gap-y-2">
-                                    <p className="text-gray">Código viaje</p>
-                                    <p className="text-primary">E-20050006</p>
-                                    <p className="text-gray">Alertas</p>
-                                    <p className="text-warning">Desvío</p>
-                                    <p className="text-gray">Latitud</p>
-                                    <p>-43.1375</p>
-                                    <p className="text-gray">Longitud</p>
-                                    <p>-71.5325</p>
-                                    <p className="text-gray">Ruta</p>
-                                    <p>5 Sur</p>
-                                    <p className="text-gray">Kilometro</p>
-                                    <p>V-230</p>
                                 </div>
                             </div>
                         </div>
@@ -158,14 +144,14 @@ function ViewTrip() {
                             </div>
                         </div>
                         <h5 className="text-gray">Detalle</h5>
-                        <div className="w-full grid grid-cols-4 gap-2 mt-3">
-                            <div className="bg-bgp border border-gray/20 rounded p-1" >
+                        <div className="w-full grid grid-cols-2 gap-2 mt-3">
+                            <div className="bg-bgp border border-gray/20 rounded p-1 w-full" >
                                 <small className="text-[11px] ps-2 uppercase  text-gray ">Carga</small>
                                 <div className="px-2">
                                     <h5 className="text-white font-bold">Pescados</h5>
                                 </div>
                             </div>
-                            <div className="bg-bgp border border-gray/20 rounded p-1" >
+                            <div className="bg-bgp border border-gray/20 rounded p-1 w-full" >
                                 <small className="text-[11px] ps-2 uppercase  text-gray ">Peso Carga</small>
                                 <div className="px-2">
                                     <h5 className="text-white font-bold">5700 Kg</h5>
