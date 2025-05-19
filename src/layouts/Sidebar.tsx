@@ -212,7 +212,7 @@ function Sidebar() {
                                                     </div>
                                                     <div className="bg-bgp rounded-lg">
                                                         <Button
-                                                            onClick={() => navigate(item.link)}
+                                                            onClick={() => {}}
                                                             rounded="sm"
                                                             className={`text-xs font-bold text-nowrap  py-3 bg-gradient-to-l from-danger to-primary w-full text-transparent bg-clip-text flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
                                                             <item.icon size={15} className="text-primary" />
@@ -224,7 +224,7 @@ function Sidebar() {
                                                 </div>
                                                 :
                                                 <Button
-                                                    onClick={() => navigate(item.link)}
+                                                    onClick={() => { }}
                                                     rounded="sm"
                                                     className={`text-xs px-4 py-1 font-bold  text-zinc-600 flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
                                                     <item.icon size={15} />
