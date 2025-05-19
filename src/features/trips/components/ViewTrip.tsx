@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import Button from "../../../components/ui/Button";
-import { GrCheckmark, GrCircleQuestion, GrCopy, GrDirections, GrFormNextLink, GrGrommet, GrPhone } from "react-icons/gr";
+import { GrCheckmark, GrCircleQuestion, GrCopy, GrDirections, GrFormNextLink, GrGrommet, GrPhone, GrSchedule } from "react-icons/gr";
 import { MapView } from "../../maps";
 import ProgressTrip from "./ProgressTrip";
 
@@ -49,7 +49,6 @@ function ViewTrip() {
                         <RutaTracking />
                     </div>
                     <div className="p-2 w-full h-full mt-20">
-
                         <div className="w-full h-full rounded-2xl flex flex-col gap-5 p-2">
                             <h3>Información <span className="block text-xs text-secondary">del recorrido</span></h3>
                             <div className="grid grid-cols-2 gap-2 w-full text-nowrap">
@@ -69,13 +68,13 @@ function ViewTrip() {
                                 </div>
                                 <div className="grid grid-cols-2 border border-gray/20 rounded-xl p-2 gap-x-5 gap-y-2">
                                     <p className="text-gray">Origen</p>
-                                    <p>Puerto Montt</p>
-                                    <p className="text-gray">Destino</p>
                                     <p>Castro</p>
+                                    <p className="text-gray">Destino</p>
+                                    <p>Puerto Montt</p>
                                     <p className="text-gray">Hora salida</p>
                                     <p>11:30:00</p>
                                     <p className="text-gray">Hora llegada</p>
-                                    <p>18:00:00</p>
+                                    <p>15:30:00</p>
                                     <p className="text-gray">Empresa</p>
                                     <p>Yadran</p>
                                     <p className="text-gray">Transporte</p>
@@ -141,6 +140,10 @@ function ViewTrip() {
                                         </div>
                                     </div>
                                 </div>
+                                <small className="text-white flex items-center gap-1">
+                                    <GrSchedule />
+                                    Ver trazabilidad completa
+                                </small>
                             </div>
                         </div>
                         <h5 className="text-gray">Detalle</h5>
@@ -155,6 +158,23 @@ function ViewTrip() {
                                 <small className="text-[11px] ps-2 uppercase  text-gray ">Peso Carga</small>
                                 <div className="px-2">
                                     <h5 className="text-white font-bold">5700 Kg</h5>
+                                </div>
+                            </div>
+                            <div className="py-5 w-full">
+                                <h5>Documentos y certificados</h5>
+                                <div className="grid grid-cols-2 gap-5 w-full">
+                                    <div className="bg-bgp border border-gray/20 rounded p-1 w-full" >
+                                        <small className="text-[11px] ps-2 uppercase  text-gray ">Certificado</small>
+                                        <div className="px-2">
+                                            <h5 className="text-white font-bold">Certificado</h5>
+                                        </div>
+                                    </div>
+                                    <div className="bg-bgp border border-gray/20 rounded p-1 w-full" >
+                                        <small className="text-[11px] ps-2 uppercase  text-gray ">Certificado</small>
+                                        <div className="px-2">
+                                            <h5 className="text-white font-bold">Certificado</h5>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
