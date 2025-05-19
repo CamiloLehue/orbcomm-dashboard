@@ -31,7 +31,7 @@ function Dashboard() {
           <Notification />
         </div>
         <div className="col-span-4 h-full">
-          <MultiMapView height="600px" options={false} />
+          <MultiMapView height="700px" options={true} />
         </div>
       </div>
     </div >

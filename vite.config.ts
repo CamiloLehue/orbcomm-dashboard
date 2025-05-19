@@ -19,6 +19,6 @@ export default defineConfig({
     // },
     host: "0.0.0.0",
     port: 5186,
-    allowedHosts: ["edgesatpro.iotlink.cl"],
+    allowedHosts: ["strack.iotlink.cl"],
   },
 });

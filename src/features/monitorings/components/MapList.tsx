@@ -1,16 +1,34 @@
 import clsx from 'clsx';
 import { useAllTrips } from '../../trips/hooks/useAllsTrips';
 import { MapView } from '../../maps';
+import Loading from '../../../components/ui/Loading';
+import { useEffect, useRef } from 'react';
 
 type MapListProps = {
     selectedTrips: number[];
     selectedTripOD: [number, number][];
+    
 }
 
 const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
 
     const { allTrips, loading } = useAllTrips();
-    if (loading) return <p>Cargando...</p>;
+
+    const previousLength = useRef(selectedTripOD.length);
+
+    useEffect(() => {
+        if (selectedTripOD.length > previousLength.current) {
+            const timeout = setTimeout(() => {
+            }, 1000);
+            previousLength.current = selectedTripOD.length;
+            return () => clearTimeout(timeout);
+        } else {
+            previousLength.current = selectedTripOD.length;
+        }
+    }, [selectedTripOD]);
+
+    if (loading) return <Loading />;
+
 
     const selectedTripsAsArray = Array.isArray(selectedTrips) ? selectedTrips : [];
     const selectedTripODAsArray = Array.isArray(selectedTripOD) ? selectedTripOD : [];
@@ -40,6 +58,7 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
 
 
 
+
     const layoutPositions = (count: number) => {
         return clsx({
             "grid grid-cols-1 gap-1": count === 1,
@@ -49,23 +68,26 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
             "grid grid-cols-4 gap-1": count === 8,
         })
     }
+    // if (isAddingMap) {
+    //     return <Loading />;
+    // }
     return (
+
         <>
+
             <div className="w-full h-full flex flex-col justify-start items-start gap-1">
 
                 <div className={`${layoutPositions(selectedTripODAsArray.length)} w-full h-full`}>
                     {
                         selectedTripODAsArray.map((_, i) => {
                             const ruta = rutasSeleccionadas[i]; // alineamos por índice
+
                             return (
                                 <div
                                     key={i}
-                                    className={`
-                                    relative w-full h-full flex justify-start items-start bg-bgp overflow-hidden 
-                                    ${selectedTripODAsArray.length === 3 ? (i === 2 ? "col-span-2" : "col-span-1") : ""}
+                                    className={`relative w-full h-full flex justify-start items-start bg-bgp overflow-hidden ${selectedTripODAsArray.length === 3 ? (i === 2 ? "col-span-2" : "col-span-1") : ""}
                                     ${selectedTripODAsArray.length === 5 ? (i === 0 || i === 1 ? "col-span-3" : "col-span-2") : ""}
-                                    ${selectedTripODAsArray.length === 7 ? (i === 0 ? "col-span-3" : "col-span-1") : ""}
-                                `}
+                                    ${selectedTripODAsArray.length === 7 ? (i === 0 ? "col-span-3" : "col-span-1") : ""}`}
                                 >
                                     <div
                                         className="text-center w-full"
@@ -73,6 +95,7 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
                                             height: selectedTripODAsArray.length <= 2 ? '750px' : '372px'
                                         }}
                                     >
+
                                         <MapView
                                             tripOrigin={[parseInt(ruta.ciudadOrigenLatitud), parseInt(ruta.ciudadOrigenLongitud)]}
                                             tripDestination={[parseInt(ruta.ciudadDestinoLatitud), parseInt(ruta.ciudadDestinoLongitud)]}

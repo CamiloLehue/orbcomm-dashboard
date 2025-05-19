@@ -38,7 +38,7 @@ const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) =
     return (
         <div className="rounded-b-xl ">
             {/* Valor por defecto = center={[-43.1375, -73.6425]]} */}
-            <MapContainer preferCanvas  center={[-43.1375, -73.6425]} zoom={5} scrollWheelZoom={false} style={{ height: height, width: "100%" }}>
+            <MapContainer preferCanvas center={[-43.1375, -73.6425]} zoom={5} scrollWheelZoom={false} style={{ height: height, width: "100%" }}>
 
                 {
                     options &&

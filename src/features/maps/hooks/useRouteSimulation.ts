@@ -178,13 +178,15 @@ const route: LatLngExpression[] = [
 
 export const useRouteSimulation = () => {
     const [markerIndex, setMarkerIndex] = useState(0);
+    const [load, setLoad] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
             setMarkerIndex((prev) => (prev < route.length - 1 ? prev + 1 : prev));
-        }, 10000);
+            setLoad(true);
+        }, 500);
         return () => clearInterval(interval);
     }, []);
 
-    return { route, markerIndex };
+    return { route, markerIndex, load };
 };

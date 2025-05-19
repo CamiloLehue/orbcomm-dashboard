@@ -19,7 +19,7 @@ function Sidebar() {
         {
             icon: GrApps,
             text: "Explorar",
-            link: "/",
+            link: "/dashboard",
             status: true,
         },
         {

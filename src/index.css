@@ -70,6 +70,9 @@
   button {
     @apply text-[#d7d5d5] transition-all duration-200 ease-in cursor-pointer;
   }
+  input {
+    @apply  transition-all duration-200 ease-in cursor-pointer;
+  }
 }
 
 /* azeret-mono-latin-wght-normal */
@@ -175,6 +178,8 @@ body {
 
 
 }
+
+
 
 /* Estilo general para el scroll */
 ::-webkit-scrollbar {

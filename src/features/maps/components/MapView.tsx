@@ -6,6 +6,8 @@ import { GeoButtons } from "../../zones";
 // import TripRouteLayer from "../../trips/components/TripRouteLayer";
 import { useRouteSimulation } from "../hooks/useRouteSimulation";
 import { useReverseGeocode } from "../hooks/useReverseGeocode";
+import Loading from "../../../components/ui/Loading";
+import { useState } from "react";
 
 interface MapViewProps {
     tripOrigin: [number, number] | null;
@@ -16,10 +18,13 @@ interface MapViewProps {
 }
 
 const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]], height = "100%", options = false }: MapViewProps) => {
+    const [geoZones, setGeoZones] = useState(false); // Estado para almacenar las zonas geográficas
     const { BaseLayer, Overlay } = LayersControl;
-    const { route, markerIndex } = useRouteSimulation(); // Obtener la ruta simulada que realiza el camión
+    const { route, markerIndex, load } = useRouteSimulation(); // Obtener la ruta simulada que realiza el camión
     const [lat, lon] = route[markerIndex] as [number, number];
     const address = useReverseGeocode(lat, lon);
+
+    if (!load) return <Loading />;
 
     return (
         <div className="rounded-b-xl ">
@@ -41,7 +46,7 @@ const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-4
                 }
 
                 <LayersControl position="topright">
-                    <BaseLayer  name="Esri Satellite">
+                    <BaseLayer name="Esri Satellite">
                         <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
                     </BaseLayer>
 
@@ -63,10 +68,10 @@ const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-4
                     <Overlay checked name="Camión">
                         <VehicleMarker origenDestinyAsigned={origenDestinyAsigned} />
                     </Overlay>
-
+                    {geoZones && 
                     <Overlay checked name="Zonas Geográficas">
                         <GeofenceLayer />
-                    </Overlay>
+                    </Overlay>}
                     {/* {tripOrigin && tripDestination && (
                         <Overlay checked name="Ruta de Viaje">
                             <TripRouteLayer origin={tripOrigin} destination={tripDestination} />
