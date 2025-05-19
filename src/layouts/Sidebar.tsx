@@ -195,7 +195,7 @@ function Sidebar() {
                                         <Button
                                             onClick={() => navigate(item.link)}
                                             rounded="sm"
-                                            className={`text-xs px-4 py-3 font-bold bg-gradient-to-bl from-gray/80 border-t border-gray/90 shadow shadow-bgp w-full text-zinc-200 flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
+                                            className={`text-xs px-4 py-3 font-bold bg-gradient-to-bl from-danger/80 border-t border-danger/90 shadow shadow-bgp w-full text-zinc-200 flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
                                             <item.icon size={15} />
                                             {
                                                 openSidebar && item.text
@@ -214,7 +214,7 @@ function Sidebar() {
                                                         <Button
                                                             onClick={() => navigate(item.link)}
                                                             rounded="sm"
-                                                            className={`text-xs font-bold  py-3 bg-gradient-to-l from-danger to-primary w-full text-transparent bg-clip-text flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
+                                                            className={`text-xs font-bold text-nowrap  py-3 bg-gradient-to-l from-danger to-primary w-full text-transparent bg-clip-text flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
                                                             <item.icon size={15} className="text-primary" />
                                                             {
                                                                 openSidebar && item.text

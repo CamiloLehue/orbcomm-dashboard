@@ -66,7 +66,7 @@ function TripList() {
                                     className="relative group overflow-hidden bg-bgp w-full hover:bg-transparent cursor-pointer  h-10 rounded-xs grid grid-cols-5 px-2 py-1"
 
                                 >
-                                    <div className='absolute left-0 bottom-0 h-0.5  bg-gradient-to-bl from-secondary/50 to-primary/30  blur-3xl'
+                                    <div className='absolute left-0 bottom-0 h-0.5  bg-gradient-to-bl from-secondary/80 to-secondary/90  blur-3xl'
                                         style={{
                                             width: valorPorcentaje + "%",
                                             height: 100 + "%",
