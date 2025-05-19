@@ -12,6 +12,7 @@ import { GeoButtons } from "../../zones";
 import { useRouteSimulation } from "../hooks/useRouteSimulation";
 import { useReverseGeocode } from "../hooks/useReverseGeocode";
 import { useAllTrips } from "../../trips/hooks/useAllsTrips";
+import Loading from "../../../components/ui/Loading";
 
 interface MultiMapViewProps {
     height?: string;
@@ -22,18 +23,18 @@ const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) =
     const [showZones, setShowZones] = useState(false);
 
     useEffect(() => {
-        const timeout = setTimeout(() => setShowZones(true), 1000); // o 500ms si quieres más margen
+        const timeout = setTimeout(() => setShowZones(true), 1); // o 500ms si quieres más margen
 
         return () => clearTimeout(timeout);
     }, []);
     const { BaseLayer, Overlay } = LayersControl;
-    const { route, markerIndex } = useRouteSimulation(); // Obtener la ruta simulada que realiza el camión
+    const { route, markerIndex, load } = useRouteSimulation(); // Obtener la ruta simulada que realiza el camión
     const [lat, lon] = route[markerIndex] as [number, number];
     const address = useReverseGeocode(lat, lon);
 
-    const { allTrips, loading } = useAllTrips();
+    const { allTrips } = useAllTrips();
 
-    if (loading) return <p>Cargando...</p>;
+    if (!load) return <Loading />;
 
     return (
         <div className="rounded-b-xl ">
