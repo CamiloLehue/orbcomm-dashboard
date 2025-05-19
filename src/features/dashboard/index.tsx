@@ -8,7 +8,7 @@ import AccessDirectTrip from "../trips/components/AccessDirectTrip";
 // import ReportList from "../reports/components/ReportList";
 function Dashboard() {
   return (
-    <div className="relative h-full w-full bg-gradient-to-bl  flex flex-col justify-start items-start px-2">
+    <div className="relative h-full w-full bg-bgs  flex flex-col justify-start items-start p-2">
       <div className="grid grid-cols-12 gap-2 w-full">
         <div className="col-span-6 flex flex-col gap-2"
         >
@@ -31,18 +31,7 @@ function Dashboard() {
           <Notification />
         </div>
         <div className="col-span-4 h-full">
-          <article className=" bg-bgp  flex flex-col gap-2 w-full">
-            <div className="relative   w-full h-full max-h-[340px]  flex flex-col justify-center items-center gap-2">
-              <div className="relative w-full bg-bgb h-20 z-50">
-                <h3 className="absolute top-3 left-5 font-light">Mapa</h3>
-                <h5 className="absolute top-8 left-6 font-light text-xs text-gray">rastreo en línea</h5>
-              </div>
-              <div className="relative w-full h-full top-55">
-                {/* <MapView tripOrigin={null} tripDestination={null} options={true} height="700px" /> */}
-                <MultiMapView height="600px" options={true} />
-              </div>
-            </div>
-          </article>
+          <MultiMapView height="700px" options={true} />
         </div>
       </div>
     </div >

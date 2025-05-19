@@ -155,13 +155,13 @@ const ButtonConfiguraciones = () => {
 }
 const ButtonPerfil = () => {
     const [openProfile, setOpenProfile] = useState<boolean>(false);
-
+    const navigate = useNavigate();
 
     return <>
         <Button onClick={() => { setOpenProfile(!openProfile); }}
             className={`bg-transparent relative`}>
-            <img src="https://picsum.photos/seed/picsum/200/301" alt="user" className="w-6 h-6 rounded me-1" />
-            AST - Profile
+            <img src="logo-blanco.svg" draggable={false} alt="user" className="h-6 rounded me-1" />
+
             <GrFormDown color="#dfdfdb" />
             {
                 openProfile && (
@@ -177,7 +177,10 @@ const ButtonPerfil = () => {
                                     <GrVmMaintenance />
                                     <h5>Ajustes de perfil</h5>
                                 </li>
-                                <li className="w-full border-t border-t-transparent hover:border-t-gray/20 border-b border-b-transparent hover:border-b-gray/20 flex items-center justify-start gap-3 hover:bg-bgp transition-all duration-200 px-5 p-2 hover:text-gray  ">
+                                <li onClick={() => {
+                                    localStorage.removeItem("authToken");
+                                    navigate("/");
+                                }} className="w-full border-t border-t-transparent hover:border-t-gray/20 border-b border-b-transparent hover:border-b-gray/20 flex items-center justify-start gap-3 hover:bg-bgp transition-all duration-200 px-5 p-2 hover:text-gray  ">
                                     <GrLogout />
                                     <h5>Cerrar Sesión</h5>
                                 </li>

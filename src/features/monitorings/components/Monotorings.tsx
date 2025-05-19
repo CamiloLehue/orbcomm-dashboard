@@ -25,7 +25,7 @@ function Monotorings() {
                     <Button
                         onClick={() => setOpenConfig(!openConfig)}
                         rounded="full"
-                        className={`group absolute z-[999] top-[50%] -translate-y-1/2 -right-6 bg-bgp px-5 hover:bg-bgt ${openConfig ? "translate-x-78" : ""}`}>
+                        className={`group absolute z-[999] top-[50%] -translate-y-1/2  bg-bgp px-5 hover:bg-bgt ${openConfig ? "-right-[73%]" : "-right-6"}`}>
                         <GrFormPrevious className={`${!openConfig ? "rotate-180 group-hover:text-primary transition-all duration-300" : " group-hover:text-primary transition-all duration-300 "}`} />
                     </Button>
                 </div>

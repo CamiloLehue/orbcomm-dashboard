@@ -5,9 +5,8 @@ import { NotificationData } from "../types/Notification"
 import { GrCircleAlert, GrPhone } from "react-icons/gr"
 
 function Notification() {
-
     return (
-        <div className="relative flex flex-col justify-between overflow-hidden bg-bgt border border-bgt py-5 w-full">
+        <div className="relative flex flex-col justify-between overflow-hidden bg-bgp p-1 border border-bgt py-5 w-full">
             {/* <div className="absolute left-0 top-0 h-[1000px] w-[1000px] bg-gray/30 rounded-full blur-3xl "></div> */}
             <div>
                 <div className="flex justify-between items-center w-full px-2">
@@ -18,9 +17,6 @@ function Notification() {
                         <small className="text-xs text-gray">
                             del sistema
                         </small>
-                    </div>
-                    <div className=" border border-gray/20 px-2 rounded-full flex justify-center items-center py-1">
-                        <small className="text-nowrap text-gray font-light"><span className="text-danger font-bold">5 </span>Nuevas notificaciones</small>
                     </div>
                 </div>
                 <div className="w-full relative  overflow-y-auto h-[598px] mt-5">
@@ -71,7 +67,6 @@ const NotificationItem = ({ data }: NotificationItemProps) => {
             "h-25 bg-warning/40 border border-warning/50 hover:border-gray/20": status === 2,
             "h-15 bg-bgs": status === 3,
             "h-15 bg-bgs/100": status === 4,
-            else: "h-15 bg-bgs/100",
         })
     }
 

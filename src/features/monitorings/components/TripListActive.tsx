@@ -1,133 +1,128 @@
 import { CgShapeHexagon } from "react-icons/cg";
 import { GrFormNextLink } from "react-icons/gr";
 import { useAllTrips } from "../../trips/hooks/useAllsTrips";
+import clsx from "clsx";
+import { useMemo } from "react";
 
 type TripListActiveProps = {
     setOpenConfig: (value: boolean) => void;
     openConfig: boolean;
     selectedTrips: number[];
-    setSelectedTrips: (value: number[] | ((prevState: number[]) => number[])) => void;
-
-    //Seleccionar primera senal messageId, y ultimo messageId por viaje.
+    setSelectedTrips: (value: number[] | ((prev: number[]) => number[])) => void;
     selectedTripOD: [number, number][];
-    setSelectedTripOD: (value: [number, number][] | ((prevState: [number, number][]) => [number, number][])) => void;
-}
+    setSelectedTripOD: (value: [number, number][] | ((prev: [number, number][]) => [number, number][])) => void;
+};
 
-const TripListActive = ({ setOpenConfig, openConfig, setSelectedTrips, selectedTrips, selectedTripOD, setSelectedTripOD }: TripListActiveProps) => {
+const MAX_TRIPS = 8;
 
-    const { allTrips, loading } = useAllTrips();
-    console.log(openConfig);
+const TripListActive = ({
+    setOpenConfig,
+    setSelectedTrips,
+    selectedTrips,
+    selectedTripOD,
+    setSelectedTripOD
+}: TripListActiveProps) => {
 
-    if (loading) return <p>Cargando...</p>;
-    if (!Array.isArray(allTrips)) {
+    const { allTrips } = useAllTrips();
+    
+    const porcentajes = useMemo(() =>
+        allTrips.map(() => Math.round(Math.random() * 100)),
+        [allTrips]
+    );
+
+    const canAddNewTrip = () =>
+        selectedTrips.length < MAX_TRIPS && selectedTripOD.length < MAX_TRIPS;
+
+    const handleSelectTrip = (index: number, firstId: number, lastId: number) => {
+        const isAlreadySelected = selectedTrips.includes(index);
+
+        if (!isAlreadySelected && !canAddNewTrip()) {
+            alert("Solo se pueden seleccionar hasta 8 viajes");
+            return;
+        }
+
+        setOpenConfig(true);
+
+        setSelectedTrips(prev =>
+            isAlreadySelected
+                ? prev.filter(i => i !== index)
+                : [...prev, index]
+        );
+
+        setSelectedTripOD(prev => {
+            const exists = prev.some(([a, b]) => a === firstId && b === lastId);
+            return exists
+                ? prev.filter(([a, b]) => !(a === firstId && b === lastId))
+                : [...prev, [firstId, lastId]];
+        });
+    };
+
+    if (!Array.isArray(allTrips) || allTrips.length === 0) {
         return <p>No se encontraron viajes disponibles</p>;
     }
 
-    const selectedTripsAsArray = Array.isArray(selectedTrips) ? selectedTrips : [];
-    const selectedTripODAsArray = Array.isArray(selectedTripOD) ? selectedTripOD : [];
-
-    if (selectedTripsAsArray.length === 0 || selectedTripODAsArray.length === 0) {
-        setOpenConfig(false);
-    }
-    if (selectedTripsAsArray.length > 8 || selectedTripODAsArray.length > 8) {
-        // setOpenConfig(false);
-        setSelectedTrips(pop => pop.filter(item => item !== selectedTripsAsArray[selectedTripsAsArray.length - 1]));
-        setSelectedTripOD(pop => pop.filter(item => item !== selectedTripODAsArray[selectedTripODAsArray.length - 1]));
-        // return alert("Solo se pueden seleccionar hasta 8 viajes");
-
-    }
-
     return (
-        <>
-            <div className="max-h-[740px] overflow-y-auto">
-                {allTrips.map((trip, i) => {
-                    // const valorPorcentaje = Math.round(Math.random() * 100);
-                    const valorPorcentaje = 44;
+        <div className="max-h-[740px] overflow-y-auto">
+            {allTrips.map((trip, i) => {
+                const valorPorcentaje = porcentajes[i];
+                const firstData = trip.data[0];
+                const lastData = trip.data[trip.data.length - 1];
 
-                    // Obtener el primer y último registro de data para cada viaje
-                    const firstData = trip.data[0];
-                    const lastData = trip.data[trip.data.length - 1];
+                const cityOrigen = firstData.positionStatus.city || "Origen desconocido";
+                const cityDestino = lastData.positionStatus.city || "Destino desconocido";
+                const firstIdViaje = parseInt(firstData.messageId);
+                const lastIdViaje = parseInt(lastData.messageId);
 
-                    // Coordenadas de origen y destino
-                    // const origenCoords: [number, number] = [
-                    //     firstData.positionStatus.latitude,
-                    //     firstData.positionStatus.longitude
-                    // ];
+                const isSelected = selectedTrips.includes(i);
 
-                    // const destinoCoords: [number, number] = [
-                    //     lastData.positionStatus.latitude,
-                    //     lastData.positionStatus.longitude
-                    // ];
+                const colorType = clsx({
+                    "bg-gradient-to-r from-success to-secondary":
+                        valorPorcentaje >= 0 && valorPorcentaje <= 100
+                });
 
-                    // Nombres de ciudades
-                    const cityOrigen = firstData.positionStatus.city || "Origen desconocido";
-                    const cityDestino = lastData.positionStatus.city || "Destino desconocido";
+                const colorText = clsx({
+                    "text-success": valorPorcentaje >= 75,
+                    "text-secondary": valorPorcentaje > 50 && valorPorcentaje < 75,
+                    "text-warning": valorPorcentaje >= 10 && valorPorcentaje <= 50,
+                    "text-danger": valorPorcentaje >= 0 && valorPorcentaje < 10
+                });
 
-                    // const idStr = firstData.messageId;
-                    // const firstIdViaje = isNaN(Number(idStr)) ? null : Number(idStr);
-                    const firstIdViaje: number = parseInt(firstData.messageId);
-                    const lastIdViaje: number = parseInt(lastData.messageId);
-
-                    return (
+                return (
+                    <div
+                        key={i}
+                        onClick={() => handleSelectTrip(i, firstIdViaje, lastIdViaje)}
+                        className={`relative group overflow-hidden ${isSelected ? "bg-primary/10" : "bg-bgs"} w-full hover:bg-transparent cursor-pointer h-15 grid grid-cols-5 px-2 py-1`}
+                    >
                         <div
-                            key={i}
-                            onClick={() => {
-                                // setOrigenDestinyAsigned([origenCoords, destinoCoords]);
-                                setOpenConfig(true);
-                                setSelectedTrips((prev: number[]) =>
-                                    prev.includes(i) ? prev.filter(item => item !== i) : [...prev, i] as number[]
-                                );
-                                setSelectedTripOD((prev) => {
-                                    const exists = prev.some(([a, b]) => a === firstIdViaje && b === lastIdViaje);
+                            className={`absolute left-0 bottom-0 h-0.5 ${colorType} blur-3xl`}
+                            style={{ width: valorPorcentaje + "%", height: "100%" }}
+                        />
+                        <div className="absolute left-0 bottom-0 h-0.5 bg-gray" style={{ width: "100%" }} />
+                        <div
+                            className={`absolute left-0 bottom-0 h-0.5 ${colorType}`}
+                            style={{ width: valorPorcentaje + "%" }}
+                        />
 
-                                    if (exists) {
-                                        return prev.filter(([a, b]) => !(a === firstIdViaje && b === lastIdViaje));
-                                    } else {
-                                        return [...prev, [firstIdViaje, lastIdViaje]];
-                                    }
-                                });
-                            }}
-                            className={`relative group overflow-hidden ${selectedTripsAsArray.includes(i) ? "bg-primary/10" : "bg-bgs"} w-full hover:bg-transparent cursor-pointer h-15 grid grid-cols-5 px-2 py-1`}
-                        >
-                            <div
-                                className='absolute left-0 bottom-0 h-0.5 bg-gradient-to-bl from-secondary/50 to-primary/40 blur-3xl'
-                                style={{
-                                    width: valorPorcentaje + "%",
-                                    height: "100%",
-                                }}
-                            ></div>
-                            <div
-                                className='absolute left-0 bottom-0 h-0.5 bg-gray'
-                                style={{ width: "100%" }}
-                            ></div>
-                            <div
-                                className='absolute left-0 bottom-0 h-0.5 bg-primary'
-                                style={{ width: valorPorcentaje + "%" }}
-                            ></div>
-
-                            <div className="col-span-2 flex justify-start items-center gap-1">
-                                <small className="text-secondary">
-                                    <CgShapeHexagon />
-                                </small>
-                                <small className="flex flex-col text-nowrap justify-center items-start gap-2 text-xs">
-                                    <span className="text-primary">{cityOrigen}</span>
-                                    <span className="text-secondary">{cityDestino}</span>
-                                </small>
-                            </div>
-
-                            <div className="flex col-span-2 justify-center items-center gap-1">
-                                <small>{valorPorcentaje + "%"}</small>
-                            </div>
-
-                            <div className={`flex justify-center ${selectedTripsAsArray.includes(i) ? "text-primary" : ""} items-center group-hover:translate-x-1 group-hover:text-secondary transition-all duration-500`}>
-                                <GrFormNextLink />
-                            </div>
+                        <div className="col-span-2 flex justify-start items-center gap-1">
+                            <small className={colorText}><CgShapeHexagon /></small>
+                            <small className="flex flex-col text-nowrap justify-center items-start gap-2 text-xs">
+                                <span className="text-primary">{cityOrigen}</span>
+                                <span className="text-secondary">{cityDestino}</span>
+                            </small>
                         </div>
-                    );
-                })}
-            </div>
-        </>
-    )
-}
 
-export default TripListActive
+                        <div className="flex col-span-2 justify-center items-center gap-1">
+                            <small>{valorPorcentaje + "%"}</small>
+                        </div>
+
+                        <div className={`flex justify-center ${isSelected ? "text-primary" : ""} items-center group-hover:translate-x-1 group-hover:text-secondary transition-all duration-500`}>
+                            <GrFormNextLink />
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
+    );
+};
+
+export default TripListActive;
