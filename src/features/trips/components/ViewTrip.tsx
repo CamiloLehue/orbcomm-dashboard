@@ -39,9 +39,9 @@ function ViewTrip() {
                         </div>
                         <div className="flex justify-between items-center w-full px-5 py-2">
                             <div className="flex justify-start items-center gap-2">
-                                <h3 className="text-white/70">Puerto Montt </h3>
+                                <h3 className="text-white/70">Quellón </h3>
                                 <GrFormNextLink className="text-primary" />
-                                <h3 className="text-white">Castro </h3>
+                                <h3 className="text-white">Puerto Montt </h3>
                             </div>
                             <WidgetV />
                         </div>
@@ -181,7 +181,7 @@ function ViewTrip() {
                     </div>
                 </div>
                 <div className="relative col-span-4 h-full overflow-hidden">
-                    <MapView tripOrigin={origen} tripDestination={destino} height="740px" />
+                    <MapView tripOrigin={origen} tripDestination={destino} height="740px" simulated options />
                 </div>
             </div>
         </div >
@@ -200,7 +200,7 @@ const RutaTracking = () => {
 
 
 const TripFast = () => {
-    const origen = "Castro";
+    const origen = "Quellón (Yadran)";
     const destino = "Puerto Montt";
     const numeroViaje = "E-20050006";
     const patenteVehiculo = "XXXX-00";

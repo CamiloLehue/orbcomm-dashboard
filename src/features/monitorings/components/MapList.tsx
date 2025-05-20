@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react';
 type MapListProps = {
     selectedTrips: number[];
     selectedTripOD: [number, number][];
-    
+
 }
 
 const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
@@ -42,6 +42,8 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
         let ciudadOrigenLongitud = "Origen lon desconocido";
         let ciudadDestinoLatitud = "Destino desconocido";
         let ciudadDestinoLongitud = "Destino desconocido";
+        let nameCiudadOrigen = "Origen desconocido";
+        let nameCiudadDestino = "Destino desconocido";
 
         for (const trip of allTrips) {
             const origenRegistro = trip.data.find(item => parseInt(item.messageId) === (origenId));
@@ -51,9 +53,11 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
             if (origenRegistro) ciudadOrigenLongitud = String(origenRegistro.positionStatus.longitude) || ciudadOrigenLongitud;
             if (destinoRegistro) ciudadDestinoLatitud = String(destinoRegistro.positionStatus.latitude) || ciudadDestinoLatitud;
             if (destinoRegistro) ciudadDestinoLongitud = String(destinoRegistro.positionStatus.longitude) || ciudadDestinoLongitud;
+            if (origenRegistro) nameCiudadOrigen = String(origenRegistro.positionStatus.city) || nameCiudadOrigen;
+            if (destinoRegistro) nameCiudadDestino = String(destinoRegistro.positionStatus.city) || nameCiudadDestino;
         }
 
-        return { ciudadOrigenLatitud, ciudadOrigenLongitud, ciudadDestinoLatitud, ciudadDestinoLongitud };
+        return { ciudadOrigenLatitud, ciudadOrigenLongitud, ciudadDestinoLatitud, ciudadDestinoLongitud, nameCiudadOrigen, nameCiudadDestino };
     });
 
 
@@ -101,6 +105,7 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
                                             tripDestination={[parseInt(ruta.ciudadDestinoLatitud), parseInt(ruta.ciudadDestinoLongitud)]}
                                             origenDestinyAsigned={[[parseInt(ruta.ciudadOrigenLatitud), parseInt(ruta.ciudadOrigenLongitud)], [parseInt(ruta.ciudadDestinoLatitud), parseInt(ruta.ciudadDestinoLongitud)]]}
                                             height={selectedTripODAsArray.length <= 2 ? '750px' : '372px'}
+                                            nameCitys={[ruta.nameCiudadOrigen, " - ", ruta.nameCiudadDestino]}
                                         />
                                     </div>
                                 </div>

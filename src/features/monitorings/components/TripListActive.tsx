@@ -41,7 +41,7 @@ const TripListActive = ({
             return;
         }
 
-        setOpenConfig(true);
+        setOpenConfig(false);
 
         setSelectedTrips(prev =>
             isAlreadySelected
