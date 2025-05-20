@@ -160,7 +160,7 @@ const ButtonPerfil = () => {
     return <>
         <Button onClick={() => { setOpenProfile(!openProfile); }}
             className={`bg-transparent relative`}>
-            <img src="logo-blanco.svg" draggable={false} alt="user" className="h-6 rounded me-1" />
+            <img src="/logo-blanco.svg" draggable={false} alt="user" className="h-6 rounded me-1" />
 
             <GrFormDown color="#dfdfdb" />
             {

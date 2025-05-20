@@ -100,8 +100,8 @@ function TopBar({ onRouteRequested }: TopBarProps) {
                         <Select
                             className="focus:outline-none  font-light bg-zinc-900 py-2 ps-2"
                         >
-                            {locations.map(location => (
-                                <option key={location.name} value={location.name}>{location.name}</option>
+                            {Array(3).fill(0).map((_, i) => (
+                                <option key={i} value={i}>Empresa {i + 1}</option>
                             ))}
                         </Select>
                     </div>
@@ -118,25 +118,11 @@ function TopBar({ onRouteRequested }: TopBarProps) {
                     <div className="grid grid-cols-2 gap-5">
                         <div className="flex flex-col gap-3" >
                             <Label htmlFor="id_fecha" name="Conductor 1" />
-                            <Select
-                                className="focus:outline-none  font-light bg-zinc-900 py-2 ps-2"
-                                defaultValue=""
-                            >
-                                {locations.map(location => (
-                                    <option key={location.name} value={location.name}>{location.name}</option>
-                                ))}
-                            </Select>
+                            <Input type="text" placeholder="Cristofer" />
                         </div>
                         <div className="flex flex-col gap-3" >
                             <Label htmlFor="id_fecha" name="Conductor 2" />
-                            <Select
-                                className="focus:outline-none  font-light bg-zinc-900 py-2 ps-2"
-                                defaultValue=""
-                            >
-                                {locations.map(location => (
-                                    <option key={location.name} value={location.name}>{location.name}</option>
-                                ))}
-                            </Select>
+                            <Input type="text" placeholder="Jose" />
                         </div>
                     </div>
                 </div>
@@ -156,7 +142,7 @@ function TopBar({ onRouteRequested }: TopBarProps) {
                     onClick={handleCrearViajeClick}
                     className="flex justify-center bg-bgp items-center border border-gray/10 rounded-sm px-4 pe-5 mx-2">
                     <GrFormCheckmark size={25} />
-                    Guardar
+                    Programar viaje
                 </Button>
             </div>
         </div>

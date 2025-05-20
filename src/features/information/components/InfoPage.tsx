@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 
 type InfoPageProps = {
     id: string
@@ -11,14 +12,16 @@ function InfoPage({ id }: InfoPageProps) {
             title: "Biomasa",
             description: "Descripción 1",
             img: "information/biomasa.png",
-            url: "#"
+            url: "#",
+            video: "/information/Biomasa.mp4",
         },
         {
             id: "3",
             title: "Clima",
             description: "Descripción 2",
             img: "information/clima.png",
-            url: "#"
+            url: "#",
+            video: "/information/clima.mp4",
 
         },
         {
@@ -26,65 +29,85 @@ function InfoPage({ id }: InfoPageProps) {
             title: "Seguridad",
             description: "Descripción 3",
             img: "information/seguridad.png",
-            url: "#"
+            url: "#",
+            video: "/information/Biomasa.mp4",
         },
         {
             id: "5",
             title: "Sensores-IoT",
             description: "Descripción 4",
             img: "information/sensores-iot.png",
-            url: "#"
+            url: "#",
+            video: "/information/Biomasa.mp4",
         },
         {
             id: "6",
             title: "Energía",
             description: "Descripción 5",
             img: "information/energia.png",
-            url: "#"
+            url: "#",
+            video: "/information/Biomasa.mp4",
         },
         {
             id: "7",
             title: "Estado de red",
             description: "Descripción 6",
             img: "information/estado-de-red.png",
-            url: "#"
+            url: "#",
+            video: "/information/Biomasa.mp4",
         },
         {
             id: "8",
             title: "Alertas",
             description: "Descripción 7",
             img: "information/alertas.png",
-            url: "#"
+            url: "#",
+            video: "/information/Biomasa.mp4",
         },
         {
             id: "9",
             title: "Sub Drone",
             description: "Descripción 8",
             img: "information/sub-drone.png",
-            url: "#"
+            url: "#",
+            video: "/information/Biomasa.mp4",
         },
         {
             id: "10",
             title: "Jaula Smart",
             description: "Descripción 9",
             img: "information/jaula-smart.png",
-            url: "#"
+            url: "#",
+            video: "/information/Biomasa.mp4",
         },
         {
             id: "11",
             title: "Ferrocarriles",
             description: "Descripción 10",
             img: "information/ferrocarriles.png",
-            url: "#"
+            url: "#",
+            video: "/information/Biomasa.mp4",
         },
         {
             id: "12",
             title: "Inteligencia Artificial",
             description: "Descripción 11",
             img: "",
-            url: "#"
+            url: "#",
+            video: "/information/Biomasa.mp4",
         },
     ]
+
+    const [progress, setProgress] = useState(0);
+
+    // Simulación de llenado de 0 a 100%
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setProgress((prev) => (prev < 100 ? prev + 1 : 100));
+        }, 80); // velocidad del llenado
+
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         infodata.filter((item => item.id === id)).map((item, i) => (
@@ -96,7 +119,24 @@ function InfoPage({ id }: InfoPageProps) {
                     </div>
                 </div>
                 <div className="flex flex-col justify-center items-center p-5">
-                    <img src="/wisensor.png" alt="wisensor" className="h-[80px] object-contain" />
+                    <div className="relative w-[300px] ">
+                        <img
+                            src="/wisensor.png"
+                            alt="wisensor"
+                            className="w-full h-full object-contain"
+                        />
+                        <div
+                            className="absolute top-0 left-0 h-full bg-gray mix-blend-multiply"
+                            style={{ width: `${progress}%` }}
+                        />
+                    </div>
+                    <div>
+                        {/* <picture>
+                            <source media="(max-width: 640px)" srcSet={`/information/${item.img}`} />
+                            <img src={`/information/${item.img}`} alt="wisensor" className="h-[200px] object-contain" />
+                        </picture> */}
+                        <video className="w-full h-full object-contain rounded-2xl" src={item.video} autoPlay loop muted />
+                    </div>
                     <h1>Preview Live Site</h1>
                 </div>
             </div>
