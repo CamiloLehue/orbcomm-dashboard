@@ -10,7 +10,7 @@ function InfoPage({ id }: InfoPageProps) {
         {
             id: "2",
             title: "Biomasa",
-            description: "Descripción 1",
+            description: "ver demo",
             img: "information/biomasa.png",
             url: "#",
             video: "/information/Biomasa.mp4",
@@ -18,7 +18,7 @@ function InfoPage({ id }: InfoPageProps) {
         {
             id: "3",
             title: "Clima",
-            description: "Descripción 2",
+            description: "ver demo",
             img: "information/clima.png",
             url: "#",
             video: "/information/clima.mp4",
@@ -27,7 +27,7 @@ function InfoPage({ id }: InfoPageProps) {
         {
             id: "4",
             title: "Seguridad",
-            description: "Descripción 3",
+            description: "ver demo",
             img: "information/seguridad.png",
             url: "#",
             video: "/information/Biomasa.mp4",
@@ -35,7 +35,7 @@ function InfoPage({ id }: InfoPageProps) {
         {
             id: "5",
             title: "Sensores-IoT",
-            description: "Descripción 4",
+            description: "ver demo",
             img: "information/sensores-iot.png",
             url: "#",
             video: "/information/Biomasa.mp4",
@@ -43,7 +43,7 @@ function InfoPage({ id }: InfoPageProps) {
         {
             id: "6",
             title: "Energía",
-            description: "Descripción 5",
+            description: "ver demo",
             img: "information/energia.png",
             url: "#",
             video: "/information/Biomasa.mp4",
@@ -51,7 +51,7 @@ function InfoPage({ id }: InfoPageProps) {
         {
             id: "7",
             title: "Estado de red",
-            description: "Descripción 6",
+            description: "ver demo",
             img: "information/estado-de-red.png",
             url: "#",
             video: "/information/Biomasa.mp4",
@@ -59,7 +59,7 @@ function InfoPage({ id }: InfoPageProps) {
         {
             id: "8",
             title: "Alertas",
-            description: "Descripción 7",
+            description: "ver demo",
             img: "information/alertas.png",
             url: "#",
             video: "/information/Biomasa.mp4",
@@ -67,7 +67,7 @@ function InfoPage({ id }: InfoPageProps) {
         {
             id: "9",
             title: "Sub Drone",
-            description: "Descripción 8",
+            description: "ver demo",
             img: "information/sub-drone.png",
             url: "#",
             video: "/information/Biomasa.mp4",
@@ -75,7 +75,7 @@ function InfoPage({ id }: InfoPageProps) {
         {
             id: "10",
             title: "Jaula Smart",
-            description: "Descripción 9",
+            description: "ver demo",
             img: "information/jaula-smart.png",
             url: "#",
             video: "/information/Biomasa.mp4",
@@ -83,7 +83,7 @@ function InfoPage({ id }: InfoPageProps) {
         {
             id: "11",
             title: "Ferrocarriles",
-            description: "Descripción 10",
+            description: "ver demo",
             img: "information/ferrocarriles.png",
             url: "#",
             video: "/information/Biomasa.mp4",
@@ -91,7 +91,7 @@ function InfoPage({ id }: InfoPageProps) {
         {
             id: "12",
             title: "Inteligencia Artificial",
-            description: "Descripción 11",
+            description: "ver demo",
             img: "",
             url: "#",
             video: "/information/Biomasa.mp4",
@@ -137,7 +137,6 @@ function InfoPage({ id }: InfoPageProps) {
                         </picture> */}
                         <video className="w-full h-full object-contain rounded-2xl" src={item.video} autoPlay loop muted />
                     </div>
-                    <h1>Preview Live Site</h1>
                 </div>
             </div>
         ))
