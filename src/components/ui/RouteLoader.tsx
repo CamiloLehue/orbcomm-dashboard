@@ -7,7 +7,7 @@ function RouteLoader() {
     useEffect(() => {
         const interval = setInterval(() => {
             setProgress((prev) => (prev < 100 ? prev + 1 : 100));
-        }, 30);
+        }, 0);
 
         return () => clearInterval(interval);
     }, []);

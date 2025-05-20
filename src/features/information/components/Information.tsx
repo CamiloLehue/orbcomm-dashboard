@@ -6,8 +6,10 @@ function Information() {
     const idInfoPage: string = String(useParams().id)
 
     return (
-        <div>
-            <InfoPage id={idInfoPage} />
+        <div className="h-full w-full flex-1 flex flex-col justify-start items-start px-1 pb-1">
+          
+                <InfoPage id={idInfoPage} />
+          
         </div>
     )
 }

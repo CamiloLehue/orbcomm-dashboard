@@ -30,8 +30,6 @@ function Sidebar() {
     }
 
     const menu = [
-
-        { icon: GrDiamond, text: "Inteligencia Artificial", link: "/info/1", status: false },
         { icon: GrFormNextLink, text: "Biomasa", link: "/info/2", status: false },
         { icon: GrFormNextLink, text: "Clima", link: "/info/3", status: false },
         { icon: GrFormNextLink, text: "Seguridad", link: "/info/4", status: false },
@@ -42,6 +40,7 @@ function Sidebar() {
         { icon: GrFormNextLink, text: "Sub Drone", link: "/info/9", status: false },
         { icon: GrFormNextLink, text: "Jaula Smart", link: "/info/10", status: false },
         { icon: GrFormNextLink, text: "Ferrocarriles", link: "/info/11", status: false },
+        { icon: GrDiamond, text: "Inteligencia Artificial", link: "/info/1", status: false },
         {
             icon: GrGateway,
             text: "Strack",
@@ -58,8 +57,8 @@ function Sidebar() {
             text: "Configuración",
             link: "/configuracion",
             submenu: [
-                { icon: GrProjects, text: "Inicio", link: "/" },
-                { icon: GrProjects, text: "Inicio", link: "/" }
+                { icon: GrProjects, text: "Perfil", link: "/perfil" },
+                { icon: GrProjects, text: "Cerrar Sesión", link: "/" }
             ]
         },
     ]
@@ -110,6 +109,13 @@ function Sidebar() {
                             ? menu.map((item, i) => (
                                 item.text !== "Inteligencia Artificial"
                                     ? <li key={i} className="relative w-full">
+                                        {
+                                            item.text === "Strack"
+                                            &&
+                                            <div className="text-xs absolute -right-5 top-0 px-2 bg-gradient-to-bl from-danger to-orange-500 rounded-full flex justify-center items-center">
+                                                <small className="text-white">Nuevo</small>
+                                            </div>
+                                        }
                                         <Button
                                             onClick={() => handleMenuClick(i, !!item.submenu, item.link)}
                                             rounded="lg"
@@ -126,7 +132,7 @@ function Sidebar() {
                                         </Button>
                                     </li>
                                     : <li key={i} className="relative w-full bg-orange-600/10 ">
-                                        <div className="text-xs absolute -right-5 top-0 px-2 bg-gradient-to-bl from-danger rounded-full flex justify-center items-center">
+                                        <div className="text-xs absolute -right-5 top-0 px-2 bg-gradient-to-bl from-danger to-orange-500 rounded-full flex justify-center items-center">
                                             <small className="text-white">Nuevo</small>
                                         </div>
                                         <Button
@@ -159,7 +165,7 @@ function Sidebar() {
                                                 key={j}
                                                 onClick={() => navigate(subItem.link)}
                                                 className={`text-xs py-3 pl-6 pr-4 w-full flex items-center justify-start gap-2
-                                                ${location.pathname === subItem.link ? 'text-sky-300 font-semibold' : 'text-zinc-400 hover:text-white'}`}>
+                                                ${location.pathname === subItem.link ? 'text-secondary font-semibold' : 'text-zinc-400 hover:text-white'}`}>
                                                 <subItem.icon size={13} />
                                                 {openSidebar && subItem.text}
                                             </Button>
