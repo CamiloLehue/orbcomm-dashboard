@@ -96,7 +96,7 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
                                     <div
                                         className="text-center w-full"
                                         style={{
-                                            height: selectedTripODAsArray.length <= 2 ? '750px' : '372px'
+                                            height: selectedTripODAsArray.length <= 2 ? '750px' : '395px'
                                         }}
                                     >
 
@@ -104,7 +104,7 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
                                             tripOrigin={[parseInt(ruta.ciudadOrigenLatitud), parseInt(ruta.ciudadOrigenLongitud)]}
                                             tripDestination={[parseInt(ruta.ciudadDestinoLatitud), parseInt(ruta.ciudadDestinoLongitud)]}
                                             origenDestinyAsigned={[[parseInt(ruta.ciudadOrigenLatitud), parseInt(ruta.ciudadOrigenLongitud)], [parseInt(ruta.ciudadDestinoLatitud), parseInt(ruta.ciudadDestinoLongitud)]]}
-                                            height={selectedTripODAsArray.length <= 2 ? '750px' : '372px'}
+                                            height={selectedTripODAsArray.length <= 2 ? '750px' : '395px'}
                                             nameCitys={[ruta.nameCiudadOrigen, " - ", ruta.nameCiudadDestino]}
                                         />
                                     </div>
