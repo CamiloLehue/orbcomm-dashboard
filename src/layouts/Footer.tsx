@@ -1,5 +1,21 @@
+import { useEffect, useState } from "react";
 
 function Footer() {
+    const [time, setTime] = useState<string>("");
+
+    useEffect(() => {
+        const updateTime = () => {
+            const now = new Date();
+            const formattedTime = now.toLocaleTimeString();
+            setTime(formattedTime);
+        };
+
+        updateTime();
+        const interval = setInterval(updateTime, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div className="bg-bgt  h-20 rounded-xs flex justify-center items-center mt-5 px-5 w-full ">
             <div className=" w-full flex justify-between items-center">
@@ -20,12 +36,12 @@ function Footer() {
                     </h3>
                 </div>
                 <div className="px-5 flex justify-end items-center gap-2">
-                    <div className="flex justify-start items-center">
-                        <span><img src="clima.png" className="w-6" alt="clima" /></span>
-                        <h5> 17°C - Puerto Montt</h5>
+                    <div className="flex justify-start items-center gap-1">
+                        <span><img src="clima.png" className="w-10" alt="clima" /></span>
+                        <h5> 13°C - Puerto Montt</h5>
                     </div>
-                    <div>
-                        <h5 className="font-semibold">12:01 hrs.</h5>
+                    <div className="min-w-25">
+                        <h5 className="font-semibold">{time}</h5>
                     </div>
                 </div>
             </div>

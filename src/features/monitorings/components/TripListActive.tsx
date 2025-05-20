@@ -24,7 +24,7 @@ const TripListActive = ({
 }: TripListActiveProps) => {
 
     const { allTrips } = useAllTrips();
-    
+
     const porcentajes = useMemo(() =>
         allTrips.map(() => Math.round(Math.random() * 100)),
         [allTrips]
@@ -91,7 +91,7 @@ const TripListActive = ({
                     <div
                         key={i}
                         onClick={() => handleSelectTrip(i, firstIdViaje, lastIdViaje)}
-                        className={`relative group overflow-hidden ${isSelected ? "bg-primary/10" : "bg-bgs"} w-full hover:bg-transparent cursor-pointer h-15 grid grid-cols-5 px-2 py-1`}
+                        className={`relative group overflow-hidden ${isSelected ? "bg-gradient-to-tl from-secondary/25 to-blue/25" : "bg-bgs"} w-full hover:bg-transparent cursor-pointer h-15 grid grid-cols-5 px-2 py-1`}
                     >
                         <div
                             className={`absolute left-0 bottom-0 h-0.5 ${colorType} blur-3xl`}
