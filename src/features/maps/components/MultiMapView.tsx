@@ -101,9 +101,9 @@ const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) =
                                 <div key={trip.code || i}>
                                     {showZones && (
                                         <Suspense fallback={<div>Cargando zonas...</div>}>
-                                            <Overlay checked name="Ruta Simulada">
+                                            {/* <Overlay checked name="Ruta Simulada">
                                                 <RouteLayer origenDestinyAsigned={[origenCoords, destinoCoords]} />
-                                            </Overlay>
+                                            </Overlay> */}
                                             <Overlay checked name={`Camión ${i + 1}`}>
                                                 <VehicleMarker origenDestinyAsigned={[origenCoords, destinoCoords]} simulated={false} />
                                             </Overlay>
