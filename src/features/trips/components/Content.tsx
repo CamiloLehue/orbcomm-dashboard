@@ -1,4 +1,4 @@
-import { GrAdd, GrFormClose, GrFlag, GrLocation, GrPhone, GrFormClock } from "react-icons/gr";
+import { GrFormClose, GrPhone, GrFormClock } from "react-icons/gr";
 import { MapView } from "../../maps";
 import Button from "../../../components/ui/Button";
 
@@ -12,18 +12,13 @@ function Content({ origin, destination }: ContentProps) {
         <div className="relative w-full h-full text-zinc-50 ">
             <div className="h-20 flex justify-start items-center w-full gap-5 ">
                 <div className="flex items-center gap-2">
-                    <h4 className="rounded px-2">AST-DEMO</h4>
-                    <p className="font-bold">Cuenta: <span className="font-light">AST Networks & Tecnoservicios</span></p>
-                </div>
-                <div className="flex items-center gap-5 bg-gradient-to-tl from-secondary/30 to-secondary/20 border border-secondary/40 text-white h-8 rounded-full px-10">
-                    <GrAdd size={20} />
-                    <GrLocation />
-                    <GrFlag size={17} />
+                    <h4 className="rounded px-2">YADRAN-DEVICE</h4>
+                    <p className="font-bold">Cuenta: <span className="font-light">Yadran GPS Demo</span></p>
                 </div>
             </div>
             <div className="relative grid grid-cols-2 w-full gap-5 bg-secondary/3">
-                <div className="">
-                    <MapView tripOrigin={origin} tripDestination={destination} />
+                <div>
+                    <MapView tripOrigin={origin} tripDestination={destination} height="600px" />
                 </div>
                 <div className=" border border-secondary/10 rounded-lg ">
                     <div className="border-b border-secondary/10  h-15 flex flex-col justify-center items-center">

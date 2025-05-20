@@ -102,26 +102,19 @@ function Sidebar() {
 
             <h6 className="text-zinc-600 text-center font-bold">Sistema Sincronizado</h6>
 
-            <nav className="w-full">
+            <nav className="w-full z-[9999]">
                 <ul className="flex flex-col gap-2 w-full justify-center items-start px-3">
                     {
                         activeSubmenuIndex === null
                             ? menu.map((item, i) => (
-                                item.text !== "Inteligencia Artificial"
+                                item.text !== "Inteligencia Artificial" && item.text !== "Strack"
                                     ? <li key={i} className="relative w-full">
-                                        {
-                                            item.text === "Strack"
-                                            &&
-                                            <div className="text-xs absolute -right-5 top-0 px-2 bg-gradient-to-bl from-danger to-orange-500 rounded-full flex justify-center items-center">
-                                                <small className="text-white">Nuevo</small>
-                                            </div>
-                                        }
                                         <Button
                                             onClick={() => handleMenuClick(i, !!item.submenu, item.link)}
                                             rounded="lg"
                                             className={`text-xs px-4 py-2  w-full flex items-center 
                                         ${openSidebar ? `justify-start` : `justify-center`} gap-2
-                                        ${isItemOrSubItemActive(item) ? 'bg-danger/20 border border-danger/50  text-white' : 'text-zinc-400'}`}>
+                                        ${isItemOrSubItemActive(item) ? 'bg-danger/20 border border-danger/50  text-white' : 'text-zinc-400 border border-transparent'}`}>
                                             <div className="flex items-center gap-2">
                                                 <item.icon size={15} />
                                                 {openSidebar && <p className="text-nowrap">{item.text}</p>}
@@ -131,18 +124,25 @@ function Sidebar() {
                                             )}
                                         </Button>
                                     </li>
-                                    : <li key={i} className="relative w-full bg-orange-600/10 ">
-                                        <div className="text-xs absolute -right-5 top-0 px-2 bg-gradient-to-bl from-danger to-orange-500 rounded-full flex justify-center items-center">
-                                            <small className="text-white">Nuevo</small>
+                                    : <li key={i} className={`relative w-full ${item.text === "Strack" ? "group bg-gradient-to-br from-secondary/40 hover:scale-101  rounded-2xl transition-all duration-300 " : "bg-orange-600/10"} `}>
+                                        <div className="text-[14px] group-hover:-translate-x-2 transition-all duration-300 absolute -right-6 top-3 px-2  flex justify-center items-center backdrop-blur-2xl rounded-full">
+                                            <small className=" font-bold bg-clip-text text-clip text-transparent bg-gradient-to-bl from-lime-400 to-yellow-400">Nuevo</small>
                                         </div>
                                         <Button
                                             onClick={() => handleMenuClick(i, !!item.submenu, item.link)}
-                                            rounded="lg"
+                                            rounded="2xl"
                                             className={`text-xs px-4 py-2  w-full flex items-center 
                                             ${openSidebar ? `justify-start` : `justify-center`} gap-2
-                                            ${isItemOrSubItemActive(item) ? 'bg-danger/20 border border-danger/50  text-white' : 'bg-clip-text text-clip text-transparent bg-gradient-to-r from-orange-500 to-primary '}`}>
+                                            ${isItemOrSubItemActive(item)
+                                                    ? 'bg-gradient-to-bl to-secondary/40 text-white'
+                                                    : `bg-clip-text text-clip text-transparent 
+                                                        ${item.text === "Strack"
+                                                        ? "bg-gradient-to-bl from-secondary to-sky-300"
+                                                        : "bg-gradient-to-r from-danger to-orange-500"
+                                                    } 
+                                            `}`}>
                                             <div className="flex items-center gap-2">
-                                                <item.icon size={15} className="text-orange-500" />
+                                                <item.icon size={15} className={`${item.text === "Strack" ? "text-sky-500" : "text-orange-500"}`} />
                                                 {openSidebar && <p className="text-nowrap">{item.text}</p>}
                                             </div>
                                             {item.submenu && openSidebar && (
