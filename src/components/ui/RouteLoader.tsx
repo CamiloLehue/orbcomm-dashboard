@@ -16,7 +16,7 @@ function RouteLoader() {
         <div className="absolute z-[9999] top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center gap-5">
             <div className="relative w-[200px] h-[60px]">
                 <img
-                    src="wisensor.png"
+                    src="/wisensor.png"
                     alt="wisensor"
                     className="w-full h-full object-contain"
                 />

@@ -13,6 +13,7 @@ import Configuration from "./features/configuration/components/Configuration";
 import ProtectedRoute from "./features/auth/components/login/ProtectedRoute";
 import Login from "./features/auth/components/login/Login";
 import Monotorings from "./features/monitorings/components/Monotorings";
+import Information from "./features/information/components/Information";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -42,6 +43,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/tramos/editar/:id" element={<CreateTrips />} />
             {/* Configuración de parámetros */}
             <Route path="/configuracion" element={<Configuration />} />
+            <Route path="/info/:id" element={<Information />} />
           </Route>
         </Route>
       </Routes>

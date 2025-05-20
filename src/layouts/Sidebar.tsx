@@ -1,5 +1,4 @@
 import {
-    GrDeliver,
     GrGateway,
     GrProjects,
     GrFormNext,
@@ -9,247 +8,169 @@ import {
     GrDiamond
 } from "react-icons/gr"
 import Button from "../components/ui/Button"
-import { useNavigate } from "react-router"
-import { useState } from "react";
+import { useNavigate, useLocation } from "react-router"
+import { useState, useEffect } from "react"
 
 function Sidebar() {
-    const navigate = useNavigate();
-    const location = window.location.pathname;
+    const navigate = useNavigate()
+    const location = useLocation()
+    const [openSidebar, setOpenSidebar] = useState(true)
+    const [activeSubmenuIndex, setActiveSubmenuIndex] = useState<number | null>(null)
+
+    const handleMenuClick = (index: number, hasSubmenu: boolean, link: string) => {
+        if (hasSubmenu) {
+            setActiveSubmenuIndex(index)
+        } else {
+            navigate(link)
+        }
+    }
+
+    const handleBackToMainMenu = () => {
+        setActiveSubmenuIndex(null)
+    }
+
     const menu = [
-        {
-            icon: GrApps,
-            text: "Explorar",
-            link: "/dashboard",
-            status: true,
-        },
+
+        { icon: GrDiamond, text: "Inteligencia Artificial", link: "/info/1", status: false },
+        { icon: GrFormNextLink, text: "Biomasa", link: "/info/2", status: false },
+        { icon: GrFormNextLink, text: "Clima", link: "/info/3", status: false },
+        { icon: GrFormNextLink, text: "Seguridad", link: "/info/4", status: false },
+        { icon: GrFormNextLink, text: "Sensores-IoT", link: "/info/5", status: false },
+        { icon: GrFormNextLink, text: "Energía", link: "/info/6", status: false },
+        { icon: GrFormNextLink, text: "Estado de red", link: "/info/7", status: false },
+        { icon: GrFormNextLink, text: "Alertas", link: "/info/8", status: false },
+        { icon: GrFormNextLink, text: "Sub Drone", link: "/info/9", status: false },
+        { icon: GrFormNextLink, text: "Jaula Smart", link: "/info/10", status: false },
+        { icon: GrFormNextLink, text: "Ferrocarriles", link: "/info/11", status: false },
         {
             icon: GrGateway,
-            text: "Seguimientos",
-            link: "/seguimientos",
-            status: true,
-
-        },
-        {
-            icon: GrDeliver,
-            text: "Viajes",
-            link: "/viajes",
+            text: "Strack",
+            link: "/",
             status: true,
             submenu: [
-                {
-                    icon: GrProjects,
-                    text: "Inicio",
-                    link: "/"
-                },
-                {
-                    icon: GrProjects,
-                    text: "Inicio",
-                    link: "/"
-                },
+                { icon: GrApps, text: "Explorar", link: "/dashboard", status: true },
+                { icon: GrProjects, text: "Seguimientos", link: "/seguimientos", status: true },
+                { icon: GrGateway, text: "Viajes", link: "/viajes", status: true }
             ]
         },
-        {
-            icon: GrDiamond,
-            text: "Inteligencia Artificial",
-            link: "#",
-            status: false,
-        },
-        {
-            icon: GrFormNextLink,
-            text: "Biomasa",
-            link: "#",
-            status: false,
-        },
-        {
-            icon: GrFormNextLink,
-            text: "Clima",
-            link: "#",
-            status: false,
-        },
-        {
-            icon: GrFormNextLink,
-            text: "Seguridad",
-            link: "#",
-            status: false,
-        },
-        {
-            icon: GrFormNextLink,
-            text: "Sensores-IoT",
-            link: "#",
-            status: false,
-        },
-        {
-            icon: GrFormNextLink,
-            text: "Energía",
-            link: "#",
-            status: false,
-        },
-        {
-            icon: GrFormNextLink,
-            text: "Estado de red",
-            link: "#",
-            status: false,
-        },
-        {
-            icon: GrFormNextLink,
-            text: "Alertas",
-            link: "#",
-            status: false,
-        },
-        {
-            icon: GrFormNextLink,
-            text: "Sub Drone",
-            link: "#",
-            status: false,
-        },
-        {
-            icon: GrFormNextLink,
-            text: "Jaula Smart",
-            link: "#",
-            status: false,
-        },
-        {
-            icon: GrFormNextLink,
-            text: "Ferrocarriles",
-            link: "#",
-            status: false,
-        },
-
-        // {
-        //     icon: GrGateway,
-        //     text: "Monitoreo",
-        //     link: "/monitoreo",
-        //     submenu: [
-        //         {
-        //             icon: GrProjects,
-        //             text: "Inicio",
-        //             link: "/"
-        //         },
-        //         {
-        //             icon: GrProjects,
-        //             text: "Inicio",
-        //             link: "/"
-        //         },
-        //     ]
-        // },
-        // {
-        //     icon: GrNavigate,
-        //     text: "Tramos",
-        //     link: "/tramos",
-        //     submenu: [
-        //         {
-        //             icon: GrProjects,
-        //             text: "Inicio",
-        //             link: "/"
-        //         },
-        //         {
-        //             icon: GrProjects,
-        //             text: "Inicio",
-        //             link: "/"
-        //         },
-        //     ]
-        // },
         {
             icon: GrPerformance,
             text: "Configuración",
             link: "/configuracion",
             submenu: [
-                {
-                    icon: GrProjects,
-                    text: "Inicio",
-                    link: "/"
-                },
-                {
-                    icon: GrProjects,
-                    text: "Inicio",
-                    link: "/"
-                },
+                { icon: GrProjects, text: "Inicio", link: "/" },
+                { icon: GrProjects, text: "Inicio", link: "/" }
             ]
         },
     ]
-    const [openSidebar, setOpenSidebar] = useState(true);
+
+    // Marcar automáticamente el menú padre activo si la ruta actual es parte de un submenu
+    useEffect(() => {
+        const index = menu.findIndex(item =>
+            item.submenu?.some(sub => sub.link === location.pathname)
+        )
+        if (index !== -1) {
+            setActiveSubmenuIndex(index)
+        }
+    }, [location.pathname])
+
+    // Función para saber si un item o subitem está activo
+    const isItemOrSubItemActive = (item: {
+        link: string;
+        submenu?: Array<{ link: string }>;
+    }): boolean => {
+        if (item.link === location.pathname) return true
+        if (item.submenu) {
+            return item.submenu.some((sub: { link: string }) => sub.link === location.pathname)
+        }
+        return false
+    }
 
     return (
-        <div className={`${!openSidebar ? `w-[100px]` : `w-[230px]`} relative transition-all bg-gradient-to-b from-bgp p-2 flex flex-col justify-start items-center gap-5`}>
+        <div className={`${!openSidebar ? `w-[100px]` : `w-[270px]`} relative transition-all bg-gradient-to-b from-bgp p-2 flex flex-col justify-start items-center gap-5`}>
             <div className="absolute -right-15 top-5">
-                <Button onClick={() => setOpenSidebar(!openSidebar)} className="relative z-50 text-xs text-zinc-500 flex  items-center justify-start  gap-2">
-                    {
-                        !openSidebar ? <GrFormNext size={20} className="text-secondary" /> : <GrFormNext size={20} className="text-primary rotate-180" />
-                    }
+                <Button
+                    onClick={() => setOpenSidebar(!openSidebar)}
+                    className="relative z-50 text-xs text-zinc-500 flex items-center justify-start gap-2">
+                    {!openSidebar ? <GrFormNext size={20} className="text-secondary" /> : <GrFormNext size={20} className="text-primary rotate-180" />}
                 </Button>
             </div>
+
             <div className="flex flex-col justify-center items-center">
                 <h5 className="text-danger font-bold">WI<span className="text-white/60 font-normal">SENSOR</span></h5>
                 <small className="text-xs font-light">S<span className="text-secondary">Track</span></small>
             </div>
-            <h6 className="text-zinc-600 text-center font-bold">
-                Sistema Sincronizado
-            </h6>
+
+            <h6 className="text-zinc-600 text-center font-bold">Sistema Sincronizado</h6>
+
             <nav className="w-full">
-                <ul className="flex flex-col gap-5 w-full justify-center items-start px-3">
+                <ul className="flex flex-col gap-2 w-full justify-center items-start px-3">
                     {
-                        menu.map((item, i) => (
-                            <li key={i} className="relative w-full">
-                                {
-                                    item.status && item.link === location
-                                        ?
+                        activeSubmenuIndex === null
+                            ? menu.map((item, i) => (
+                                item.text !== "Inteligencia Artificial"
+                                    ? <li key={i} className="relative w-full">
                                         <Button
-                                            onClick={() => navigate(item.link)}
-                                            rounded="sm"
-                                            className={`text-xs px-4 py-3 font-bold bg-gradient-to-bl from-danger/80 border-t border-danger/90 shadow shadow-bgp w-full text-zinc-200 flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
-                                            <item.icon size={15} />
-                                            {
-                                                openSidebar && item.text
-                                            }
-                                        </Button>
-                                        :
-                                        item.status === false
-                                            ?
-                                            item.text === "Inteligencia Artificial"
-                                                ?
-                                                <div className="relative w-full p-[0.9px] bg-gradient-to-l from-red-400 to-primary rounded-lg">
-                                                    <div className="absolute -right-5 -top-2  bg-gradient-to-bl from-danger/90 to-orange-500/80 border-t border-danger px-2 rounded  flex justify-center items-center ">
-                                                        <small className="text-[10px] font-bold text-white">Nuevo</small>
-                                                    </div>
-                                                    <div className="bg-bgp rounded-lg">
-                                                        <Button
-                                                            onClick={() => {}}
-                                                            rounded="sm"
-                                                            className={`text-xs font-bold text-nowrap  py-3 bg-gradient-to-l from-danger to-primary w-full text-transparent bg-clip-text flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
-                                                            <item.icon size={15} className="text-primary" />
-                                                            {
-                                                                openSidebar && item.text
-                                                            }
-                                                        </Button>
-                                                    </div>
-                                                </div>
-                                                :
-                                                <Button
-                                                    onClick={() => { }}
-                                                    rounded="sm"
-                                                    className={`text-xs px-4 py-1 font-bold  text-zinc-600 flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
-                                                    <item.icon size={15} />
-                                                    {
-                                                        openSidebar && item.text
-                                                    }
-                                                </Button>
-                                            :
-                                            <Button
-                                                onClick={() => navigate(item.link)}
-                                                className={`text-xs px-4 border-t border-transparent text-zinc-400 w-full font-semibold flex  items-center ${openSidebar ? `justify-start` : `justify-center`}  gap-2`}>
+                                            onClick={() => handleMenuClick(i, !!item.submenu, item.link)}
+                                            rounded="lg"
+                                            className={`text-xs px-4 py-2  w-full flex items-center 
+                                        ${openSidebar ? `justify-start` : `justify-center`} gap-2
+                                        ${isItemOrSubItemActive(item) ? 'bg-danger/20 border border-danger/50  text-white' : 'text-zinc-400'}`}>
+                                            <div className="flex items-center gap-2">
                                                 <item.icon size={15} />
-                                                {
-                                                    openSidebar && item.text
-                                                }
+                                                {openSidebar && <p className="text-nowrap">{item.text}</p>}
+                                            </div>
+                                            {item.submenu && openSidebar && (
+                                                <GrFormNext size={12} />
+                                            )}
+                                        </Button>
+                                    </li>
+                                    : <li key={i} className="relative w-full bg-orange-600/10 ">
+                                        <div className="text-xs absolute -right-5 top-0 px-2 bg-gradient-to-bl from-danger rounded-full flex justify-center items-center">
+                                            <small className="text-white">Nuevo</small>
+                                        </div>
+                                        <Button
+                                            onClick={() => handleMenuClick(i, !!item.submenu, item.link)}
+                                            rounded="lg"
+                                            className={`text-xs px-4 py-2  w-full flex items-center 
+                                            ${openSidebar ? `justify-start` : `justify-center`} gap-2
+                                            ${isItemOrSubItemActive(item) ? 'bg-danger/20 border border-danger/50  text-white' : 'bg-clip-text text-clip text-transparent bg-gradient-to-r from-orange-500 to-primary '}`}>
+                                            <div className="flex items-center gap-2">
+                                                <item.icon size={15} className="text-orange-500" />
+                                                {openSidebar && <p className="text-nowrap">{item.text}</p>}
+                                            </div>
+                                            {item.submenu && openSidebar && (
+                                                <GrFormNext size={12} />
+                                            )}
+                                        </Button>
+                                    </li>
+                            ))
+                            : (
+                                <li className="w-full">
+                                    <Button
+                                        onClick={handleBackToMainMenu}
+                                        className="text-xs px-4 py-2 mb-2 w-full font-semibold text-left text-white bg-bgt hover:text-white flex justify-start items-center gap-2">
+                                        <GrFormNext className="rotate-180" size={14} />
+                                        Volver
+                                    </Button>
+                                    {
+                                        menu[activeSubmenuIndex]?.submenu?.map((subItem, j) => (
+                                            <Button
+                                                key={j}
+                                                onClick={() => navigate(subItem.link)}
+                                                className={`text-xs py-3 pl-6 pr-4 w-full flex items-center justify-start gap-2
+                                                ${location.pathname === subItem.link ? 'text-sky-300 font-semibold' : 'text-zinc-400 hover:text-white'}`}>
+                                                <subItem.icon size={13} />
+                                                {openSidebar && subItem.text}
                                             </Button>
-                                }
-
-                            </li>
-                        ))
+                                        ))
+                                    }
+                                </li>
+                            )
                     }
-
                 </ul>
             </nav>
-        </div >
+        </div>
     )
 }
 
