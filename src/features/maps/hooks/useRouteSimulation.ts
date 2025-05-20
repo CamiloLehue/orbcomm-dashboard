@@ -184,7 +184,7 @@ export const useRouteSimulation = () => {
         const interval = setInterval(() => {
             setMarkerIndex((prev) => (prev < route.length - 1 ? prev + 1 : prev));
             setLoad(true);
-        }, 500);
+        }, 5000);
         return () => clearInterval(interval);
     }, []);
 

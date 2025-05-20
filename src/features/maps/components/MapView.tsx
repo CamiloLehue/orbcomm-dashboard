@@ -15,10 +15,12 @@ interface MapViewProps {
     origenDestinyAsigned?: [number, number][] | null;
     height?: string;
     options?: boolean;
+    simulated?: boolean;
+    nameCitys?: string[];
 }
 
-const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]], height = "100%", options = false }: MapViewProps) => {
-    const [geoZones] = useState(false); 
+const MapView = ({ nameCitys, tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]], height = "100%", options = false, simulated = false }: MapViewProps) => {
+    const [geoZones] = useState(false);
     const { BaseLayer, Overlay } = LayersControl;
     const { route, markerIndex, load } = useRouteSimulation();
     const [lat, lon] = route[markerIndex] as [number, number];
@@ -30,8 +32,8 @@ const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-4
         <div className="rounded-b-xl ">
             {/* Valor por defecto = center={[-43.1375, -73.6425]]} */}
             <MapContainer center={tripOrigin ?? [-43.1375, -73.6425]} zoom={14} scrollWheelZoom={true} style={{ height: height, width: "100%" }}>
-                <div className="absolute left-0 top-0  z-[9999] bg-bgp px-2 rounded-e-full py-1">
-                    <small>{origenDestinyAsigned}</small>
+                <div className="absolute left-[50%] -translate-x-1/2 top-0  z-[9999] bg-bgp/70 backdrop-blur px-4 rounded-full py-1">
+                    <small className="text-sm text-white font-bold">{nameCitys}</small>
                 </div>
                 {
                     options &&
@@ -62,12 +64,28 @@ const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-4
                             opacity={1}
                         /> */}
                     </BaseLayer>
-                    <Overlay checked name="Ruta Simulada">
-                        <RouteLayer origenDestinyAsigned={origenDestinyAsigned} />
-                    </Overlay>
-                    <Overlay checked name="Camión">
-                        <VehicleMarker origenDestinyAsigned={origenDestinyAsigned} />
-                    </Overlay>
+
+                    {
+                        !simulated
+                            ?
+                            <>
+                                <Overlay checked name="Ruta Real">
+                                    <RouteLayer origenDestinyAsigned={origenDestinyAsigned} simulated={false}  />
+                                </Overlay>
+                                <Overlay checked name="Camión">
+                                    <VehicleMarker origenDestinyAsigned={origenDestinyAsigned}  />
+                                </Overlay>
+                            </>
+                            :
+                            <>
+                                <Overlay checked name="Ruta Simulada">
+                                    <RouteLayer origenDestinyAsigned={origenDestinyAsigned} simulated />
+                                </Overlay>
+                                <Overlay checked name="Camión">
+                                    <VehicleMarker origenDestinyAsigned={origenDestinyAsigned} simulated />
+                                </Overlay>
+                            </>
+                    }
                     {geoZones &&
                         <Overlay checked name="Zonas Geográficas">
                             <GeofenceLayer />
@@ -81,7 +99,7 @@ const MapView = ({ tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-4
                 {
                     options && <>
                         <ScaleControl position="bottomleft" />
-                        <GeoButtons  />
+                        <GeoButtons />
                     </>
                 }
             </MapContainer>

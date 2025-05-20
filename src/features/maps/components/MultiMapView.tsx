@@ -105,7 +105,7 @@ const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) =
                                                 <RouteLayer origenDestinyAsigned={[origenCoords, destinoCoords]} />
                                             </Overlay>
                                             <Overlay checked name={`Camión ${i + 1}`}>
-                                                <VehicleMarker origenDestinyAsigned={[origenCoords, destinoCoords]} />
+                                                <VehicleMarker origenDestinyAsigned={[origenCoords, destinoCoords]} simulated={false} />
                                             </Overlay>
                                         </Suspense>
                                     )}
