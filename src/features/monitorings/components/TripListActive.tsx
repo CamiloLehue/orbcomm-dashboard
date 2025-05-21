@@ -64,7 +64,7 @@ const TripListActive = ({
     return (
         <div className="max-h-[740px] overflow-y-auto">
             {allTrips.map((trip, i) => {
-                const valorPorcentaje = porcentajes[i];
+                const PROGRESS = porcentajes[i];
                 const firstData = trip.data[0];
                 const lastData = trip.data[trip.data.length - 1];
 
@@ -77,14 +77,14 @@ const TripListActive = ({
 
                 const colorType = clsx({
                     "bg-gradient-to-r from-success to-secondary":
-                        valorPorcentaje >= 0 && valorPorcentaje <= 100
+                        PROGRESS >= 0 && PROGRESS <= 100
                 });
 
                 const colorText = clsx({
-                    "text-success": valorPorcentaje >= 75,
-                    "text-secondary": valorPorcentaje > 50 && valorPorcentaje < 75,
-                    "text-warning": valorPorcentaje >= 10 && valorPorcentaje <= 50,
-                    "text-danger": valorPorcentaje >= 0 && valorPorcentaje < 10
+                    "text-success": PROGRESS >= 75,
+                    "text-secondary": PROGRESS > 50 && PROGRESS < 75,
+                    "text-warning": PROGRESS >= 10 && PROGRESS <= 50,
+                    "text-danger": PROGRESS >= 0 && PROGRESS < 10
                 });
 
                 return (
@@ -95,12 +95,12 @@ const TripListActive = ({
                     >
                         <div
                             className={`absolute left-0 bottom-0 h-0.5 ${colorType} blur-3xl`}
-                            style={{ width: valorPorcentaje + "%", height: "100%" }}
+                            style={{ width: PROGRESS + "%", height: "100%" }}
                         />
                         <div className="absolute left-0 bottom-0 h-0.5 bg-gray" style={{ width: "100%" }} />
                         <div
                             className={`absolute left-0 bottom-0 h-0.5 ${colorType}`}
-                            style={{ width: valorPorcentaje + "%" }}
+                            style={{ width: PROGRESS + "%" }}
                         />
 
                         <div className="col-span-2 flex justify-start items-center gap-1">
@@ -112,7 +112,7 @@ const TripListActive = ({
                         </div>
 
                         <div className="flex col-span-2 justify-center items-center gap-1">
-                            <small>{valorPorcentaje + "%"}</small>
+                            <small>{PROGRESS + "%"}</small>
                         </div>
 
                         <div className={`flex justify-center ${isSelected ? "text-primary" : ""} items-center group-hover:translate-x-1 group-hover:text-secondary transition-all duration-500`}>

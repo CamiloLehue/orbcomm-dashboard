@@ -14,11 +14,11 @@
 @theme {
   --color-bgp: #0d0d0d;
   --color-bgs: #1a1a1a;
-  --color-bgt: #252429;
+  --color-bgt: #272a30;
   --color-bgb: #091217;
   --color-bgbp: #0c1f2a;
   --color-gray: #71717b;
-  --color-blue: #1447e6;
+  --color-blue: #1f2ab5;
   --color-sky: oklch(50% 0.134 242.749);
   --color-primary: #e9ff47;
 
@@ -171,7 +171,7 @@ body {
   /* font-family: 'Pitagon Sans Mono', monospace; */
   font-family: 'Geist Sans', sans-serif;
   font-family: 'Libre Franklin Variable', sans-serif;
-  /* font-family: 'Figtree Variable', sans-serif; */
+  font-family: 'Figtree Variable', sans-serif;
   /* font-family: 'Titillium Web', sans-serif; */
   /* font-family: 'Noto Sans Bengali Variable', sans-serif; */
   /* font-family: 'Lexend Deca Variable', sans-serif; */

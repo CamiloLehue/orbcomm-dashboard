@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, LayersControl, ScaleControl } from "react-leaflet";
+import { MapContainer, TileLayer, LayersControl, ScaleControl, useMap } from "react-leaflet";
 import RouteLayer from "./RouteLayer";
 import VehicleMarker from "./VehicleMarker";
 import GeofenceLayer from "../../zones/components/GeofenceLayer";
@@ -7,7 +7,8 @@ import { GeoButtons } from "../../zones";
 import { useRouteSimulation } from "../hooks/useRouteSimulation";
 import { useReverseGeocode } from "../hooks/useReverseGeocode";
 import Loading from "../../../components/ui/Loading";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { LatLngExpression } from "leaflet";
 
 interface MapViewProps {
     tripOrigin: [number, number] | null;
@@ -18,6 +19,16 @@ interface MapViewProps {
     simulated?: boolean;
     nameCitys?: string[];
 }
+
+const MapCenterUpdater = ({ center }: { center: LatLngExpression }) => {
+    const map = useMap();
+
+    useEffect(() => {
+        map.setView(center, map.getZoom());
+    }, [center, map]);
+
+    return null;
+};
 
 const MapView = ({ nameCitys, tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]], height = "100%", options = false, simulated = false }: MapViewProps) => {
     const [geoZones] = useState(false);
@@ -31,7 +42,8 @@ const MapView = ({ nameCitys, tripOrigin, origenDestinyAsigned = [[-43.1375, -73
     return (
         <div className="rounded-b-xl ">
             {/* Valor por defecto = center={[-43.1375, -73.6425]]} */}
-            <MapContainer center={tripOrigin ?? [-43.1375, -73.6425]} zoom={14} scrollWheelZoom={true} style={{ height: height, width: "100%" }}>
+            <MapContainer center={tripOrigin ?? [-43.1375, -73.6425]} zoom={13} scrollWheelZoom={true} style={{ height: height, width: "100%" }}>
+                {tripOrigin && <MapCenterUpdater center={tripOrigin} />}
                 <div className="absolute left-[50%] -translate-x-1/2 top-0  z-[9999] bg-bgp/70 backdrop-blur px-4 rounded-full py-1">
                     <small className="text-sm text-white font-bold">{nameCitys}</small>
                 </div>
@@ -70,10 +82,10 @@ const MapView = ({ nameCitys, tripOrigin, origenDestinyAsigned = [[-43.1375, -73
                             ?
                             <>
                                 <Overlay checked name="Ruta Real">
-                                    <RouteLayer origenDestinyAsigned={origenDestinyAsigned} simulated={false}  />
+                                    <RouteLayer origenDestinyAsigned={origenDestinyAsigned} simulated={false} />
                                 </Overlay>
                                 <Overlay checked name="Camión">
-                                    <VehicleMarker origenDestinyAsigned={origenDestinyAsigned}  />
+                                    <VehicleMarker origenDestinyAsigned={origenDestinyAsigned} />
                                 </Overlay>
                             </>
                             :

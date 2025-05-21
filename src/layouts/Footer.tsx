@@ -17,10 +17,10 @@ function Footer() {
     }, []);
 
     return (
-        <div className="bg-bgt  h-20 rounded-xs flex justify-center items-center mt-5 px-5 w-full ">
+        <div className="bg-linear-90 cursor-pointer from-bgt via-bgt/80 to-bgt border-b border-white/10 shadow-xl shadow-bgp/50  h-16 rounded-xs flex justify-center items-center mt-5 px-5 w-full ">
             <div className=" w-full flex justify-between items-center">
                 <div className="px-5">
-                    <img src="/AST-Logo-white.png" className="w-22" alt="ast" />
+                    <img src="/AST-Logo-white.png" className="w-15" alt="ast" />
                 </div>
                 <div
                     className="overflow-x-hidden"
@@ -30,7 +30,7 @@ function Footer() {
                             animation: "marquee 60s linear infinite running",
                             WebkitAnimation: "marquee 60s linear infinite running",
                         }}
-                        className="text-nowrap font-light">
+                        className="text-nowrap font-light text-white/60">
                         Recorrido <span className="text-white text-bold">No. E-0334890</span> acaba de salir del terminal  municipal de Puerto Montt, con hora de <span className="text-white font-bold">11:30 A.M. </span>
                         con destino a <span className="text-white font-bold">Castro, Chiloé.</span>
                     </h3>

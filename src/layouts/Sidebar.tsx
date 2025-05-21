@@ -49,18 +49,30 @@ function Sidebar() {
             submenu: [
                 { icon: GrApps, text: "Explorar", link: "/dashboard", status: true },
                 { icon: GrProjects, text: "Seguimientos", link: "/seguimientos", status: true },
-                { icon: GrGateway, text: "Viajes", link: "/viajes", status: true }
+                { icon: GrGateway, text: "Viajes", link: "/viajes", status: true },
+                {
+                    icon: GrPerformance,
+                    text: "Configuración",
+                    link: "/configuracion",
+                    status: true
+                    // submenu: [
+                    //     { icon: GrProjects, text: "Perfil", link: "/perfil" },
+                    //     { icon: GrProjects, text: "Cerrar Sesión", link: "/" }
+                    // ]
+                },
+                {
+                    icon: GrDiamond,
+                    text: "Inteligencia Artificial",
+                    link: "/info/12",
+                    status: true
+                    // submenu: [
+                    //     { icon: GrProjects, text: "Perfil", link: "/perfil" },
+                    //     { icon: GrProjects, text: "Cerrar Sesión", link: "/" }
+                    // ]
+                },
             ]
         },
-        {
-            icon: GrPerformance,
-            text: "Configuración",
-            link: "/configuracion",
-            submenu: [
-                { icon: GrProjects, text: "Perfil", link: "/perfil" },
-                { icon: GrProjects, text: "Cerrar Sesión", link: "/" }
-            ]
-        },
+
     ]
 
     // Marcar automáticamente el menú padre activo si la ruta actual es parte de un submenu
@@ -86,8 +98,8 @@ function Sidebar() {
     }
 
     return (
-        <div className={`${!openSidebar ? `w-[100px]` : `w-[270px]`} relative transition-all bg-gradient-to-b from-bgp p-2 flex flex-col justify-start items-center gap-5`}>
-            <div className="absolute -right-15 top-5">
+        <div className={`${!openSidebar ? `w-[100px]` : `w-[270px]`} relative text-white transition-all bg-gradient-to-b from-bgp p-2 flex flex-col justify-start items-center gap-5`}>
+            <div className="absolute -right-15 top-2.5">
                 <Button
                     onClick={() => setOpenSidebar(!openSidebar)}
                     className="relative z-50 text-xs text-zinc-500 flex items-center justify-start gap-2">
@@ -102,7 +114,7 @@ function Sidebar() {
 
             <h6 className="text-zinc-600 text-center font-bold">Sistema Sincronizado</h6>
 
-            <nav className="w-full z-[9999]">
+            <nav className="w-full z-[999]">
                 <ul className="flex flex-col gap-2 w-full justify-center items-start px-3">
                     {
                         activeSubmenuIndex === null
@@ -126,7 +138,7 @@ function Sidebar() {
                                     </li>
                                     : <li key={i} className={`relative w-full ${item.text === "Strack" ? "group bg-gradient-to-br from-secondary/40 hover:scale-101  rounded-2xl transition-all duration-300 " : "bg-orange-600/10"} `}>
                                         <div className="text-[14px] group-hover:-translate-x-2 transition-all duration-300 absolute -right-6 top-3 px-2  flex justify-center items-center backdrop-blur-2xl rounded-full">
-                                            <small className=" font-bold bg-clip-text text-clip text-transparent bg-gradient-to-bl from-lime-400 to-yellow-400">Nuevo</small>
+                                            <small className=" font-bold bg-clip-text text-clip text-transparent bg-gradient-to-bl from-red-600 to-yellow-400">Nuevo</small>
                                         </div>
                                         <Button
                                             onClick={() => handleMenuClick(i, !!item.submenu, item.link)}
@@ -146,7 +158,7 @@ function Sidebar() {
                                                 {openSidebar && <p className="text-nowrap">{item.text}</p>}
                                             </div>
                                             {item.submenu && openSidebar && (
-                                                <GrFormNext size={12} />
+                                                <GrFormNext size={12} className="text-white" />
                                             )}
                                         </Button>
                                     </li>
@@ -155,20 +167,51 @@ function Sidebar() {
                                 <li className="w-full">
                                     <Button
                                         onClick={handleBackToMainMenu}
-                                        className="text-xs px-4 py-2 mb-2 w-full font-semibold text-left text-white bg-bgt hover:text-white flex justify-start items-center gap-2">
-                                        <GrFormNext className="rotate-180" size={14} />
-                                        Volver
+                                        rounded="full"
+                                        className={`text-xs  gap-2 
+                                        ${!openSidebar ? "flex justify-center items-center" : "flex justify-start items-center"}
+                                         py-2 mb-2 w-full font-semibold text-left text-white/80 bg-bgt hover:text-white `}>
+                                        <GrFormNext className={`rotate-180 ${!openSidebar && ""}`} size={14} />
+                                        {openSidebar && <p>Volver</p>}
                                     </Button>
                                     {
                                         menu[activeSubmenuIndex]?.submenu?.map((subItem, j) => (
-                                            <Button
-                                                key={j}
-                                                onClick={() => navigate(subItem.link)}
-                                                className={`text-xs py-3 pl-6 pr-4 w-full flex items-center justify-start gap-2
-                                                ${location.pathname === subItem.link ? 'text-secondary font-semibold' : 'text-zinc-400 hover:text-white'}`}>
-                                                <subItem.icon size={13} />
-                                                {openSidebar && subItem.text}
-                                            </Button>
+                                            location.pathname === subItem.link
+                                                ?
+                                                <Button
+                                                    key={j}
+                                                    onClick={() => navigate(subItem.link)}
+                                                    className={`text-xs py-3 pl-6 pr-4 w-full flex items-center justify-start gap-2
+                                                    ${location.pathname === subItem.link ? 'text-secondary font-semibold' : 'text-zinc-400 hover:text-white'}`}>
+                                                    <subItem.icon size={13} />
+                                                    {openSidebar && subItem.text}
+                                                </Button>
+                                                :
+                                                subItem.text !== "Inteligencia Artificial" ?
+                                                    <Button
+                                                        key={j}
+                                                        onClick={() => navigate(subItem.link)}
+                                                        rounded="2xl"
+                                                        className={`text-xs py-3 pl-6 pr-4 w-full flex items-center justify-start gap-2
+                                                    ${location.pathname === subItem.link ? 'text-secondary font-semibold  bg-gradient-to-bl from-secondary/50' : 'text-zinc-400 hover:text-white'}`}>
+                                                        <subItem.icon size={13} />
+                                                        {openSidebar && subItem.text}
+                                                    </Button>
+                                                    :
+                                                    <div className="bg-gradient-to-r from-orange-600/20 rounded">
+                                                        <Button
+                                                            key={j}
+                                                            onClick={() => navigate(subItem.link)}
+                                                            rounded="2xl"
+                                                            className={`text-xs relative  py-3 pl-6 pr-4 w-full flex items-center justify-start gap-2
+                                                        bg-clip-text text-clip text-transparent bg-gradient-to-r from-danger to-orange-300`}>
+                                                            <subItem.icon size={13} className="text-primary" />
+                                                            <div className="text-[14px] group-hover:-translate-x-2 transition-all duration-300 absolute -right-7 top-3 px-2  flex justify-center items-center backdrop-blur-2xl rounded-full">
+                                                                <small className=" font-bold bg-clip-text text-clip text-transparent bg-gradient-to-bl from-red-600 to-yellow-400">Nuevo</small>
+                                                            </div>
+                                                            {openSidebar && subItem.text}
+                                                        </Button>
+                                                    </div>
                                         ))
                                     }
                                 </li>

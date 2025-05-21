@@ -38,7 +38,7 @@ function Login() {
         }, 2000);
     };
 
-    if (load) return <Loading />;
+    // if (load) return <Loading />;
     navigate("/dashboard");
 
     return (

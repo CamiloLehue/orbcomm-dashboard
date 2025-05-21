@@ -1,14 +1,14 @@
 import Notification from "../notification/components/Notification";
 // import { MapView } from "../maps";
 import TripList from "../trips/components/TripList";
-import StatisticsAccesDirect from "../statistics/components/StatisticsAccesDirect";
+// import StatisticsAccesDirect from "../statistics/components/StatisticsAccesDirect";
 import StatisticsSpeed from "../statistics/components/StatisticsSpeed";
 import MultiMapView from "../maps/components/MultiMapView";
 import AccessDirectTrip from "../trips/components/AccessDirectTrip";
 // import ReportList from "../reports/components/ReportList";
 function Dashboard() {
   return (
-    <div className="relative h-full w-full bg-bgs  flex flex-col justify-start items-start p-2">
+    <div className="relative h-full w-full  flex flex-col justify-start items-start p-2">
       <div className="grid grid-cols-12 gap-2 w-full">
         <div className="col-span-6 flex flex-col gap-2"
         >
@@ -19,8 +19,8 @@ function Dashboard() {
             </div>
           </div>
           <div className="col-span-2 grid grid-cols-2 gap-2 ">
-            <div className="border border-gray/20 p-1">
-              <StatisticsAccesDirect />
+            <div className="border border-gray/15 rounded-xl p-1">
+              {/* <StatisticsAccesDirect /> */}
             </div>
             <div className="border border-gray/20 p-1">
               <StatisticsSpeed />
@@ -30,7 +30,7 @@ function Dashboard() {
         <div className="col-span-2">
           <Notification />
         </div>
-        <div className="col-span-4 h-full">
+        <div className="relative col-span-4 h-full">
           <MultiMapView height="700px" options={true} />
         </div>
       </div>

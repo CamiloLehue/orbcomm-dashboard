@@ -10,7 +10,7 @@ const GeofenceLayer = lazy(() => import("../../zones/components/GeofenceLayer"))
 import { GeoButtons } from "../../zones";
 // import TripRouteLayer from "../../trips/components/TripRouteLayer";
 import { useRouteSimulation } from "../hooks/useRouteSimulation";
-import { useReverseGeocode } from "../hooks/useReverseGeocode";
+// import { useReverseGeocode } from "../hooks/useReverseGeocode";
 import { useAllTrips } from "../../trips/hooks/useAllsTrips";
 import Loading from "../../../components/ui/Loading";
 
@@ -30,7 +30,7 @@ const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) =
     const { BaseLayer, Overlay } = LayersControl;
     const { route, markerIndex, load } = useRouteSimulation(); // Obtener la ruta simulada que realiza el camión
     const [lat, lon] = route[markerIndex] as [number, number];
-    const address = useReverseGeocode(lat, lon);
+    // const address = useReverseGeocode(lat, lon);
 
     const { allTrips } = useAllTrips();
 
@@ -47,7 +47,7 @@ const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) =
                         {
                             <div className="font-bold flex flex-col gap-2">
                                 <h5 className="text-secondary">Ubicación en tiempo real</h5>
-                                <small className="text-center text-[0.6lh]">{address}</small>
+                                {/* <small className="text-center text-[0.6lh]">{address}</small> */}
                             </div>
                         }
                     </div>

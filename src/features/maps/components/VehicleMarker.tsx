@@ -10,9 +10,6 @@ const VehicleMarker = ({ origenDestinyAsigned, simulated }: { origenDestinyAsign
 
     const [lat, lon] = destinoAsignado as [number, number];
 
-    console.log("lat:VEhichle ", lat);
-    console.log("lon:VEhichle ", lon);
-
     // const address = useReverseGeocode(lat, lon);
     const { markerIndex, route } = useRouteSimulation();
 
