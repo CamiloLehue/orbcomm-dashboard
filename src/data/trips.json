@@ -1,6 +1,18 @@
 [
     {
-        "id": 1,
+        "trip_id": "scheduled-001",
+        "scheduled_status": "agendado",
+        "scheduled_for": "2025-05-23T07:00:00Z",
+        "planned_start_time": "2025-05-23T07:00:00Z",
+        "planned_end_time": "2025-05-23T11:00:00Z",
+        "estimated_distance_km": 260,
+        "estimated_time_minutes": 240,
+        "assigned_driver": {
+            "id": 101,
+            "name": "Juan Pérez",
+            "vehicle": "Toyota Hiace - BGRK76"
+        },
+        "route_id": 1,
         "origin": {
             "name": "Quellón",
             "coordinates": {
@@ -15,46 +27,25 @@
                 "longitude": -72.9424
             }
         },
-        "distance_km": 260,
-        "estimated_time_minutes": 240,
-        "start_time": "2025-05-21T07:00:00Z",
-        "end_time": "2025-05-21T11:00:00Z",
-        "status": "completed",
-        "vehicle": {
-            "id": "V789",
-            "plate": "XYZ-987",
-            "type": "bus"
-        },
-        "driver": {
-            "id": "D789",
-            "name": "Carlos Muñoz",
-            "license_number": "CL123456"
-        },
-        "route": [
-            {
-                "lat": -43.1167,
-                "lng": -73.6167,
-                "timestamp": "2025-05-21T07:00:00Z"
-            },
-            {
-                "lat": -42.4800,
-                "lng": -73.7600,
-                "timestamp": "2025-05-21T08:30:00Z"
-            },
-            {
-                "lat": -41.8690,
-                "lng": -73.8200,
-                "timestamp": "2025-05-21T10:00:00Z"
-            },
-            {
-                "lat": -41.4693,
-                "lng": -72.9424,
-                "timestamp": "2025-05-21T11:00:00Z"
-            }
-        ]
+        "current_status": "agendado",
+        "notes": "Se requiere confirmar estado del ferry en Canal de Chacao.",
+        "created_at": "2025-05-21T20:00:00Z",
+        "last_updated": "2025-05-21T20:00:00Z"
     },
     {
-        "id": 2,
+        "trip_id": "scheduled-002",
+        "scheduled_status": "completado",
+        "scheduled_for": "2025-05-21T12:00:00Z",
+        "planned_start_time": "2025-05-21T12:00:00Z",
+        "planned_end_time": "2025-05-21T13:30:00Z",
+        "estimated_distance_km": 84,
+        "estimated_time_minutes": 90,
+        "assigned_driver": {
+            "id": 102,
+            "name": "María González",
+            "vehicle": "Hyundai H1 - PLNT82"
+        },
+        "route_id": 2,
         "origin": {
             "name": "Castro",
             "coordinates": {
@@ -69,41 +60,24 @@
                 "longitude": -73.8210
             }
         },
-        "distance_km": 84,
-        "estimated_time_minutes": 90,
-        "start_time": "2025-05-21T12:00:00Z",
-        "end_time": "2025-05-21T13:30:00Z",
-        "status": "completed",
-        "vehicle": {
-            "id": "V456",
-            "plate": "CHL-456",
-            "type": "van"
-        },
-        "driver": {
-            "id": "D321",
-            "name": "Marcela Ruiz",
-            "license_number": "CL654321"
-        },
-        "route": [
-            {
-                "lat": -42.4814,
-                "lng": -73.7622,
-                "timestamp": "2025-05-21T12:00:00Z"
-            },
-            {
-                "lat": -42.1000,
-                "lng": -73.7800,
-                "timestamp": "2025-05-21T12:45:00Z"
-            },
-            {
-                "lat": -41.8692,
-                "lng": -73.8210,
-                "timestamp": "2025-05-21T13:30:00Z"
-            }
-        ]
+        "current_status": "completado",
+        "created_at": "2025-05-20T09:00:00Z",
+        "last_updated": "2025-05-21T13:30:00Z"
     },
     {
-        "id": 3,
+        "trip_id": "scheduled-003",
+        "scheduled_status": "en progreso",
+        "scheduled_for": "2025-05-21T09:00:00Z",
+        "planned_start_time": "2025-05-21T09:00:00Z",
+        "planned_end_time": "2025-05-21T09:35:00Z",
+        "estimated_distance_km": 25,
+        "estimated_time_minutes": 35,
+        "assigned_driver": {
+            "id": 103,
+            "name": "Carlos Soto",
+            "vehicle": "Chevrolet N300 - FJHK45"
+        },
+        "route_id": 3,
         "origin": {
             "name": "Puerto Varas",
             "coordinates": {
@@ -118,41 +92,24 @@
                 "longitude": -73.0522
             }
         },
-        "distance_km": 25,
-        "estimated_time_minutes": 35,
-        "start_time": "2025-05-21T09:00:00Z",
-        "end_time": "2025-05-21T09:35:00Z",
-        "status": "completed",
-        "vehicle": {
-            "id": "V101",
-            "plate": "FRU-101",
-            "type": "car"
-        },
-        "driver": {
-            "id": "D101",
-            "name": "Lucía Soto",
-            "license_number": "CL101010"
-        },
-        "route": [
-            {
-                "lat": -41.3198,
-                "lng": -72.9854,
-                "timestamp": "2025-05-21T09:00:00Z"
-            },
-            {
-                "lat": -41.2000,
-                "lng": -73.0000,
-                "timestamp": "2025-05-21T09:20:00Z"
-            },
-            {
-                "lat": -41.1263,
-                "lng": -73.0522,
-                "timestamp": "2025-05-21T09:35:00Z"
-            }
-        ]
+        "current_status": "en progreso",
+        "created_at": "2025-05-20T10:00:00Z",
+        "last_updated": "2025-05-21T09:15:00Z"
     },
     {
-        "id": 4,
+        "trip_id": "scheduled-004",
+        "scheduled_status": "agendado",
+        "scheduled_for": "2025-05-22T10:00:00Z",
+        "planned_start_time": "2025-05-22T10:00:00Z",
+        "planned_end_time": "2025-05-22T10:40:00Z",
+        "estimated_distance_km": 30,
+        "estimated_time_minutes": 40,
+        "assigned_driver": {
+            "id": 104,
+            "name": "Paula Riquelme",
+            "vehicle": "Mercedes Sprinter - LKVY10"
+        },
+        "route_id": 4,
         "origin": {
             "name": "Osorno",
             "coordinates": {
@@ -167,41 +124,24 @@
                 "longitude": -73.2372
             }
         },
-        "distance_km": 30,
-        "estimated_time_minutes": 40,
-        "start_time": "2025-05-21T10:00:00Z",
-        "end_time": "2025-05-21T10:40:00Z",
-        "status": "completed",
-        "vehicle": {
-            "id": "V102",
-            "plate": "OSO-202",
-            "type": "pickup"
-        },
-        "driver": {
-            "id": "D102",
-            "name": "Pedro Alarcón",
-            "license_number": "CL202202"
-        },
-        "route": [
-            {
-                "lat": -40.5736,
-                "lng": -73.1342,
-                "timestamp": "2025-05-21T10:00:00Z"
-            },
-            {
-                "lat": -40.6500,
-                "lng": -73.1900,
-                "timestamp": "2025-05-21T10:20:00Z"
-            },
-            {
-                "lat": -40.7854,
-                "lng": -73.2372,
-                "timestamp": "2025-05-21T10:40:00Z"
-            }
-        ]
+        "current_status": "agendado",
+        "created_at": "2025-05-21T14:00:00Z",
+        "last_updated": "2025-05-21T14:00:00Z"
     },
     {
-        "id": 5,
+        "trip_id": "scheduled-005",
+        "scheduled_status": "en progreso",
+        "scheduled_for": "2025-05-21T11:00:00Z",
+        "planned_start_time": "2025-05-21T11:00:00Z",
+        "planned_end_time": "2025-05-21T12:00:00Z",
+        "estimated_distance_km": 52,
+        "estimated_time_minutes": 60,
+        "assigned_driver": {
+            "id": 105,
+            "name": "Luis Morales",
+            "vehicle": "Foton View - ZKLP91"
+        },
+        "route_id": 5,
         "origin": {
             "name": "Puerto Montt",
             "coordinates": {
@@ -216,41 +156,24 @@
                 "longitude": -73.1311
             }
         },
-        "distance_km": 52,
-        "estimated_time_minutes": 60,
-        "start_time": "2025-05-21T11:00:00Z",
-        "end_time": "2025-05-21T12:00:00Z",
-        "status": "completed",
-        "vehicle": {
-            "id": "V103",
-            "plate": "CAL-303",
-            "type": "truck"
-        },
-        "driver": {
-            "id": "D103",
-            "name": "Daniela Reyes",
-            "license_number": "CL303303"
-        },
-        "route": [
-            {
-                "lat": -41.4693,
-                "lng": -72.9424,
-                "timestamp": "2025-05-21T11:00:00Z"
-            },
-            {
-                "lat": -41.6000,
-                "lng": -73.0300,
-                "timestamp": "2025-05-21T11:30:00Z"
-            },
-            {
-                "lat": -41.7687,
-                "lng": -73.1311,
-                "timestamp": "2025-05-21T12:00:00Z"
-            }
-        ]
+        "current_status": "en progreso",
+        "created_at": "2025-05-21T09:30:00Z",
+        "last_updated": "2025-05-21T11:15:00Z"
     },
     {
-        "id": 6,
+        "trip_id": "scheduled-006",
+        "scheduled_status": "agendado",
+        "scheduled_for": "2025-05-23T13:00:00Z",
+        "planned_start_time": "2025-05-23T13:00:00Z",
+        "planned_end_time": "2025-05-23T14:15:00Z",
+        "estimated_distance_km": 65,
+        "estimated_time_minutes": 75,
+        "assigned_driver": {
+            "id": 106,
+            "name": "Valentina Fuentes",
+            "vehicle": "Peugeot Boxer - TRCY20"
+        },
+        "route_id": 6,
         "origin": {
             "name": "Ancud",
             "coordinates": {
@@ -265,41 +188,24 @@
                 "longitude": -73.4773
             }
         },
-        "distance_km": 65,
-        "estimated_time_minutes": 75,
-        "start_time": "2025-05-21T13:00:00Z",
-        "end_time": "2025-05-21T14:15:00Z",
-        "status": "completed",
-        "vehicle": {
-            "id": "V104",
-            "plate": "QMC-404",
-            "type": "bus"
-        },
-        "driver": {
-            "id": "D104",
-            "name": "Elena Barría",
-            "license_number": "CL404404"
-        },
-        "route": [
-            {
-                "lat": -41.8692,
-                "lng": -73.8210,
-                "timestamp": "2025-05-21T13:00:00Z"
-            },
-            {
-                "lat": -42.0000,
-                "lng": -73.6500,
-                "timestamp": "2025-05-21T13:45:00Z"
-            },
-            {
-                "lat": -42.1377,
-                "lng": -73.4773,
-                "timestamp": "2025-05-21T14:15:00Z"
-            }
-        ]
+        "current_status": "agendado",
+        "created_at": "2025-05-21T18:00:00Z",
+        "last_updated": "2025-05-21T18:00:00Z"
     },
     {
-        "id": 7,
+        "trip_id": "scheduled-007",
+        "scheduled_status": "completado",
+        "scheduled_for": "2025-05-21T15:00:00Z",
+        "planned_start_time": "2025-05-21T15:00:00Z",
+        "planned_end_time": "2025-05-21T15:30:00Z",
+        "estimated_distance_km": 25,
+        "estimated_time_minutes": 30,
+        "assigned_driver": {
+            "id": 107,
+            "name": "Francisco Aguilar",
+            "vehicle": "Citroën Jumpy - VHRN67"
+        },
+        "route_id": 7,
         "origin": {
             "name": "Castro",
             "coordinates": {
@@ -314,41 +220,24 @@
                 "longitude": -73.6519
             }
         },
-        "distance_km": 25,
-        "estimated_time_minutes": 30,
-        "start_time": "2025-05-21T15:00:00Z",
-        "end_time": "2025-05-21T15:30:00Z",
-        "status": "completed",
-        "vehicle": {
-            "id": "V105",
-            "plate": "DAL-505",
-            "type": "van"
-        },
-        "driver": {
-            "id": "D105",
-            "name": "Andrés Cárdenas",
-            "license_number": "CL505505"
-        },
-        "route": [
-            {
-                "lat": -42.4814,
-                "lng": -73.7622,
-                "timestamp": "2025-05-21T15:00:00Z"
-            },
-            {
-                "lat": -42.4200,
-                "lng": -73.7000,
-                "timestamp": "2025-05-21T15:15:00Z"
-            },
-            {
-                "lat": -42.3778,
-                "lng": -73.6519,
-                "timestamp": "2025-05-21T15:30:00Z"
-            }
-        ]
+        "current_status": "completado",
+        "created_at": "2025-05-20T13:00:00Z",
+        "last_updated": "2025-05-21T15:30:00Z"
     },
     {
-        "id": 8,
+        "trip_id": "scheduled-008",
+        "scheduled_status": "agendado",
+        "scheduled_for": "2025-05-22T16:00:00Z",
+        "planned_start_time": "2025-05-22T16:00:00Z",
+        "planned_end_time": "2025-05-22T16:55:00Z",
+        "estimated_distance_km": 45,
+        "estimated_time_minutes": 55,
+        "assigned_driver": {
+            "id": 108,
+            "name": "Andrea Ruiz",
+            "vehicle": "Renault Master - DRVF18"
+        },
+        "route_id": 8,
         "origin": {
             "name": "Llanquihue",
             "coordinates": {
@@ -363,135 +252,8 @@
                 "longitude": -72.5441
             }
         },
-        "distance_km": 45,
-        "estimated_time_minutes": 55,
-        "start_time": "2025-05-21T16:00:00Z",
-        "end_time": "2025-05-21T16:55:00Z",
-        "status": "completed",
-        "vehicle": {
-            "id": "V106",
-            "plate": "ENS-606",
-            "type": "car"
-        },
-        "driver": {
-            "id": "D106",
-            "name": "Sebastián Vidal",
-            "license_number": "CL606606"
-        },
-        "route": [
-            {
-                "lat": -41.2619,
-                "lng": -73.0065,
-                "timestamp": "2025-05-21T16:00:00Z"
-            },
-            {
-                "lat": -41.2000,
-                "lng": -72.8000,
-                "timestamp": "2025-05-21T16:30:00Z"
-            },
-            {
-                "lat": -41.1701,
-                "lng": -72.5441,
-                "timestamp": "2025-05-21T16:55:00Z"
-            }
-        ]
-    },
-    {
-        "id": 9,
-        "origin": {
-            "name": "Pargua",
-            "coordinates": {
-                "latitude": -41.7784,
-                "longitude": -73.3925
-            }
-        },
-        "destination": {
-            "name": "Chacao",
-            "coordinates": {
-                "latitude": -41.7897,
-                "longitude": -73.5033
-            }
-        },
-        "distance_km": 12,
-        "estimated_time_minutes": 20,
-        "start_time": "2025-05-21T17:00:00Z",
-        "end_time": "2025-05-21T17:20:00Z",
-        "status": "completed",
-        "vehicle": {
-            "id": "V107",
-            "plate": "FERRY-107",
-            "type": "ferry"
-        },
-        "driver": {
-            "id": "D107",
-            "name": "Luis Hernández",
-            "license_number": "CL707707"
-        },
-        "route": [
-            {
-                "lat": -41.7784,
-                "lng": -73.3925,
-                "timestamp": "2025-05-21T17:00:00Z"
-            },
-            {
-                "lat": -41.7840,
-                "lng": -73.4500,
-                "timestamp": "2025-05-21T17:10:00Z"
-            },
-            {
-                "lat": -41.7897,
-                "lng": -73.5033,
-                "timestamp": "2025-05-21T17:20:00Z"
-            }
-        ]
-    },
-    {
-        "id": 10,
-        "origin": {
-            "name": "Hornopirén",
-            "coordinates": {
-                "latitude": -42.3734,
-                "longitude": -72.4276
-            }
-        },
-        "destination": {
-            "name": "Contao",
-            "coordinates": {
-                "latitude": -42.1671,
-                "longitude": -72.4361
-            }
-        },
-        "distance_km": 35,
-        "estimated_time_minutes": 45,
-        "start_time": "2025-05-21T18:00:00Z",
-        "end_time": "2025-05-21T18:45:00Z",
-        "status": "completed",
-        "vehicle": {
-            "id": "V108",
-            "plate": "CNT-808",
-            "type": "pickup"
-        },
-        "driver": {
-            "id": "D108",
-            "name": "Karen Ríos",
-            "license_number": "CL808808"
-        },
-        "route": [
-            {
-                "lat": -42.3734,
-                "lng": -72.4276,
-                "timestamp": "2025-05-21T18:00:00Z"
-            },
-            {
-                "lat": -42.2700,
-                "lng": -72.4300,
-                "timestamp": "2025-05-21T18:25:00Z"
-            },
-            {
-                "lat": -42.1671,
-                "lng": -72.4361,
-                "timestamp": "2025-05-21T18:45:00Z"
-            }
-        ]
+        "current_status": "agendado",
+        "created_at": "2025-05-21T19:00:00Z",
+        "last_updated": "2025-05-21T19:00:00Z"
     }
 ]

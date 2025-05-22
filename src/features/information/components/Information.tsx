@@ -1,17 +1,17 @@
 import { useParams } from "react-router"
 import InfoPage from "./InfoPage"
-import { useTripsHook } from "../../trips/hooks/useTripsHook";
+import { useRoutes } from "../../routes/hooks/useRoutes";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { MapView } from "../../maps";
 import { useState } from "react";
 
 function Information() {
 
-    const viajes = useTripsHook();
+    const routes = useRoutes();
 
-    const trips = viajes.trips;
+    const trips = routes.routes;
 
-    console.log("Estos son mis viajes: ", viajes);
+    console.log("Estos son mis routes: ", routes);
 
     const idInfoPage: string = String(useParams().id)
 
