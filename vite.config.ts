@@ -19,6 +19,6 @@ export default defineConfig({
     // },
     host: "0.0.0.0",
     port: 5186,
-    allowedHosts: ["strack.iotlink.cl"],
+    allowedHosts: ["strack.wisensor.cl"],
   },
 });
