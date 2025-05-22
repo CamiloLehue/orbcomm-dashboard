@@ -1,8 +1,7 @@
 export type ScheduledTrip = {
     trip_id: string;
     scheduled_status: "agendado" | "en progreso" | "completado";
-    scheduled_for: string; // ISO datetime
-    planned_start_time: string;
+    scheduled_for: string;
     planned_end_time: string;
     estimated_distance_km: number;
     estimated_time_minutes: number;
@@ -27,7 +26,8 @@ export type ScheduledTrip = {
       };
     };
     current_status: "agendado" | "en progreso" | "completado";
-    created_at: string; // ISO datetime
-    last_updated: string; // ISO datetime
+    created_at: string;
+    last_updated: string;
+    progress_completed: number;
   };
   

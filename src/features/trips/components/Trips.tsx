@@ -27,24 +27,30 @@ function Trips() {
                         <small className="text-end text-gray ">( {Trips.length} ) -  Viajes Programados - <span className="font-bold text-xs"> Actualizado hace 1 segundo...</span></small>
                         <div className="w-full relative flex flex-col gap-1 pb-8 ">
                             {Trips.map((trip, i) => {
-                                const valorPorcentaje = porcentajes[i];                                // Obtener el primer y último registro de data para cada viaje
-                               
+                                const progress_completed = trip.progress_completed;
+                                const status_trip = trip.current_status;                    // Obtener el primer y último registro de data para cada viaje
+
                                 // Nombres de ciudades
                                 const cityOrigen = trip.origin.name || "Origen desconocido";
                                 const cityDestino = trip.destination.name || "Destino desconocido";
 
-                                const colorType = (valorPorcentaje: number) => (
+                                const colorType = (progress_completed: number) => (
                                     clsx({
-                                        "bg-gradient-to-r from-success to-secondary": valorPorcentaje >= 0 && valorPorcentaje <= 100,
+                                        "linear-gradient(to right, #ff0000, #ff0000)": progress_completed >= 0 && progress_completed < 10,
+                                        "linear-gradient(to right, #ff0000, #ff9900)": progress_completed >= 10 && progress_completed < 25,
+                                        "linear-gradient(to right, #ff9900, #ccff00)": progress_completed >= 25 && progress_completed < 50,
+                                        "linear-gradient(to right, #00ffc4, #00ffc4)": progress_completed >= 50 && progress_completed < 75,
+                                        "linear-gradient(to right, #00dcff, #00ffc4)": progress_completed >= 75 && progress_completed <= 100,
                                     })
                                 )
 
-                                const colorText = (valorPorcentaje: number) => (
+                                const colorText = (progress_completed: number) => (
                                     clsx({
-                                        "text-success": valorPorcentaje >= 75,
-                                        "text-secondary": valorPorcentaje > 50 && valorPorcentaje < 75,
-                                        "text-warning": valorPorcentaje >= 10 && valorPorcentaje <= 50,
-                                        "text-danger": valorPorcentaje >= 0 && valorPorcentaje < 10,
+                                        "#ff0000": progress_completed >= 0 && progress_completed < 10,
+                                        "#ff9900": progress_completed >= 10 && progress_completed < 25,
+                                        "#ccff00": progress_completed >= 25 && progress_completed < 50,
+                                        "#00ffc4": progress_completed >= 50 && progress_completed < 75,
+                                        "#00dcff": progress_completed >= 75 && progress_completed <= 100,
                                     })
                                 )
 
@@ -55,9 +61,10 @@ function Trips() {
                                         className="relative group overflow-hidden bg-bgp w-full hover:bg-transparent cursor-pointer  h-10 rounded-xs grid grid-cols-5 px-2 py-1"
 
                                     >
-                                        <div className={clsx(`absolute left-0 bottom-0 h-0.5  ${colorType(valorPorcentaje)}  blur-3xl `)}
+                                        <div className={clsx(`absolute left-0 bottom-0 h-0.5  blur-2xl `)}
                                             style={{
-                                                width: valorPorcentaje + "%",
+                                                backgroundImage: `${colorType(progress_completed)}`,
+                                                width: progress_completed + "%",
                                                 height: 100 + "%",
                                             }}>
                                         </div>
@@ -66,13 +73,17 @@ function Trips() {
                                                 width: 100 + "%",
                                             }}>
                                         </div>
-                                        <div className={`absolute left-0 bottom-0 h-0.5 ${colorType(valorPorcentaje)}`}
+                                        <div className={`absolute left-0 bottom-0 h-0.5 `}
                                             style={{
-                                                width: valorPorcentaje + "%",
+                                                backgroundImage: `${colorType(progress_completed)}`,
+                                                width: progress_completed + "%",
                                             }}>
                                         </div>
                                         <div className="col-span-2 flex justify-start items-center gap-1">
-                                            <small className={` ${colorText(valorPorcentaje)} `}>
+                                            <small
+                                                style={{
+                                                    color: colorText(progress_completed),
+                                                }}>
                                                 <CgShapeHexagon />
                                             </small>
                                             <div className='flex flex-col justify-center items-start'>
@@ -90,7 +101,10 @@ function Trips() {
                                         </div>
 
                                         <div className="flex  col-span-2 justify-center items-center gap-1">
-                                            <small className='text-'> {valorPorcentaje + "%"}</small>
+                                            <small className='text-'
+                                            style={{
+                                                color: colorText(progress_completed),
+                                            }}> {progress_completed + "%"}</small>
                                         </div>
 
                                         <div className="flex justify-center items-center group-hover:translate-x-1 group-hover:text-secondary transition-all duration-500">
@@ -110,7 +124,7 @@ function Trips() {
                                         <div className="absolute left-0 top-0 bg-gray h-20 w-20 blur-3xl"></div>
                                         <div className="flex flex-col justify-center items-center p-5">
                                             <small className="text-xs text-white">Vehiculos</small>
-                                            <h2 className="text-7xl text-white font-bold">{Trips.length - 4 - 2}</h2>
+                                            <h2 className="text-7xl text-white font-bold">{Trips.length }</h2>
                                             <small className="text-xs text-white">En movimiento</small>
                                         </div>
                                         <div className="col-span-3 flex justify-center items-center gap-5 bg-bgp rounded-2xl ">

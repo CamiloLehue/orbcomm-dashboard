@@ -1,6 +1,6 @@
 import { Marker, Popup } from "react-leaflet";
 import { truckIcon } from "../lib/mapIcons";
-// import { useReverseGeocode } from "../hooks/useReverseGeocode";
+import { useReverseGeocode } from "../hooks/useReverseGeocode";
 import { LatLngExpression } from "leaflet";
 import { useRouteSimulation } from "../hooks/useRouteSimulation";
 
@@ -10,7 +10,7 @@ const VehicleMarker = ({ origenDestinyAsigned, simulated }: { origenDestinyAsign
 
     const [lat, lon] = destinoAsignado as [number, number];
 
-    // const address = useReverseGeocode(lat, lon);
+    const address = useReverseGeocode(lat, lon);
     const { markerIndex, route } = useRouteSimulation();
 
     const result = simulated ? route[markerIndex] : origenAsignado as LatLngExpression;
@@ -19,7 +19,7 @@ const VehicleMarker = ({ origenDestinyAsigned, simulated }: { origenDestinyAsign
             <Popup>
                 <strong>Camión en movimiento</strong>
                 <br />
-                {"Triangulando..."}
+                {address}
             </Popup>
         </Marker>
     );

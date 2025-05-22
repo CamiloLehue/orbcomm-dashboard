@@ -5,7 +5,11 @@ import {
     GrApps,
     GrPerformance,
     GrFormNextLink,
-    GrDiamond
+    GrDiamond,
+    GrDirections,
+    GrLocationPin,
+    GrMapLocation,
+    GrSatellite
 } from "react-icons/gr"
 import Button from "../components/ui/Button"
 import { useNavigate, useLocation } from "react-router"
@@ -48,8 +52,9 @@ function Sidebar() {
             status: true,
             submenu: [
                 { icon: GrApps, text: "Explorar", link: "/dashboard", status: true },
-                { icon: GrProjects, text: "Seguimientos", link: "/seguimientos", status: true },
-                { icon: GrGateway, text: "Viajes", link: "/viajes", status: true },
+                { icon: GrSatellite , text: "Seguimientos", link: "/seguimientos", status: true },
+                { icon: GrLocationPin, text: "Viajes", link: "/viajes", status: true },
+                { icon: GrDirections , text: "Recorridos", link: "/recorridos", status: true },
                 {
                     icon: GrPerformance,
                     text: "Configuración",

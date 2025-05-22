@@ -56,7 +56,7 @@ const TripListActive = ({
                 : [...prev, [idTrip, idTrip]];
         });
 
-        
+
     };
 
     if (!Array.isArray(Trips) || Trips.length === 0) {
@@ -66,7 +66,8 @@ const TripListActive = ({
     return (
         <div className="max-h-[740px] overflow-y-auto">
             {Trips.map((trip, i) => {
-                const PROGRESS = porcentajes[i];
+                const progress_completed = trip.progress_completed;
+                const status_trip = trip.current_status;
 
                 const cityOrigen = trip.origin.name || "Origen desconocido";
                 const cityDestino = trip.destination.name || "Destino desconocido";
@@ -74,48 +75,80 @@ const TripListActive = ({
 
                 const isSelected = selectedTrips.includes(i);
 
-                const colorType = clsx({
-                    "bg-gradient-to-r from-success to-secondary":
-                        PROGRESS >= 0 && PROGRESS <= 100
-                });
+                const colorType = (progress_completed: number) => (
+                    clsx({
+                        "linear-gradient(to right, #ff0000, #ff0000)": progress_completed >= 0 && progress_completed < 10,
+                        "linear-gradient(to right, #ff0000, #ff9900)": progress_completed >= 10 && progress_completed < 25,
+                        "linear-gradient(to right, #ff9900, #ccff00)": progress_completed >= 25 && progress_completed < 50,
+                        "linear-gradient(to right, #00ffc4, #00ffc4)": progress_completed >= 50 && progress_completed < 75,
+                        "linear-gradient(to right, #00dcff, #00ffc4)": progress_completed >= 75 && progress_completed <= 100,
+                    })
+                )
 
-                const colorText = clsx({
-                    "text-success": PROGRESS >= 75,
-                    "text-secondary": PROGRESS > 50 && PROGRESS < 75,
-                    "text-warning": PROGRESS >= 10 && PROGRESS <= 50,
-                    "text-danger": PROGRESS >= 0 && PROGRESS < 10
-                });
+                const colorText = (progress_completed: number) => (
+                    clsx({
+                        "#ff0000": progress_completed >= 0 && progress_completed < 10,
+                        "#ff9900": progress_completed >= 10 && progress_completed < 25,
+                        "#ccff00": progress_completed >= 25 && progress_completed < 50,
+                        "#00ffc4": progress_completed >= 50 && progress_completed < 75,
+                        "#00dcff": progress_completed >= 75 && progress_completed <= 100,
+                    })
+                )
 
 
                 return (
                     <div
                         key={i}
                         onClick={() => handleSelectTrip(i, idTrip)}
-                        className={`relative group overflow-hidden ${isSelected ? "bg-gradient-to-tl from-secondary/25 to-blue/25" : "bg-bgs"} w-full hover:bg-transparent cursor-pointer h-15 grid grid-cols-5 px-2 py-1`}
+                        className={`relative group overflow-hidden ${isSelected ? "bg-gradient-to-tl from-secondary/25 to-blue/25" : "bg-bgs"} w-full hover:bg-transparent cursor-pointer h-10 grid grid-cols-5 px-2 py-1`}
                     >
-                        <div
-                            className={`absolute left-0 bottom-0 h-0.5 ${colorType} blur-3xl`}
-                            style={{ width: PROGRESS + "%", height: "100%" }}
-                        />
-                        <div className="absolute left-0 bottom-0 h-0.5 bg-gray" style={{ width: "100%" }} />
-                        <div
-                            className={`absolute left-0 bottom-0 h-0.5 ${colorType}`}
-                            style={{ width: PROGRESS + "%" }}
-                        />
-
+                        <div className={clsx(`absolute left-0 bottom-0 h-0.5  blur-2xl `)}
+                            style={{
+                                backgroundImage: `${colorType(progress_completed)}`,
+                                width: progress_completed + "%",
+                                height: 100 + "%",
+                            }}>
+                        </div>
+                        <div className='absolute left-0 bottom-0 h-0.5  bg-gray'
+                            style={{
+                                width: 100 + "%",
+                            }}>
+                        </div>
+                        <div className={`absolute left-0 bottom-0 h-0.5 `}
+                            style={{
+                                backgroundImage: `${colorType(progress_completed)}`,
+                                width: progress_completed + "%",
+                            }}>
+                        </div>
                         <div className="col-span-2 flex justify-start items-center gap-1">
-                            <small className={colorText}><CgShapeHexagon /></small>
-                            <small className="flex flex-col text-nowrap justify-center items-start gap-2 text-xs">
-                                <span className="text-primary">{cityOrigen}</span>
-                                <span className="text-secondary">{cityDestino}</span>
+                            <small
+                                style={{
+                                    color: colorText(progress_completed),
+                                }}>
+                                <CgShapeHexagon />
                             </small>
+                            <div className='flex flex-col justify-center items-start'>
+                                <small className="text-xs">
+                                    {
+                                        cityOrigen
+                                    }
+                                </small>
+                                <small className="text-xs">
+                                    {
+                                        cityDestino
+                                    }
+                                </small>
+                            </div>
                         </div>
 
-                        <div className="flex col-span-2 justify-center items-center gap-1">
-                            <small>{PROGRESS + "%"}</small>
+                        <div className="flex  col-span-2 justify-center items-center gap-1">
+                            <small className='text-'
+                                style={{
+                                    color: colorText(progress_completed),
+                                }}> {progress_completed + "%"}</small>
                         </div>
 
-                        <div className={`flex justify-center ${isSelected ? "text-primary" : ""} items-center group-hover:translate-x-1 group-hover:text-secondary transition-all duration-500`}>
+                        <div className="flex justify-center items-center group-hover:translate-x-1 group-hover:text-secondary transition-all duration-500">
                             <GrFormNextLink />
                         </div>
                     </div>
