@@ -3,7 +3,6 @@ import Button from "../../../components/ui/Button";
 import { GrCheckmark, GrCircleQuestion, GrCopy, GrDirections, GrFormNextLink, GrGrommet, GrPhone, GrSchedule } from "react-icons/gr";
 import { MapView } from "../../maps";
 import ProgressTrip from "./ProgressTrip";
-
 function ViewTrip() {
 
     const id = useParams().id;
@@ -181,7 +180,8 @@ function ViewTrip() {
                     </div>
                 </div>
                 <div className="relative col-span-4 h-full overflow-hidden">
-                    <MapView tripOrigin={origen} tripDestination={destino} height="740px" simulated options />
+
+                    <MapView tripOrigin={origen} tripDestination={destino} height="740px" options />
                 </div>
             </div>
         </div >

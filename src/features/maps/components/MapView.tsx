@@ -4,19 +4,19 @@ import VehicleMarker from "./VehicleMarker";
 import GeofenceLayer from "../../zones/components/GeofenceLayer";
 import { GeoButtons } from "../../zones";
 // import TripRouteLayer from "../../trips/components/TripRouteLayer";
-import { useRouteSimulation } from "../hooks/useRouteSimulation";
-import { useReverseGeocode } from "../hooks/useReverseGeocode";
-import Loading from "../../../components/ui/Loading";
+// import { useRouteSimulation } from "../hooks/useRouteSimulation";
+// import { useReverseGeocode } from "../hooks/useReverseGeocode";
+// import Loading from "../../../components/ui/Loading";
 import { useEffect, useState } from "react";
 import { LatLngExpression } from "leaflet";
 
 interface MapViewProps {
-    tripOrigin: [number, number] | null;
-    tripDestination: [number, number] | null;
-    origenDestinyAsigned?: [number, number][] | null;
+    tripOrigin: [number, number] | null | undefined;
+    tripDestination: [number, number] | null | undefined;
+    origenDestinyAsigned?: [number, number][] | null | undefined;
+    vehicleLastPosition?: [number, number] | null | undefined;
     height?: string;
     options?: boolean;
-    simulated?: boolean;
     nameCitys?: string[];
 }
 
@@ -30,14 +30,14 @@ const MapCenterUpdater = ({ center }: { center: LatLngExpression }) => {
     return null;
 };
 
-const MapView = ({ nameCitys, tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]], height = "100%", options = false, simulated = false }: MapViewProps) => {
+const MapView = ({ nameCitys, vehicleLastPosition, tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]], height = "100%", options = false }: MapViewProps) => {
     const [geoZones] = useState(false);
     const { BaseLayer, Overlay } = LayersControl;
-    const { route, markerIndex, load } = useRouteSimulation();
-    const [lat, lon] = route[markerIndex] as [number, number];
-    const address = useReverseGeocode(lat, lon);
+    // const { route, markerIndex, load } = useRouteSimulation();
+    // const [lat, lon] = route[markerIndex] as [number, number];
+    // const address = useReverseGeocode(lat, lon);
 
-    if (!load) return <Loading />;
+    // if (!load) return <Loading />;
 
     return (
         <div className="rounded-b-xl ">
@@ -53,7 +53,7 @@ const MapView = ({ nameCitys, tripOrigin, origenDestinyAsigned = [[-43.1375, -73
                         {
                             <div className="font-bold flex flex-col gap-2">
                                 <h5 className="text-secondary">Ubicación en tiempo real</h5>
-                                <small className="text-center text-[0.6lh]">{address}</small>
+                                {/* <small className="text-center text-[0.6lh]">{address}</small> */}
                             </div>
                         }
                     </div>
@@ -78,26 +78,29 @@ const MapView = ({ nameCitys, tripOrigin, origenDestinyAsigned = [[-43.1375, -73
                     </BaseLayer>
 
                     {
-                        !simulated
-                            ?
+                        vehicleLastPosition ?
                             <>
-                                <Overlay checked name="Ruta Real">
-                                    <RouteLayer origenDestinyAsigned={origenDestinyAsigned} simulated={false} />
+                                <Overlay checked name="ultima_position">
+                                    <VehicleMarker vehicleLastPosition={vehicleLastPosition} />
                                 </Overlay>
+                                <Overlay checked name="Ruta Real">
+                                    <RouteLayer origenDestinyAsigned={origenDestinyAsigned} />
+                                </Overlay>
+                                <Overlay checked name="Zonas Geográficas">
+                                    <GeofenceLayer />
+                                </Overlay>
+                            </> :
+                            <>
                                 <Overlay checked name="Camión">
                                     <VehicleMarker origenDestinyAsigned={origenDestinyAsigned} />
                                 </Overlay>
-                            </>
-                            :
-                            <>
-                                <Overlay checked name="Ruta Simulada">
-                                    <RouteLayer origenDestinyAsigned={origenDestinyAsigned} simulated />
-                                </Overlay>
-                                <Overlay checked name="Camión">
-                                    <VehicleMarker origenDestinyAsigned={origenDestinyAsigned} simulated />
+                                <Overlay checked name="Ruta Real">
+                                    <RouteLayer origenDestinyAsigned={origenDestinyAsigned} />
                                 </Overlay>
                             </>
                     }
+
+
                     {geoZones &&
                         <Overlay checked name="Zonas Geográficas">
                             <GeofenceLayer />

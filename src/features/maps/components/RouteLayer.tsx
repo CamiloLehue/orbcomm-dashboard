@@ -6,17 +6,15 @@ import { useReverseLayer } from "../hooks/useReverseLayer";
 import Loading from "../../../components/ui/Loading";
 // import { useRouteSimulation } from "../hooks/useRouteSimulation";
 
-const RouteLayer = ({ origenDestinyAsigned, simulated = false }: { origenDestinyAsigned?: LatLngExpression[] | null, simulated?: boolean }) => {
+const RouteLayer = ({ origenDestinyAsigned }: { origenDestinyAsigned?: LatLngExpression[] | null }) => {
+
+    const { route, loading } = useReverseLayer(origenDestinyAsigned);
+
+    if (loading || !route) return <Loading />;
+
+    const result = route;
 
 
-    const { route, loading, error } = useReverseLayer(origenDestinyAsigned);
-
-    if (loading || !route) return <Loading/>;
-    // const { route } = useRouteSimulation();
-
-    const result = simulated ? route : route;
-    
-    
     return <Polyline positions={result} color="blue" />;
 };
 

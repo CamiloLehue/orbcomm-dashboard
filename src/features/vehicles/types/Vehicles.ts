@@ -1,75 +1,63 @@
-export interface VehicleData {
+export type PositionsLast =
+  {
     messageId: string;
     assetStatus: {
-        assetName: string;
-        assetType: string;
-        messageStamp: string;
-        messageReceivedStamp: string;
-        deviceSN: string;
-        productType: string;
-        batteryVoltage: number;
-        batteryStatus: string;
-        deviceFirmware: string;
-        messageType: string;
-        eventHasCurrentGPS: string;
-        account: string;
-        installedChangeDate: string;
-        speed?: number;
+      assetName: string;
+      assetType: string;
+      messageStamp: string;
+      messageReceivedStamp: string;
+      deviceSN: string;
+      dataSource: string | null;
+      productType: string;
+      batteryVoltage: number;
+      batteryStatus: string;
+      standByAlertText: string | null;
+      currentProfile: string | null;
+      deviceFirmware: string;
+      messageType: string;
+      eventHasCurrentGPS: string;
+      totalDistance: number | null;
+      notes: string | null;
+      reeferPower1Desc: string | null;
+      remoteSwitchPosition: string | null;
+      powerSource: string | null;
+      speed: number | null;
+      mileage: number | null;
+      latestAssetNotes: string | null;
+      solarStatus: string | null;
+      account: string;
+      ebsStatus: string | null;
+      totalAxleLoad: number | null;
+      installedChangeDate: string | null;
+      securityTrackerStatus: string | null;
+      pairedAssetName: string | null;
+      commissioningDate: string;
     };
     positionStatus: {
-        city: string;
-        state: string;
-        street: string;
-        zipCode?: string;
-        country: string;
-        geofenceDetails: [];
-        latitude: number;
-        longitude: number;
-        direction: string;
-        dwellTimeOutside?: number;
-        geofenceStatus: string;
-        address: string;
-        directionDegree: number;
+      city: string;
+      state: string;
+      street: string;
+      zipCode: string | null;
+      country: string;
+      geofenceName: string | null;
+      geofenceType: string | null;
+      latitude: number;
+      longitude: number;
+      direction: string | null;
+      facilityCode: string | null;
+      batteryAlertText: string | null;
+      dwell: number;
+      dwellTimeOutside: number;
+      geofenceStatus: string;
+      pmAlertText: string | null;
+      arrivalTime: string;
+      nearestGeofence: string | null;
+      tripDistance: number;
+      pmHours: number | null;
+      priorDepartureTime: string;
+      priorDepartureLocation: string;
+      address: string;
+      directionDegree: number | null;
     };
-    cargoStatus?: {
-        tamperMagnetStatus: string;
-    };
-    reeferStatus?: {
-        commPlatform: string;
-        messageMode: string;
-        ambientTemp?: number;
-    };
-    genericSensors?: {
-        voltageSensorData?: {
-            category: string;
-            sensors: {
-                sensorLabel: string;
-                sensorDataElement: string;
-                sensorValue: string;
-            }[];
-        };
-        temperatureSensorData?: {
-            category: string;
-            sensors: {
-                sensorLabel: string;
-                sensorDataElement: string;
-                sensorValue: string;
-            }[];
-        };
-        otherSensorData?: {
-            category: string;
-            sensors: {
-                sensorDataElement: string;
-                sensorValue: string;
-            }[];
-        };
-    };
-    pretripStatus?: {
-        pretripResults: {
-            testCode: string;
-        }[];
-    };
-    impactStatus?: {
-        moving: string;
-    };
-}
+  }
+  ;
