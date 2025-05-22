@@ -3,7 +3,7 @@ import BgBlur from "../../../components/ui/BgBlur";
 import CardType from "../../../components/ui/CardType";
 import { CgShapeHexagon } from "react-icons/cg";
 import { useNavigate } from "react-router";
-import { useAllTrips } from "../hooks/useAllsTrips";
+import { useTrips } from "../hooks/useTripsHook";
 import Button from "../../../components/ui/Button";
 import clsx from "clsx";
 import { useMemo } from "react";
@@ -11,11 +11,11 @@ import { useMemo } from "react";
 function Trips() {
     const navigate = useNavigate();
 
-    const { allTrips, loading } = useAllTrips();
-    const porcentajes = useMemo(() => allTrips.map(() => Math.round(Math.random() * 100)), [allTrips]);
+    const { Trips, loading } = useTrips();
+    const porcentajes = useMemo(() => Trips.map(() => Math.round(Math.random() * 100)), [Trips]);
 
     if (loading) return <p>Cargando...</p>;
-    if (!Array.isArray(allTrips)) {
+    if (!Array.isArray(Trips)) {
         return <p>No se encontraron viajes disponibles</p>;
     }
     return (
@@ -24,16 +24,14 @@ function Trips() {
             <div className="relative flex flex-col justify-start items-start gap-5 w-full h-full ">
                 <div className="grid grid-cols-3 gap-2 w-full h-full">
                     <div className="max-h-[750px] overflow-y-auto p-2 rounded-xl">
-                        <small className="text-end text-gray ">( {allTrips.length} ) -  Viajes Programados - <span className="font-bold text-xs"> Actualizado hace 1 segundo...</span></small>
+                        <small className="text-end text-gray ">( {Trips.length} ) -  Viajes Programados - <span className="font-bold text-xs"> Actualizado hace 1 segundo...</span></small>
                         <div className="w-full relative flex flex-col gap-1 pb-8 ">
-                            {allTrips.map((trip, i) => {
+                            {Trips.map((trip, i) => {
                                 const valorPorcentaje = porcentajes[i];                                // Obtener el primer y último registro de data para cada viaje
-                                const firstData = trip.data[0];
-                                const lastData = trip.data[trip.data.length - 1];
-
+                               
                                 // Nombres de ciudades
-                                const cityOrigen = firstData.positionStatus.city || "Origen desconocido";
-                                const cityDestino = lastData.positionStatus.city || "Destino desconocido";
+                                const cityOrigen = trip.origin.name || "Origen desconocido";
+                                const cityDestino = trip.destination.name || "Destino desconocido";
 
                                 const colorType = (valorPorcentaje: number) => (
                                     clsx({
@@ -112,7 +110,7 @@ function Trips() {
                                         <div className="absolute left-0 top-0 bg-gray h-20 w-20 blur-3xl"></div>
                                         <div className="flex flex-col justify-center items-center p-5">
                                             <small className="text-xs text-white">Vehiculos</small>
-                                            <h2 className="text-7xl text-white font-bold">{allTrips.length - 4 - 2}</h2>
+                                            <h2 className="text-7xl text-white font-bold">{Trips.length - 4 - 2}</h2>
                                             <small className="text-xs text-white">En movimiento</small>
                                         </div>
                                         <div className="col-span-3 flex justify-center items-center gap-5 bg-bgp rounded-2xl ">
@@ -128,7 +126,7 @@ function Trips() {
                                             </div>
                                             <div className="flex justify-center items-center gap-5">
                                                 <div className="flex flex-col justify-center items-center ">
-                                                    <h2 className="text-4xl">4/<span className="text-white/60">{allTrips.length}</span></h2>
+                                                    <h2 className="text-4xl">4/<span className="text-white/60">{Trips.length}</span></h2>
                                                     <small className="text-xs text-gray">Completados</small>
                                                 </div>
                                                 <div className="flex flex-col justify-center items-center ">

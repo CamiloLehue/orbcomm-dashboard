@@ -1,6 +1,6 @@
 import { CgShapeHexagon } from "react-icons/cg";
 import { GrFormNextLink } from "react-icons/gr";
-import { useTrips } from "../../trips/hooks/useTripsHook";
+import { useAllTrips } from "../../trips/hooks/useAllsTrips";
 import clsx from "clsx";
 import { useMemo } from "react";
 
@@ -9,8 +9,8 @@ type TripListActiveProps = {
     openConfig: boolean;
     selectedTrips: number[];
     setSelectedTrips: (value: number[] | ((prev: number[]) => number[])) => void;
-    selectedTripOD: [string, string][];
-    setSelectedTripOD: (value: [string, string][] | ((prev: [string, string][]) => [string, string][])) => void;
+    selectedTripOD: [number, number][];
+    setSelectedTripOD: (value: [number, number][] | ((prev: [number, number][]) => [number, number][])) => void;
 };
 
 const MAX_TRIPS = 8;
@@ -23,17 +23,17 @@ const TripListActive = ({
     setSelectedTripOD
 }: TripListActiveProps) => {
 
-    const { Trips } = useTrips();
+    const { allTrips } = useAllTrips();
 
     const porcentajes = useMemo(() =>
-        Trips.map(() => Math.round(Math.random() * 100)),
-        [Trips]
+        allTrips.map(() => Math.round(Math.random() * 100)),
+        [allTrips]
     );
 
     const canAddNewTrip = () =>
         selectedTrips.length < MAX_TRIPS && selectedTripOD.length < MAX_TRIPS;
 
-    const handleSelectTrip = (index: number, idTrip: string) => {
+    const handleSelectTrip = (index: number, firstId: number, lastId: number) => {
         const isAlreadySelected = selectedTrips.includes(index);
 
         if (!isAlreadySelected && !canAddNewTrip()) {
@@ -50,27 +50,28 @@ const TripListActive = ({
         );
 
         setSelectedTripOD(prev => {
-            const exists = prev.some(([a, b]) => a === idTrip && b === idTrip);
+            const exists = prev.some(([a, b]) => a === firstId && b === lastId);
             return exists
-                ? prev.filter(([a, b]) => !(a === idTrip && b === idTrip))
-                : [...prev, [idTrip, idTrip]];
+                ? prev.filter(([a, b]) => !(a === firstId && b === lastId))
+                : [...prev, [firstId, lastId]];
         });
-
-        
     };
 
-    if (!Array.isArray(Trips) || Trips.length === 0) {
+    if (!Array.isArray(allTrips) || allTrips.length === 0) {
         return <p>No se encontraron viajes disponibles</p>;
     }
 
     return (
         <div className="max-h-[740px] overflow-y-auto">
-            {Trips.map((trip, i) => {
+            {allTrips.map((trip, i) => {
                 const PROGRESS = porcentajes[i];
+                const firstData = trip.data[0];
+                const lastData = trip.data[trip.data.length - 1];
 
-                const cityOrigen = trip.origin.name || "Origen desconocido";
-                const cityDestino = trip.destination.name || "Destino desconocido";
-                const idTrip = trip.trip_id;
+                const cityOrigen = firstData.positionStatus.city || "Origen desconocido";
+                const cityDestino = lastData.positionStatus.city || "Destino desconocido";
+                const firstIdViaje = parseInt(firstData.messageId);
+                const lastIdViaje = parseInt(lastData.messageId);
 
                 const isSelected = selectedTrips.includes(i);
 
@@ -86,11 +87,10 @@ const TripListActive = ({
                     "text-danger": PROGRESS >= 0 && PROGRESS < 10
                 });
 
-
                 return (
                     <div
                         key={i}
-                        onClick={() => handleSelectTrip(i, idTrip)}
+                        onClick={() => handleSelectTrip(i, firstIdViaje, lastIdViaje)}
                         className={`relative group overflow-hidden ${isSelected ? "bg-gradient-to-tl from-secondary/25 to-blue/25" : "bg-bgs"} w-full hover:bg-transparent cursor-pointer h-15 grid grid-cols-5 px-2 py-1`}
                     >
                         <div
