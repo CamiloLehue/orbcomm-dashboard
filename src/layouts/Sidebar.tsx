@@ -1,6 +1,5 @@
 import {
     GrGateway,
-    GrProjects,
     GrFormNext,
     GrApps,
     GrPerformance,
@@ -8,7 +7,6 @@ import {
     GrDiamond,
     GrDirections,
     GrLocationPin,
-    GrMapLocation,
     GrSatellite
 } from "react-icons/gr"
 import Button from "../components/ui/Button"
@@ -203,7 +201,7 @@ function Sidebar() {
                                                         {openSidebar && subItem.text}
                                                     </Button>
                                                     :
-                                                    <div className="bg-gradient-to-r from-orange-600/20 rounded">
+                                                    <div key={j} className="bg-gradient-to-r from-orange-600/20 rounded">
                                                         <Button
                                                             key={j}
                                                             onClick={() => navigate(subItem.link)}

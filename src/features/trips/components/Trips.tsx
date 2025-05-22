@@ -18,13 +18,24 @@ function Trips() {
     if (!Array.isArray(Trips)) {
         return <p>No se encontraron viajes disponibles</p>;
     }
+
+    const count = Trips.length;
+    const completed = Trips.filter(trip => trip.progress_completed === 100).length;
+    const inProgress = Trips.filter(trip => trip.progress_completed < 100).length;
+    const disconnected = Trips.filter(trip => trip.current_status === "desconectado").length;
+    const paused = Trips.filter(trip => trip.current_status === "detenido").length;
+    const delayed = Trips.filter(trip => trip.current_status === "retrasado").length;
+    const scheduled = Trips.filter(trip => trip.current_status === "agendado").length;
+
     return (
         <div className="relative h-full w-full flex flex-col gap-5 justify-start items-start ">
-            <BgBlur />
             <div className="relative flex flex-col justify-start items-start gap-5 w-full h-full ">
                 <div className="grid grid-cols-3 gap-2 w-full h-full">
-                    <div className="max-h-[750px] overflow-y-auto p-2 rounded-xl">
-                        <small className="text-end text-gray ">( {Trips.length} ) -  Viajes Programados - <span className="font-bold text-xs"> Actualizado hace 1 segundo...</span></small>
+                    <div className="max-h-[755px] overflow-y-auto p-2 rounded-xl">
+                        <div className="my-1 mb-3">
+                            <h1 className="font-semibold">Viajes</h1>
+                            <small className="text-end text-gray">Hoy ( {count} )  -  Viajes Programados - <span className="font-bold text-xs"> Actualizado hace 1 segundo...</span></small>
+                        </div>
                         <div className="w-full relative flex flex-col gap-1 pb-8 ">
                             {Trips.map((trip, i) => {
                                 const progress_completed = trip.progress_completed;
@@ -102,9 +113,9 @@ function Trips() {
 
                                         <div className="flex  col-span-2 justify-center items-center gap-1">
                                             <small className='text-'
-                                            style={{
-                                                color: colorText(progress_completed),
-                                            }}> {progress_completed + "%"}</small>
+                                                style={{
+                                                    color: colorText(progress_completed),
+                                                }}> {progress_completed + "%"}</small>
                                         </div>
 
                                         <div className="flex justify-center items-center group-hover:translate-x-1 group-hover:text-secondary transition-all duration-500">
@@ -119,35 +130,38 @@ function Trips() {
                     <div className="col-span-2 bg-bgp rounded-s-2xl">
                         <CardType title="Resumen de Recorridos" subtitle="Programados">
                             <div className="grid grid-cols-2 gap-5 w-full">
+
                                 <div className="col-span-2 h-70 rounded-2xl border border-bgs p-1 grid grid-cols-2 gap-2">
-                                    <div className="relative w-full h-full bg-bgs rounded-2xl p-1 grid grid-cols-4 ">
-                                        <div className="absolute left-0 top-0 bg-gray h-20 w-20 blur-3xl"></div>
-                                        <div className="flex flex-col justify-center items-center p-5">
-                                            <small className="text-xs text-white">Vehiculos</small>
-                                            <h2 className="text-7xl text-white font-bold">{Trips.length }</h2>
-                                            <small className="text-xs text-white">En movimiento</small>
+
+                                    <div className="relative w-full h-full  rounded-xl p-1 grid grid-cols-5 bg-black/50 border border-white/10 ">
+                                        <h4 className="font-bold col-span-5 p-2 text-center">Resumen sincronizado</h4>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <h1 className="font-bold">{completed}</h1>
+                                            <small className="text-success">Completados</small>
                                         </div>
-                                        <div className="col-span-3 flex justify-center items-center gap-5 bg-bgp rounded-2xl ">
-                                            <div className="flex flex-col justify-center items-center gap-5">
-                                                <div className="flex flex-col justify-center items-center bg-danger/10 border border-danger/20 p-4 rounded-xl ">
-                                                    <h2 className="text-4xl font-bold text-danger">1</h2>
-                                                    <small className="text-xs text-danger">Desconectado</small>
-                                                </div>
-                                                <div className="flex flex-col justify-center items-center ">
-                                                    <h2 className="text-4xl text-warning">2</h2>
-                                                    <small className="text-xs text-warning">Detenidos</small>
-                                                </div>
-                                            </div>
-                                            <div className="flex justify-center items-center gap-5">
-                                                <div className="flex flex-col justify-center items-center ">
-                                                    <h2 className="text-4xl">4/<span className="text-white/60">{Trips.length}</span></h2>
-                                                    <small className="text-xs text-gray">Completados</small>
-                                                </div>
-                                                <div className="flex flex-col justify-center items-center ">
-                                                    <h2 className="text-4xl">16</h2>
-                                                    <small className="text-xs text-gray">Seguimiento</small>
-                                                </div>
-                                            </div>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <h1 className="font-bold">{inProgress}</h1>
+                                            <small className="text-primary">En progreso</small>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <h1 className="font-bold">{paused}</h1>
+                                            <small className="text-gray">Detenidos</small>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <h1 className="font-bold">{delayed}</h1>
+                                            <small className="text-gray">Retrasados</small>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <h1 className="font-bold">{scheduled}</h1>
+                                            <small className="text-gray">Agendado</small>
+                                        </div>
+                                        <div className="flex flex-col col-span-3  justify-center items-center">
+                                            <h1 className="font-bold">{disconnected}</h1>
+                                            <small className="text-danger">Sin Conexion</small>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-center col-span-2 bg-black/20 rounded-xl">
+                                            <h1 className="font-bold">{count}</h1>
+                                            <small className="text-white">Total hoy</small>
                                         </div>
                                     </div>
                                     <div className="p-5 flex justify-center items-center flex-col">
@@ -156,15 +170,15 @@ function Trips() {
                                         </small>
                                         <div className="grid grid-cols-3 gap-5 w-full mt-5">
                                             <div className="flex flex-col justify-center items-center gap-1 bg-bgp rounded-2xl p-5">
-                                                <h2 className="text-4xl text-white">5</h2>
+                                                <h2 className="text-4xl text-white">{count}</h2>
                                                 <small className="text-xs text-white">Para Hoy</small>
                                             </div>
                                             <div className="flex flex-col justify-center items-center gap-1 bg-bgp rounded-2xl p-5">
-                                                <h2 className="text-4xl text-white">12</h2>
+                                                <h2 className="text-4xl text-white">22</h2>
                                                 <small className="text-xs text-white">Esta semana</small>
                                             </div>
                                             <div className="flex flex-col justify-center items-center gap-1 bg-bgp rounded-2xl p-5">
-                                                <h2 className="text-4xl text-white">4</h2>
+                                                <h2 className="text-4xl text-white">9</h2>
                                                 <small className="text-xs text-white">Próxima semana</small>
                                             </div>
                                         </div>

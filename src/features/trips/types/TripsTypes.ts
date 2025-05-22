@@ -25,7 +25,7 @@ export type ScheduledTrip = {
         longitude: number;
       };
     };
-    current_status: "agendado" | "en progreso" | "completado";
+    current_status: "agendado" | "en progreso" | "completado" | "cancelado"  | "retrasado" | "detenido" | "desconectado" ;
     created_at: string;
     last_updated: string;
     progress_completed: number;
