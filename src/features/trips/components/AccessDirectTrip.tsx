@@ -105,7 +105,7 @@ const BarLine = ({ zonePoints, progress }: BarLineProps) => {
                         ? "h-3 w-3 -bottom-1 rounded-full"
                         : "h-2 w-5 -bottom-0.5 rounded shadow shadow-bgp/30";
                     return (
-                        <div className="relative w-full top-0.5">
+                        <div key={index} className="relative w-full top-0.5">
                             {
                                 <div
                                     key={index}

@@ -1,18 +1,18 @@
 import { GrFormNextLink } from "react-icons/gr";
-import BgBlur from "../../../components/ui/BgBlur";
 import CardType from "../../../components/ui/CardType";
 import { CgShapeHexagon } from "react-icons/cg";
 import { useNavigate } from "react-router";
 import { useTrips } from "../hooks/useTripsHook";
 import Button from "../../../components/ui/Button";
 import clsx from "clsx";
-import { useMemo } from "react";
+// import { useMemo } from "react";
+import Titles from "../../../components/ui/Titles";
 
 function Trips() {
     const navigate = useNavigate();
 
     const { Trips, loading } = useTrips();
-    const porcentajes = useMemo(() => Trips.map(() => Math.round(Math.random() * 100)), [Trips]);
+    // const porcentajes = useMemo(() => Trips.map(() => Math.round(Math.random() * 100)), [Trips]);
 
     if (loading) return <p>Cargando...</p>;
     if (!Array.isArray(Trips)) {
@@ -29,17 +29,17 @@ function Trips() {
 
     return (
         <div className="relative h-full w-full flex flex-col gap-5 justify-start items-start ">
+            <Titles title="Viajes Programado" />
             <div className="relative flex flex-col justify-start items-start gap-5 w-full h-full ">
                 <div className="grid grid-cols-3 gap-2 w-full h-full">
                     <div className="max-h-[755px] overflow-y-auto p-2 rounded-xl">
                         <div className="my-1 mb-3">
-                            <h1 className="font-semibold">Viajes</h1>
                             <small className="text-end text-gray">Hoy ( {count} )  -  Viajes Programados - <span className="font-bold text-xs"> Actualizado hace 1 segundo...</span></small>
                         </div>
                         <div className="w-full relative flex flex-col gap-1 pb-8 ">
                             {Trips.map((trip, i) => {
                                 const progress_completed = trip.progress_completed;
-                                const status_trip = trip.current_status;                    // Obtener el primer y último registro de data para cada viaje
+                                // const status_trip = trip.current_status;                    // Obtener el primer y último registro de data para cada viaje
 
                                 // Nombres de ciudades
                                 const cityOrigen = trip.origin.name || "Origen desconocido";
@@ -68,7 +68,7 @@ function Trips() {
                                 return (
                                     <div
                                         key={i}
-                                        onClick={() => navigate(`/viajes/ver/1`)}
+                                        onClick={() => navigate(`/viajes/ver/${trip.trip_id}`)}
                                         className="relative group overflow-hidden bg-bgp w-full hover:bg-transparent cursor-pointer  h-10 rounded-xs grid grid-cols-5 px-2 py-1"
 
                                     >
@@ -184,9 +184,7 @@ function Trips() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div>
+                            </div>                            <div>
                                 <TravelSummaryTable />
                             </div>
                         </CardType>

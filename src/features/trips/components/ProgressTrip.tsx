@@ -10,13 +10,13 @@ interface ProgressTripProps {
     patenteRampa: string;
     horaSalida: string;
     horaLlegada: string;
-    trayectoRecorrido: number;
     estado: "En Camino" | "En Rampa" | "En Viaje" | "Finalizado" | "Pendiente";
     zonePoints?: { id: number, name: string, hours: string, estado: boolean, progress: number, lat: number, lng: number }[];
+    progress_completed?: number;
 }
 
-function ProgressTrip({ estado = "En Camino", zonePoints }: ProgressTripProps) {
-    const [progress, setProgress] = useState(0);
+function ProgressTrip({ estado = "En Camino", zonePoints, progress_completed }: ProgressTripProps) {
+    const [progress, setProgress] = useState(progress_completed || 0);
 
     useEffect(() => {
         const interval = setInterval(() => {

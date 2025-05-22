@@ -1,14 +1,36 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Button from "../../../components/ui/Button";
-import { GrCheckmark, GrCircleQuestion, GrCopy, GrDirections, GrFormNextLink, GrGrommet, GrPhone, GrSchedule } from "react-icons/gr";
+import { GrCheckmark, GrCircleQuestion, GrCopy, GrDirections, GrFormNextLink, GrFormPreviousLink, GrGrommet, GrPhone, GrSchedule } from "react-icons/gr";
 import { MapView } from "../../maps";
 import ProgressTrip from "./ProgressTrip";
+import { useTrips } from "../hooks/useTripsHook";
+import Loading from "../../../components/ui/Loading";
+import clsx from "clsx";
+import { useRoutes } from "../../routes/hooks/useRoutes";
 function ViewTrip() {
 
+    const navigate = useNavigate();
     const id = useParams().id;
+    const { Trips, loading } = useTrips();
 
-    const origen: [number, number] = [-43.1375, -73.6400];
-    const destino: [number, number] = [-42.1350, -73.6400];
+    if (loading) return <Loading />;
+
+    const trip = Trips.find((trip) => trip.trip_id === id);
+    const origen_lat = trip?.origin.coordinates.latitude;
+    const origen_lng = trip?.origin.coordinates.longitude;
+    const destino_lat = trip?.destination.coordinates.latitude;
+    const destino_lng = trip?.destination.coordinates.longitude;
+
+    const origen: [number | undefined, number | undefined] = [origen_lat, origen_lng];
+    const destino: [number | undefined, number | undefined] = [destino_lat, destino_lng];
+    const city_origen = trip?.origin.name;
+    const city_destino = trip?.destination.name;
+    const id_trip = trip?.trip_id;
+    const route_id = trip?.route_id;
+    const progress_completed = trip?.progress_completed;
+    const trip_status = trip?.current_status;
+    const driver_one = trip?.assigned_driver.name
+    const driver_two = trip?.assigned_driver.name
 
     return (
         <div className="relative bg-bgp h-full w-full flex flex-col justify-start items-start">
@@ -17,12 +39,17 @@ function ViewTrip() {
                     <div className="w-full p-2">
                         {/* Inicio Top menu informacion rapdia de viaje */}
                         <div className="bg-bg py-1 w-full col-span-8 flex justify-start items-center gap-5 border-b border-gray/20 pb-3 ">
+                            <div className="">
+                                {
+                                    <GrFormPreviousLink onClick={() => { navigate(-1) }} className="text-primary" />
+                                }
+                            </div>
                             <div className="flex text-nowrap justify-start items-center gap-3 bg-gray/30 px-2 ps-4 pe-4 rounded-full py-1">
                                 <GrGrommet className="text-primary animate-pulse" />
-                                <h3>Recorrido #00{id} </h3>
+                                <h3>Recorrido #{id_trip} </h3>
                                 <div className="text-white font-semibold flex justify-center items-center gap-2 bg-bgp  rounded-full px-4 py-1 text-xs">
                                     <GrDirections className="text-white" />
-                                    E-20050006
+                                    {route_id}
                                 </div>
                             </div>
                             <div className="flex justify-end items-center gap-2 text-nowrap">
@@ -38,14 +65,14 @@ function ViewTrip() {
                         </div>
                         <div className="flex justify-between items-center w-full px-5 py-2">
                             <div className="flex justify-start items-center gap-2">
-                                <h3 className="text-white/70">Quellón </h3>
+                                <h3 className="text-white/70">{city_origen} </h3>
                                 <GrFormNextLink className="text-primary" />
-                                <h3 className="text-white">Puerto Montt </h3>
+                                <h3 className="text-white">{city_destino} </h3>
                             </div>
-                            <WidgetV />
+                            <WidgetV progress_completed={progress_completed} trip_status={trip_status} />
                         </div>
                         {/* Fin Top menu informacion rapdia de viaje */}
-                        <RutaTracking />
+                        <RutaTracking id_trip={id_trip} progress_completed={progress_completed} />
                     </div>
                     <div className="p-2 w-full h-full mt-20">
                         <div className="w-full h-full rounded-2xl flex flex-col gap-5 p-2">
@@ -55,9 +82,9 @@ function ViewTrip() {
                                     <p className="text-gray">Estado del viaje</p>
                                     <p className="text-primary">En camino</p>
                                     <p className="text-gray">Conductor 1</p>
-                                    <p>Cristofer Castro</p>
+                                    <p>{driver_one}</p>
                                     <p className="text-gray">Conductor 2</p>
-                                    <p>Roberto Fernandez</p>
+                                    <p>{driver_two}</p>
                                     <p className="text-gray">Fecha de registro</p>
                                     <p>24/06/2025</p>
                                     <p className="text-gray">Fecha de Salida</p>
@@ -181,37 +208,46 @@ function ViewTrip() {
                 </div>
                 <div className="relative col-span-4 h-full overflow-hidden">
 
-                    <MapView tripOrigin={origen} tripDestination={destino} height="740px" options />
+                    <MapView tripOrigin={origen as [number, number]} tripDestination={destino as [number, number]} height="740px" options />
                 </div>
             </div>
         </div >
     )
 }
 
-const RutaTracking = () => {
+const RutaTracking = ({ progress_completed, id_trip }: { progress_completed: number | undefined, id_trip: string | undefined }) => {
+
 
 
     return (
         <div className="relative flex flex-col place-items-center w-full  py-2 mt-10  ">
-            <TripFast />
+            <TripFast progress_completed={progress_completed} id_trip={id_trip} />
         </div>
     )
 }
 
 
-const TripFast = () => {
-    const origen = "Quellón (Yadran)";
-    const destino = "Puerto Montt";
-    const numeroViaje = "E-20050006";
+const TripFast = ({ progress_completed, id_trip }: { progress_completed: number | undefined, id_trip: string | undefined }) => {
+    const { routes } = useRoutes();
+    const { Trips } = useTrips();
+
+    const trip = Trips.find((trip) => trip.trip_id === id_trip);
+
+    const trip_route_id = trip?.route_id;
+
+    const route = routes.find((route) => route.id === trip_route_id);
+    const city_origen = route?.origin.name;
+    const city_destino = route?.destination.name
+
+    const numeroViaje = trip?.trip_id;
     const patenteVehiculo = "XXXX-00";
     const patenteRampa = "XXXX-00";
-    const horaSalida = "11:30:00";
-    const horaLlegada = "18:00:00";
-    const trayectoRecorrido = 20;
+    const horaSalida = trip?.planned_end_time;
+    const horaLlegada = trip?.planned_end_time;
     const zonePoints = [
         {
             id: 1,
-            name: origen,
+            name: city_origen!,
             hours: "11:30:00",
             lat: -33.448889,
             lng: -70.669265,
@@ -231,7 +267,7 @@ const TripFast = () => {
         },
         {
             id: 3,
-            name: destino,
+            name: city_destino!,
             hours: "15:30:00",
             lat: -33.453944,
             lng: -70.672517,
@@ -244,23 +280,36 @@ const TripFast = () => {
 
     return (
         <ProgressTrip
-            origen={origen}
-            destino={destino}
-            numeroViaje={numeroViaje}
+            origen={city_origen!}
+            destino={city_destino!}
+            numeroViaje={numeroViaje!}
             patenteVehiculo={patenteVehiculo}
             patenteRampa={patenteRampa}
-            horaSalida={horaSalida}
-            horaLlegada={horaLlegada}
-            trayectoRecorrido={trayectoRecorrido}
+            horaSalida={horaSalida!}
+            horaLlegada={horaLlegada!}
             estado="En Camino"
             zonePoints={zonePoints}
+            progress_completed={progress_completed}
         />
     )
 }
 
 
 
-const WidgetV = () => {
+const WidgetV = ({ progress_completed, trip_status }: { progress_completed: number | undefined, trip_status: string | undefined }) => {
+
+
+
+    const colorType = (progress_completed: number) => (
+        clsx({
+            "#ff0000": progress_completed >= 0 && progress_completed < 10,
+            "#ff9900": progress_completed >= 10 && progress_completed < 25,
+            "#ccff00": progress_completed >= 25 && progress_completed < 50,
+            "#00ffc4": progress_completed >= 50 && progress_completed < 75,
+            "#00dcff": progress_completed >= 75 && progress_completed <= 100,
+        })
+    )
+
     return (
         <button className="group relative">
             <div
@@ -278,10 +327,10 @@ const WidgetV = () => {
                     </div>
                     <div className="flex flex-col">
                         <div className="flex items-center gap-1">
-                            <span className="text-lg font-bold text-white">89.3%</span>
+                            <span className="text-lg font-bold text-white">{progress_completed}%</span>
 
                         </div>
-                        <span className="text-[10px] font-medium text-slate-400">Progreso</span>
+                        <span className="text-[10px] font-medium text-slate-400">{trip_status}</span>
                     </div>
                 </div>
 
@@ -308,9 +357,12 @@ const WidgetV = () => {
 
                     <div className="flex items-center gap-1.5">
                         <div
-                            className="h-2 w-2 rounded-full bg-primary shadow-lg shadow-primary/50"
+                            className="h-2 w-2 rounded-full shadow-lg shadow-primary/50"
+                            style={{
+                                backgroundColor: `${colorType(progress_completed!)}`,
+                            }}
                         ></div>
-                        <span className="text-xs font-semibold text-slate-300">OPTIMO</span>
+                        <span className="text-xs font-semibold text-slate-300 uppercase">{trip_status}</span>
                     </div>
                 </div>
 

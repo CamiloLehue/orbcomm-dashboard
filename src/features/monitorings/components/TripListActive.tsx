@@ -2,7 +2,7 @@ import { CgShapeHexagon } from "react-icons/cg";
 import { GrFormNextLink } from "react-icons/gr";
 import { useTrips } from "../../trips/hooks/useTripsHook";
 import clsx from "clsx";
-import { useMemo } from "react";
+// import { useMemo } from "react";
 
 type TripListActiveProps = {
     setOpenConfig: (value: boolean) => void;
@@ -25,10 +25,10 @@ const TripListActive = ({
 
     const { Trips } = useTrips();
 
-    const porcentajes = useMemo(() =>
-        Trips.map(() => Math.round(Math.random() * 100)),
-        [Trips]
-    );
+    // const porcentajes = useMemo(() =>
+    //     Trips.map(() => Math.round(Math.random() * 100)),
+    //     [Trips]
+    // );
 
     const canAddNewTrip = () =>
         selectedTrips.length < MAX_TRIPS && selectedTripOD.length < MAX_TRIPS;
@@ -67,7 +67,7 @@ const TripListActive = ({
         <div className="max-h-[740px] overflow-y-auto">
             {Trips.map((trip, i) => {
                 const progress_completed = trip.progress_completed;
-                const status_trip = trip.current_status;
+                // const status_trip = trip.current_status;
 
                 const cityOrigen = trip.origin.name || "Origen desconocido";
                 const cityDestino = trip.destination.name || "Destino desconocido";
@@ -100,21 +100,21 @@ const TripListActive = ({
                     <div
                         key={i}
                         onClick={() => handleSelectTrip(i, idTrip)}
-                        className={`relative group overflow-hidden ${isSelected ? "bg-gradient-to-tl from-secondary/25 to-blue/25" : "bg-bgs"} w-full hover:bg-transparent cursor-pointer h-10 grid grid-cols-5 px-2 py-1`}
+                        className={`relative group overflow-hidden ${isSelected ? "bg-gradient-to-tl from-secondary/30 to-blue/45 border-e border-secondary" : "bg-bgs"} w-full hover:bg-transparent cursor-pointer h-15 grid grid-cols-5 px-2 py-1`}
                     >
-                        <div className={clsx(`absolute left-0 bottom-0 h-0.5  blur-2xl `)}
+                        <div className={clsx(`absolute left-0 bottom-0 h-2  blur-2xl `)}
                             style={{
                                 backgroundImage: `${colorType(progress_completed)}`,
                                 width: progress_completed + "%",
                                 height: 100 + "%",
                             }}>
                         </div>
-                        <div className='absolute left-0 bottom-0 h-0.5  bg-gray'
+                        <div className='absolute left-0 bottom-0 h-2  bg-gray'
                             style={{
                                 width: 100 + "%",
                             }}>
                         </div>
-                        <div className={`absolute left-0 bottom-0 h-0.5 `}
+                        <div className={`absolute left-0 bottom-0 h-2 `}
                             style={{
                                 backgroundImage: `${colorType(progress_completed)}`,
                                 width: progress_completed + "%",
