@@ -3,6 +3,7 @@ import { useRoutes } from "../hooks/useRoutes";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { MapView } from "../../maps";
 import { useState } from "react";
+import Titles from "../../../components/ui/Titles";
 
 function RoutesList() {
     const routes = useRoutes();
@@ -13,9 +14,7 @@ function RoutesList() {
 
     return (
         <div className="h-full w-full flex-1 flex flex-col justify-start items-start px-1 pb-1">
-            <h2 className="p-2">
-                Recorridos <span className="text-xs text-white/70 px-2">( {trips.length} )</span>
-            </h2>
+            <Titles title="Recorridos" />
             <div className="flex w-full gap-1">
                 <ul className="w-3/12 flex flex-col gap-1">
                     {trips.map((trip, index) => {

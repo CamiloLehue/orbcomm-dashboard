@@ -22,7 +22,7 @@ function Template() {
     <div>
       {loading && <RouteLoader />}
 
-      <div className="relative flex flex-row flex-nowrap min-w-[1700px] h-full w-full pe-3 overflow-hidden">
+      <div className="relative flex flex-row flex-nowrap min-w-[1700px] h-full w-full overflow-hidden">
         <Sidebar />
         <div className="relative z-10 bg-gradient-to-tl from-bgp/50 rounded-b-xl  to-bgp h-full w-full min-h-[calc(100vh-6.7rem)] flex flex-col justify-start items-center ">
           <Header />

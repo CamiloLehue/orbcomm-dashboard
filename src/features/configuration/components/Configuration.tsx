@@ -1,10 +1,9 @@
-import BgBlur from "../../../components/ui/BgBlur"
+import Titles from "../../../components/ui/Titles"
 
 function Configuration() {
     return (
         <div className="relative h-full w-full flex flex-col gap-5 justify-start items-start  ">
-            <BgBlur />
-            <h1 className="text-white">Configuración</h1>
+            <Titles title="Configuraciones de parametros" />
             <div className="relative flex flex-col justify-start items-start gap-5 w-full h-full">
                 <div className="relative w-full h-100 bg-bgp grid grid-cols-8 gap-2 p-4">
                     <article className="bg-gray/10 hover:bg-transparent hover:border-transparent transition-all duration-300 rounded-lg border border-gray/10 text-gray hover:text-white cursor-pointer flex justify-center items-center">

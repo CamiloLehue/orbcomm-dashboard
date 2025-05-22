@@ -5,11 +5,13 @@ import TripList from "../trips/components/TripList";
 import StatisticsSpeed from "../statistics/components/StatisticsSpeed";
 import MultiMapView from "../maps/components/MultiMapView";
 import AccessDirectTrip from "../trips/components/AccessDirectTrip";
+import Titles from "../../components/ui/Titles";
 // import ReportList from "../reports/components/ReportList";
 function Dashboard() {
   return (
-    <div className="relative h-full w-full  flex flex-col justify-start items-start p-2">
-      <div className="grid grid-cols-12 gap-2 w-full">
+    <div className="relative h-full w-full  flex flex-col justify-start items-start">
+      <Titles title="Explorar y monitorear" />
+      <div className="grid grid-cols-12 gap-2 w-full p-2">
         <div className="col-span-6 flex flex-col gap-2"
         >
           <div className="grid grid-cols-2 gap-2 ">
