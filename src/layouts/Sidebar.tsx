@@ -7,7 +7,8 @@ import {
     GrDiamond,
     GrDirections,
     GrLocationPin,
-    GrSatellite
+    GrSatellite,
+    GrBeacon
 } from "react-icons/gr"
 import Button from "../components/ui/Button"
 import { useNavigate, useLocation } from "react-router"
@@ -50,6 +51,7 @@ function Sidebar() {
             status: true,
             submenu: [
                 { icon: GrApps, text: "Explorar", link: "/dashboard", status: true },
+                { icon: GrBeacon, text: "Live Yadran", link: "/livedemo", status: true },
                 { icon: GrSatellite , text: "Seguimientos", link: "/seguimientos", status: true },
                 { icon: GrLocationPin, text: "Viajes", link: "/viajes", status: true },
                 { icon: GrDirections , text: "Recorridos", link: "/recorridos", status: true },

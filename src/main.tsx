@@ -15,6 +15,7 @@ import Login from "./features/auth/components/login/Login";
 import Monotorings from "./features/monitorings/components/Monotorings";
 import Information from "./features/information/components/Information";
 import RoutesList from "./features/routes/components/RoutesList";
+import LiveDemo from "./features/trips/components/LiveDemo";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")!).render(
         <Route element={<ProtectedRoute />}>
           <Route element={<Template />}>
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/livedemo" element={<LiveDemo />} />
             {/* Perfiles */}
             <Route path="/perfil" element={<Trips />} />
             <Route path="/perfil/ver/:id" element={<Trips />} />

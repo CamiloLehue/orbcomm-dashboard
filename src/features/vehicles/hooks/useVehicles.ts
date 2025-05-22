@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react";
-import { getVehicles } from "../services/vehicleService";
-import { VehicleData } from "../types/Vehicles";
+import { getLastPositions } from "../services/vehicleService";
+import { PositionsLast } from "../types/Vehicles";
 
-export const useVehicles = () => {
-  const [vehicles, setVehicles] = useState<VehicleData[]>([]);
+export const useLastPositions = () => {
+  const [lastPosition, setLastPosition] = useState<PositionsLast | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetch = async () => {
-      const data = await getVehicles();
-      setVehicles(data);
+      const data = await getLastPositions();
+      setLastPosition(data);
       setLoading(false);
     };
 
     fetch();
   }, []);
 
-  return { vehicles, loading };
+
+  console.log(lastPosition);
+  
+  return { lastPosition, loading };
 };

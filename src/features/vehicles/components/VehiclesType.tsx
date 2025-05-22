@@ -1,19 +1,19 @@
-import { useVehicles } from "../hooks/useVehicles";
+// import { useLastPositions } from "../hooks/useVehicles";
 
 function VehiclesType() {
-    const { vehicles, loading } = useVehicles();
-    if (loading) return <p>Cargando Tipos vehículos...</p>;
+    // const { lastPositions, loading } = useLastPositions();
+    // if (loading) return <p>Cargando Tipos vehículos...</p>;
     return (
         <div>
-            {
-                vehicles.filter((vehicle) => vehicle.assetStatus.deviceSN).map((vehicle, index) => {
+            {/* {
+                lastPositions.filter((vehicle) => vehicle.assetStatus.deviceSN).map((vehicle, index) => {
                     return (
                         <div key={index}>
                             <h5>{vehicle.assetStatus.assetName}</h5>
                         </div>
                     )
                 })
-            }
+            } */}
         </div>
     )
 }
