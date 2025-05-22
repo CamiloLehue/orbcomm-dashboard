@@ -19,7 +19,7 @@ function Notification() {
                         </small>
                     </div>
                 </div>
-                <div className="w-full relative  overflow-y-auto h-[598px] mt-5">
+                <div className="w-full relative  overflow-y-auto h-[592px] mt-5">
                     <NotificationItem data={dataNotification} />
                 </div>
                 <div className="absolute bottom-17 left-0 w-full h-10 bg-gradient-to-t from-bgt from-5%"></div>
@@ -37,7 +37,7 @@ const ButtonsList = () => {
             <Button className="bg-bgp hover:bg-bgs px-5 shadow" rounded="full">
                 Todas
             </Button>
-            <Button className="px-5 text-gray border  border-gray/10" rounded="full">
+            <Button className="px-5 text-nowrap text-gray border  border-gray/10" rounded="full">
                 No Leidas
             </Button>
             <Button className="px-5 text-gray border  border-gray/10" rounded="full">

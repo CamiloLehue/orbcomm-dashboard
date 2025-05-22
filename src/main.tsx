@@ -14,6 +14,7 @@ import ProtectedRoute from "./features/auth/components/login/ProtectedRoute";
 import Login from "./features/auth/components/login/Login";
 import Monotorings from "./features/monitorings/components/Monotorings";
 import Information from "./features/information/components/Information";
+import RoutesList from "./features/routes/components/RoutesList";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -36,11 +37,11 @@ createRoot(document.getElementById("root")!).render(
             {/* Monitoreo */}
             <Route path="/monitoreo" element={<Monitoring />} />
             <Route path="/seguimientos" element={<Monotorings />} />
-            {/* Tramos */}
-            <Route path="/tramos" element={<Trips />} />
-            <Route path="/tramos/crear" element={<CreateTrips />} />
-            <Route path="/tramos/ver/:id" element={<CreateTrips />} />
-            <Route path="/tramos/editar/:id" element={<CreateTrips />} />
+            {/* recorridos */}
+            <Route path="/recorridos" element={<RoutesList />} />
+            <Route path="/recorridos/crear" element={<CreateTrips />} />
+            <Route path="/recorridos/ver/:id" element={<CreateTrips />} />
+            <Route path="/recorridos/editar/:id" element={<CreateTrips />} />
             {/* Configuración de parámetros */}
             <Route path="/configuracion" element={<Configuration />} />
             <Route path="/info/:id" element={<Information />} />

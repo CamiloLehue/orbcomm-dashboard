@@ -34,7 +34,7 @@ function Dropdown({ children, onClickVoid = true, setClickVoid }: DropdownProps)
     return (
         <div
             ref={dropdownRef}
-            className={clsx("absolute right-[50%] translate-x-1/2 top-9 min-w-50 w-auto ")}
+            className={clsx("absolute right-[50%] translate-x-1/2 top-11.5 min-w-50 w-auto ")}
         >
             {children}
         </div>

@@ -7,32 +7,34 @@ import Dropdown from "../components/ui/Dropdown";
 function Header() {
     const navigate = useNavigate();
     return (
-        <header className="sticky top-0 z-[9999] py-4 flex items-center justify-between w-full mx-auto px-4 bg-bg">
-            <div className="flex justify-center items-center gap-2 px-5 ms-13 min-w-[360px] bg-gray/20 border border-gray/20 rounded-full">
+        <header className="sticky backdrop-blur-2xl bg-linear-90 from-bgt via-gray/50 to-bgt border-b border-white/10 shadow-xl shadow-bgp/50 top-0 z-[9999] py-2 flex items-center justify-between w-full mx-auto px-4">
+            <div className="flex justify-center items-center gap-2 px-5 ms-13 min-w-[360px] bg-bgp rounded-full">
                 <GrSearch />
                 <input className="py-2.5 pe-2 focus:outline-none rounded-full w-full text-sm" type="text" placeholder="Ingresar número del envio o vehículo" />
             </div>
-            <div className="flex justify-center items-center gap-5 border border-gray/20 rounded-full p-1 px-5">
+            <div className="flex justify-center items-center gap-5 rounded-full p-1 px-5 bg-bgp">
                 <Button
                     rounded="full"
-                    className="group flex justify-center items-center gap-2 bg-gray/0 hover:bg-transparent ">
-                    <GrVolume className="text-success" />
+                    className="group flex justify-center items-center gap-2 ">
+                    <GrVolume className="text-gray hover:text-white" />
                 </Button>
                 <Button
                     rounded="full"
-                    className="group flex justify-center items-center gap-2 bg-gray/0 hover:bg-transparent ">
-                    <GrUnlock className="text-success " />
+                    className="group flex justify-center items-center gap-2 ">
+                    <GrUnlock className="text-gray hover:text-white " />
                 </Button>
                 <Button
                     rounded="full"
-                    className="group flex justify-center items-center gap-2 bg-gray/0 hover:bg-transparent ">
-                    <GrBeacon className="text-success animate-pulse" />
+                    className="group flex justify-center items-center gap-2 ">
+                    <GrBeacon className="text-gray hover:text-white animate-pulse" />
                 </Button>
             </div>
-            <div className="flex justify-center items-center gap-10 bg-bgt border border-gray/20 rounded-s-full px-1">
-                <Button onClick={() => { navigate("/viajes/crear") }} rounded="full" className="group flex justify-center items-center gap-2 bg-gray/30 hover:bg-transparent px-4 pe-5">
-                    <GrAdd />
-                    <p className="text-xs">Nuevo viaje</p>
+            <div className="flex justify-center items-center gap-10  px-1">
+                <Button onClick={() => { navigate("/viajes/crear") }}
+                    rounded="full"
+                    className="group shadow-xl shadow-bgt/20 border-t border-t-bgt/30 flex justify-center items-center gap-2 bg-gradient-to-bl from-bgt/40 via-gray/40 to-gray/60 text-white/80 hover:bg-transparent px-4 pe-6">
+                    <GrAdd className="" />
+                    <p className="text-xs">Crear recorrido</p>
                 </Button>
                 <Button rounded="full">
                     <GrCircleQuestion />
@@ -55,7 +57,7 @@ const ButtonNotificaciones = () => {
             {
                 openNotification && (
                     <Dropdown onClickVoid={openNotification} setClickVoid={setOpenNotification}>
-                        <div className="bg-bgt p-5 w-100 shadow-lg shadow-bgb  rounded-xl">
+                        <div className="bg-bgs p-5 w-100 shadow-lg shadow-bgp  rounded-b-xl">
                             <h5 className="font-bold py-2">Notificaciones</h5>
                             <div className="min-h-15 w-full flex flex-col gap-1 bg-danger/10 border border-danger/50 hover:bg-bgp hover:border-transparent transition-all duration-200 rounded-xl p-3 py-5 mt-2 shadow-lg">
                                 <h5 className="text-danger">Línea desconectada</h5>
@@ -104,7 +106,7 @@ const ButtonConfiguraciones = () => {
             {
                 openConfiguration && (
                     <Dropdown onClickVoid={openConfiguration} setClickVoid={setOpenConfiguration}>
-                        <div className="bg-bgt w-53 border-b border-gray/40 shadow-lg shadow-bgb backdrop-blur-xl rounded-b-xl">
+                        <div className="bg-bgs w-53 border-b border-gray/40 shadow-lg shadow-bgb backdrop-blur-xl rounded-b-xl">
                             <h5 className="font-bold py-5 text-gray">Configuraciones</h5>
                             <ul className="flex flex-col  border-t border-gray/40  pt-3">
                                 <li className="w-full border-t border-t-transparent hover:border-t-gray/20 border-b border-b-transparent hover:border-b-gray/20 flex items-center justify-start gap-3 hover:bg-bgp transition-all duration-200 px-5 p-2 hover:text-gray  ">
@@ -166,7 +168,7 @@ const ButtonPerfil = () => {
             {
                 openProfile && (
                     <Dropdown onClickVoid={openProfile} setClickVoid={setOpenProfile}>
-                        <div className="relative bg-bgt border-b border-e border-gray/20 shadow-lg shadow-bgb backdrop-blur-xl rounded-b-xl mt-1 right-[13px] ">
+                        <div className="relative bg-bgs border-b border-e border-gray/20 shadow-lg shadow-bgb backdrop-blur-xl rounded-b-xl mt-1 right-[13px] ">
                             <h5 className="font-bold py-3 text-gray">Ajustes Perfil</h5>
                             <ul className="flex flex-col border-t border-gray/20 pt-3">
                                 <li className="w-full border-t border-t-transparent hover:border-t-gray/20 border-b border-b-transparent hover:border-b-gray/20 flex items-center justify-start gap-3 hover:bg-bgp transition-all duration-200 px-5 p-2 hover:text-gray  ">

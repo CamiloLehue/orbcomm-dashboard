@@ -1,25 +1,21 @@
-import clsx from 'clsx';
-import { useAllTrips } from '../../trips/hooks/useAllsTrips';
-import { MapView } from '../../maps';
-import Loading from '../../../components/ui/Loading';
-import { useEffect, useRef } from 'react';
+import clsx from "clsx";
+import { useTrips } from "../../trips/hooks/useTripsHook";
+import { MapView } from "../../maps";
+import Loading from "../../../components/ui/Loading";
+import { useEffect, useRef } from "react";
 
 type MapListProps = {
     selectedTrips: number[];
-    selectedTripOD: [number, number][];
-
-}
+    selectedTripOD: [string, string][];
+};
 
 const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
-
-    const { allTrips, loading } = useAllTrips();
-
+    const { Trips, loading } = useTrips();
     const previousLength = useRef(selectedTripOD.length);
 
     useEffect(() => {
         if (selectedTripOD.length > previousLength.current) {
-            const timeout = setTimeout(() => {
-            }, 1000);
+            const timeout = setTimeout(() => {}, 1000);
             previousLength.current = selectedTripOD.length;
             return () => clearTimeout(timeout);
         } else {
@@ -29,93 +25,77 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
 
     if (loading) return <Loading />;
 
-
-    const selectedTripsAsArray = Array.isArray(selectedTrips) ? selectedTrips : [];
-    const selectedTripODAsArray = Array.isArray(selectedTripOD) ? selectedTripOD : [];
-
-    if (selectedTripsAsArray.length === 0 || selectedTripODAsArray.length === 0)
+    if (!selectedTrips?.length || !selectedTripOD?.length) {
         return <p className="text-center pt-5">Selecciona un viaje para comenzar</p>;
+    }
 
-    const rutasSeleccionadas = selectedTripODAsArray.map(([origenId, destinoId]) => {
+    // Extraer rutas desde selectedTripOD
+    const rutasSeleccionadas = selectedTripOD.map(([tripId]) => {
+        const trip = Trips.find((trip) =>trip.trip_id === tripId);
 
-        let ciudadOrigenLatitud = "Origen lat desconocido";
-        let ciudadOrigenLongitud = "Origen lon desconocido";
-        let ciudadDestinoLatitud = "Destino desconocido";
-        let ciudadDestinoLongitud = "Destino desconocido";
-        let nameCiudadOrigen = "Origen desconocido";
-        let nameCiudadDestino = "Destino desconocido";
+        console.log("este es mi trip mapaview:", trip);
+        
+        const origin = trip?.origin?.coordinates;
+        const destination = trip?.destination?.coordinates;
 
-        for (const trip of allTrips) {
-            const origenRegistro = trip.data.find(item => parseInt(item.messageId) === (origenId));
-            const destinoRegistro = trip.data.find(item => parseInt(item.messageId) === (destinoId));
-
-            if (origenRegistro) ciudadOrigenLatitud = String(origenRegistro.positionStatus.latitude) || ciudadOrigenLatitud;
-            if (origenRegistro) ciudadOrigenLongitud = String(origenRegistro.positionStatus.longitude) || ciudadOrigenLongitud;
-            if (destinoRegistro) ciudadDestinoLatitud = String(destinoRegistro.positionStatus.latitude) || ciudadDestinoLatitud;
-            if (destinoRegistro) ciudadDestinoLongitud = String(destinoRegistro.positionStatus.longitude) || ciudadDestinoLongitud;
-            if (origenRegistro) nameCiudadOrigen = String(origenRegistro.positionStatus.city) || nameCiudadOrigen;
-            if (destinoRegistro) nameCiudadDestino = String(destinoRegistro.positionStatus.city) || nameCiudadDestino;
-        }
-
-        return { ciudadOrigenLatitud, ciudadOrigenLongitud, ciudadDestinoLatitud, ciudadDestinoLongitud, nameCiudadOrigen, nameCiudadDestino };
+        return {
+            ciudadOrigenLatitud: origin?.latitude ?? 0,
+            ciudadOrigenLongitud: origin?.longitude ?? 0,
+            ciudadDestinoLatitud: destination?.latitude ?? 0,
+            ciudadDestinoLongitud: destination?.longitude ?? 0,
+            nameCiudadOrigen: origin?.latitude ?? "Origen desconocido",
+            nameCiudadDestino: destination?.longitude ?? "Destino desconocido",
+        };
     });
-
-
-
 
     const layoutPositions = (count: number) => {
         return clsx({
             "grid grid-cols-1 gap-1": count === 1,
-            "grid grid-cols-2 gap-1": count === 2 || count === 3 || count === 4,
+            "grid grid-cols-2 gap-1": count >= 2 && count <= 4,
             "grid grid-cols-6 gap-1": count === 5,
             "grid grid-cols-3 gap-1": count === 6 || count === 7,
             "grid grid-cols-4 gap-1": count === 8,
-        })
-    }
-    // if (isAddingMap) {
-    //     return <Loading />;
-    // }
+        });
+    };
+
     return (
+        <div className="w-full h-full flex flex-col justify-start items-start gap-1">
+            <div className={`${layoutPositions(selectedTripOD.length)} w-full h-full`}>
+                {selectedTripOD.map((_, i) => {
+                    const ruta = rutasSeleccionadas[i];
 
-        <>
+                    const lat1 = Number(ruta.ciudadOrigenLatitud) || 0;
+                    const lon1 = Number(ruta.ciudadOrigenLongitud) || 0;
+                    const lat2 = Number(ruta.ciudadDestinoLatitud) || 0;
+                    const lon2 = Number(ruta.ciudadDestinoLongitud) || 0;
 
-            <div className="w-full h-full flex flex-col justify-start items-start gap-1">
+                    const height = selectedTripOD.length <= 2 ? "750px" : "395px";
 
-                <div className={`${layoutPositions(selectedTripODAsArray.length)} w-full h-full`}>
-                    {
-                        selectedTripODAsArray.map((_, i) => {
-                            const ruta = rutasSeleccionadas[i]; // alineamos por índice
-
-                            return (
-                                <div
-                                    key={i}
-                                    className={`relative w-full h-full flex justify-start items-start bg-bgp overflow-hidden ${selectedTripODAsArray.length === 3 ? (i === 2 ? "col-span-2" : "col-span-1") : ""}
-                                    ${selectedTripODAsArray.length === 5 ? (i === 0 || i === 1 ? "col-span-3" : "col-span-2") : ""}
-                                    ${selectedTripODAsArray.length === 7 ? (i === 0 ? "col-span-3" : "col-span-1") : ""}`}
-                                >
-                                    <div
-                                        className="text-center w-full"
-                                        style={{
-                                            height: selectedTripODAsArray.length <= 2 ? '750px' : '395px'
-                                        }}
-                                    >
-
-                                        <MapView
-                                            tripOrigin={[parseInt(ruta.ciudadOrigenLatitud), parseInt(ruta.ciudadOrigenLongitud)]}
-                                            tripDestination={[parseInt(ruta.ciudadDestinoLatitud), parseInt(ruta.ciudadDestinoLongitud)]}
-                                            origenDestinyAsigned={[[parseInt(ruta.ciudadOrigenLatitud), parseInt(ruta.ciudadOrigenLongitud)], [parseInt(ruta.ciudadDestinoLatitud), parseInt(ruta.ciudadDestinoLongitud)]]}
-                                            height={selectedTripODAsArray.length <= 2 ? '750px' : '395px'}
-                                            nameCitys={[ruta.nameCiudadOrigen, " - ", ruta.nameCiudadDestino]}
-                                        />
-                                    </div>
-                                </div>
-                            );
-                        })
-                    }
-                </div>
+                    return (
+                        <div
+                            key={i}
+                            className={clsx(
+                                "relative w-full h-full flex justify-start items-start bg-bgp overflow-hidden",
+                                selectedTripOD.length === 3 && (i === 2 ? "col-span-2" : "col-span-1"),
+                                selectedTripOD.length === 5 && (i === 0 || i === 1 ? "col-span-3" : "col-span-2"),
+                                selectedTripOD.length === 7 && (i === 0 ? "col-span-3" : "col-span-1")
+                            )}
+                        >
+                            <div className="text-center w-full" style={{ height }}>
+                                <MapView
+                                    tripOrigin={[lat1, lon1]}
+                                    tripDestination={[lat2, lon2]}
+                                    origenDestinyAsigned={[[lat1, lon1], [lat2, lon2]]}
+                                    height={height}
+                                    nameCitys={[String(ruta.nameCiudadOrigen), " - ", String(ruta.nameCiudadDestino)]}
+                                />
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
-        </>
-    )
-}
+        </div>
+    );
+};
 
-export default MapList
+export default MapList;

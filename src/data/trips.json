@@ -1,0 +1,267 @@
+[
+    {
+        "trip_id": "scheduled-001",
+        "scheduled_status": "agendado",
+        "scheduled_for": "2025-05-23T07:00:00Z",
+        "planned_start_time": "2025-05-23T07:00:00Z",
+        "planned_end_time": "2025-05-23T11:00:00Z",
+        "estimated_distance_km": 260,
+        "estimated_time_minutes": 240,
+        "assigned_driver": {
+            "id": 101,
+            "name": "Juan Pérez",
+            "vehicle": "Toyota Hiace - BGRK76"
+        },
+        "route_id": 1,
+        "origin": {
+            "name": "Quellón",
+            "coordinates": {
+                "latitude": -43.1167,
+                "longitude": -73.6167
+            }
+        },
+        "destination": {
+            "name": "Puerto Montt",
+            "coordinates": {
+                "latitude": -41.4693,
+                "longitude": -72.9424
+            }
+        },
+        "current_status": "en progreso",
+        "notes": "Se requiere confirmar estado del ferry en Canal de Chacao.",
+        "created_at": "2025-05-21T20:00:00Z",
+        "last_updated": "2025-05-21T20:00:00Z",
+        "progress_completed":7
+    },
+    {
+        "trip_id": "scheduled-002",
+        "scheduled_status": "completado",
+        "scheduled_for": "2025-05-21T12:00:00Z",
+        "planned_start_time": "2025-05-21T12:00:00Z",
+        "planned_end_time": "2025-05-21T13:30:00Z",
+        "estimated_distance_km": 84,
+        "estimated_time_minutes": 90,
+        "assigned_driver": {
+            "id": 102,
+            "name": "María González",
+            "vehicle": "Hyundai H1 - PLNT82"
+        },
+        "route_id": 2,
+        "origin": {
+            "name": "Castro",
+            "coordinates": {
+                "latitude": -42.4814,
+                "longitude": -73.7622
+            }
+        },
+        "destination": {
+            "name": "Ancud",
+            "coordinates": {
+                "latitude": -41.8692,
+                "longitude": -73.8210
+            }
+        },
+        "current_status": "en progreso",
+        "created_at": "2025-05-20T09:00:00Z",
+        "last_updated": "2025-05-21T13:30:00Z",
+        "progress_completed":35
+    },
+    {
+        "trip_id": "scheduled-003",
+        "scheduled_status": "en progreso",
+        "scheduled_for": "2025-05-21T09:00:00Z",
+        "planned_start_time": "2025-05-21T09:00:00Z",
+        "planned_end_time": "2025-05-21T09:35:00Z",
+        "estimated_distance_km": 25,
+        "estimated_time_minutes": 35,
+        "assigned_driver": {
+            "id": 103,
+            "name": "Carlos Soto",
+            "vehicle": "Chevrolet N300 - FJHK45"
+        },
+        "route_id": 3,
+        "origin": {
+            "name": "Puerto Varas",
+            "coordinates": {
+                "latitude": -41.3198,
+                "longitude": -72.9854
+            }
+        },
+        "destination": {
+            "name": "Frutillar",
+            "coordinates": {
+                "latitude": -41.1263,
+                "longitude": -73.0522
+            }
+        },
+        "current_status": "en progreso",
+        "created_at": "2025-05-20T10:00:00Z",
+        "last_updated": "2025-05-21T09:15:00Z",
+        "progress_completed":53
+    },
+    {
+        "trip_id": "scheduled-004",
+        "scheduled_status": "en progreso",
+        "scheduled_for": "2025-05-22T10:00:00Z",
+        "planned_start_time": "2025-05-22T10:00:00Z",
+        "planned_end_time": "2025-05-22T10:40:00Z",
+        "estimated_distance_km": 30,
+        "estimated_time_minutes": 40,
+        "assigned_driver": {
+            "id": 104,
+            "name": "Paula Riquelme",
+            "vehicle": "Mercedes Sprinter - LKVY10"
+        },
+        "route_id": 4,
+        "origin": {
+            "name": "Osorno",
+            "coordinates": {
+                "latitude": -40.5736,
+                "longitude": -73.1342
+            }
+        },
+        "destination": {
+            "name": "Río Negro",
+            "coordinates": {
+                "latitude": -40.7854,
+                "longitude": -73.2372
+            }
+        },
+        "current_status": "agendado",
+        "created_at": "2025-05-21T14:00:00Z",
+        "last_updated": "2025-05-21T14:00:00Z",
+        "progress_completed":75
+    },
+    {
+        "trip_id": "scheduled-005",
+        "scheduled_status": "en progreso",
+        "scheduled_for": "2025-05-21T11:00:00Z",
+        "planned_start_time": "2025-05-21T11:00:00Z",
+        "planned_end_time": "2025-05-21T12:00:00Z",
+        "estimated_distance_km": 52,
+        "estimated_time_minutes": 60,
+        "assigned_driver": {
+            "id": 105,
+            "name": "Luis Morales",
+            "vehicle": "Foton View - ZKLP91"
+        },
+        "route_id": 5,
+        "origin": {
+            "name": "Puerto Montt",
+            "coordinates": {
+                "latitude": -41.4693,
+                "longitude": -72.9424
+            }
+        },
+        "destination": {
+            "name": "Calbuco",
+            "coordinates": {
+                "latitude": -41.7687,
+                "longitude": -73.1311
+            }
+        },
+        "current_status": "en progreso",
+        "created_at": "2025-05-21T09:30:00Z",
+        "last_updated": "2025-05-21T11:15:00Z",
+        "progress_completed":50
+    },
+    {
+        "trip_id": "scheduled-006",
+        "scheduled_status": "agendado",
+        "scheduled_for": "2025-05-23T13:00:00Z",
+        "planned_start_time": "2025-05-23T13:00:00Z",
+        "planned_end_time": "2025-05-23T14:15:00Z",
+        "estimated_distance_km": 65,
+        "estimated_time_minutes": 75,
+        "assigned_driver": {
+            "id": 106,
+            "name": "Valentina Fuentes",
+            "vehicle": "Peugeot Boxer - TRCY20"
+        },
+        "route_id": 6,
+        "origin": {
+            "name": "Ancud",
+            "coordinates": {
+                "latitude": -41.8692,
+                "longitude": -73.8210
+            }
+        },
+        "destination": {
+            "name": "Quemchi",
+            "coordinates": {
+                "latitude": -42.1377,
+                "longitude": -73.4773
+            }
+        },
+        "current_status": "agendado",
+        "created_at": "2025-05-21T18:00:00Z",
+        "last_updated": "2025-05-21T18:00:00Z",
+        "progress_completed":6
+    },
+    {
+        "trip_id": "scheduled-007",
+        "scheduled_status": "completado",
+        "scheduled_for": "2025-05-21T15:00:00Z",
+        "planned_start_time": "2025-05-21T15:00:00Z",
+        "planned_end_time": "2025-05-21T15:30:00Z",
+        "estimated_distance_km": 25,
+        "estimated_time_minutes": 30,
+        "assigned_driver": {
+            "id": 107,
+            "name": "Francisco Aguilar",
+            "vehicle": "Citroën Jumpy - VHRN67"
+        },
+        "route_id": 7,
+        "origin": {
+            "name": "Castro",
+            "coordinates": {
+                "latitude": -42.4814,
+                "longitude": -73.7622
+            }
+        },
+        "destination": {
+            "name": "Dalcahue",
+            "coordinates": {
+                "latitude": -42.3778,
+                "longitude": -73.6519
+            }
+        },
+        "current_status": "completado",
+        "created_at": "2025-05-20T13:00:00Z",
+        "last_updated": "2025-05-21T15:30:00Z",
+        "progress_completed":100
+    },
+    {
+        "trip_id": "scheduled-008",
+        "scheduled_status": "agendado",
+        "scheduled_for": "2025-05-22T16:00:00Z",
+        "planned_start_time": "2025-05-22T16:00:00Z",
+        "planned_end_time": "2025-05-22T16:55:00Z",
+        "estimated_distance_km": 45,
+        "estimated_time_minutes": 55,
+        "assigned_driver": {
+            "id": 108,
+            "name": "Andrea Ruiz",
+            "vehicle": "Renault Master - DRVF18"
+        },
+        "route_id": 8,
+        "origin": {
+            "name": "Llanquihue",
+            "coordinates": {
+                "latitude": -41.2619,
+                "longitude": -73.0065
+            }
+        },
+        "destination": {
+            "name": "Ensenada",
+            "coordinates": {
+                "latitude": -41.1701,
+                "longitude": -72.5441
+            }
+        },
+        "current_status": "completado",
+        "created_at": "2025-05-21T19:00:00Z",
+        "last_updated": "2025-05-21T19:00:00Z",
+        "progress_completed":100
+    }
+]

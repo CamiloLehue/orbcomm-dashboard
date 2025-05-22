@@ -1,17 +1,15 @@
-import { useParams } from "react-router"
-import InfoPage from "./InfoPage"
+import { useParams } from "react-router";
+import InfoPage from "./InfoPage";
+
 
 function Information() {
-
-    const idInfoPage: string = String(useParams().id)
-
+   const id = useParams().id;
+   
     return (
-        <div className="h-full w-full flex-1 flex flex-col justify-start items-start px-1 pb-1">
-          
-                <InfoPage id={idInfoPage} />
-          
+        <div className="flex flex-col gap-2 w-full h-full">
+            <InfoPage id={id!} />
         </div>
-    )
+    );
 }
 
-export default Information
+export default Information;

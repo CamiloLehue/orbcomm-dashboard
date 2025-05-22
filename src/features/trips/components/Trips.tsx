@@ -3,7 +3,7 @@ import BgBlur from "../../../components/ui/BgBlur";
 import CardType from "../../../components/ui/CardType";
 import { CgShapeHexagon } from "react-icons/cg";
 import { useNavigate } from "react-router";
-import { useAllTrips } from "../hooks/useAllsTrips";
+import { useTrips } from "../hooks/useTripsHook";
 import Button from "../../../components/ui/Button";
 import clsx from "clsx";
 import { useMemo } from "react";
@@ -11,42 +11,57 @@ import { useMemo } from "react";
 function Trips() {
     const navigate = useNavigate();
 
-    const { allTrips, loading } = useAllTrips();
-    const porcentajes = useMemo(() => allTrips.map(() => Math.round(Math.random() * 100)), [allTrips]);
+    const { Trips, loading } = useTrips();
+    const porcentajes = useMemo(() => Trips.map(() => Math.round(Math.random() * 100)), [Trips]);
 
     if (loading) return <p>Cargando...</p>;
-    if (!Array.isArray(allTrips)) {
+    if (!Array.isArray(Trips)) {
         return <p>No se encontraron viajes disponibles</p>;
     }
+
+    const count = Trips.length;
+    const completed = Trips.filter(trip => trip.progress_completed === 100).length;
+    const inProgress = Trips.filter(trip => trip.progress_completed < 100).length;
+    const disconnected = Trips.filter(trip => trip.current_status === "desconectado").length;
+    const paused = Trips.filter(trip => trip.current_status === "detenido").length;
+    const delayed = Trips.filter(trip => trip.current_status === "retrasado").length;
+    const scheduled = Trips.filter(trip => trip.current_status === "agendado").length;
+
     return (
         <div className="relative h-full w-full flex flex-col gap-5 justify-start items-start ">
-            <BgBlur />
             <div className="relative flex flex-col justify-start items-start gap-5 w-full h-full ">
                 <div className="grid grid-cols-3 gap-2 w-full h-full">
-                    <div className="max-h-[750px] overflow-y-auto p-2 rounded-xl">
-                        <small className="text-end text-gray ">( {allTrips.length} ) -  Viajes Programados - <span className="font-bold text-xs"> Actualizado hace 1 segundo...</span></small>
+                    <div className="max-h-[755px] overflow-y-auto p-2 rounded-xl">
+                        <div className="my-1 mb-3">
+                            <h1 className="font-semibold">Viajes</h1>
+                            <small className="text-end text-gray">Hoy ( {count} )  -  Viajes Programados - <span className="font-bold text-xs"> Actualizado hace 1 segundo...</span></small>
+                        </div>
                         <div className="w-full relative flex flex-col gap-1 pb-8 ">
-                            {allTrips.map((trip, i) => {
-                                const valorPorcentaje = porcentajes[i];                                // Obtener el primer y último registro de data para cada viaje
-                                const firstData = trip.data[0];
-                                const lastData = trip.data[trip.data.length - 1];
+                            {Trips.map((trip, i) => {
+                                const progress_completed = trip.progress_completed;
+                                const status_trip = trip.current_status;                    // Obtener el primer y último registro de data para cada viaje
 
                                 // Nombres de ciudades
-                                const cityOrigen = firstData.positionStatus.city || "Origen desconocido";
-                                const cityDestino = lastData.positionStatus.city || "Destino desconocido";
+                                const cityOrigen = trip.origin.name || "Origen desconocido";
+                                const cityDestino = trip.destination.name || "Destino desconocido";
 
-                                const colorType = (valorPorcentaje: number) => (
+                                const colorType = (progress_completed: number) => (
                                     clsx({
-                                        "bg-gradient-to-r from-success to-secondary": valorPorcentaje >= 0 && valorPorcentaje <= 100,
+                                        "linear-gradient(to right, #ff0000, #ff0000)": progress_completed >= 0 && progress_completed < 10,
+                                        "linear-gradient(to right, #ff0000, #ff9900)": progress_completed >= 10 && progress_completed < 25,
+                                        "linear-gradient(to right, #ff9900, #ccff00)": progress_completed >= 25 && progress_completed < 50,
+                                        "linear-gradient(to right, #00ffc4, #00ffc4)": progress_completed >= 50 && progress_completed < 75,
+                                        "linear-gradient(to right, #00dcff, #00ffc4)": progress_completed >= 75 && progress_completed <= 100,
                                     })
                                 )
 
-                                const colorText = (valorPorcentaje: number) => (
+                                const colorText = (progress_completed: number) => (
                                     clsx({
-                                        "text-success": valorPorcentaje >= 75,
-                                        "text-secondary": valorPorcentaje > 50 && valorPorcentaje < 75,
-                                        "text-warning": valorPorcentaje >= 10 && valorPorcentaje <= 50,
-                                        "text-danger": valorPorcentaje >= 0 && valorPorcentaje < 10,
+                                        "#ff0000": progress_completed >= 0 && progress_completed < 10,
+                                        "#ff9900": progress_completed >= 10 && progress_completed < 25,
+                                        "#ccff00": progress_completed >= 25 && progress_completed < 50,
+                                        "#00ffc4": progress_completed >= 50 && progress_completed < 75,
+                                        "#00dcff": progress_completed >= 75 && progress_completed <= 100,
                                     })
                                 )
 
@@ -57,9 +72,10 @@ function Trips() {
                                         className="relative group overflow-hidden bg-bgp w-full hover:bg-transparent cursor-pointer  h-10 rounded-xs grid grid-cols-5 px-2 py-1"
 
                                     >
-                                        <div className={clsx(`absolute left-0 bottom-0 h-0.5  ${colorType(valorPorcentaje)}  blur-3xl `)}
+                                        <div className={clsx(`absolute left-0 bottom-0 h-0.5  blur-2xl `)}
                                             style={{
-                                                width: valorPorcentaje + "%",
+                                                backgroundImage: `${colorType(progress_completed)}`,
+                                                width: progress_completed + "%",
                                                 height: 100 + "%",
                                             }}>
                                         </div>
@@ -68,13 +84,17 @@ function Trips() {
                                                 width: 100 + "%",
                                             }}>
                                         </div>
-                                        <div className={`absolute left-0 bottom-0 h-0.5 ${colorType(valorPorcentaje)}`}
+                                        <div className={`absolute left-0 bottom-0 h-0.5 `}
                                             style={{
-                                                width: valorPorcentaje + "%",
+                                                backgroundImage: `${colorType(progress_completed)}`,
+                                                width: progress_completed + "%",
                                             }}>
                                         </div>
                                         <div className="col-span-2 flex justify-start items-center gap-1">
-                                            <small className={` ${colorText(valorPorcentaje)} `}>
+                                            <small
+                                                style={{
+                                                    color: colorText(progress_completed),
+                                                }}>
                                                 <CgShapeHexagon />
                                             </small>
                                             <div className='flex flex-col justify-center items-start'>
@@ -92,7 +112,10 @@ function Trips() {
                                         </div>
 
                                         <div className="flex  col-span-2 justify-center items-center gap-1">
-                                            <small className='text-'> {valorPorcentaje + "%"}</small>
+                                            <small className='text-'
+                                                style={{
+                                                    color: colorText(progress_completed),
+                                                }}> {progress_completed + "%"}</small>
                                         </div>
 
                                         <div className="flex justify-center items-center group-hover:translate-x-1 group-hover:text-secondary transition-all duration-500">
@@ -107,35 +130,38 @@ function Trips() {
                     <div className="col-span-2 bg-bgp rounded-s-2xl">
                         <CardType title="Resumen de Recorridos" subtitle="Programados">
                             <div className="grid grid-cols-2 gap-5 w-full">
+
                                 <div className="col-span-2 h-70 rounded-2xl border border-bgs p-1 grid grid-cols-2 gap-2">
-                                    <div className="relative w-full h-full bg-bgs rounded-2xl p-1 grid grid-cols-4 ">
-                                        <div className="absolute left-0 top-0 bg-gray h-20 w-20 blur-3xl"></div>
-                                        <div className="flex flex-col justify-center items-center p-5">
-                                            <small className="text-xs text-white">Vehiculos</small>
-                                            <h2 className="text-7xl text-white font-bold">{allTrips.length - 4 - 2}</h2>
-                                            <small className="text-xs text-white">En movimiento</small>
+
+                                    <div className="relative w-full h-full  rounded-xl p-1 grid grid-cols-5 bg-black/50 border border-white/10 ">
+                                        <h4 className="font-bold col-span-5 p-2 text-center">Resumen sincronizado</h4>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <h1 className="font-bold">{completed}</h1>
+                                            <small className="text-success">Completados</small>
                                         </div>
-                                        <div className="col-span-3 flex justify-center items-center gap-5 bg-bgp rounded-2xl ">
-                                            <div className="flex flex-col justify-center items-center gap-5">
-                                                <div className="flex flex-col justify-center items-center bg-danger/10 border border-danger/20 p-4 rounded-xl ">
-                                                    <h2 className="text-4xl font-bold text-danger">1</h2>
-                                                    <small className="text-xs text-danger">Desconectado</small>
-                                                </div>
-                                                <div className="flex flex-col justify-center items-center ">
-                                                    <h2 className="text-4xl text-warning">2</h2>
-                                                    <small className="text-xs text-warning">Detenidos</small>
-                                                </div>
-                                            </div>
-                                            <div className="flex justify-center items-center gap-5">
-                                                <div className="flex flex-col justify-center items-center ">
-                                                    <h2 className="text-4xl">4/<span className="text-white/60">{allTrips.length}</span></h2>
-                                                    <small className="text-xs text-gray">Completados</small>
-                                                </div>
-                                                <div className="flex flex-col justify-center items-center ">
-                                                    <h2 className="text-4xl">16</h2>
-                                                    <small className="text-xs text-gray">Seguimiento</small>
-                                                </div>
-                                            </div>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <h1 className="font-bold">{inProgress}</h1>
+                                            <small className="text-primary">En progreso</small>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <h1 className="font-bold">{paused}</h1>
+                                            <small className="text-gray">Detenidos</small>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <h1 className="font-bold">{delayed}</h1>
+                                            <small className="text-gray">Retrasados</small>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <h1 className="font-bold">{scheduled}</h1>
+                                            <small className="text-gray">Agendado</small>
+                                        </div>
+                                        <div className="flex flex-col col-span-3  justify-center items-center">
+                                            <h1 className="font-bold">{disconnected}</h1>
+                                            <small className="text-danger">Sin Conexion</small>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-center col-span-2 bg-black/20 rounded-xl">
+                                            <h1 className="font-bold">{count}</h1>
+                                            <small className="text-white">Total hoy</small>
                                         </div>
                                     </div>
                                     <div className="p-5 flex justify-center items-center flex-col">
@@ -144,15 +170,15 @@ function Trips() {
                                         </small>
                                         <div className="grid grid-cols-3 gap-5 w-full mt-5">
                                             <div className="flex flex-col justify-center items-center gap-1 bg-bgp rounded-2xl p-5">
-                                                <h2 className="text-4xl text-white">5</h2>
+                                                <h2 className="text-4xl text-white">{count}</h2>
                                                 <small className="text-xs text-white">Para Hoy</small>
                                             </div>
                                             <div className="flex flex-col justify-center items-center gap-1 bg-bgp rounded-2xl p-5">
-                                                <h2 className="text-4xl text-white">12</h2>
+                                                <h2 className="text-4xl text-white">22</h2>
                                                 <small className="text-xs text-white">Esta semana</small>
                                             </div>
                                             <div className="flex flex-col justify-center items-center gap-1 bg-bgp rounded-2xl p-5">
-                                                <h2 className="text-4xl text-white">4</h2>
+                                                <h2 className="text-4xl text-white">9</h2>
                                                 <small className="text-xs text-white">Próxima semana</small>
                                             </div>
                                         </div>

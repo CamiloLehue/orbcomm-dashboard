@@ -1,6 +1,6 @@
 import { CgShapeHexagon } from "react-icons/cg";
 import { GrFormNextLink } from "react-icons/gr";
-import { useAllTrips } from "../../trips/hooks/useAllsTrips";
+import { useTrips } from "../../trips/hooks/useTripsHook";
 import clsx from "clsx";
 import { useMemo } from "react";
 
@@ -9,8 +9,8 @@ type TripListActiveProps = {
     openConfig: boolean;
     selectedTrips: number[];
     setSelectedTrips: (value: number[] | ((prev: number[]) => number[])) => void;
-    selectedTripOD: [number, number][];
-    setSelectedTripOD: (value: [number, number][] | ((prev: [number, number][]) => [number, number][])) => void;
+    selectedTripOD: [string, string][];
+    setSelectedTripOD: (value: [string, string][] | ((prev: [string, string][]) => [string, string][])) => void;
 };
 
 const MAX_TRIPS = 8;
@@ -23,17 +23,17 @@ const TripListActive = ({
     setSelectedTripOD
 }: TripListActiveProps) => {
 
-    const { allTrips } = useAllTrips();
+    const { Trips } = useTrips();
 
     const porcentajes = useMemo(() =>
-        allTrips.map(() => Math.round(Math.random() * 100)),
-        [allTrips]
+        Trips.map(() => Math.round(Math.random() * 100)),
+        [Trips]
     );
 
     const canAddNewTrip = () =>
         selectedTrips.length < MAX_TRIPS && selectedTripOD.length < MAX_TRIPS;
 
-    const handleSelectTrip = (index: number, firstId: number, lastId: number) => {
+    const handleSelectTrip = (index: number, idTrip: string) => {
         const isAlreadySelected = selectedTrips.includes(index);
 
         if (!isAlreadySelected && !canAddNewTrip()) {
@@ -50,72 +50,105 @@ const TripListActive = ({
         );
 
         setSelectedTripOD(prev => {
-            const exists = prev.some(([a, b]) => a === firstId && b === lastId);
+            const exists = prev.some(([a, b]) => a === idTrip && b === idTrip);
             return exists
-                ? prev.filter(([a, b]) => !(a === firstId && b === lastId))
-                : [...prev, [firstId, lastId]];
+                ? prev.filter(([a, b]) => !(a === idTrip && b === idTrip))
+                : [...prev, [idTrip, idTrip]];
         });
+
+
     };
 
-    if (!Array.isArray(allTrips) || allTrips.length === 0) {
+    if (!Array.isArray(Trips) || Trips.length === 0) {
         return <p>No se encontraron viajes disponibles</p>;
     }
 
     return (
         <div className="max-h-[740px] overflow-y-auto">
-            {allTrips.map((trip, i) => {
-                const valorPorcentaje = porcentajes[i];
-                const firstData = trip.data[0];
-                const lastData = trip.data[trip.data.length - 1];
+            {Trips.map((trip, i) => {
+                const progress_completed = trip.progress_completed;
+                const status_trip = trip.current_status;
 
-                const cityOrigen = firstData.positionStatus.city || "Origen desconocido";
-                const cityDestino = lastData.positionStatus.city || "Destino desconocido";
-                const firstIdViaje = parseInt(firstData.messageId);
-                const lastIdViaje = parseInt(lastData.messageId);
+                const cityOrigen = trip.origin.name || "Origen desconocido";
+                const cityDestino = trip.destination.name || "Destino desconocido";
+                const idTrip = trip.trip_id;
 
                 const isSelected = selectedTrips.includes(i);
 
-                const colorType = clsx({
-                    "bg-gradient-to-r from-success to-secondary":
-                        valorPorcentaje >= 0 && valorPorcentaje <= 100
-                });
+                const colorType = (progress_completed: number) => (
+                    clsx({
+                        "linear-gradient(to right, #ff0000, #ff0000)": progress_completed >= 0 && progress_completed < 10,
+                        "linear-gradient(to right, #ff0000, #ff9900)": progress_completed >= 10 && progress_completed < 25,
+                        "linear-gradient(to right, #ff9900, #ccff00)": progress_completed >= 25 && progress_completed < 50,
+                        "linear-gradient(to right, #00ffc4, #00ffc4)": progress_completed >= 50 && progress_completed < 75,
+                        "linear-gradient(to right, #00dcff, #00ffc4)": progress_completed >= 75 && progress_completed <= 100,
+                    })
+                )
 
-                const colorText = clsx({
-                    "text-success": valorPorcentaje >= 75,
-                    "text-secondary": valorPorcentaje > 50 && valorPorcentaje < 75,
-                    "text-warning": valorPorcentaje >= 10 && valorPorcentaje <= 50,
-                    "text-danger": valorPorcentaje >= 0 && valorPorcentaje < 10
-                });
+                const colorText = (progress_completed: number) => (
+                    clsx({
+                        "#ff0000": progress_completed >= 0 && progress_completed < 10,
+                        "#ff9900": progress_completed >= 10 && progress_completed < 25,
+                        "#ccff00": progress_completed >= 25 && progress_completed < 50,
+                        "#00ffc4": progress_completed >= 50 && progress_completed < 75,
+                        "#00dcff": progress_completed >= 75 && progress_completed <= 100,
+                    })
+                )
+
 
                 return (
                     <div
                         key={i}
-                        onClick={() => handleSelectTrip(i, firstIdViaje, lastIdViaje)}
-                        className={`relative group overflow-hidden ${isSelected ? "bg-gradient-to-tl from-secondary/25 to-blue/25" : "bg-bgs"} w-full hover:bg-transparent cursor-pointer h-15 grid grid-cols-5 px-2 py-1`}
+                        onClick={() => handleSelectTrip(i, idTrip)}
+                        className={`relative group overflow-hidden ${isSelected ? "bg-gradient-to-tl from-secondary/25 to-blue/25" : "bg-bgs"} w-full hover:bg-transparent cursor-pointer h-10 grid grid-cols-5 px-2 py-1`}
                     >
-                        <div
-                            className={`absolute left-0 bottom-0 h-0.5 ${colorType} blur-3xl`}
-                            style={{ width: valorPorcentaje + "%", height: "100%" }}
-                        />
-                        <div className="absolute left-0 bottom-0 h-0.5 bg-gray" style={{ width: "100%" }} />
-                        <div
-                            className={`absolute left-0 bottom-0 h-0.5 ${colorType}`}
-                            style={{ width: valorPorcentaje + "%" }}
-                        />
-
+                        <div className={clsx(`absolute left-0 bottom-0 h-0.5  blur-2xl `)}
+                            style={{
+                                backgroundImage: `${colorType(progress_completed)}`,
+                                width: progress_completed + "%",
+                                height: 100 + "%",
+                            }}>
+                        </div>
+                        <div className='absolute left-0 bottom-0 h-0.5  bg-gray'
+                            style={{
+                                width: 100 + "%",
+                            }}>
+                        </div>
+                        <div className={`absolute left-0 bottom-0 h-0.5 `}
+                            style={{
+                                backgroundImage: `${colorType(progress_completed)}`,
+                                width: progress_completed + "%",
+                            }}>
+                        </div>
                         <div className="col-span-2 flex justify-start items-center gap-1">
-                            <small className={colorText}><CgShapeHexagon /></small>
-                            <small className="flex flex-col text-nowrap justify-center items-start gap-2 text-xs">
-                                <span className="text-primary">{cityOrigen}</span>
-                                <span className="text-secondary">{cityDestino}</span>
+                            <small
+                                style={{
+                                    color: colorText(progress_completed),
+                                }}>
+                                <CgShapeHexagon />
                             </small>
+                            <div className='flex flex-col justify-center items-start'>
+                                <small className="text-xs">
+                                    {
+                                        cityOrigen
+                                    }
+                                </small>
+                                <small className="text-xs">
+                                    {
+                                        cityDestino
+                                    }
+                                </small>
+                            </div>
                         </div>
 
-                        <div className="flex col-span-2 justify-center items-center gap-1">
-                            <small>{valorPorcentaje + "%"}</small>
+                        <div className="flex  col-span-2 justify-center items-center gap-1">
+                            <small className='text-'
+                                style={{
+                                    color: colorText(progress_completed),
+                                }}> {progress_completed + "%"}</small>
                         </div>
 
-                        <div className={`flex justify-center ${isSelected ? "text-primary" : ""} items-center group-hover:translate-x-1 group-hover:text-secondary transition-all duration-500`}>
+                        <div className="flex justify-center items-center group-hover:translate-x-1 group-hover:text-secondary transition-all duration-500">
                             <GrFormNextLink />
                         </div>
                     </div>

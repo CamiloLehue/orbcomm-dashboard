@@ -14,14 +14,14 @@ function RouteLoader() {
 
     return (
         <div className="absolute z-[9999] top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center gap-5">
-            <div className="relative w-[200px] h-[60px]">
+            <div className="relative w-[250px] h-[80px]">
                 <img
                     src="/wisensor.png"
                     alt="wisensor"
                     className="w-full h-full object-contain"
                 />
                 <div
-                    className="absolute top-0 left-0 h-full bg-danger mix-blend-multiply"
+                    className="absolute top-0 left-0 h-full  bg-gradient-to-bl from-danger to-orange-700 mix-blend-multiply"
                     style={{ width: `${progress}%` }}
                 />
             </div>
