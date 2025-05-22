@@ -11,8 +11,8 @@ import { GeoButtons } from "../../zones";
 // import TripRouteLayer from "../../trips/components/TripRouteLayer";
 import { useRouteSimulation } from "../hooks/useRouteSimulation";
 // import { useReverseGeocode } from "../hooks/useReverseGeocode";
-import { useAllTrips } from "../../trips/hooks/useAllsTrips";
 import Loading from "../../../components/ui/Loading";
+import { useTrips } from "../../trips/hooks/useTripsHook";
 
 interface MultiMapViewProps {
     height?: string;
@@ -32,7 +32,7 @@ const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) =
     const [lat, lon] = route[markerIndex] as [number, number];
     // const address = useReverseGeocode(lat, lon);
 
-    const { allTrips } = useAllTrips();
+    const { Trips } = useTrips();
 
     if (!load) return <Loading />;
 
@@ -72,38 +72,24 @@ const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) =
                     </BaseLayer>
 
                     {
-                        allTrips.map((trip, i) => {
+                        Trips.map((trip, i) => {
 
-                            // Obtener el primer y último registro de data para cada viaje
-                            const firstData = trip.data[0];
-                            const lastData = trip.data[trip.data.length - 1];
+                            const firstData = trip.origin.coordinates;
 
-                            // Coordenadas de origen y destino
                             const origenCoords: [number, number] = [
-                                firstData.positionStatus.latitude,
-                                firstData.positionStatus.longitude
+                                firstData.latitude,
+                                firstData.longitude
                             ];
 
                             const destinoCoords: [number, number] = [
-                                lastData.positionStatus.latitude,
-                                lastData.positionStatus.longitude
+                                firstData.latitude,
+                                firstData.longitude
                             ];
 
-                            // Nombres de ciudades
-                            // const cityOrigen = firstData.positionStatus.city || "Origen desconocido";
-                            // const cityDestino = lastData.positionStatus.city || "Destino desconocido";
-
-                            // const idStr = firstData.messageId;
-                            // const firstIdViaje = isNaN(Number(idStr)) ? null : Number(idStr);
-                            // const firstIdViaje: number = parseInt(firstData.messageId);
-                            // const lastIdViaje: number = parseInt(lastData.messageId);
                             return (
-                                <div key={trip.code || i}>
+                                <div key={trip.trip_id || i}>
                                     {showZones && (
                                         <Suspense fallback={<div>Cargando zonas...</div>}>
-                                            {/* <Overlay checked name="Ruta Simulada">
-                                                <RouteLayer origenDestinyAsigned={[origenCoords, destinoCoords]} />
-                                            </Overlay> */}
                                             <Overlay checked name={`Camión ${i + 1}`}>
                                                 <VehicleMarker origenDestinyAsigned={[origenCoords, destinoCoords]} simulated={false} />
                                             </Overlay>
@@ -121,11 +107,6 @@ const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) =
                             </Overlay>
                         </Suspense>
                     )}
-                    {/* {tripOrigin && tripDestination && (
-                        <Overlay checked name="Ruta de Viaje">
-                            <TripRouteLayer origin={tripOrigin} destination={tripDestination} />
-                        </Overlay>
-                    )} */}
                 </LayersControl>
                 {
                     options && <>
