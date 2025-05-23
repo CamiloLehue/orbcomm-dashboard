@@ -3,11 +3,13 @@ import { useLastPositions } from "../../vehicles/hooks/useVehicles";
 import { MapView } from "../../maps";
 import Titles from "../../../components/ui/Titles";
 import Loading from "../../../components/ui/Loading";
+import Error from "../../../components/errorComponents/Error";
 
 const LiveDemo: React.FC = () => {
   const { lastPosition, loading, error } = useLastPositions();
-  if (error) return <p>Error al obtener sensores</p>;
-  if (loading) return <p>Cargando Sensor...</p>;
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p>Error al cargar datos: {error.message}</p>;
+  if (!lastPosition) return <Error errorType={"API DISCONNECTED"} />;
   const lat: number | null | undefined = lastPosition?.positionStatus.latitude;
   const lng: number | null | undefined = lastPosition?.positionStatus.longitude;
   const deviceId = lastPosition?.assetStatus.deviceSN;
@@ -45,7 +47,7 @@ const LiveDemo: React.FC = () => {
 
 
 const TravelSummaryTable: React.FC = () => {
-  const { lastPosition, loading,error } = useLastPositions();
+  const { lastPosition, loading, error } = useLastPositions();
   if (error) return <p>Error al obtener sensores</p>;
   if (loading) return <Loading />;
 

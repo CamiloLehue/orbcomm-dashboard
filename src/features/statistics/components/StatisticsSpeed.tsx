@@ -5,7 +5,7 @@ function StatisticsSpeed() {
         <div className="relative flex flex-col h-full gap-2 bg-bgp overflow-hidden justify-between rounded-xs ">
             <div className="flex flex-col w-full p-5 ">
                 <h4 className="leading-4">
-                    Velocimetro por camión (3)
+                    Velocimetro por camión (km/h)
                 </h4>
                 <small className="text-xs text-gray">
                     en Tiempo real

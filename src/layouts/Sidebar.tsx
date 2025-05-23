@@ -52,9 +52,9 @@ function Sidebar() {
             submenu: [
                 { icon: GrApps, text: "Explorar", link: "/dashboard", status: true },
                 { icon: GrBeacon, text: "Live Yadran", link: "/livedemo", status: true },
-                { icon: GrSatellite , text: "Seguimientos", link: "/seguimientos", status: true },
+                { icon: GrSatellite, text: "Seguimientos", link: "/seguimientos", status: true },
                 { icon: GrLocationPin, text: "Viajes", link: "/viajes", status: true },
-                { icon: GrDirections , text: "Recorridos", link: "/recorridos", status: true },
+                { icon: GrDirections, text: "Recorridos", link: "/recorridos", status: true },
                 {
                     icon: GrPerformance,
                     text: "Configuración",
@@ -114,12 +114,12 @@ function Sidebar() {
 
             <div className="flex flex-col justify-center items-center">
                 <div className="flex justify-center">
-                    <img onClick={()=> {navigate('/dashboard')}} src="/logo_wi.png" alt="logo wisensor" className="w-1/2 cursor-pointer" />
+                    <img onClick={() => { navigate('/dashboard') }} src="/logo_wi.png" alt="logo wisensor" className="w-1/2 cursor-pointer" />
                 </div>
                 <h5 className="text-blue-500">STRACK</h5>
             </div>
 
-            <h6 className="text-zinc-600 text-center font-bold">Sistema Sincronizado</h6>
+            <h6 className="text-zinc-600 text-center ">Sistema Sincronizado</h6>
 
             <nav className="w-full z-[999]">
                 <ul className="flex flex-col gap-2 w-full justify-center items-start px-3">
@@ -132,8 +132,9 @@ function Sidebar() {
                                             onClick={() => handleMenuClick(i, !!item.submenu, item.link)}
                                             rounded="lg"
                                             className={`text-xs px-4 py-2  w-full flex items-center 
-                                        ${openSidebar ? `justify-start` : `justify-center`} gap-2
-                                        ${isItemOrSubItemActive(item) ? 'bg-danger/20 border border-danger/50  text-white' : 'text-zinc-400 border border-transparent'}`}>
+                                            ${openSidebar ? `justify-start` : `justify-center`} gap-2
+                                            ${isItemOrSubItemActive(item) ? 'bg-danger/20 border border-danger/50  text-white' : 'text-zinc-400 border border-transparent'}`}
+                                        >
                                             <div className="flex items-center gap-2">
                                                 <item.icon size={15} />
                                                 {openSidebar && <p className="text-nowrap">{item.text}</p>}
@@ -145,7 +146,7 @@ function Sidebar() {
                                     </li>
                                     : <li key={i} className={`relative w-full ${item.text === "Strack" ? "group bg-gradient-to-br from-secondary/40 hover:scale-101  rounded-2xl transition-all duration-300 " : "bg-orange-600/10"} `}>
                                         <div className="text-[14px] group-hover:-translate-x-2 transition-all duration-300 absolute -right-6 top-3 px-2  flex justify-center items-center backdrop-blur-2xl rounded-full">
-                                            <small className=" font-bold bg-clip-text text-clip text-transparent bg-gradient-to-bl from-red-600 to-yellow-400">Nuevo</small>
+                                            <small className="  bg-clip-text text-clip text-transparent bg-gradient-to-bl from-red-600 to-yellow-400">Nuevo</small>
                                         </div>
                                         <Button
                                             onClick={() => handleMenuClick(i, !!item.submenu, item.link)}
@@ -189,7 +190,7 @@ function Sidebar() {
                                                     key={j}
                                                     onClick={() => navigate(subItem.link)}
                                                     className={`text-xs py-3 pl-6 pr-4 w-full flex items-center justify-start gap-2
-                                                    ${location.pathname === subItem.link ? 'text-secondary font-semibold' : 'text-zinc-400 hover:text-white'}`}>
+                                                    ${location.pathname === subItem.link ? 'text-secondary ' : 'text-zinc-400 hover:text-white'}`}>
                                                     <subItem.icon size={13} />
                                                     {openSidebar && subItem.text}
                                                 </Button>
@@ -200,7 +201,7 @@ function Sidebar() {
                                                         onClick={() => navigate(subItem.link)}
                                                         rounded="2xl"
                                                         className={`text-xs py-3 pl-6 pr-4 w-full flex items-center justify-start gap-2
-                                                    ${location.pathname === subItem.link ? 'text-secondary font-semibold  bg-gradient-to-bl from-secondary/50' : 'text-zinc-400 hover:text-white'}`}>
+                                                    ${location.pathname === subItem.link ? 'text-secondary   bg-gradient-to-bl from-secondary/50' : 'text-zinc-400 hover:text-white'}`}>
                                                         <subItem.icon size={13} />
                                                         {openSidebar && subItem.text}
                                                     </Button>
@@ -214,7 +215,7 @@ function Sidebar() {
                                                         bg-clip-text text-clip text-transparent bg-gradient-to-r from-danger to-orange-300`}>
                                                             <subItem.icon size={13} className="text-primary" />
                                                             <div className="text-[14px] group-hover:-translate-x-2 transition-all duration-300 absolute -right-7 top-3 px-2  flex justify-center items-center backdrop-blur-2xl rounded-full">
-                                                                <small className=" font-bold bg-clip-text text-clip text-transparent bg-gradient-to-bl from-red-600 to-yellow-400">Nuevo</small>
+                                                                <small className="  bg-clip-text text-clip text-transparent bg-gradient-to-bl from-red-600 to-yellow-400">Nuevo</small>
                                                             </div>
                                                             {openSidebar && subItem.text}
                                                         </Button>

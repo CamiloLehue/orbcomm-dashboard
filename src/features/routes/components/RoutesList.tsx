@@ -38,7 +38,7 @@ function RoutesList() {
                             >
                                 <div className="grid grid-cols-4 gap-2">
                                     <div className="flex flex-col items-start justify-center w-full">
-                                        <p className="text-white/70">{trip.origin.name}</p>
+                                        <p className="text-white/70 text-nowrap">{trip.origin.name}</p>
                                         <small className="text-gray text-nowrap">
                                             {trip.origin.coordinates.latitude} , {trip.origin.coordinates.longitude}
                                         </small>
@@ -48,7 +48,7 @@ function RoutesList() {
                                         <GrFormPreviousLink className="text-primary" />
                                     </div>
                                     <div className="flex flex-col items-center justify-center w-full">
-                                        <p className="text-white/70">{trip.destination.name}</p>
+                                        <p className="text-white/70 text-nowrap">{trip.destination.name}</p>
                                         <small className="text-gray text-nowrap">
                                             {trip.destination.coordinates.latitude} , {trip.destination.coordinates.longitude}
                                         </small>

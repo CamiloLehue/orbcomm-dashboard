@@ -42,62 +42,64 @@ interface SpeedData {
 
 export default function VelocidadesTruck() {
   const [seriesData, setSeriesData] = useState<SpeedData[][]>([]);
-  // const chartRef = useRef<echarts.ECharts | null>(null);
   const positionsRef = useRef<number[]>([]);
   const speedsRef = useRef<number[]>([]);
   const lastUpdateRef = useRef<number>(0);
 
   useEffect(() => {
-    const initialData = Array.from({ length: 5 }, (_, idx) => {
-      const initialPosition = Math.floor(Math.random() * 5);
-      positionsRef.current[idx] = initialPosition;
-      speedsRef.current[idx] = 5 / 3.6; // Velocidad inicial en m/s
-
-      return [{
-        time: getCurrentTimestamp(),
-        speed: speedsRef.current[idx]
-      }];
+    const now = Date.now();
+    const simulatedData = Array.from({ length: 5 }, (_, idx) => {
+      const position = Math.floor(Math.random() * route.length);
+      positionsRef.current[idx] = position;
+      speedsRef.current[idx] = 10 / 3.6;
+      const dataPoints: SpeedData[] = [];
+      for (let i = 0; i < 360; i++) {
+        const t = new Date(now - (3600 - i * 10) * 1000);
+        const prev = position;
+        const next = (prev + 1) % route.length;
+        const [lat1, lon1] = route[prev];
+        const [lat2, lon2] = route[next];
+        const dist = haversineDistance(lat1, lon1, lat2, lon2);
+        let kmh = (dist / 10) * 3.6 + (Math.random() - 0.5) * 5;
+        kmh = Math.max(5, Math.min(kmh, 80));
+        dataPoints.push({
+          time: t.toISOString().replace("T", " ").split(".")[0],
+          speed: kmh / 3.6,
+        });
+      }
+      return dataPoints;
     });
 
-    setSeriesData(initialData);
-
-    const interval = setInterval(updateData, 10000); // Actualizar cada 3 segundos
-
+    setSeriesData(simulatedData);
+    const interval = setInterval(updateData, 10000);
     return () => clearInterval(interval);
   }, []);
 
   const updateData = () => {
     const now = Date.now();
-    if (now - lastUpdateRef.current < 2000) return; // Limitar actualizaciones
+    if (now - lastUpdateRef.current < 2000) return;
     lastUpdateRef.current = now;
 
     setSeriesData(prevData => {
       return prevData.map((truckData, idx) => {
-        // Avanzar posición en la ruta
         positionsRef.current[idx] = (positionsRef.current[idx] + 1) % route.length;
         const currentPos = positionsRef.current[idx];
         const prevPos = currentPos > 0 ? currentPos - 1 : route.length - 1;
-
-        // Calcular nueva velocidad
         const [lat1, lon1] = route[prevPos];
         const [lat2, lon2] = route[currentPos];
         const distance = haversineDistance(lat1, lon1, lat2, lon2);
+        const delta = (Math.random() - 0.5) * 10;
+        let kmhSpeed = (distance / 3) * 3.6 + delta;
+        kmhSpeed = Math.max(1, Math.min(kmhSpeed, 90));
+        speedsRef.current[idx] = kmhSpeed / 3.6;
 
-        // Simular variación de velocidad
-        const delta = (Math.random() - 0.5) * 10; // +/- 5 km/h en variación
-        let kmhSpeed = (distance / 3) * 3.6 + delta; // 3 segundos entre actualizaciones
-        kmhSpeed = Math.max(1, Math.min(kmhSpeed, 90)); // límites realistas
-
-        speedsRef.current[idx] = kmhSpeed / 3.6; // Guardar en m/s
-
-        // Añadir nuevo punto de datos
         const newDataPoint = {
           time: getCurrentTimestamp(),
           speed: speedsRef.current[idx]
         };
 
         const updatedData = [...truckData, newDataPoint];
-        if (updatedData.length > 20) {
+        if (updatedData.length > 360) {
           updatedData.shift();
         }
 
@@ -110,7 +112,7 @@ export default function VelocidadesTruck() {
     name: `C#${idx + 1}`,
     type: "line",
     smooth: true,
-    showSymbol: true,
+    showSymbol: false,
     lineStyle: {
       width: 2,
     },
@@ -141,6 +143,7 @@ export default function VelocidadesTruck() {
     legend: {
       data: series.map((s) => s.name),
       textStyle: { color: "#fff" },
+      top: "280px",
     },
     toolbox: {
       feature: {
@@ -150,13 +153,26 @@ export default function VelocidadesTruck() {
     grid: {
       left: "3%",
       right: "4%",
-      bottom: "10%",
+      bottom: "15%",
       containLabel: true,
     },
+    dataZoom: [
+      {
+        type: "slider",
+        start: 80,
+        end: 100,
+        top: "-2%",
+        textStyle: { color: "#fff" },
+      },
+      {
+        type: "inside",
+        start: 80,
+        end: 100,
+      }
+    ],
     xAxis: {
       type: "category",
       name: "Tiempo",
-      // axisLabel: { color: "#fff", rotate: 45 },
       boundaryGap: false,
     },
     yAxis: {
@@ -176,7 +192,6 @@ export default function VelocidadesTruck() {
       <EChartComponent
         option={option as echarts.EChartsOption}
         style={{ width: "100%", height: "320px" }}
-        // onChartReady={(chart: echarts.ECharts) => { chartRef.current = chart; }}
       />
     </div>
   );
