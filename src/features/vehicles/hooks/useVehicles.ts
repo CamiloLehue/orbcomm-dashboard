@@ -10,9 +10,8 @@ export const useLastPositions = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const data = await getLastPositions(); // PositionsLast[]
-        const last = data.length > 0 ? data[0] : null; // o data.at(0)
-        setLastPosition(last);
+        const data = await getLastPositions();
+        setLastPosition(data);
       } catch (err) {
         console.error("Error fetching last positions:", err);
         setError(err as Error);

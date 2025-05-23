@@ -21,19 +21,14 @@ export const getLastPositions = async (): Promise<PositionsLast[]> => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
+        const data: PositionsLast[] = await response.json();
 
-        const data = await response.json();
-
-        if (!Array.isArray(data)) {
-            console.warn("La respuesta no es un array de posiciones:", data);
-            return [];
-        }
-
-        return data as PositionsLast[];
+        return data;
 
     } catch (error) {
         console.error("Error fetching last positions:", error);
         return [];
     }
+
 };
 
