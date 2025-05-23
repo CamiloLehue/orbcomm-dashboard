@@ -4,5 +4,6 @@ export interface NotificationData {
     description: string;
     date: string;
     time: string;
+    idTrip: string;
     status: number;
   }

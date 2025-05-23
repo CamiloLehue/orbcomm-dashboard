@@ -100,6 +100,16 @@ function ViewTrip() {
                         {/* Fin Top menu informacion rapdia de viaje */}
                         <RutaTracking id_trip={id_trip} progress_completed={progress_completed} />
                     </div>
+                    {
+                        trip_status === "desconectado" && (
+                            <div className="bg-danger/14 border border-danger/50 rounded w-full h-20 mt-10 flex flex-col p-3">
+                                <h5 className="text-white">Notificaciones</h5>
+                                <p>
+                                    Dispositivo se ha desconectado del servidor, de forma no autorizada.
+                                </p>
+                            </div>
+                        )
+                    }
                     <div className="p-2 w-full h-full mt-20">
                         <div className="w-full h-full rounded-2xl flex flex-col gap-5 p-2">
                             <h3>Información <span className="block text-xs text-secondary">del recorrido</span></h3>
@@ -172,7 +182,7 @@ const TripFast = ({ progress_completed, id_trip }: { progress_completed: number 
     const route = routes.find((route) => route.id === trip_route_id);
     const city_origen = route?.origin.name;
     const city_destino = route?.destination.name
-
+    const estado = trip?.current_status;
     const numeroViaje = trip?.trip_id;
     const patenteVehiculo = "XXXX-00";
     const patenteRampa = "XXXX-00";
@@ -221,7 +231,7 @@ const TripFast = ({ progress_completed, id_trip }: { progress_completed: number 
             patenteRampa={patenteRampa}
             horaSalida={horaSalida!}
             horaLlegada={horaLlegada!}
-            estado="En Camino"
+            estado={estado}
             zonePoints={zonePoints}
             progress_completed={progress_completed}
         />
