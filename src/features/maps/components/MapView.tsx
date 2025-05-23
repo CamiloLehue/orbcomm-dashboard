@@ -18,6 +18,7 @@ interface MapViewProps {
     height?: string;
     options?: boolean;
     nameCitys?: string[];
+    trip_id?: string | undefined;
 }
 
 const MapCenterUpdater = ({ center }: { center: LatLngExpression }) => {
@@ -30,7 +31,7 @@ const MapCenterUpdater = ({ center }: { center: LatLngExpression }) => {
     return null;
 };
 
-const MapView = ({ nameCitys, vehicleLastPosition, tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]], height = "100%", options = false }: MapViewProps) => {
+const MapView = ({ trip_id,nameCitys, vehicleLastPosition, tripOrigin, origenDestinyAsigned = [[-43.1375, -73.6425], [-42.1350, -73.6400]], height = "100%", options = false }: MapViewProps) => {
     const [geoZones] = useState(false);
     const { BaseLayer, Overlay } = LayersControl;
     // const { route, markerIndex, load } = useRouteSimulation();
@@ -38,6 +39,7 @@ const MapView = ({ nameCitys, vehicleLastPosition, tripOrigin, origenDestinyAsig
     // const address = useReverseGeocode(lat, lon);
 
     // if (!load) return <Loading />;
+
 
     return (
         <div className="rounded-b-xl ">
@@ -81,7 +83,7 @@ const MapView = ({ nameCitys, vehicleLastPosition, tripOrigin, origenDestinyAsig
                         vehicleLastPosition ?
                             <>
                                 <Overlay checked name="ultima_position">
-                                    <VehicleMarker vehicleLastPosition={vehicleLastPosition} />
+                                    <VehicleMarker id_trip={trip_id} vehicleLastPosition={vehicleLastPosition} />
                                 </Overlay>
                                 <Overlay checked name="Ruta Real">
                                     <RouteLayer origenDestinyAsigned={origenDestinyAsigned} />
@@ -92,7 +94,7 @@ const MapView = ({ nameCitys, vehicleLastPosition, tripOrigin, origenDestinyAsig
                             </> :
                             <>
                                 <Overlay checked name="Camión">
-                                    <VehicleMarker origenDestinyAsigned={origenDestinyAsigned} />
+                                    <VehicleMarker id_trip={trip_id} origenDestinyAsigned={origenDestinyAsigned} />
                                 </Overlay>
                                 <Overlay checked name="Ruta Real">
                                     <RouteLayer origenDestinyAsigned={origenDestinyAsigned} />

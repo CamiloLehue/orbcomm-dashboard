@@ -1,80 +1,108 @@
 import { CgShapeHexagon } from 'react-icons/cg';
 import { GrFormNextLink } from 'react-icons/gr';
-import { useAllTrips } from '../hooks/useAllsTrips';
 import { useNavigate } from 'react-router';
 import clsx from 'clsx';
-import { useMemo } from 'react';
+import { useTrips } from '../hooks/useTripsHook';
 
 function TripList() {
 
     const navigate = useNavigate();
-    const { allTrips, loading } = useAllTrips();
-    const porcentajes = useMemo(() => allTrips.map(() => Math.round(Math.random() * 100)), [allTrips]);
+    const { Trips, loading } = useTrips();
 
     if (loading) return <p>Cargando...</p>;
-    if (!Array.isArray(allTrips)) {
+    if (!Array.isArray(Trips)) {
         return <p>No se encontraron viajes disponibles</p>;
     }
 
+    const count = Trips.length;
+    const completed = Trips.filter(trip => trip.progress_completed === 100).length;
+    const inProgress = Trips.filter(trip => trip.progress_completed < 100).length;
+    const disconnected = Trips.filter(trip => trip.current_status === "desconectado").length;
+    const paused = Trips.filter(trip => trip.current_status === "detenido").length;
+    const delayed = Trips.filter(trip => trip.current_status === "retrasado").length;
+    const scheduled = Trips.filter(trip => trip.current_status === "agendado").length;
+
     return (
         <div className="relative flex flex-col justify-between h-full rounded-xs bg-bgp border border-bgt/20 overflow-hidden">
-            {/* <div className='absolute opacity-45 bottom-0 left-0 w-50 h-70 blur-3xl bg-gradient-to-t from-secondary/40 to-primary/30'></div> */}
             <div>
                 <div className="flex flex-col w-full p-5 ">
                     <h4 className="leading-4">Seguimiento</h4>
                     <small className="text-xs text-gray">de vehículos activos</small>
                 </div>
-                <div className="relative  grid grid-cols-3 gap-2   pb-1">
+                <div className="relative  grid grid-cols-5 gap-2   pb-2 ">
                     <div className="flex flex-col justify-center items-center">
-                        <h2 className="text-warning">2</h2>
+                        <h2 className="text-gray">{paused}</h2>
                         <small className="text-xs">Detenidos</small>
                     </div>
                     <div className="flex flex-col justify-center items-center">
-                        <h2 className="text-secondary">5</h2>
+                        <h2 className="text-gray">{count}</h2>
                         <small className="text-xs">Circulación</small>
                     </div>
                     <div className="flex flex-col justify-center items-center">
-                        <h2 className="text-gray">3</h2>
-                        <small className="text-xs">Alternativa</small>
+                        <h2 className="text-gray">{delayed}</h2>
+                        <small className="text-xs">Atrasado</small>
+                    </div>
+                    <div className="flex flex-col justify-center items-center">
+                        <h2 className="text-gray">{disconnected}</h2>
+                        <small className="text-xs">Desconectado</small>
+                    </div>
+                    <div className="flex flex-col justify-center items-center">
+                        <h2 className="text-gray">{scheduled}</h2>
+                        <small className="text-xs">agendado</small>
                     </div>
                 </div>
 
                 <div className="max-h-[178px] overflow-y-auto px-1 ps-2">
                     <div className="w-full relative flex flex-col gap-1 pb-8 overflow-hidden ">
-                        {allTrips.map((trip, i) => {
-                            const valorPorcentaje = porcentajes[i];                            // Obtener el primer y último registro de data para cada viaje
-                            const firstData = trip.data[0];
-                            const lastData = trip.data[trip.data.length - 1];
+                        {Trips.map((trip, i) => {
+                            const progress_completed = trip.progress_completed;
+                            // const status_trip = trip.current_status;                    // Obtener el primer y último registro de data para cada viaje
 
                             // Nombres de ciudades
-                            const cityOrigen = firstData.positionStatus.city || "Origen desconocido";
-                            const cityDestino = lastData.positionStatus.city || "Destino desconocido";
+                            const cityOrigen = trip.origin.name || "Origen desconocido";
+                            const cityDestino = trip.destination.name || "Destino desconocido";
+                            const status = trip.current_status || "Sin Estado";
 
-                            const colorType = (valorPorcentaje: number) => (
+                            const colorType = (progress_completed: number) => (
                                 clsx({
-                                    "bg-gradient-to-r from-success to-secondary": valorPorcentaje >= 0 && valorPorcentaje <= 100,
+                                    "linear-gradient(to right, #ff0000, #ff0000)": progress_completed >= 0 && progress_completed < 10,
+                                    "linear-gradient(to right, #ff0000, #ff9900)": progress_completed >= 10 && progress_completed < 25,
+                                    "linear-gradient(to right, #ff9900, #ccff00)": progress_completed >= 25 && progress_completed < 50,
+                                    "linear-gradient(to right, #00ffc4, #00ffc4)": progress_completed >= 50 && progress_completed < 75,
+                                    "linear-gradient(to right, #00dcff, #00ffc4)": progress_completed >= 75 && progress_completed <= 100,
                                 })
                             )
 
-                            const colorText = (valorPorcentaje: number) => (
+                            const colorText = (progress_completed: number) => (
                                 clsx({
-                                    "text-success": valorPorcentaje >= 75,
-                                    "text-secondary": valorPorcentaje > 50 && valorPorcentaje < 75,
-                                    "text-warning": valorPorcentaje >= 10 && valorPorcentaje <= 50,
-                                    "text-danger": valorPorcentaje >= 0 && valorPorcentaje < 10,
+                                    "#ff0000": progress_completed >= 0 && progress_completed < 10,
+                                    "#ff9900": progress_completed >= 10 && progress_completed < 25,
+                                    "#ccff00": progress_completed >= 25 && progress_completed < 50,
+                                    "#00ffc4": progress_completed >= 50 && progress_completed < 75,
+                                    "#00dcff": progress_completed >= 75 && progress_completed <= 100,
+                                })
+                            )
+
+                            const colorStates = (status: string) => (
+                                clsx({
+                                    "#ff0000": status === "desconectado",
+                                    "#ffb300": status === "detenido",
+                                    "#00dcff": status === "en progreso",
+                                    "#b2ff00": status === "completado",
                                 })
                             )
 
                             return (
                                 <div
                                     key={i}
-                                    onClick={() => navigate(`/viajes/ver/1`)}
-                                    className="relative group overflow-hidden bg-bgp w-full hover:bg-transparent cursor-pointer  h-10 rounded-xs grid grid-cols-5 px-2 py-1"
+                                    onClick={() => navigate(`/viajes/ver/${trip.trip_id}`)}
+                                    className="relative group overflow-hidden bg-bgp w-full hover:bg-transparent cursor-pointer  h-10 rounded-xs grid grid-cols-6 px-2 py-1"
 
                                 >
-                                    <div className={clsx(`absolute left-0 bottom-0 h-0.5  ${colorType(valorPorcentaje)}  blur-3xl `)}
+                                    <div className={clsx(`absolute left-0 bottom-0 h-0.5  blur-2xl `)}
                                         style={{
-                                            width: valorPorcentaje + "%",
+                                            backgroundImage: `${colorType(progress_completed)}`,
+                                            width: progress_completed + "%",
                                             height: 100 + "%",
                                         }}>
                                     </div>
@@ -83,13 +111,17 @@ function TripList() {
                                             width: 100 + "%",
                                         }}>
                                     </div>
-                                    <div className={`absolute left-0 bottom-0 h-0.5 ${colorType(valorPorcentaje)}`}
+                                    <div className={`absolute left-0 bottom-0 h-0.5 `}
                                         style={{
-                                            width: valorPorcentaje + "%",
+                                            backgroundImage: `${colorType(progress_completed)}`,
+                                            width: progress_completed + "%",
                                         }}>
                                     </div>
                                     <div className="col-span-2 flex justify-start items-center gap-1">
-                                        <small className={` ${colorText(valorPorcentaje)} `}>
+                                        <small
+                                            style={{
+                                                color: colorText(progress_completed),
+                                            }}>
                                             <CgShapeHexagon />
                                         </small>
                                         <div className='flex flex-col justify-center items-start'>
@@ -105,9 +137,23 @@ function TripList() {
                                             </small>
                                         </div>
                                     </div>
+                                    <div className=' flex justify-center items-center '>
+                                        {
+                                            <small
+                                                style={{
+                                                    color: colorStates(trip.current_status),
+                                                }}
+                                                className="text-xs capitalize text-nowrap ">
+                                                {trip.current_status}
+                                            </small>
+                                        }
+                                    </div>
 
                                     <div className="flex  col-span-2 justify-center items-center gap-1">
-                                        <small className='text-'> {valorPorcentaje + "%"}</small>
+                                        <small className='text-'
+                                            style={{
+                                                color: colorText(progress_completed),
+                                            }}> {progress_completed + "%"}</small>
                                     </div>
 
                                     <div className="flex justify-center items-center group-hover:translate-x-1 group-hover:text-secondary transition-all duration-500">

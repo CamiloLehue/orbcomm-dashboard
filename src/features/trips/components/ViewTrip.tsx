@@ -207,8 +207,7 @@ function ViewTrip() {
                     </div>
                 </div>
                 <div className="relative col-span-4 h-full overflow-hidden">
-
-                    <MapView tripOrigin={origen as [number, number]} tripDestination={destino as [number, number]} height="740px" options />
+                    <MapView trip_id={id_trip} tripOrigin={origen as [number, number]} tripDestination={destino as [number, number]} height="740px" options />
                 </div>
             </div>
         </div >

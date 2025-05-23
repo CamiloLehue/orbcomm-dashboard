@@ -113,8 +113,10 @@ function Sidebar() {
             </div>
 
             <div className="flex flex-col justify-center items-center">
-                <h5 className="text-danger font-bold">WI<span className="text-white/60 font-normal">SENSOR</span></h5>
-                <small className="text-xs font-light">S<span className="text-secondary">Track</span></small>
+                <div className="flex justify-center">
+                    <img onClick={()=> {navigate('/dashboard')}} src="/logo_wi.png" alt="logo wisensor" className="w-1/2 cursor-pointer" />
+                </div>
+                <h5 className="text-blue-500">STRACK</h5>
             </div>
 
             <h6 className="text-zinc-600 text-center font-bold">Sistema Sincronizado</h6>
