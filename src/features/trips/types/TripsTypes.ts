@@ -29,5 +29,6 @@ export type ScheduledTrip = {
     created_at: string;
     last_updated: string;
     progress_completed: number;
+    arrival_status: "on_time" | "at_risk" | "delayed" | "unknown";
   };
   

@@ -6,6 +6,7 @@ import StatisticsSpeed from "../statistics/components/StatisticsSpeed";
 import MultiMapView from "../maps/components/MultiMapView";
 import AccessDirectTrip from "../trips/components/AccessDirectTrip";
 import Titles from "../../components/ui/Titles";
+import StatistictPerformance from "../statistics/components/StatistictPerformance";
 // import ReportList from "../reports/components/ReportList";
 function Dashboard() {
   return (
@@ -23,6 +24,7 @@ function Dashboard() {
           <div className="col-span-2 grid grid-cols-2 gap-2 ">
             <div className="border border-gray/15 rounded-xl p-1">
               {/* <StatisticsAccesDirect /> */}
+              <StatistictPerformance/>
             </div>
             <div className="border border-gray/20 p-1">
               <StatisticsSpeed />
