@@ -33,7 +33,7 @@ function AccessDirectTrip({ estado = "En Camino", zonePoints }: AccessDirectTrip
     const navigate = useNavigate();
     return (
         <div className="relative flex flex-col place-items-center w-full min-h-80 overflow-hidden shadow 
-        bgbgp rounded-2xl border-t border-secondary/20"
+        bgbgp rounded-2xl border-t border-secondary/50 bg-bgt"
         >
             <div className="absolute right-5 top-2 flex justify-center items-center gap-2 z-10">
                 <div className="rounded-full flex justify-center gap-2 items-center py-1">
@@ -46,8 +46,8 @@ function AccessDirectTrip({ estado = "En Camino", zonePoints }: AccessDirectTrip
                 </div>
                 <GrFormPin className="text-2xl text-primary" />
             </div>
-            <div className="absolute right-0 top-0 bg-secondary/40 h-60 w-100 rounded-full blur-3xl"></div>
-            <div className="absolute right-[50%] top-0 bg-primary/10 h-60 w-100 rounded-full blur-3xl"></div>
+            <div className="absolute right-0 top-0 bg-secondary/80 h-60 w-100 rounded-full blur-3xl"></div>
+            <div className="absolute right-[50%] top-0 bg-purple-400/20 h-60 w-100 rounded-full blur-3xl"></div>
             <div className="relative w-full h-[50%]  p-1">
                 <div className="grid grid-cols-2 w-full h-full p-5">
                     <div className="flex justify-center items-center relative mt-3">

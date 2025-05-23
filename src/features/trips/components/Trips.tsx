@@ -24,7 +24,7 @@ function Trips() {
     const inProgress = Trips.filter(trip => trip.progress_completed < 100).length;
     const disconnected = Trips.filter(trip => trip.current_status === "desconectado").length;
     const paused = Trips.filter(trip => trip.current_status === "detenido").length;
-    const delayed = Trips.filter(trip => trip.current_status === "retrasado").length;
+    const canceled = Trips.filter(trip => trip.current_status === "cancelado").length;
     const scheduled = Trips.filter(trip => trip.current_status === "agendado").length;
 
     return (
@@ -137,8 +137,8 @@ function Trips() {
                                             <small className="text-gray">Detenidos</small>
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
-                                            <h1 className="font-bold">{delayed}</h1>
-                                            <small className="text-gray">Retrasados</small>
+                                            <h1 className="font-bold">{canceled}</h1>
+                                            <small className="text-gray">Cancelados</small>
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <h1 className="font-bold">{scheduled}</h1>
