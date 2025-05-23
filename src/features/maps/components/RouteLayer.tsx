@@ -32,11 +32,12 @@ const RouteLayer = ({ origenDestinyAsigned }: { origenDestinyAsigned?: LatLngExp
       positions={result}
       pathOptions={{
         color: '#007bff',
-        weight: 6,
+        weight: 4,
         opacity: 0.9,
-        dashArray: '2, 12',
+        dashArray: '5, 12',
         lineCap: 'round',
         lineJoin: 'round',
+        bubblingMouseEvents: true,
       }}
     />
   </>

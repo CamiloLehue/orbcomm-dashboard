@@ -31,7 +31,33 @@ function ViewTrip() {
     const trip_status = trip?.current_status;
     const driver_one = trip?.assigned_driver.name
     const driver_two = trip?.assigned_driver.name
+    // const positionVehicle = (id_trip === "scheduled-001") ? [-43.075089, -73.635604] : [origen_lat, origen_lng];
 
+
+
+    const positionDemo = (id_trip : string | undefined) => {
+        if (id_trip === 'scheduled-001') {
+            return [-42.022611, -73.834074];
+        } else if (id_trip === 'scheduled-002') {
+            return [-42.185624, -73.715867];
+        } else if (id_trip === 'scheduled-003') {
+            return [-41.268094, -73.007761];
+        } else if (id_trip ==='scheduled-004') {
+            return [-40.79525, -73.191563];
+        } else if (id_trip ==='scheduled-005') {
+            return [-41.588358, -73.231891];
+        } else if (id_trip ==='scheduled-006') {
+            return [-41.903987, -73.792225];
+        } else if (id_trip ==='scheduled-007') {
+            return [-42.377569, -73.651766];
+        } else if (id_trip ==='scheduled-008') {
+            return [-41.175448, -72.556401];
+        }
+        else {
+            return [origen_lat, origen_lng];
+        }
+    }
+    
     return (
         <div className="relative bg-bgp h-full w-full flex flex-col justify-start items-start">
             <div className="grid grid-cols-12 gap-5  w-full h-full">
@@ -41,7 +67,7 @@ function ViewTrip() {
                         <div className="bg-bg py-1 w-full col-span-8 flex justify-start items-center gap-5 border-b border-gray/20 pb-3 ">
                             <div className="">
                                 {
-                                    <GrFormPreviousLink onClick={() => { navigate(-1) }} className="text-primary" />
+                                    <GrFormPreviousLink onClick={() => { navigate(-1) }} className="text-primary cursor-pointer" />
                                 }
                             </div>
                             <div className="flex text-nowrap justify-start items-center gap-3 bg-gray/30 px-2 ps-4 pe-4 rounded-full py-1">
@@ -207,7 +233,13 @@ function ViewTrip() {
                     </div>
                 </div>
                 <div className="relative col-span-4 h-full overflow-hidden">
-                    <MapView trip_id={id_trip} tripOrigin={origen as [number, number]} tripDestination={destino as [number, number]} height="740px" options />
+                    <MapView vehicleLastPosition={positionDemo(id_trip) as [number, number]}
+                        trip_id={id_trip} tripOrigin={positionDemo(id_trip) as [number, number]}
+                        tripDestination={destino as [number, number]}
+                        origenDestinyAsigned={[origen as [number, number], destino as [number, number]]}
+                        height="740px"
+                        options
+                    />
                 </div>
             </div>
         </div >
