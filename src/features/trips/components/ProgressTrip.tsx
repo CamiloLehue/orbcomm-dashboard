@@ -10,12 +10,12 @@ interface ProgressTripProps {
     patenteRampa: string;
     horaSalida: string;
     horaLlegada: string;
-    estado: "En Camino" | "En Rampa" | "En Viaje" | "Finalizado" | "Pendiente";
+    estado?: string;
     zonePoints?: { id: number, name: string, hours: string, estado: boolean, progress: number, lat: number, lng: number }[];
     progress_completed?: number;
 }
 
-function ProgressTrip({ estado = "En Camino", zonePoints, progress_completed }: ProgressTripProps) {
+function ProgressTrip({ estado , zonePoints, progress_completed }: ProgressTripProps) {
     const [progress, setProgress] = useState(progress_completed || 0);
 
     useEffect(() => {
@@ -111,7 +111,7 @@ const BarProgress = ({ progress, estado }: { progress: number, estado?: string }
 const PopUpStatus = ({ estado = "En Camino" }: { estado?: string }) => {
     return (
         <div className="absolute -top-11 -right-11.5 bg-white min-w-20 px-5 h-7 rounded-full flex justify-center items-center">
-            <small className="text-bgp text-nowrap text-xs">{estado}</small>
+            <small className="text-bgp text-nowrap text-xs capitalize">{estado}</small>
             <div className="absolute h-2 w-2 bg-white rotate-45 -bottom-1">
             </div>
         </div>

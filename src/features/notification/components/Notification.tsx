@@ -3,6 +3,7 @@ import Button from "../../../components/ui/Button"
 import dataNotification from "../data/data"
 import { NotificationData } from "../types/Notification"
 import { GrCircleAlert, GrPhone } from "react-icons/gr"
+import { useNavigate } from "react-router"
 
 function Notification() {
     return (
@@ -52,6 +53,7 @@ type NotificationItemProps = {
 }
 
 const NotificationItem = ({ data }: NotificationItemProps) => {
+    const navigate = useNavigate();
     const getTextColor = (status: number) => {
         return clsx({
             "text-danger": status === 1,
@@ -75,13 +77,16 @@ const NotificationItem = ({ data }: NotificationItemProps) => {
             <div className="relative flex flex-col gap-2 pe-2 pb-5">
                 {
                     data.map((item, i) => (
-                        <div key={i} className={`relative py-2 transition-all duration-500 cursor-pointer hover:bg-transparent rounded-xs   grid grid-cols-5 ${getStyleColor(item.status)}`}>
+                        <div
+                            onClick={() => { navigate(`/viajes/ver/${item.idTrip}`) }}
+                            key={i}
+                            className={`relative py-2 transition-all duration-500 cursor-pointer hover:bg-transparent rounded-xs   grid grid-cols-5 ${getStyleColor(item.status)}`}>
                             <div className={`flex justify-center items-center gap-2 ${getTextColor(item.status)}`}>
                                 <GrCircleAlert />
                             </div>
                             <span className="absolute right-2 top-2 text-xs text-white/40">{item.time}</span>
                             <div className="relative col-span-3 flex flex-col justify-center items-start gap-1">
-                                <span className="text-primary text-xs">E-90032{item.id} </span>
+                                <span className="text-primary text-xs">{item.idTrip} </span>
                                 <h5 className="flex justify-start items-center gap-1 text-nowrap font-semibold">
                                     {item.title}
                                 </h5>

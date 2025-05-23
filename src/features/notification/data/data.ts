@@ -2,9 +2,10 @@ const dataNotification = [
     {
         id: 1,
         title: "Desconexión del dispositivo ",
-        description: "El viaje E-20050006 se ha desconectado del dispositivo",
+        description: "El viaje scheduled-006 se ha desconectado del dispositivo",
         date: "2021-01-01",
         time: "Justo ahora",
+        idTrip: "scheduled-006",
         status: 1,
     },
     {
@@ -13,6 +14,7 @@ const dataNotification = [
         description: "El E-2324238 tiene 20 min de retrazo.",
         date: "2021-01-01",
         time: "hace 2 minutos",
+        idTrip: "scheduled-003",
         status: 2,
     },
     {
@@ -20,7 +22,8 @@ const dataNotification = [
         title: "Llegando al destino",
         description: "El viaje 1234567890 se encuentra próximo al destino.",
         date: "2021-01-01",
-        time: "11:29",
+        time: "15:30",
+        idTrip: "scheduled-004",
         status: 3,
     },
     {
@@ -29,6 +32,7 @@ const dataNotification = [
         description: "El viaje 1234567890 se encuentra en camino",
         date: "2021-01-01",
         time: "11:18",
+        idTrip: "scheduled-001",
         status: 4,
     },
     {
@@ -37,6 +41,7 @@ const dataNotification = [
         description: "El viaje 1234567890 se encuentra en camino",
         date: "2021-01-01",
         time: "11:06",
+        idTrip: "scheduled-002",
         status: 4,
     },
     {
@@ -45,6 +50,7 @@ const dataNotification = [
         description: "El viaje 1234567890 se encuentra en camino",
         date: "2021-01-01",
         time: "11:00",
+        idTrip: "scheduled-006",
         status: 4,
     },
     {
@@ -53,6 +59,7 @@ const dataNotification = [
         description: "El viaje 1234567890 se encuentra en camino",
         date: "2021-01-01",
         time: "10:20",
+        idTrip: "scheduled-007",
         status: 3,
     },
     {
@@ -61,6 +68,7 @@ const dataNotification = [
         description: "El viaje 1234567890 se encuentra en camino",
         date: "2021-01-01",
         time: "10:00",
+        idTrip: "scheduled-008",
         status: 4,
     },
 ]
