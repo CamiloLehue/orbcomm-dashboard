@@ -3,7 +3,7 @@ import MapList from "./MapList";
 import TripListActive from "./TripListActive";
 import Button from "../../../components/ui/Button";
 import { GrFormPrevious } from "react-icons/gr";
-import Titles from "../../../components/ui/Titles";
+import Titles from "../../../components/ui/SubMenu";
 
 function Monotorings() {
     const [openConfig, setOpenConfig] = useState(false);

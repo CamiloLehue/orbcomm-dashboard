@@ -3,7 +3,7 @@ import { useRoutes } from "../hooks/useRoutes";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { MapView } from "../../maps";
 import { useState } from "react";
-import Titles from "../../../components/ui/Titles";
+import Titles from "../../../components/ui/SubMenu";
 import AlertBg from "../../../components/ui/AlertsBg";
 
 function RoutesList() {

@@ -8,7 +8,9 @@ import {
     GrDirections,
     GrLocationPin,
     GrSatellite,
-    GrBeacon
+    GrBeacon,
+    GrExpand,
+    GrContract
 } from "react-icons/gr"
 import Button from "../components/ui/Button"
 import { useNavigate, useLocation } from "react-router"
@@ -104,11 +106,11 @@ function Sidebar() {
 
     return (
         <div className={`${!openSidebar ? `w-[100px]` : `w-[270px]`} relative text-white transition-all bg-gradient-to-b from-bgp p-2 flex flex-col justify-start items-center gap-5`}>
-            <div className="absolute -right-15 top-2.5">
+            <div className="absolute -right-13 top-3">
                 <Button
                     onClick={() => setOpenSidebar(!openSidebar)}
                     className="relative z-50 text-xs text-zinc-500 flex items-center justify-start gap-2">
-                    {!openSidebar ? <GrFormNext size={20} className="text-secondary" /> : <GrFormNext size={20} className="text-primary rotate-180" />}
+                    {!openSidebar ? <GrContract size={18} className="text-secondary" /> : <GrExpand size={18} className="text-primary rotate-180" />}
                 </Button>
             </div>
 

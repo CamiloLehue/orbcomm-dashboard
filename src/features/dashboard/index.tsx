@@ -5,7 +5,7 @@ import TripList from "../trips/components/TripList";
 import StatisticsSpeed from "../statistics/components/StatisticsSpeed";
 import MultiMapView from "../maps/components/MultiMapView";
 import AccessDirectTrip from "../trips/components/AccessDirectTrip";
-import Titles from "../../components/ui/Titles";
+import Titles from "../../components/ui/SubMenu";
 import StatistictPerformance from "../statistics/components/StatistictPerformance";
 // import ReportList from "../reports/components/ReportList";
 function Dashboard() {
