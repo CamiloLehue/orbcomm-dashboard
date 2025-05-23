@@ -92,6 +92,14 @@ function TripList() {
                                 })
                             )
 
+                            const getProgressColor = (percent: number): string => {
+                                const p = Math.min(Math.max(percent, 0), 100) / 100;
+                                const r = Math.round(255 * (1 - p));
+                                const g = 255;
+                                const b = 155;
+                                return `rgb(${r}, ${g}, ${b})`;
+                            };
+
                             return (
                                 <div
                                     key={i}
@@ -99,24 +107,25 @@ function TripList() {
                                     className="relative group overflow-hidden bg-bgp w-full hover:bg-transparent cursor-pointer  h-10 rounded-xs grid grid-cols-6 px-2 py-1"
 
                                 >
-                                    <div className={clsx(`absolute left-0 bottom-0 h-0.5  blur-2xl `)}
+                                    <div className={clsx(`absolute left-0 bottom-0 h-1  blur-3xl opacity-50 `)}
                                         style={{
-                                            backgroundImage: `${colorType(progress_completed)}`,
-                                            width: progress_completed + "%",
+                                            backgroundColor: getProgressColor(progress_completed),
+                                            width: `${progress_completed}%`,
                                             height: 100 + "%",
                                         }}>
                                     </div>
-                                    <div className='absolute left-0 bottom-0 h-0.5  bg-gray'
+                                    <div className='absolute left-0 bottom-0 h-1  bg-gray'
                                         style={{
                                             width: 100 + "%",
                                         }}>
                                     </div>
-                                    <div className={`absolute left-0 bottom-0 h-0.5 `}
+                                    <div
+                                        className="absolute left-0 bottom-0 h-1 rounded-sm transition-all duration-300"
                                         style={{
-                                            backgroundImage: `${colorType(progress_completed)}`,
-                                            width: progress_completed + "%",
-                                        }}>
-                                    </div>
+                                            backgroundColor: getProgressColor(progress_completed),
+                                            width: `${progress_completed}%`,
+                                        }}
+                                    ></div>
                                     <div className="col-span-2 flex justify-start items-center gap-1">
                                         <small
                                             style={{

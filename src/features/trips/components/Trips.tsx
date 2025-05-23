@@ -45,55 +45,44 @@ function Trips() {
                                 const cityOrigen = trip.origin.name || "Origen desconocido";
                                 const cityDestino = trip.destination.name || "Destino desconocido";
 
-                                const colorType = (progress_completed: number) => (
-                                    clsx({
-                                        "linear-gradient(to right, #ff0000, #ff0000)": progress_completed >= 0 && progress_completed < 10,
-                                        "linear-gradient(to right, #ff0000, #ff9900)": progress_completed >= 10 && progress_completed < 25,
-                                        "linear-gradient(to right, #ff9900, #ccff00)": progress_completed >= 25 && progress_completed < 50,
-                                        "linear-gradient(to right, #00ffc4, #00ffc4)": progress_completed >= 50 && progress_completed < 75,
-                                        "linear-gradient(to right, #00dcff, #00ffc4)": progress_completed >= 75 && progress_completed <= 100,
-                                    })
-                                )
-
-                                const colorText = (progress_completed: number) => (
-                                    clsx({
-                                        "#ff0000": progress_completed >= 0 && progress_completed < 10,
-                                        "#ff9900": progress_completed >= 10 && progress_completed < 25,
-                                        "#ccff00": progress_completed >= 25 && progress_completed < 50,
-                                        "#00ffc4": progress_completed >= 50 && progress_completed < 75,
-                                        "#00dcff": progress_completed >= 75 && progress_completed <= 100,
-                                    })
-                                )
+                                const getProgressColor = (percent: number): string => {
+                                    const p = Math.min(Math.max(percent, 0), 100) / 100;
+                                    const r = Math.round(255 * (1 - p));
+                                    const g = 255;
+                                    const b = 155;
+                                    return `rgb(${r}, ${g}, ${b})`;
+                                };
 
                                 return (
                                     <div
                                         key={i}
                                         onClick={() => navigate(`/viajes/ver/${trip.trip_id}`)}
-                                        className="relative group overflow-hidden bg-bgp w-full hover:bg-transparent cursor-pointer  h-10 rounded-xs grid grid-cols-5 px-2 py-1"
+                                        className="relative group overflow-hidden bg-bgp w-full hover:bg-transparent cursor-pointer  h-15 rounded-xs grid grid-cols-5 px-2 py-1"
 
                                     >
-                                        <div className={clsx(`absolute left-0 bottom-0 h-0.5  blur-2xl `)}
+                                        <div className={clsx(`absolute left-0 bottom-0 h-2  blur-3xl opacity-50 `)}
                                             style={{
-                                                backgroundImage: `${colorType(progress_completed)}`,
-                                                width: progress_completed + "%",
+                                                backgroundColor: getProgressColor(progress_completed),
+                                                width: `${progress_completed}%`,
                                                 height: 100 + "%",
                                             }}>
                                         </div>
-                                        <div className='absolute left-0 bottom-0 h-0.5  bg-gray'
+                                        <div className='absolute left-0 bottom-0 h-2  bg-gray'
                                             style={{
                                                 width: 100 + "%",
                                             }}>
                                         </div>
-                                        <div className={`absolute left-0 bottom-0 h-0.5 `}
+                                        <div
+                                            className="absolute left-0 bottom-0 h-2 rounded-sm transition-all duration-300"
                                             style={{
-                                                backgroundImage: `${colorType(progress_completed)}`,
-                                                width: progress_completed + "%",
-                                            }}>
-                                        </div>
+                                                backgroundColor: getProgressColor(progress_completed),
+                                                width: `${progress_completed}%`,
+                                            }}
+                                        ></div>
                                         <div className="col-span-2 flex justify-start items-center gap-1">
                                             <small
                                                 style={{
-                                                    color: colorText(progress_completed),
+                                                    color: getProgressColor(progress_completed),
                                                 }}>
                                                 <CgShapeHexagon />
                                             </small>
@@ -114,7 +103,7 @@ function Trips() {
                                         <div className="flex  col-span-2 justify-center items-center gap-1">
                                             <small className='text-'
                                                 style={{
-                                                    color: colorText(progress_completed),
+                                                    color: getProgressColor(progress_completed),
                                                 }}> {progress_completed + "%"}</small>
                                         </div>
 
