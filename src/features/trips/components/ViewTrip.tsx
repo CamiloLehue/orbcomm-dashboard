@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router";
 import Button from "../../../components/ui/Button";
-import { GrCheckmark, GrCircleQuestion, GrCopy, GrDirections, GrFormNextLink, GrFormPreviousLink, GrGrommet, GrPhone, GrSchedule } from "react-icons/gr";
+import { GrCheckmark, GrCircleQuestion, GrCopy, GrDirections, GrFormNextLink, GrFormPreviousLink, GrGrommet, GrPhone, GrSchedule, GrSchedules } from "react-icons/gr";
 import { MapView } from "../../maps";
 import ProgressTrip from "./ProgressTrip";
 import { useTrips } from "../hooks/useTripsHook";
@@ -35,29 +35,29 @@ function ViewTrip() {
 
 
 
-    const positionDemo = (id_trip : string | undefined) => {
+    const positionDemo = (id_trip: string | undefined) => {
         if (id_trip === 'scheduled-001') {
             return [-42.022611, -73.834074];
         } else if (id_trip === 'scheduled-002') {
             return [-42.185624, -73.715867];
         } else if (id_trip === 'scheduled-003') {
             return [-41.268094, -73.007761];
-        } else if (id_trip ==='scheduled-004') {
+        } else if (id_trip === 'scheduled-004') {
             return [-40.79525, -73.191563];
-        } else if (id_trip ==='scheduled-005') {
+        } else if (id_trip === 'scheduled-005') {
             return [-41.588358, -73.231891];
-        } else if (id_trip ==='scheduled-006') {
+        } else if (id_trip === 'scheduled-006') {
             return [-41.903987, -73.792225];
-        } else if (id_trip ==='scheduled-007') {
+        } else if (id_trip === 'scheduled-007') {
             return [-42.377569, -73.651766];
-        } else if (id_trip ==='scheduled-008') {
+        } else if (id_trip === 'scheduled-008') {
             return [-41.175448, -72.556401];
         }
         else {
             return [origen_lat, origen_lng];
         }
     }
-    
+
     return (
         <div className="relative bg-bgp h-full w-full flex flex-col justify-start items-start">
             <div className="grid grid-cols-12 gap-5  w-full h-full">
@@ -137,100 +137,7 @@ function ViewTrip() {
                     </div>
                 </div>
                 <div className="col-span-3 bg-bgp w-full h-ful p-1">
-                    <div className="bg-bgs/50 w-full h-full rounded-2xl p-5">
-                        <h3>Logística</h3>
-                        <h5 className="text-gray">Trazabilidad del cargamento</h5>
-                        <div className="w-full my-5">
-                            <div className="border-s border-dashed border-gray/50 flex flex-col gap-2 p-2">
-                                <div className="border border-dashed border-gray/30 py-3 px-4 rounded-lg flex flex-col">
-                                    <small className="text-xs text-gray text-end">22 de marzo 11:30 a.m.  </small>
-                                    <small className="text-white/80">Entrega de carga centro cultivo</small>
-                                    <div className="flex gap-1 place-items-baseline">
-                                        <h5 className="font-bold text-warning">5700 Kg</h5>
-                                        <small>Salmones carga refrigerada<span className="text-secondary"> (-2 °C a 0 °C)</span></small>
-                                    </div>
-                                    <div className="py-2 grid grid-cols-2">
-                                        <div className="">
-                                            <small className="text-gray">Aprobaciones</small>
-                                            <div className="flex justify-start items-center gap-2">
-                                                <GrCheckmark className="text-sm text-success" />
-                                                <GrCheckmark className="text-sm text-success" />
-                                                <GrCheckmark className="text-sm text-success" />
-                                                <GrCheckmark className="text-sm text-success" />
-                                                <GrCheckmark className="text-sm text-success" />
-                                            </div>
-                                        </div>
-                                        <div className="">
-                                            <small className="text-gray">Documentos</small>
-                                            <div className="flex items-center gap-1">
-                                                <small>5/5 Certificados
-                                                </small>
-                                                <GrCopy />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="border border-dashed border-gray/30 py-3 px-4 rounded-lg flex flex-col">
-                                    <small className="text-xs text-gray text-end">22 de marzo 12:00 p.m.  </small>
-                                    <small className="text-white/80">En transito hacia el destino</small>
-                                    <div className="flex gap-1 place-items-baseline">
-                                        <small>8 bines de salmones, total 5700 kg cargados</small>
-                                    </div>
-                                    <div className="py-2 grid grid-cols-2">
-                                        <div className="">
-                                            <small className="text-gray">Próxima parada</small>
-                                            <div className="flex justify-start items-center gap-2">
-                                                <small>Ancud, 12:45 p.m</small>
-                                            </div>
-                                        </div>
-                                        <div className="">
-                                            <small className="text-gray">Encargado carga</small>
-                                            <div className="flex items-center gap-1">
-                                                <small className="text-success">Cristofer Castro
-                                                </small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <small className="text-white flex items-center gap-1">
-                                    <GrSchedule />
-                                    Ver trazabilidad completa
-                                </small>
-                            </div>
-                        </div>
-                        <h5 className="text-gray">Detalle</h5>
-                        <div className="w-full grid grid-cols-2 gap-2 mt-3">
-                            <div className="bg-bgp border border-gray/20 rounded p-1 w-full" >
-                                <small className="text-[11px] ps-2 uppercase  text-gray ">Carga</small>
-                                <div className="px-2">
-                                    <h5 className="text-white font-bold">Pescados</h5>
-                                </div>
-                            </div>
-                            <div className="bg-bgp border border-gray/20 rounded p-1 w-full" >
-                                <small className="text-[11px] ps-2 uppercase  text-gray ">Peso Carga</small>
-                                <div className="px-2">
-                                    <h5 className="text-white font-bold">5700 Kg</h5>
-                                </div>
-                            </div>
-                            <div className="py-5 w-full">
-                                <h5>Documentos y certificados</h5>
-                                <div className="grid grid-cols-2 gap-5 w-full">
-                                    <div className="bg-bgp border border-gray/20 rounded p-1 w-full" >
-                                        <small className="text-[11px] ps-2 uppercase  text-gray ">Certificado</small>
-                                        <div className="px-2">
-                                            <h5 className="text-white font-bold">Certificado</h5>
-                                        </div>
-                                    </div>
-                                    <div className="bg-bgp border border-gray/20 rounded p-1 w-full" >
-                                        <small className="text-[11px] ps-2 uppercase  text-gray ">Certificado</small>
-                                        <div className="px-2">
-                                            <h5 className="text-white font-bold">Certificado</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <Logistica />
                 </div>
                 <div className="relative col-span-4 h-full overflow-hidden">
                     <MapView vehicleLastPosition={positionDemo(id_trip) as [number, number]}
@@ -247,16 +154,12 @@ function ViewTrip() {
 }
 
 const RutaTracking = ({ progress_completed, id_trip }: { progress_completed: number | undefined, id_trip: string | undefined }) => {
-
-
-
     return (
         <div className="relative flex flex-col place-items-center w-full  py-2 mt-10  ">
             <TripFast progress_completed={progress_completed} id_trip={id_trip} />
         </div>
     )
 }
-
 
 const TripFast = ({ progress_completed, id_trip }: { progress_completed: number | undefined, id_trip: string | undefined }) => {
     const { routes } = useRoutes();
@@ -324,9 +227,6 @@ const TripFast = ({ progress_completed, id_trip }: { progress_completed: number 
         />
     )
 }
-
-
-
 const WidgetV = ({ progress_completed, trip_status }: { progress_completed: number | undefined, trip_status: string | undefined }) => {
 
 
@@ -402,6 +302,136 @@ const WidgetV = ({ progress_completed, trip_status }: { progress_completed: numb
                 ></div>
             </div>
         </button>
+    )
+}
+
+const Logistica = () => {
+    return (
+        <div className="bg-bgs/50 w-full h-full rounded-2xl p-5">
+            <h3>Logística & trazabilidad</h3>
+            <h5 className="text-gray">Control de cargamento</h5>
+            <div className="w-full my-5">
+                <div className="relative border-s border-dashed border-gray/70 flex flex-col gap-2 p-2">
+                    <div className="relative border border-dashed border-gray/90 py-3 px-3 rounded-lg flex flex-col">
+                        <div className="h-2 w-2 bg-white/80 rounded-full absolute -left-3.5 -top-4"></div>
+
+                        <small className="text-xs text-gray text-end">22 de mayo 11:30 a.m.  </small>
+                        <div className="flex flex-col justify-start items-center gap-1 ">
+                            <h4 className="flex justify-start items-center gap-1 font-semibold">
+                                <span>
+                                    <GrSchedules className="text-secondary" />
+                                </span>
+                                Entrega desde Centro cultivo
+                            </h4>
+                            <small className="bg-bgt px-4 rounded-full ">Centro Cultivo Chiloé </small>
+                        </div>
+                        <div className="bg-bgs border-t border-t-gray/30  px-1 rounded mt-16">
+                            <small className="text-white/90 font-bold text-center py-1">Identificación de carga</small>
+                            <div className="grid grid-cols-2 place-items-start">
+                                <small className="px-2">Tipo de producto</small>
+                                <small className="text-warning">Salmones</small>
+                            </div>
+                            <div className="grid grid-cols-2 place-items-start">
+                                <small className="px-2">Peso</small>
+                                <small className="text-warning">5900kg</small>
+                            </div>
+                            <div className="grid grid-cols-2 place-items-start">
+                                <small className="px-2">Unidad</small>
+                                <small>Kilogramos</small>
+                            </div>
+                            <div className="grid grid-cols-2 place-items-start">
+                                <small className="px-2">Número de bines</small>
+                                <small className="text-warning">8 Bines</small>
+                            </div>
+                            <div className="grid grid-cols-2 place-items-start">
+                                <small className="px-2">Temperatura</small>
+                                <small className="text-secondary">-2 °C a 0 °C</small>
+                            </div>
+                            <div className="grid grid-cols-2 place-items-start">
+                                <small className="px-2">LOTE</small>
+                                <small className="text-warning">L25-M230625</small>
+                            </div>
+                        </div>
+                        <div className="bg-bgs border-t border-t-gray/30  px-1 rounded  mt-2">
+                            <small className="text-white/90 font-bold text-center py-1">Origen y Destino</small>
+                            <div className="grid grid-cols-2 place-items-start">
+                                <small className="px-2">Lugar de origen</small>
+                                <small className="text-warning">Centro C. Chiloé</small>
+                            </div>
+                            <div className="grid grid-cols-2 place-items-start">
+                                <small className="px-2">Fecha y hora de salida</small>
+                                <small className="text-warning">22/05/2025 11:30 a.m.</small>
+                            </div>
+                            <div className="grid grid-cols-2 place-items-start">
+                                <small className="px-2">Punto de destino</small>
+                                <small>Planta de Ancud</small>
+                            </div>
+                            <div className="grid grid-cols-2 place-items-start">
+                                <small className="px-2">Número de bines</small>
+                                <small className="text-warning">8 Bines</small>
+                            </div>
+                            <div className="grid grid-cols-2 place-items-start">
+                                <small className="px-2">Temperatura</small>
+                                <small className="text-secondary">-2 °C a 0 °C</small>
+                            </div>
+                            <div className="grid grid-cols-2 place-items-start">
+                                <small className="px-2">LOTE</small>
+                                <small className="text-warning">L25-M230625</small>
+                            </div>
+                        </div>
+                        <div className="py-2 grid grid-cols-2">
+                            <div className="">
+                                <small className="text-gray">Aprobaciones</small>
+                                <div className="flex justify-start items-center gap-2">
+                                    <GrCheckmark className="text-sm text-success" />
+                                    <GrCheckmark className="text-sm text-success" />
+                                    <GrCheckmark className="text-sm text-success" />
+                                    <GrCheckmark className="text-sm text-success" />
+                                    <GrCheckmark className="text-sm text-success" />
+                                </div>
+                            </div>
+                            <div className="">
+                                <small className="text-gray">Documentos</small>
+                                <div className="flex items-center gap-1">
+                                    <small>5/5 Certificados
+                                    </small>
+                                    <GrCopy />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="relative border border-dashed border-gray/30 py-3 px-4 rounded-lg flex flex-col">
+                        <div className="h-2 w-2 bg-white/80 rounded-full absolute -left-3.5 -top-0"></div>
+
+                        <small className="text-xs text-gray text-end">22 de marzo 12:00 p.m.  </small>
+                        <small className="text-white/80">En transito hacia el destino</small>
+                        <div className="flex gap-1 place-items-baseline">
+                            <small>8 bines de salmones, total 5700 kg cargados</small>
+                        </div>
+                        <div className="py-2 grid grid-cols-2">
+                            <div className="">
+                                <small className="text-gray">Próxima parada</small>
+                                <div className="flex justify-start items-center gap-2">
+                                    <small>Ancud, 12:45 p.m</small>
+                                </div>
+                            </div>
+                            <div className="">
+                                <small className="text-gray">Encargado carga</small>
+                                <div className="flex items-center gap-1">
+                                    <small className="text-success">Cristofer Castro
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <small className="text-white flex items-center gap-1">
+                        <GrSchedule />
+                        Ver trazabilidad completa
+                    </small>
+                </div>
+            </div>
+
+        </div>
     )
 }
 

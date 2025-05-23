@@ -8,8 +8,8 @@ import Error from "../../../components/errorComponents/Error";
 const LiveDemo: React.FC = () => {
   const { lastPosition, loading, error } = useLastPositions();
   if (loading) return <p>Cargando...</p>;
-  if (error) return <p>Error al cargar datos: {error.message}</p>;
-  if (!lastPosition) return <Error errorType={"API DISCONNECTED"} />;
+  if (error) return <Error errorType={"API DISCONNECTED"} />;
+  // if (!lastPosition) return <Error errorType={"API DISCONNECTED"} />;
   const lat: number | null | undefined = lastPosition?.positionStatus.latitude;
   const lng: number | null | undefined = lastPosition?.positionStatus.longitude;
   const deviceId = lastPosition?.assetStatus.deviceSN;
