@@ -1,8 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 
 import { MapContainer, TileLayer, LayersControl, ScaleControl } from "react-leaflet";
-// import RouteLayer from "./RouteLayer";
-const RouteLayer = lazy(() => import("./RouteLayer"));
 // import VehicleMarker from "./VehicleMarker";
 const VehicleMarker = lazy(() => import("./VehicleMarker"));
 // import GeofenceLayer from "../../zones/components/GeofenceLayer";
@@ -91,7 +89,7 @@ const MultiMapView = ({ height = "100%", options = false }: MultiMapViewProps) =
                                     {showZones && (
                                         <Suspense fallback={<div>Cargando zonas...</div>}>
                                             <Overlay checked name={`Camión ${i + 1}`}>
-                                                <VehicleMarker origenDestinyAsigned={[origenCoords, destinoCoords]} simulated={false} />
+                                                <VehicleMarker id_trip={trip.trip_id} origenDestinyAsigned={[origenCoords, destinoCoords]}  />
                                             </Overlay>
                                         </Suspense>
                                     )}

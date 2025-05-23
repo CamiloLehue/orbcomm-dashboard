@@ -37,7 +37,7 @@ function AccessDirectTrip({ estado = "En Camino", zonePoints }: AccessDirectTrip
         >
             <div className="absolute right-5 top-2 flex justify-center items-center gap-2 z-10">
                 <div className="rounded-full flex justify-center gap-2 items-center py-1">
-                    <Button onClick={() => { navigate("/viajes/ver/1") }} rounded="full" className="py-1 hover:bg-bgp">
+                    <Button onClick={() => { navigate("/viajes/ver/scheduled-001") }} rounded="full" className="py-1 hover:bg-bgp">
                         <GrFormNextLink size={20} />
                     </Button>
                     <Button rounded="full" className="py-1 hover:bg-bgp">

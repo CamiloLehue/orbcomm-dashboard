@@ -15,7 +15,33 @@ const RouteLayer = ({ origenDestinyAsigned }: { origenDestinyAsigned?: LatLngExp
     const result = route;
 
 
-    return <Polyline positions={result} color="blue" />;
+    return <>
+    {/* Borde más grueso y transparente debajo */}
+    <Polyline
+      positions={result}
+      pathOptions={{
+        color: '#ffffff',
+        weight: 10,
+        opacity: 0.3,
+        lineCap: 'round',
+        lineJoin: 'round',
+      }}
+    />
+    {/* Línea principal encima */}
+    <Polyline
+      positions={result}
+      pathOptions={{
+        color: '#007bff',
+        weight: 4,
+        opacity: 0.9,
+        dashArray: '5, 12',
+        lineCap: 'round',
+        lineJoin: 'round',
+        bubblingMouseEvents: true,
+      }}
+    />
+  </>
+  ;
 };
 
 export default RouteLayer;
