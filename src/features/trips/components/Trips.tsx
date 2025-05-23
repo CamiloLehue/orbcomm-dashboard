@@ -6,7 +6,7 @@ import { useTrips } from "../hooks/useTripsHook";
 import Button from "../../../components/ui/Button";
 import clsx from "clsx";
 // import { useMemo } from "react";
-import Titles from "../../../components/ui/Titles";
+import Titles from "../../../components/ui/SubMenu";
 
 function Trips() {
     const navigate = useNavigate();

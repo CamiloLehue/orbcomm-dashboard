@@ -1,7 +1,7 @@
 import React from "react";
 import { useLastPositions } from "../../vehicles/hooks/useVehicles";
 import { MapView } from "../../maps";
-import Titles from "../../../components/ui/Titles";
+import Titles from "../../../components/ui/SubMenu";
 import Loading from "../../../components/ui/Loading";
 import Error from "../../../components/errorComponents/Error";
 
