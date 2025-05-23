@@ -4,6 +4,7 @@ import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { MapView } from "../../maps";
 import { useState } from "react";
 import Titles from "../../../components/ui/Titles";
+import AlertBg from "../../../components/ui/AlertsBg";
 
 function RoutesList() {
     const routes = useRoutes();
@@ -12,9 +13,11 @@ function RoutesList() {
     const [coordOrigin, setCoordOrigin] = useState<[number, number]>([0, 0]);
     const [coordDestiny, setCoordDestiny] = useState<[number, number]>([0, 0]);
 
+
+
     return (
         <div className="h-full w-full flex-1 flex flex-col justify-start items-start px-1 pb-1">
-            <Titles title="Recorridos" />
+            <Titles title="Rutas Predefinidas" />
             <div className="flex w-full gap-1">
                 <ul className="w-3/12 flex flex-col gap-1">
                     {trips.map((trip, index) => {
@@ -58,13 +61,20 @@ function RoutesList() {
                         );
                     })}
                 </ul>
-                <div className="relative w-9/12">
-                    <MapView
-                        tripOrigin={coordOrigin}
-                        tripDestination={coordDestiny}
-                        origenDestinyAsigned={[coordOrigin, coordDestiny]}
-                        height="700px"
-                    />
+                <div id="mapa" className="relative w-9/12">
+                    {
+                        coordOrigin[0] === 0 && coordOrigin[1] === 0 && coordDestiny[0] === 0 && coordDestiny[1] === 0 ? (
+                            <AlertBg message="Selecciona una ruta">
+                            </AlertBg>
+                        ) :
+                            <MapView
+                                tripOrigin={coordOrigin}
+                                tripDestination={coordDestiny}
+                                origenDestinyAsigned={[coordOrigin, coordDestiny]}
+                                height="700px"
+                            />
+                    }
+
                 </div>
             </div>
         </div>

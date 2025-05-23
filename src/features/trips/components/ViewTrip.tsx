@@ -65,7 +65,7 @@ function ViewTrip() {
                     <div className="w-full p-2">
                         {/* Inicio Top menu informacion rapdia de viaje */}
                         <div className="bg-bg py-1 w-full col-span-8 flex justify-start items-center gap-5 border-b border-gray/20 pb-3 ">
-                            <div className="">
+                            <div className="relative">
                                 {
                                     <GrFormPreviousLink onClick={() => { navigate(-1) }} className="text-primary cursor-pointer" />
                                 }
@@ -81,7 +81,7 @@ function ViewTrip() {
                             <div className="flex justify-end items-center gap-2 text-nowrap">
                                 <Button rounded="full" className="text-gray flex justify-center items-center gap-2 mx-2 hover:bg-bgt">
                                     <GrCircleQuestion size={20} />
-                                    <p>Ayuda y contacto</p>
+                                    <p>Ayuda</p>
                                 </Button>
                                 <Button rounded="full" className="text-gray flex justify-center items-center gap-2 mx-2 hover:bg-bgt">
                                     <GrPhone size={20} />

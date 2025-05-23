@@ -3,6 +3,7 @@ import { useTrips } from "../../trips/hooks/useTripsHook";
 import { MapView } from "../../maps";
 import Loading from "../../../components/ui/Loading";
 import { useEffect, useRef } from "react";
+import AlertBg from "../../../components/ui/AlertsBg";
 
 type MapListProps = {
     selectedTrips: number[];
@@ -15,7 +16,7 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
 
     useEffect(() => {
         if (selectedTripOD.length > previousLength.current) {
-            const timeout = setTimeout(() => {}, 1000);
+            const timeout = setTimeout(() => { }, 1000);
             previousLength.current = selectedTripOD.length;
             return () => clearTimeout(timeout);
         } else {
@@ -26,15 +27,15 @@ const MapList = ({ selectedTrips, selectedTripOD }: MapListProps) => {
     if (loading) return <Loading />;
 
     if (!selectedTrips?.length || !selectedTripOD?.length) {
-        return <p className="text-center pt-5">Selecciona un viaje para comenzar</p>;
+        return <div className="relative"><AlertBg message="Selecciona un viaje para comenzar" /></div>;
     }
 
     // Extraer rutas desde selectedTripOD
     const rutasSeleccionadas = selectedTripOD.map(([tripId]) => {
-        const trip = Trips.find((trip) =>trip.trip_id === tripId);
+        const trip = Trips.find((trip) => trip.trip_id === tripId);
 
         console.log("este es mi trip mapaview:", trip);
-        
+
         const origin = trip?.origin?.coordinates;
         const destination = trip?.destination?.coordinates;
 
