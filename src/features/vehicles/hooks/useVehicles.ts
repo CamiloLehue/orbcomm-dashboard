@@ -2,26 +2,42 @@ import { useEffect, useState } from "react";
 import { getLastPositions } from "../services/vehicleService";
 import { PositionsLast } from "../types/Vehicles";
 
-export const useLastPositions = () => {
+export const useLastPositions = (intervalMs = 5000) => {
   const [lastPosition, setLastPosition] = useState<PositionsLast | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    const fetch = async () => {
+    let isMounted = true;
+
+    const fetchData = async () => {
       try {
         const data = await getLastPositions();
-        setLastPosition(data);
+        if (isMounted) {
+          setLastPosition(data);
+          setError(null);
+        }
       } catch (err) {
         console.error("Error fetching last positions:", err);
-        setError(err as Error);
+        if (isMounted) {
+          setError(err as Error);
+        }
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     };
 
-    fetch();
-  }, []);
+    fetchData(); 
+
+    const interval = setInterval(fetchData, intervalMs);
+
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+    };
+  }, [intervalMs]);
 
   return { lastPosition, loading, error };
 };
